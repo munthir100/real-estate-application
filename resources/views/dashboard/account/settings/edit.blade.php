@@ -23,42 +23,86 @@
 
                             <div class="row">
                                 <div class="col-lg-8 order-lg-0">
-                                    <form action="https://resido.thesky9.com/en/account/settings" id="setting-form" method="POST">
-                                        <input type="hidden" name="_token" value="HfkjecWRMMVMvO2fcBQX0c321x1nNzsh94opqjWW"> <!-- Name -->
+                                    <form action="{{route('account.settings.update-profile')}}" id="setting-form" method="POST">
+                                        @method('put')
+                                        @csrf
                                         <div class="form-group">
                                             <label for="first_name">First name</label>
                                             <input type="text" class="form-control" name="first_name" id="first_name" required value="{{Auth::user()->first_name}}">
+                                            @if($errors->has('first_name'))
+                                            <span class="invalid-feedback d-block">
+                                                <strong>
+                                                    {{ $errors->first('first_name') }}
+                                                </strong>
+                                            </span>
+                                            @endif
                                         </div>
                                         <!-- Name -->
                                         <div class="form-group">
                                             <label for="last_name">Last name</label>
                                             <input type="text" class="form-control" name="last_name" id="last_name" required value="{{Auth::user()->last_name}}">
+                                            @if($errors->has('last_name'))
+                                            <span class="invalid-feedback d-block">
+                                                <strong>
+                                                    {{ $errors->first('last_name') }}
+                                                </strong>
+                                            </span>
+                                            @endif
                                         </div>
                                         <div class="form-group">
                                             <label for="username">Username</label>
                                             <input type="text" class="form-control" name="username" id="username" required value="{{Auth::user()->username}}">
+                                            @if($errors->has('Username'))
+                                            <span class="invalid-feedback d-block">
+                                                <strong>
+                                                    {{ $errors->first('Username') }}
+                                                </strong>
+                                            </span>
+                                            @endif
                                         </div>
                                         <!-- Phone -->
                                         <div class="form-group">
                                             <label for="phone">Phone</label>
                                             <input type="text" class="form-control" name="phone" id="phone" required value="{{Auth::user()->phone}}">
+
                                         </div>
                                         <!--Short description-->
                                         <div class="form-group">
                                             <label for="description">Short description</label>
                                             <textarea class="form-control" name="description" id="description" rows="3" maxlength="300" placeholder="Tell something about yourself...">{{Auth::user()->description}}</textarea>
+                                            @if($errors->has('description'))
+                                            <span class="invalid-feedback d-block">
+                                                <strong>
+                                                    {{ $errors->first('description') }}
+                                                </strong>
+                                            </span>
+                                            @endif
                                         </div>
                                         <!-- Email -->
                                         <div class="form-group">
                                             <label for="email">Email</label>
                                             <input type="email" class="form-control" name="email" id="email" disabled="disabled" placeholder="{{Auth::user()->email}}" required value="{{Auth::user()->email}}">
                                             <small class="f7 green">Verified<i class="ml1 far fa-check-circle"></i></small>
+                                            @if($errors->has('email'))
+                                            <span class="invalid-feedback d-block">
+                                                <strong>
+                                                    {{ $errors->first('email') }}
+                                                </strong>
+                                            </span>
+                                            @endif
                                         </div>
 
                                         <!-- Birthday -->
                                         <div class="form-group">
                                             <label for="birth_date">Birth Date</label>
-                                            <input type="date" class="form-control" name="birth_date" id="birth_date" placeholder="{{Auth::user()->birth_date}}" required value="{{Auth::user()->email}}">
+                                            <input type="date" class="form-control" name="birth_date" id="birth_date" placeholder="{{Auth::user()->birth_date}}" required value="{{Auth::user()->birth_date}}">
+                                            @if($errors->has('birth_date'))
+                                            <span class="invalid-feedback d-block">
+                                                <strong>
+                                                    {{ $errors->first('birth_date') }}
+                                                </strong>
+                                            </span>
+                                            @endif
                                         </div>
 
                                         <!-- Gender -->
@@ -73,6 +117,13 @@
                                                 <option value="male">male</option>
                                                 @endif
                                             </select>
+                                            @if($errors->has('gender'))
+                                            <span class="invalid-feedback d-block">
+                                                <strong>
+                                                    {{ $errors->first('gender') }}
+                                                </strong>
+                                            </span>
+                                            @endif
                                         </div>
 
                                         <button type="submit" class="btn btn-primary fw6">Save</button>

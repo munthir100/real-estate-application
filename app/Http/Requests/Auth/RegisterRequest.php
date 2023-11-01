@@ -26,7 +26,7 @@ class RegisterRequest extends FormRequest
             'last_name' => 'required|string|max:255',
             'username' => 'required|string|max:255|unique:users',
             'email' => 'required|string|email|max:255|unique:users',
-            'phone' => 'required|string|max:15',
+            'phone' => 'required|string|max:15|unique:users',
             'password' => 'required|string|min:6|confirmed',
             'birth_date' => 'required|date', 
             'gender' => 'required|in:male,female',

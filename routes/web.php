@@ -5,10 +5,6 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\Account\SettingsController;
-use App\Http\Controllers\Properties\PropertiesController;
-use App\Http\Controllers\Properties\Ads\TempAdsController;
-use App\Http\Controllers\Properties\Ads\FeaturedAdsController;
-use App\Http\Controllers\Properties\Ads\ApplicationsController;
 
 // Authentication routes
 Route::get('/', function () {
@@ -33,7 +29,7 @@ Route::middleware(['auth'])->prefix('/dashboard')->group(function () {
 //     // Account settings routes
     Route::prefix('account/settings')->name('account.settings.')->group(function () {
         Route::get('edit', [SettingsController::class, 'edit'])->name('edit');
-//         Route::put('update-profile', [SettingsController::class, 'updateProfile'])->name('update-profile');
+        Route::put('update-profile', [SettingsController::class, 'updateProfile'])->name('update-profile');
 //         Route::put('change-password', [SettingsController::class, 'changePassword'])->name('change-password');
     });
 

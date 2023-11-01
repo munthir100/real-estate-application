@@ -4,7 +4,7 @@
 @section('content')
 <section class="bg-light">
     <div class="container-fluid">
-        
+
 
         <div class="row">
             @include('dashboard.layouts.dashboard-sidebar')
@@ -12,7 +12,7 @@
             <div class="col-lg-9 col-md-12">
                 <div id="app">
 
-                    
+
 
                     <div class="row">
                         <div class="col-lg-4 col-md-6 col-sm-12">
@@ -102,7 +102,7 @@
                                             <div class="portlet-title">
                                                 <div class="caption">
                                                     <div class="wrapper-action">
-                                                        <div class="btn-group"><a class="btn btn-secondary dropdown-toggle" href="#" data-bs-toggle="dropdown">Bulk Actions </a>
+                                                        <div class="btn-group">
                                                             <ul class="dropdown-menu">
                                                                 <li>
                                                                     <div class="dropdown dropdown-hover"><a href="javascript:;">Bulk changes <i class="fa fa-angle-right"></i></a>
@@ -119,9 +119,17 @@
                                                 <div class="table-responsive table-has-actions table-has-filter" style="overflow-x: inherit;">
                                                     <div id="botble-real-estate-tables-account-property-table_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
                                                         <div id="botble-real-estate-tables-account-property-table_filter" class="dataTables_filter"><label><input type="search" class="form-control input-sm" placeholder="Search..." aria-controls="botble-real-estate-tables-account-property-table"></label></div>
-                                                        <div class="dt-buttons btn-group flex-wrap"> <button class="btn btn-secondary action-item btn-primary" tabindex="0" aria-controls="botble-real-estate-tables-account-property-table" type="button"><span><span data-action="create" data-href="https://resido.thesky9.com/en/account/properties/create"><i class="fa fa-plus"></i> Create
-                                                                    </span></span></button> <button class="btn btn-secondary buttons-reload" tabindex="0" aria-controls="botble-real-estate-tables-account-property-table" type="button"><span><i class="fas fa-sync"></i> Reload</span></button> </div>
+                                                        <div class="dt-buttons btn-group flex-wrap">
+
+                                                            <button class="btn btn-secondary buttons-reload" tabindex="0" aria-controls="botble-real-estate-tables-account-property-table" type="button"><span><i class="fas fa-sync"></i> Reload</span></button>
+                                                        </div>
                                                         <div id="botble-real-estate-tables-account-property-table_processing" class="dataTables_processing panel panel-default" style="display: none;"></div>
+
+
+
+
+
+
                                                         <table class="table table-striped table-hover vertical-middle dataTable no-footer dtr-inline" id="botble-real-estate-tables-account-property-table" role="grid" aria-describedby="botble-real-estate-tables-account-property-table_info">
                                                             <thead>
                                                                 <tr role="row">
@@ -137,11 +145,49 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                                <tr class="odd">
-                                                                    <td valign="top" colspan="9" class="dataTables_empty">No data to display</td>
+                                                                <tr role="row" class="odd">
+                                                                    <td class="text-start no-column-visibility dtr-control">
+                                                                        <div class="text-start">
+                                                                            <div class="checkbox checkbox-primary table-checkbox">
+                                                                                <input class="checkboxes" name="id[]" type="checkbox" value="18">
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td class="column-key-id sorting_1">18</td>
+                                                                    <td class=" no-sort  column-key-image"><img src="https://resido.thesky9.com/storage/accounts/homepod-150x150.png" width="50" alt="ali"></td>
+                                                                    <td class=" text-start  column-key-name"><a href="https://resido.thesky9.com/en/account/properties/edit/18">ali</a></td>
+                                                                    <td class=" text-start  column-key-created_at">2023-11-01</td>
+                                                                    <td class="  column-key-moderation_status"><span class="label-warning status-label">Pending</span></td>
+                                                                    <td class="  column-key-expire_date">2023-12-16</td>
+                                                                    <td class=" text-center language-header no-sort">
+                                                                        <div class="text-center language-column">
+                                                                            <i class="fa fa-check text-success"></i>
+                                                                            <i class="fa fa-check text-success"></i>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td class=" text-center">
+                                                                        <div class="table-actions">
+                                                                            <a href="https://resido.thesky9.com/en/account/properties/edit/18" class="btn btn-icon btn-sm btn-primary" data-bs-toggle="tooltip" data-bs-original-title="Edit"><i class="fa fa-edit"></i></a>
+
+                                                                            <a href="#" class="btn btn-icon btn-sm btn-danger deleteDialog" data-section="https://resido.thesky9.com/en/account/properties/18" role="button" data-bs-toggle="tooltip" data-bs-original-title="Delete">
+                                                                                <i class="fa fa-trash"></i>
+                                                                            </a>
+
+                                                                            <a href="#" class="btn btn-icon btn-sm btn-info button-renew" data-section="https://resido.thesky9.com/en/account/properties/renew/18" role="button" data-bs-toggle="tooltip" data-bs-original-title="Renew">
+                                                                                <i class="fas fa-sync-alt"></i>
+                                                                            </a>
+                                                                        </div>
+                                                                    </td>
                                                                 </tr>
                                                             </tbody>
                                                         </table>
+
+
+
+
+
+
+
                                                         <div class="datatables__info_wrap">
                                                             <div class="dataTables_paginate paging_simple_numbers" id="botble-real-estate-tables-account-property-table_paginate" style="display: none;">
                                                                 <ul class="pagination">
@@ -253,7 +299,7 @@
 
 
 
-                    
+
                 </div>
             </div>
 
