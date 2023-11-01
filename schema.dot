@@ -1,0 +1,126 @@
+digraph UML_Diagram {
+  node [shape = record;];
+  Status [label = "{Status | id: int | name: string}";]
+
+  // Town
+  Town [label = "{Town | id: int | name: string}";]
+
+  // City
+  City [label = "{City | id: int | name: string | town_id (PK) : int}";]
+  // Currency
+  Currency [label = "{Currency | id: int | name: string | code: string}";]
+  
+
+  // Subscription Plan
+  Plan [label = "{Plan | id: int | name: string | price: float | duration: int | num_ads_allowed: int | num_temp_ads: int | num_distinctive_ads: int | priority_support: int | num_affiliate_users: int | include_ologo: bool}";]
+
+
+  // Location
+  Location [label = "{Location | id: int | name: string | longitude: float | latitude: float}";]
+
+  
+  // User Types
+  UserType [label = "{UserType | id: int | name: string}";]
+
+
+
+  // subscriber - browser
+  User [label = "{User | id: int | first_name: string |last_name: string |username: string|phone:int|description:string|birth_date:date| email: string| gender: string | password: string | user_type_id (FK): int | plan_id (FK): int}";] // gender is enum male or female
+  Subscriber [label = "{Subscriber | id: int | user_id (FK): int}";]
+  Browser [label = "{Browser | id: int | user_id (FK): int}";]
+  Admin [label = "{Admin | id: int | user_type_id (FK): int}";]
+
+  // Property Advertisement
+  PropertyAdvertisementType [label = "{PropertyAdvertisementType | id: int | name: string}";]
+  // Purchase - rent - investment
+  PropertyAdvertisement [label = "{PropertyAdvertisement | id: int | user_id (FK): int | property_advertisement_type_id (FK): int | status_id (FK): int | city_id (FK): int}";]
+  PropertyAdvertisementDetail [
+    label = "{PropertyAdvertisementDetail | id: int | title: string | description: string|content:string|city_id (FK):int| square: int | rent_period: int | Bedrooms: int | beds: int | location_id (FK): int | currency_id (FK): int |auto_renew:bool| Floors: int | Nearby: string | price: int | video_url: string |features:string| seo_title : string | seo_description:string | seo_link : string}";]
+  TemporaryAd [label = "{TemporaryAd | id: int | property_advertisement_id (FK): int | start_date: datetime | end_date: datetime}";]
+  FeaturedAd [label = "{FeaturedAd | id: int | property_advertisement_id (FK): int}";]
+
+  // Real Estate Applications
+  Application [label = "{Application | id: int | property_advertisement_id (FK): int}";]
+
+
+  
+  // Facility
+  Facility [label = "{Facility | id: int | distance:float}";]
+
+  // PropertyAdvertisementFacicity
+  PropertyAdvertisementFacicity [label = "{PropertyAdvertisementFacicity | id: int | property_advertisement_id (FK): int | facility_id (FK): int}";]
+
+
+
+
+  // Notification
+  Notification [label = "{Notification | id: int | user_id (FK): int | message: string | status_id (FK): int}";]
+
+  // User Relationships
+  User -> UserType [label = "has a"]
+  User -> Plan [label = "subscribes to"]
+  Subscriber -> User [label = "user_id"]
+  Browser -> User [label = "user_id"]
+  Admin -> User [label = "user_type_id"]
+
+  // PropertyAdvertisement Relationships
+  PropertyAdvertisement -> PropertyAdvertisementType [label = "is of"]
+  PropertyAdvertisement -> Status [label = "has status"]
+  PropertyAdvertisement -> TemporaryAd [label = "temp_advertises"]
+  PropertyAdvertisement -> FeaturedAd [label = "featured_advertises"]
+  PropertyAdvertisement -> PropertyAdvertisementDetail [label = "has details"]
+  PropertyAdvertisement -> PropertyAdvertisementFacicity [label = "has facilities"]
+
+  // Real Estate Applications Relationships
+  Application -> PropertyAdvertisement [label = "applies to"]
+  PropertyAdvertisementDetail -> Location [label = "is located at"]
+  PropertyAdvertisementDetail -> Currency [label = "uses currency"]
+
+  // City Relationships
+  City -> Town [label = "is in"]
+  PropertyAdvertisement -> City [label = "is located in"]
+
+  // Notification Relationships
+  Notification -> User [label = "sent to"]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+
+curruncy
+
+countries
+
+
+
+
+*/

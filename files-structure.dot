@@ -1,0 +1,133 @@
+/*
+
+
+views:
+        layouts:
+
+                app-layout.blade.php:_
+
+                top-header.blade.php
+                navigation.blade.php
+                shortcode.blade.php
+                footer.blade.php
+        
+        auth:_
+
+            login.blade.php
+            register.blade.php
+
+        
+        properties:_
+
+                index.blade.php
+                show.blade.php
+
+                Featured:_
+
+                    index.blade.php
+                    show.blade.php
+                    
+                Applications:_
+
+                    index.blade.php
+                    show.blade.php
+                    
+        dashboard:_
+                
+                layouts:_
+
+                        dashboard-layout.blade.php
+
+                home.blade.php
+
+                account:_
+                        settings:_
+
+                                edit.blade.php
+
+                        security:_
+
+                            change-password.blade.php
+
+                properties:_
+
+                        index.blade.php
+                        create.blade.php
+                        edit.blade.php
+
+                temp-ads:_
+
+                        index.blade.php
+                        create.blade.php
+                        edit.blade.php
+
+                feature-ads:_
+
+                        index.blade.php
+                        create.blade.php
+                        edit.blade.php
+
+*/
+
+
+
+/*
+
+
+controllers:
+
+
+        Controllers
+|-- Auth
+|   |-- LoginController.php
+|   |-- RegisterController.php
+|
+|-- Dashboard
+|   |-- DashboardController.php
+|
+|-- Properties
+|   |-- PropertiesController.php
+|   |-- Ads
+|       |-- TempAdsController.php
+|       |-- FeaturedAdsController.php
+|
+|   |-- ApplicationsController.php
+
+
+
+
+|   |-- Requests:
+|       |-- Auth/
+|       |   |-- LoginRequest.php
+|       |   |-- RegisterRequest.php
+|       |   |-- ...
+|       |
+|       |-- Dashboard/
+|       |   |-- Account/
+|       |   |   |-- UpdateProfileRequest.php
+|       |   |   |-- ChangePasswordRequest.php
+|       |   |-- ...
+|       |
+|       |-- Properties/
+|       |   |-- CreatePropertyRequest.php
+|       |   |-- UpdatePropertyRequest.php
+|       |   |-- ...
+|       |
+|       |-- Ads/
+|       |   |-- TempAds/
+|       |   |   |-- CreateTempAdRequest.php
+|       |   |   |-- UpdateTempAdRequest.php
+|       |   |   |-- ...
+|       |
+|       |   |-- FeaturedAds/
+|       |   |   |-- CreateFeaturedAdRequest.php
+|       |   |   |-- UpdateFeaturedAdRequest.php
+|       |   |   |-- ...
+|       |
+|       |   |-- Applications/
+|       |   |   |-- CreateApplicationRequest.php
+|       |   |   |-- UpdateApplicationRequest.php
+|       |   |   |-- ...
+
+
+*/

@@ -1,0 +1,195 @@
+digraph UML_Class_Diagram {
+    node [shape = record;];
+    
+    // Admin
+    Admin [label = "{Admin|user_id: int}";];
+    
+    // AdminNotification
+    AdminNotification [label = "{AdminNotification|title: string|details: string|admin_id: int}";];
+    
+    // Bank
+    Bank [label = "{Bank|name: string}";];
+    
+    // BankAccount
+    BankAccount [label = "{BankAccount|account_number: string|holder_name: string|details: string|iban: string|admin_id: int|bank_id: int}";];
+    
+    // ContactMessage
+    ContactMessage [label = "{ContactMessage|name: string|email: string|phone: string|details: string|source: string|admin_id: int}";];
+    
+    // Coupon
+    Coupon [label = "{Coupon|promocode: string|discount_type: string[]|value: float|discount_end_date: date|exclude_discounted_products: bool|minimum_purchase: float|total_usage_times: int|usage_per_customer: int|used_times: int|store_id: int}";];
+    
+    // DefinitionPage
+    DefinitionPage [label = "{DefinitionPage|store_id: int|title: string|description: string|is_active: bool}";];
+    
+    // Language
+    Language [label = "{Language|name: string}";];
+    
+    // ProductOption
+    ProductOption [label = "{ProductOption|name: string|product_id: int}";];
+    
+    // ProductOptionValue
+    ProductOptionValue [label = "{ProductOptionValue|name: string|additional_price: float|quantity: int|product_option_id: int}";];
+    
+    // Seller
+    Seller [label = "{Seller|user_id: int|admin_id: int|store_id: int}";];
+    
+    // Status
+    Status [label = "{Status|name: string}";];
+    
+    // SubscriptionPlan
+    SubscriptionPlan [label = "{SubscriptionPlan|name: string|interval: string|interval_count: int|amount: float|stripe_plan_id: string|stripe_plan_name: string}";];
+    
+    // Tax
+    Tax [label = "{Tax|name: string|number: ???|percentage: ???|merchant_borne_tax: ???|is_active: bool|store_id: int}";];
+    
+    // Customer
+    Customer [label = "{Customer|birth_date: ???|gender: ???|description: ???|number_of_orders: ???|city_id: ???|user_id: int|store_id: int}";];
+    
+    // CouponUsage
+    CouponUsage [label = "{CouponUsage|customer_id: ???|coupon_id: ???}";];
+    
+    // Order
+    Order [label = "{Order|customer_id: ???|store_id: int|captain_id: ???|location_id: ???|total_price: float|payment_type: ???|status_id: ???}";];
+    
+    // OrderItem
+    OrderItem [label = "{OrderItem|quantity: int|order_id: ???|product_id: ???}";];
+    
+    // ShoppingCart
+    ShoppingCart [label = "{ShoppingCart|customer_id: ???|quantity: ???|product_option: ???|product_option_value: ???}";];
+    
+    // ShoppingCartItem
+    ShoppingCartItem [label = "{ShoppingCartItem|quantity: ???|store_id: ???|product_id: ???|shopping_cart_id: ???|product_option: ???|product_option_value: ???|additional_price: ???}";];
+    
+    // Captain
+    Captain [label = "{Captain|name: string|shipping_cost: ???|cash_on_delivery: ???|cash_on_delivery_cost: ???|expected_time_shipping: ???|store_id: int|is_active: bool}";];
+    
+    // City
+    City [label = "{City|name: string|country_id: ???}";];
+    
+    // Country
+    Country [label = "{Country|name: string}";];
+    
+    // UserType
+    UserType [label = "{UserType|name: string}";];
+    
+    // User
+    User [label = "{User|name: string|email: string|phone: string|password: ???|user_type_id: ???}";];
+    
+    // Location
+    Location [label = "{Location|city_id: ???|name: string|lang: ???|lat: ???|phone: ???|address_type: ???|customer_id: ???}";];
+    
+    // AdditionalSetting
+    AdditionalSetting [label = "{AdditionalSetting|setting_name: string|setting_value: string|store_id: int}";];
+    
+    // Brand
+    Brand [label = "{Brand|category_id: ???|name: string|is_active: bool}";];
+    
+    // Category
+    Category [label = "{Category|store_id: int|name: string|parent_id: ???|is_active: bool}";];
+    
+    // CustomerReview
+    CustomerReview [label = "{CustomerReview|customer_id: ???}";];
+    
+    // DynamicProduct
+    DynamicProduct [label = "{DynamicProduct|product_id: ???}";];
+    
+    // Product
+    Product [label = "{Product|category_id: ???|store_id: int|name: string|sku: ???|quantity: ???|wheight: ???|short_description: ???|description: ???|price: float|cost: ???|is_discounted: ???|free_shipping: ???|is_active: bool}";];
+    
+    // SocialMediaLink
+    SocialMediaLink [label = "{SocialMediaLink|facebook: ???|snapchat: ???|twitter: ???|tictok: ???|whatsapp: ???|maroof: ???|instagram: ???|telegram: ???|google_play: ???|app_store: ???|store_id: int}";];
+    
+    // Store
+    Store [label = "{Store|admin_id: ???|store_theme_id: ???|name: string|link: ???|default_currency: ???|status_id: ???|is_active: bool|city_id: ???|commercial_registration_no: ???|language_id: ???|button_color: ???|text_color: ???|banner_color: ???|banner_content: ???|banner_link: ???}";];
+    
+    // StoreColor
+    StoreColor [label = "{StoreColor|store_id: int|button_color: ???|text_color: ???}";];
+    
+    // StoreCountry
+    StoreCountry [label = "{StoreCountry|is_active: bool|is_default: bool|store_id: int|country_id: ???}";];
+    
+    // StoreFeature
+    StoreFeature [label = "{StoreFeature|id: ???}";];
+    
+    // StoreFeatureItem
+    StoreFeatureItem [label = "{StoreFeatureItem|store_feature_id: ???|icon: ???|title: ???|subtitle: ???}";];
+    
+    // StoreNavbarSetting
+    StoreNavbarSetting [label = "{StoreNavbarSetting|paragraph: string|color: ???|link: ???|is_active: bool}";];
+    
+    // StoreTheme
+    StoreTheme [label = "{StoreTheme|name: string|price: ???}";];
+    
+    // YoutubeVedio
+    YoutubeVedio [label = "{YoutubeVedio|link: ???}";];
+    
+    
+    // Relationships
+    Admin -> AdminNotification [label = "has";];
+    Admin -> User [label = "associated with";];
+    AdminNotification -> Admin [label = "sent to";];
+    AdminNotification -> User [label = "sent by";];
+    AdminNotification -> Admin [label = "pertains to";];
+    BankAccount -> Bank [label = "belongs to";];
+    BankAccount -> Admin [label = "associated with";];
+    ContactMessage -> Admin [label = "sent by";];
+    ContactMessage -> Admin [label = "pertains to";];
+    Coupon -> Store [label = "valid at";];
+    DefinitionPage -> Store [label = "associated with";];
+    ProductOption -> Product [label = "belongs to";];
+    ProductOptionValue -> ProductOption [label = "has";];
+    ProductOptionValue -> Product [label = "pertains to";];
+    Seller -> Admin [label = "managed by";];
+    Seller -> Admin [label = "employed by";];
+    Seller -> Store [label = "operates in";];
+    SubscriptionPlan -> Store [label = "offered at";];
+    Tax -> Store [label = "applies at";];
+    Customer -> City [label = "resides in";];
+    Customer -> User [label = "associated with";];
+    Customer -> Store [label = "related to";];
+    CouponUsage -> Customer [label = "used by";];
+    CouponUsage -> Coupon [label = "applies to";];
+    Order -> Customer [label = "placed by";];
+    Order -> Store [label = "placed at";];
+    Order -> Status [label = "has status";];
+    OrderItem -> Order [label = "part of";];
+    OrderItem -> Product [label = "refers to";];
+    ShoppingCart -> Customer [label = "created by";];
+    ShoppingCart -> ShoppingCartItem [label = "contains";];
+    ShoppingCartItem -> Store [label = "associated with";];
+    ShoppingCartItem -> Product [label = "pertains to";];
+    ShoppingCartItem -> ShoppingCart [label = "part of";];
+    Captain -> Store [label = "associated with";];
+    City -> Country [label = "located in";];
+    Location -> City [label = "located in";];
+    Location -> Customer [label = "associated with";];
+    Brand -> Category [label = "categorized under";];
+    Brand -> Brand [label = "associated with";];
+    Category -> Store [label = "associated with";];
+    Category -> Category [label = "sub-category of";];
+    Category -> Brand [label = "has brand";];
+    Category -> Category [label = "sub-category of";];
+    Category -> Category [label = "sub-category of";];
+    CustomerReview -> Customer [label = "reviewed by";];
+    DynamicProduct -> Product [label = "refers to";];
+    Product -> Category [label = "belongs to";];
+    Product -> Store [label = "available at";];
+    Product -> ProductOption [label = "has";];
+    Product -> Store [label = "available at";];
+    ProductOptionValue -> ProductOption [label = "belongs to";];
+    SocialMediaLink -> Store [label = "linked to";];
+    Store -> Admin [label = "owned by";];
+    Store -> StoreTheme [label = "uses";];
+    Store -> StoreColor [label = "customized with";];
+    Store -> StoreCountry [label = "located in";];
+    Store -> StoreFeature [label = "has feature";];
+    Store -> StoreNavbarSetting [label = "customized with";];
+    Store -> SocialMediaLink [label = "linked to";];
+    StoreColor -> Store [label = "customized at";];
+    StoreCountry -> Store [label = "associated with";];
+    StoreFeatureItem -> StoreFeature [label = "part of";];
+    StoreNavbarSetting -> Store [label = "customized at";];
+    StoreTheme -> Store [label = "used by";];
+    YoutubeVedio -> Store [label = "related to";];
+}
