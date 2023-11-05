@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Plan;
 use App\Models\Property;
+use App\Models\Status;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     function home()
     {
-        $properties = Property::useFilters()
-            ->dynamicPaginate();
+        $properties = Property::where('status_id', Status::ACCEPTED)->useFilters()->dynamicPaginate();
 
         $plans = null;
         if (auth()->check()) {
@@ -22,6 +22,16 @@ class HomeController extends Controller
 
         return view('home', compact('properties', 'plans'));
     }
+
+    function properties()
+    {
+        $properties = Property::whereStatusId(Status::ACCEPTED)->useFilters()->dynamicPaginate();
+
+        return view('properties.index', compact('properties'));
+    }
+
+    function propertyDetails(Property $property)
+    {
+        return view('properties.show', compact('property'));
+    }
 }
-// whereHas('temporaryAd')
-//             ->whereHas('featuredAd')

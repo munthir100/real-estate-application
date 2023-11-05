@@ -19,7 +19,7 @@
             <div class="col-lg-9 col-md-12">
                 <div id="app">
                     <div class="dashboard-wraper1">
-                        <form method="POST" action="{{route('dashboard.properties.update',$property->id)}}" accept-charset="UTF-8" id="botble-real-estate-forms-account-property-form" class="js-base-form dirty-check" enctype="multipart/form-data">
+                        <form accept-charset="UTF-8" id="botble-real-estate-forms-account-property-form" class="js-base-form dirty-check" enctype="multipart/form-data">
                             @method('put')
                             @csrf
                             @if($errors->any())
@@ -41,7 +41,7 @@
                                                 <div class="form-group mb-3">
 
                                                     <label for="title" class="control-label required">Title</label>
-                                                    <input value="{{$property->title}}" class="form-control" placeholder="Title" data-counter="120" v-pre name="title" type="text" id="title">
+                                                    <input readonly value="{{$property->title}}" class="form-control" placeholder="Title" data-counter="120" v-pre name="title" type="text" id="title">
 
 
 
@@ -62,10 +62,10 @@
                                                             <button class="cancel button-link ms-1" type="button">Cancel</button>
                                                         </span>
 
-                                                        <input id="current-slug" name="slug" type="hidden" value="">
+                                                        <input readonly id="current-slug" name="slug" type="hidden" value="">
                                                         <div id="slug_id" data-url="https://resido.thesky9.com/ajax/slug/create" data-view="https://resido.thesky9.com/en/properties/" data-id="0"></div>
-                                                        <input name="slug_id" type="hidden" value="0">
-                                                        <input name="is_slug_editable" type="hidden" value="1">
+                                                        <input readonly name="slug_id" type="hidden" value="0">
+                                                        <input readonly name="is_slug_editable" type="hidden" value="1">
                                                     </div>
 
 
@@ -74,7 +74,7 @@
                                                 <div class="form-group mb-3">
 
                                                     <label for="description" class="control-label">Description</label>
-                                                    <textarea class="form-control" rows="4" placeholder="Short description" data-counter="350" v-pre name="description" cols="50" id="description">
+                                                    <textarea readonly class="form-control" rows="4" placeholder="Short description" data-counter="350" v-pre name="description" cols="50" id="description">
                                                     {{$property->description}}
                                                     </textarea>
 
@@ -86,7 +86,7 @@
 
                                                     <label for="content" class="control-label required">Content</label>
 
-                                                    <textarea class="form-control editor-ckeditor" rows="4" v-pre name="content" cols="50" id="content">
+                                                    <textarea disabled readonly class="form-control editor-ckeditor" rows="4" v-pre name="content" cols="50" id="content">
                                                     {{$property->content}}
                                                     </textarea>
 
@@ -97,7 +97,7 @@
 
                                                     <label for="images" class="control-label">Images</label>
 
-                                                    <input class="form-control" v-pre name="images" type="hidden" id="images">
+                                                    <input readonly class="form-control" v-pre name="images" type="hidden" id="images">
                                                     <div id="multiple-upload" class="dropzone needsclick">
                                                         <div class="dz-message needsclick">
                                                             Drop files here or click to upload.<br>
@@ -145,7 +145,7 @@
                                                     <label for="city_id" class="control-label">City</label>
 
                                                     <div class="ui-select-wrapper form-group ">
-                                                        <select class="form-control select-search-full ui-select" v-pre id="city_id" name="city_id">
+                                                        <select disabled class="form-control select-search-full ui-select" v-pre id="city_id" name="city_id">
                                                             @foreach($cities as $city)
                                                             <option value="{{$city->id}}">{{$city->name}} ({{$city->town->name}})</option>
                                                             @endforeach
@@ -165,7 +165,7 @@
                                                 <div class="form-group mb-3">
 
                                                     <label for="location" class="control-label required">Property location</label>
-                                                    <input value="{{$property->location->name}}" class="form-control" placeholder="Property location" data-counter="300" v-pre name="location" type="text" id="location">
+                                                    <input readonly value="{{$property->location->name}}" class="form-control" placeholder="Property location" data-counter="300" v-pre name="location" type="text" id="location">
 
 
 
@@ -178,7 +178,7 @@
                                                     <div class="form-group mb-3 col-md-6">
 
                                                         <label for="latitude" class="control-label">Latitude</label>
-                                                        <input value="{{$property->location->longitude}}" class="form-control" placeholder="Ex: 1.462260" data-counter="25" v-pre name="latitude" type="text" id="latitude">
+                                                        <input readonly value="{{$property->location->longitude}}" class="form-control" placeholder="Ex: 1.462260" data-counter="25" v-pre name="latitude" type="text" id="latitude">
                                                         <a class="help-block" href="https://www.latlong.net/convert-address-to-lat-long.html" target="_blank" rel="nofollow">
                                                             Go here to get Latitude from address. </a>
 
@@ -189,7 +189,7 @@
                                                     <div class="form-group mb-3 col-md-6">
 
                                                         <label for="longitude" class="control-label">Longitude</label>
-                                                        <input value="{{$property->location->latitude}}" class="form-control" placeholder="Ex: 103.812530" data-counter="25" v-pre name="longitude" type="text" id="longitude">
+                                                        <input readonly value="{{$property->location->latitude}}" class="form-control" placeholder="Ex: 103.812530" data-counter="25" v-pre name="longitude" type="text" id="longitude">
                                                         <a class="help-block" href="https://www.latlong.net/convert-address-to-lat-long.html" target="_blank" rel="nofollow">
                                                             Go here to get Longitude from address. </a>
 
@@ -206,7 +206,7 @@
                                                     <div class="form-group mb-3 col-md-3">
 
                                                         <label for="number_of_bedrooms" class="control-label">Number bedrooms</label>
-                                                        <input value="{{$property->number_of_bedrooms}}" class="form-control" placeholder="Number bedrooms" v-pre name="number_of_bedrooms" type="number" id="number_of_bedrooms">
+                                                        <input readonly value="{{$property->number_of_bedrooms}}" class="form-control" placeholder="Number bedrooms" v-pre name="number_of_bedrooms" type="number" id="number_of_bedrooms">
 
 
 
@@ -215,7 +215,7 @@
                                                     <div class="form-group mb-3 col-md-3">
 
                                                         <label for="number_of_bathrooms" class="control-label">Number bathrooms</label>
-                                                        <input value="{{$property->number_of_bathrooms}}" class="form-control" placeholder="Number bathrooms" v-pre name="number_of_bathrooms" type="number" id="number_of_bathrooms">
+                                                        <input readonly value="{{$property->number_of_bathrooms}}" class="form-control" placeholder="Number bathrooms" v-pre name="number_of_bathrooms" type="number" id="number_of_bathrooms">
 
 
 
@@ -224,7 +224,7 @@
                                                     <div class="form-group mb-3 col-md-3">
 
                                                         <label for="number_of_floors" class="control-label">Number floors</label>
-                                                        <input value="{{$property->number_of_floors}}" class="form-control" placeholder="Number floors" v-pre name="number_of_floors" type="number" id="number_of_floor">
+                                                        <input readonly value="{{$property->number_of_floors}}" class="form-control" placeholder="Number floors" v-pre name="number_of_floors" type="number" id="number_of_floor">
 
 
 
@@ -233,7 +233,7 @@
                                                     <div class="form-group mb-3 col-md-3">
 
                                                         <label for="square" class="control-label">Square (m&sup2;)</label>
-                                                        <input value="{{$property->square}}" class="form-control" placeholder="Square :unit" v-pre name="square" type="number" id="square">
+                                                        <input readonly value="{{$property->square}}" class="form-control" placeholder="Square :unit" v-pre name="square" type="number" id="square">
 
 
 
@@ -248,7 +248,7 @@
                                                     <div class="form-group mb-3 col-md-4">
 
                                                         <label for="price" class="control-label">Price</label>
-                                                        <input value="{{$property->price}}" class="form-control input-mask-number" id="price-number" placeholder="Price" v-pre name="price" type="text">
+                                                        <input readonly value="{{$property->price}}" class="form-control input-mask-number" id="price-number" placeholder="Price" v-pre name="price" type="text">
 
 
 
@@ -259,7 +259,7 @@
                                                         <label for="currency_id" class="control-label">Currency</label>
 
                                                         <div class="ui-select-wrapper form-group ">
-                                                            <select class="form-control select-full ui-select" v-pre id="currency_id" name="currency_id">
+                                                            <select disabled class="form-control select-full ui-select" v-pre id="currency_id" name="currency_id">
                                                                 @if($property->currency_id == App\Models\Currency::USD)
                                                                 <option selected value="{{App\Models\Currency::USD}}">USD</option>
                                                                 <option value="{{App\Models\Currency::SAR}}">SAR</option>
@@ -284,7 +284,7 @@
                                                         <label for="period" class="control-label required">Period</label>
 
                                                         <div class="ui-select-wrapper form-group ">
-                                                            <select class="form-control select-search-full ui-select" v-pre id="period" name="period">
+                                                            <select disabled class="form-control select-search-full ui-select" v-pre id="period" name="period">
                                                                 <option value="day">Day</option>
                                                                 <option value="month">Month</option>
                                                                 <option value="year">Year</option>
@@ -308,11 +308,11 @@
                                                     <label for="auto_renew" class="control-label">Renew automatically (you will be charged again in 45 days)?</label>
 
                                                     <div class="onoffswitch">
-                                                        <input value="{{$property->auto_renw}}" name="auto_renew" type="hidden" value="0">
+                                                        <input readonly value="{{$property->auto_renw}}" name="auto_renew" type="hidden" value="0">
                                                         @if($property->auto_renew)
-                                                        <input checked class="onoffswitch-checkbox" id="auto_renw" name="auto_renew" type="checkbox" value="1" class="form-control" v-pre>
+                                                        <input readonly checked class="onoffswitch-checkbox" id="auto_renw" name="auto_renew" type="checkbox" value="1" class="form-control" v-pre>
                                                         @else
-                                                        <input class="onoffswitch-checkbox" id="auto_renw" name="auto_renew" type="checkbox" value="1" class="form-control" v-pre>
+                                                        <input readonly class="onoffswitch-checkbox" id="auto_renw" name="auto_renew" type="checkbox" value="1" class="form-control" v-pre>
                                                         @endif
                                                         <label class="onoffswitch-label" for="auto_renw">
                                                             <span class="onoffswitch-inner"></span>
@@ -327,7 +327,7 @@
                                                 <div class="form-group mb-3">
 
                                                     <label for="label" class="control-label">Property label</label>
-                                                    <input value="{{$property->label}}" class="form-control" v-pre name="label" type="text" id="label">
+                                                    <input readonly value="{{$property->label}}" class="form-control" v-pre name="label" type="text" id="label">
 
 
 
@@ -367,13 +367,13 @@
                                                 <div class="form-group">
                                                     <label for="description" class="control-label required">Type</label>
                                                     <div class="ui-select-wrapper form-group">
-                                                        <select class="form-control ui-select is-valid" name="property_type_id" id="property_type_id">
+                                                        <select disabled class="form-control ui-select is-valid" name="property_type_id" id="property_type_id">
                                                             @if($property->property_type_id == App\Models\PropertyType::SALE)
                                                             <option value="1" selected data-code="sale">For Sale</option>
                                                             <option value="2" data-code="rent">For Rent</option>
                                                             @else
-                                                            <option value="1" selected data-code="sale">For Sale</option>
-                                                            <option value="2" data-code="rent">For Rent</option>
+                                                            <option value="1" data-code="sale">For Sale</option>
+                                                            <option value="2" selected data-code="rent">For Rent</option>
                                                             @endif
                                                         </select>
                                                     </div>
@@ -392,7 +392,7 @@
                                             <div class="widget-body">
                                                 @foreach($features as $feature)
                                                 <label class="checkbox-inline">
-                                                    <input type="checkbox" name="features[]" value="{{ $feature->id }}" {{ $property->features->contains($feature->id) ? 'checked' : '' }}>
+                                                    <input readonly type="checkbox" name="features[]" value="{{ $feature->id }}" {{ $property->features->contains($feature->id) ? 'checked' : '' }}>
                                                     {{ $feature->name }}
                                                 </label>&nbsp;
                                                 @endforeach
@@ -412,7 +412,7 @@
 
                                                     <div class="form-group mb-3">
                                                         <label class="control-label" for="video_url">Youtube Video URL</label>
-                                                        <input value="{{$property->video_url}}" id="video_url" class="form-control" placeholder="https://www.youtube.com/watch?v=FN7ALfpGxiI" data-counter="255" name="video[url]" type="text" value="">
+                                                        <input readonly value="{{$property->video_url}}" id="video_url" class="form-control" placeholder="https://www.youtube.com/watch?v=FN7ALfpGxiI" data-counter="255" name="video[url]" type="text" value="">
                                                     </div>
 
                                                 </div>
@@ -449,11 +449,11 @@
                                                         <hr>
                                                         <div class="form-group mb-3">
                                                             <label class="control-label" for="seo_title">SEO Title</label>
-                                                            <input value="{{$property->seo_title}}" class="form-control" id="seo_title" placeholder="SEO Title" data-counter="120" name="seo_meta[seo_title]" type="text">
+                                                            <input readonly value="{{$property->seo_title}}" class="form-control" id="seo_title" placeholder="SEO Title" data-counter="120" name="seo_meta[seo_title]" type="text">
                                                         </div>
                                                         <div class="form-group mb-3">
                                                             <label class="control-label" for="seo_description">SEO description</label>
-                                                            <textarea class="form-control" rows="3" id="seo_description" placeholder="SEO description" data-counter="160" name="seo_meta[seo_description]" cols="50">
+                                                            <textarea readonly class="form-control" rows="3" id="seo_description" placeholder="SEO description" data-counter="160" name="seo_meta[seo_description]" cols="50">
                                                             {{$property->seo_description}}
                                                             </textarea>
                                                         </div>
@@ -465,68 +465,53 @@
                                         </div>
                                     </div>
                                 </div>
+                        </form>
+                        <div class="col-md-3 right-sidebar">
+                            <div class="dashboard-wraper">
+                                <div class="widget meta-boxes form-actions form-actions-default action-horizontal">
+                                    <div class="widget-title">
+                                        <h4>
+                                            <span>Publish</span>
+                                        </h4>
+                                    </div>
+                                    <div class="widget-body">
+                                        <div class="btn-set">
+                                            @if($property->status_id == App\Models\Status::ACCEPTED)
+                                            <form action="{{route('admin.properties.reject',$property->id)}}" method="post">
+                                                @csrf
 
-                                <div class="col-md-3 right-sidebar">
-                                    <div class="dashboard-wraper">
-                                        <div class="widget meta-boxes form-actions form-actions-default action-horizontal">
-                                            <div class="widget-title">
-                                                <h4>
-                                                    <span>Publish</span>
-                                                </h4>
-                                            </div>
-                                            <div class="widget-body">
-                                                <div class="btn-set">
-                                                    <button type="submit" name="submit" value="save" class="btn btn-sm btn-info">
-                                                        <i class="fa fa-save"></i> Save &amp; Exit
-                                                    </button>
-                                                    &nbsp;
-                                                    <button type="submit" name="submit" value="apply" class="btn btn-sm btn-success">
-                                                        <i class="fa fa-check-circle"></i> Save
-                                                    </button>
-                                                </div>
-                                            </div>
+                                                <button type="submit" name="submit" value="save" class="btn btn-sm btn-danger">
+                                                    <i class="fa fa-times"></i> Reject
+                                                </button>
+                                            </form>
+                                            @else
+                                            <form action="{{route('admin.properties.accept',$property->id)}}" method="post">
+                                                @csrf
+
+                                                <button type="submit" name="submit" value="apply" class="btn btn-sm btn-success">
+                                                    <i class="fa fa-check-circle"></i> Accept
+                                                </button>
+                                            </form>
+                                            @endif
+
+
+                                            &nbsp;
                                         </div>
-                                        <div class="meta-box-sortables" id="top-sortables">
-                                            <div class="widget meta-boxes" id="additional_property_fields">
-                                                <div class="widget-title">
-                                                    <h4><span>Custom layout</span></h4>
-                                                </div>
-                                                <div class="widget-body">
-                                                    <div class="form-group mb-3">
-                                                        <label for="header_layout" class="control-label">Header layout</label>
-                                                        <div class="ui-select-wrapper form-group ">
-                                                            <select class="form-control ui-select" id="header_layout" name="header_layout">
-                                                                <option value="layout-1">Layout 1</option>
-                                                                <option value="layout-2">Layout 2</option>
-                                                                <option value="layout-3">Layout 3</option>
-                                                            </select>
-                                                            <svg class="svg-next-icon svg-next-icon-size-16">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                                                    <path d="M10 16l-4-4h8l-4 4zm0-12L6 8h8l-4-4z"></path>
-                                                                </svg>
-                                                            </svg>
-                                                        </div>
-
-                                                    </div>
-
-                                                </div>
-                                            </div>
-
+                                    </div>
+                                </div>
+                                <div class="meta-box-sortables" id="top-sortables">
+                                    <div class="widget meta-boxes" id="additional_property_fields">
+                                        <div class="widget-title">
+                                            <h4><span>Custom layout</span></h4>
                                         </div>
-
-                                        <div class="widget meta-boxes">
-                                            <div class="widget-title">
-                                                <h4><label for="category_id" class="control-label">Category</label></h4>
-                                            </div>
-                                            <div class="widget-body">
+                                        <div class="widget-body">
+                                            <div class="form-group mb-3">
+                                                <label for="header_layout" class="control-label">Header layout</label>
                                                 <div class="ui-select-wrapper form-group ">
-                                                    <select class="form-control select-search-full ui-select" v-pre id="category_id" name="category_id">
-                                                        @if($property->category_id)
-                                                        <option selected="selected" value="{{$property->category_id}}">{{$property->category->name}}</option>
-                                                        @endif
-                                                        @foreach($categories as $category)
-                                                        <option value="{{$category->id}}">{{$category->name}}</option>
-                                                        @endforeach
+                                                    <select disabled class="form-control ui-select" id="header_layout" name="header_layout">
+                                                        <option value="layout-1">Layout 1</option>
+                                                        <option value="layout-2">Layout 2</option>
+                                                        <option value="layout-3">Layout 3</option>
                                                     </select>
                                                     <svg class="svg-next-icon svg-next-icon-size-16">
                                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -535,22 +520,49 @@
                                                     </svg>
                                                 </div>
 
-
-
-
                                             </div>
+
                                         </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="widget meta-boxes">
+                                    <div class="widget-title">
+                                        <h4><label for="category_id" class="control-label">Category</label></h4>
+                                    </div>
+                                    <div class="widget-body">
+                                        <div class="ui-select-wrapper form-group ">
+                                            <select disabled class="form-control select-search-full ui-select" v-pre id="category_id" name="category_id">
+                                                @if($property->category_id)
+                                                <option selected="selected" value="{{$property->category_id}}">{{$property->category->name}}</option>
+                                                @endif
+                                                @foreach($categories as $category)
+                                                <option value="{{$category->id}}">{{$category->name}}</option>
+                                                @endforeach
+                                            </select>
+                                            <svg class="svg-next-icon svg-next-icon-size-16">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                                    <path d="M10 16l-4-4h8l-4 4zm0-12L6 8h8l-4-4z"></path>
+                                                </svg>
+                                            </svg>
+                                        </div>
+
+
+
 
                                     </div>
                                 </div>
-                            </div>
 
-                        </form>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
             </div>
-
         </div>
+
+    </div>
     </div>
 </section>
 @endsection

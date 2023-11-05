@@ -1,18 +1,20 @@
 <?php
 
-use App\Http\Controllers\AdController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PlanController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Properties\PropertiesController;
-use App\Http\Controllers\Properties\Ads\TempAdsController;
 use App\Http\Controllers\Properties\ApplicationsController;
 use App\Http\Controllers\Dashboard\Account\SettingsController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\PlanController;
+use App\Http\Controllers\admin\PropertiesController as AdminPropertiesController;
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
+Route::get('properties', [HomeController::class, 'properties'])->name('properties');
+Route::get('properties/{property}/details', [HomeController::class, 'propertyDetails'])->name('properties.details');
 
 Route::prefix('login')->group(function () {
     Route::get('/', [LoginController::class, 'loginForm'])->name('loginForm');
@@ -41,9 +43,15 @@ Route::middleware(['auth'])->prefix('/dashboard')->name('dashboard.')->group(fun
 
 
     Route::resource('applications', ApplicationsController::class);
-
 });
-Route::middleware('auth','is_subscriber')->group(function () {
+Route::middleware('auth', 'is_subscriber')->group(function () {
     Route::get('plans', [PlanController::class, 'index'])->name('plans');
     Route::get('plans/{plan}/subscribe', [PlanController::class, 'subscribe'])->name('plans.subscribe');
+});
+
+Route::middleware('auth', 'is_admin')->prefix('admin')->name('admin.')->group(function () {
+    Route::resource('properties', AdminPropertiesController::class);
+    Route::post('properties/{property}/accept', [AdminPropertiesController::class,'accept'])->name('properties.accept');
+    Route::post('properties/{property}/reject', [AdminPropertiesController::class,'reject'])->name('properties.reject');
+    Route::post('properties/{property}/delete', [AdminPropertiesController::class,'delete'])->name('properties.delete');
 });

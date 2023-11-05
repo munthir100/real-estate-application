@@ -15,7 +15,7 @@
 
                     </li>
                     <li class=" menu-item-has-children   ">
-                        <a href="https://resido.thesky9.com/en/properties">
+                        <a href="{{route('properties')}}">
                             Properties
                         </a>
 

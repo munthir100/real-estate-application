@@ -368,7 +368,7 @@
                                                     <label for="description" class="control-label required">Type</label>
                                                     <div class="ui-select-wrapper form-group">
                                                         <select class="form-control ui-select is-valid" name="property_type_id" id="property_type_id">
-                                                            @if($property->property_type_id == 1)
+                                                            @if($property->property_type_id == App\Models\PropertyType::SALE)
                                                             <option value="1" selected data-code="sale">For Sale</option>
                                                             <option value="2" data-code="rent">For Rent</option>
                                                             @else

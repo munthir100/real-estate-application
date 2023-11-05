@@ -83,8 +83,9 @@ class PropertiesController extends Controller
             ->with('success', 'Property created successfully.');
     }
 
-    function edit(Property $property)
+    function edit($propertyId)
     {
+        $property = request()->user()->properties()->findOrFail($propertyId);
         $cities = City::all();
         $currencies = Currency::all();
         $categories = Category::all();
@@ -95,9 +96,10 @@ class PropertiesController extends Controller
         return view('dashboard.properties.edit', compact('property', 'cities', 'currencies', 'categories', 'features', 'facilities', 'selectedFeatures'));
     }
 
-    function update(UpdatePropertyRequest $request, Property $property)
+    function update(UpdatePropertyRequest $request, $propertyId)
     {
         $validatedData = $request->validated();
+        $property = request()->user()->properties()->findOrFail($propertyId);
         $property->update($validatedData);
 
         if (isset($validatedData['features'])) {

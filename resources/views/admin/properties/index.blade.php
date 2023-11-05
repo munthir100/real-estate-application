@@ -30,7 +30,6 @@
                                         </form>
                                     </div>
                                 </div>
-                                <a href="{{route('dashboard.ads.create')}}" class="btn btn-outline-secondary"><i class="fas fa-plus"></i> Create</a>
                             </div>
 
                             <!-- Table -->
@@ -38,7 +37,6 @@
                                 <thead>
                                     <tr role="row">
 
-                                        <th class="text-center">Id</th>
                                         <th class="text-center">Name</th>
                                         <th class="text-center">Created at</th>
                                         <th class="text-center">Status</th>
@@ -49,26 +47,27 @@
                                     @forelse($properties as $property)
 
                                     <tr role="row">
-                                        <td>{{$property->id}}</td>
                                         <td>{{$property->title}}</td>
                                         <td>{{ $property->created_at->diffForHumans() }}</td>
 
                                         <td>
-                                            <x-dashboard.delete-property :property="$property" />
-
+                                            <x-status-class :statusId="$property->status_id"/>
+                                            
                                         </td>
 
                                         <td>
                                             <div class="table-actions text-center">
-                                                <a href="{{route('dashboard.ads.edit',$property->id)}}" class="btn btn-icon btn-sm btn-primary" data-bs-toggle="tooltip" data-bs-original-title="Edit"><i class="fa fa-edit"></i></a>
+                                                <a href="{{route('admin.properties.edit',$property->id)}}" class="btn btn-icon btn-sm btn-primary" data-bs-toggle="tooltip" data-bs-original-title="Edit"><i class="fa fa-edit"></i></a>
 
-                                                <a href="#" class="btn btn-icon btn-sm btn-danger deleteDialog" data-section="https://resido.thesky9.com/en/account/properties/18" role="button" data-bs-toggle="tooltip" data-bs-original-title="Delete">
+                                                <button class="btn btn-icon btn-sm btn-danger delete-crud-entry deleteDialog" role="button" data-property-id="{{$property->id}}" data-bs-original-title="Delete">
                                                     <i class="fa fa-trash"></i>
-                                                </a>
+                                                </button>
 
                                             </div>
                                         </td>
                                     </tr>
+                                    <x-dashboard.delete-property :property="$property" />
+
                                     @empty
                                     <tr class="odd">
                                         <td valign="top" colspan="9" class="dataTables_empty">No data to display</td>

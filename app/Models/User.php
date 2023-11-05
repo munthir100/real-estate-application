@@ -28,7 +28,6 @@ class User extends Authenticatable
         'gender',
         'password',
         'user_type_id',
-        'plan_id',
     ];
 
 
@@ -77,6 +76,11 @@ class User extends Authenticatable
     public function getIsSubscriberAttribute()
     {
         return $this->user_type_id == UserType::SUBSCRIBER;
+    }
+
+    public function getIsAdminAttribute()
+    {
+        return $this->user_type_id == UserType::ADMIN;
     }
 
     // Accessor for "isBrowser"

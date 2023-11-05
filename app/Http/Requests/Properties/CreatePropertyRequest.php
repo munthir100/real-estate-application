@@ -43,8 +43,8 @@ class CreatePropertyRequest extends FormRequest
 
             'period' => 'nullable|in:day,month,year',
             'label' => 'nullable|string',
-            'facilities.*.id' => 'nullable|integer',
-            'facilities.*.distance' => 'nullable|numeric',
+            'facilities.*.id' => 'required|integer',
+            'facilities.*.distance' => 'required|numeric',
 
             'property_type_id' => 'required|integer',
             'video_url' => 'nullable|string',

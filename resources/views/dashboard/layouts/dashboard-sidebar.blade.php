@@ -42,6 +42,14 @@
                         </li>
                         @endif
 
+                        @if(request()->user()->user_type_id == App\Models\UserType::ADMIN)
+                        <li class="{{ request()->routeIs('admin.properties*') ? 'active' : '' }}">
+                            <a href="{{route('admin.properties.index')}}" title="Properties">
+                                <i class="far fa-newspaper mr1"></i>Properties
+                            </a>
+                        </li>
+                        @endif
+
                         <li class="{{ request()->routeIs('dashboard.applications*') ? 'active' : '' }}">
                             <a href="{{route('dashboard.applications.index')}}" title="Applications">
                                 <i class="far fa-home mr1"></i>Real Estate Applications

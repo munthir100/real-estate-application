@@ -38,6 +38,7 @@
                                 <thead>
                                     <tr role="row">
 
+                                        <th class="text-center">Id</th>
                                         <th class="text-center">Name</th>
                                         <th class="text-center">Created at</th>
                                         <th class="text-center">Status</th>
@@ -48,11 +49,12 @@
                                     @forelse($properties as $property)
 
                                     <tr role="row">
+                                        <td>{{$property->id}}</td>
                                         <td>{{$property->title}}</td>
                                         <td>{{ $property->created_at->diffForHumans() }}</td>
 
                                         <td>
-                                            <span class="label-warning status-label">Pending</span>
+                                            <x-dashboard.delete-property :property="$property" />
 
                                         </td>
 

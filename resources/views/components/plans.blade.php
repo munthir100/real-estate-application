@@ -1,4 +1,5 @@
 @auth
+@if(request()->user()->isSubscriber)
 <section id="pricing-section">
     <div class="container">
         <div class="row justify-content-center">
@@ -11,7 +12,6 @@
         </div>
 
         <div class="row">
-
             @foreach($plans as $plan)
             <div class="col-lg-4 col-md-4">
                 @if($plan->name != 'Standard Plan')
@@ -43,4 +43,5 @@
             </div>
         </div>
 </section>
+@endif
 @endauth

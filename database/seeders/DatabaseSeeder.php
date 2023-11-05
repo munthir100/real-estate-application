@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
         $this->call(FeatureSeeder::class);
         $this->call(CategorySeeder::class);
         $this->call(PropertyTypeSeeder::class);
+        $this->call(AdminSeeder::class);
     }
 
 }

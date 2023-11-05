@@ -2,13 +2,17 @@
 $statusClass = '';
 
 switch ($statusId) {
-case \App\Models\Status::PUBLISHED:
+case \App\Models\Status::ACCEPTED:
 $statusClass = 'success';
-$status = 'overdue';
+$status = 'Accepted';
 break;
 case \App\Models\Status::PENDING:
 $statusClass = 'warning';
 $status = 'Pending';
+break;
+case \App\Models\Status::REJECTED:
+$statusClass = 'danger';
+$status = 'Rejected';
 break;
 default:
 $statusClass = 'warning';

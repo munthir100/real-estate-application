@@ -52,7 +52,7 @@
                                         <td>{{ $property->created_at->diffForHumans() }}</td>
 
                                         <td>
-                                            <span class="label-warning status-label">Pending</span>
+                                            <x-dashboard.delete-property :property="$property" />
 
                                         </td>
 
