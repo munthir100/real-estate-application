@@ -30,7 +30,33 @@ class RegisterRequest extends FormRequest
             'password' => 'required|string|min:6|confirmed',
             'birth_date' => 'required|date', 
             'gender' => 'required|in:male,female',
+            'user_type' => 'required|in:regular,subscriber',
+            'commertial_number' => 'required_if:user_type,subscriber|nullable|integer',
+            'company_name' => 'required_if:user_type,subscriber|nullable|string|max:255',
+            'tax_number' => 'required_if:user_type,subscriber|nullable|integer',
+            'office_name' => 'required_if:user_type,subscriber|nullable|string|max:255',
         ];
         
     }
 }
+
+/*
+RegisterRequest:
+
+first_name
+last_name
+username
+email
+phone
+password
+birth_date
+gender
+user_type (regular ,subscriber)
+
+Subscriber model (required if user_type = subscriber):
+            commercial_number
+            company_name
+            tax_number
+            office_name
+
+*/

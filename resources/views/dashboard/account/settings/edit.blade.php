@@ -23,7 +23,7 @@
 
                             <div class="row">
                                 <div class="col-lg-8 order-lg-0">
-                                    <form action="{{route('account.settings.update-profile')}}" id="setting-form" method="POST">
+                                    <form action="{{route('dashboard.account.settings.update-profile')}}" id="setting-form" method="POST">
                                         @method('put')
                                         @csrf
                                         <div class="form-group">

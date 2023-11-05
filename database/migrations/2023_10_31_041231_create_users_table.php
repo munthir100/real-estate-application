@@ -20,12 +20,14 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->enum('gender', ['male', 'female']);
             $table->string('password');
-            $table->unsignedBigInteger('user_type_id')->default(UserType::BROWSER);
-            $table->unsignedBigInteger('plan_id')->nullable();
             $table->timestamps();
 
-            $table->foreign('user_type_id')->references('id')->on('user_types');
-            $table->foreign('plan_id')->references('id')->on('plans');
+            $table->foreignId('user_type_id')
+                ->default(UserType::BROWSER)
+                ->references('id')
+                ->on('user_types');
+
+            $table->foreignId('plan_id')->nullable()->references('id')->on('plans');
         });
     }
 

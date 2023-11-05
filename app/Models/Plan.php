@@ -10,12 +10,9 @@ class Plan extends Model
         'name',
         'price',
         'duration',
-        'num_ads_allowed',
-        'num_temp_ads',
-        'num_distinctive_ads',
+        'num_properties_allowed',
         'priority_support',
         'num_affiliate_users',
-        'include_ologo',
         // Add other fillable attributes here
     ];
 

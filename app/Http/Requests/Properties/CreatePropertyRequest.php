@@ -11,7 +11,7 @@ class CreatePropertyRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,37 @@ class CreatePropertyRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'content' => 'required|string',
+            'Images' => 'nullable|file|array',
+            'city_id' => 'nullable|integer',
+            'category_id' => 'nullable|int',
+
+            'location' => 'required|string',
+            'longitude' => 'nullable|numeric',
+            'latitude' => 'nullable|numeric',
+
+            'number_of_bedrooms' => 'nullable|integer',
+            'number_of_bathrooms' => 'nullable|integer',
+            'number_of_beds' => 'nullable|integer',
+            'number_of_floors' => 'nullable|integer',
+            'square' => 'nullable|integer',
+            'price' => 'nullable|integer',
+            'currency_id' => 'nullable|integer',
+
+            'period' => 'nullable|in:day,month,year',
+            'label' => 'nullable|string',
+            'facilities.*.id' => 'nullable|integer',
+            'facilities.*.distance' => 'nullable|numeric',
+
+            'property_type_id' => 'required|integer',
+            'video_url' => 'nullable|string',
+            'seo_title' => 'nullable|string|max:255',
+            'seo_description' => 'nullable|string',
+            'seo_link' => 'nullable|string',
+            'features' => 'nullable|array', // Add this line for features
+            'features.*' => 'integer', // Add this line for each feature value
         ];
     }
 }

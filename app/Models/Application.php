@@ -7,12 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Application extends Model
 {
     protected $fillable = [
-        'property_advertisement_id',
+        'property_id',
     ];
 
     public function propertyAdvertisement()
     {
-        return $this->belongsTo(PropertyAdvertisement::class, 'property_advertisement_id');
+        return $this->belongsTo(Property::class, 'property_id');
     }
 
     public function user()

@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+
 
 class DashboardController extends Controller
 {
     function index()
     {
-        return view('dashboard.home');
+        $properties = request()->user()->properties()->useFilters()->dynamicPaginate();
+
+        return view('dashboard.home',compact('properties'));
     }
 }

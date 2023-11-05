@@ -10,13 +10,11 @@ class CreateNotificationsTable extends Migration
     {
         Schema::create('notifications', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
             $table->text('message');
-            $table->unsignedBigInteger('status_id');
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('status_id')->references('id')->on('statuses');
+            $table->foreignId('user_id')->references('id')->on('users');
+            $table->foreignId('status_id')->references('id')->on('statuses');
         });
     }
 

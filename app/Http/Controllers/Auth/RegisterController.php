@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
+use App\Models\UserType;
+use App\Models\Subscriber;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Validator;
@@ -27,10 +30,20 @@ class RegisterController extends Controller
     public function register(RegisterRequest $request)
     {
         $validatedData = $request->validated();
-        $user = User::create($validatedData);
+        $userType = $validatedData['user_type'] === 'subscriber' ? UserType::SUBSCRIBER : UserType::BROWSER;
 
-        auth()->login($user);
+        $user = User::create(array_merge($validatedData, ['user_type_id' => $userType]));
 
-        return to_route('home');
+        if ($validatedData['user_type'] === 'subscriber') {
+            $user->subscriber()->create($validatedData);
+        } else {
+            $user->browser()->create($validatedData);
+        }
+
+
+
+        Auth::login($user);
+
+        return redirect()->route('home');
     }
 }

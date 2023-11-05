@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Dashboard\Account;
 
+use Illuminate\Validation\Rules\Password;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ChangePasswordRequest extends FormRequest
@@ -11,7 +12,7 @@ class ChangePasswordRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +23,8 @@ class ChangePasswordRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'old_password' => 'required|string',
+            'new_password' => ['required', 'confirmed', Password::min(6)->mixedCase()->numbers()],
         ];
     }
 }

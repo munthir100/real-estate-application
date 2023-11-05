@@ -13,12 +13,9 @@ class CreatePlansTable extends Migration
             $table->string('name');
             $table->float('price');
             $table->integer('duration');
-            $table->integer('num_ads_allowed');
-            $table->integer('num_temp_ads');
-            $table->integer('num_distinctive_ads');
+            $table->integer('num_properties_allowed');
             $table->integer('priority_support');
             $table->integer('num_affiliate_users');
-            $table->boolean('include_ologo');
             // Add any other columns you need for your Plan model here
             $table->timestamps();
         });

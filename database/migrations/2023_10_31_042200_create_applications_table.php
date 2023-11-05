@@ -10,10 +10,9 @@ class CreateApplicationsTable extends Migration
     {
         Schema::create('applications', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('property_advertisement_id');
             $table->timestamps();
 
-            $table->foreign('property_advertisement_id')->references('id')->on('property_advertisements');
+            $table->foreignId('property_id')->references('id')->on('properties');
         });
     }
 

@@ -40,7 +40,7 @@ class UpdateProfileRequest extends FormRequest
             ],
             'birth_date' => 'required|date',
             'gender' => 'required|in:male,female',
-            'description' => 'required|string|max:255',
+            'description' => 'nullable|string|max:255',
         ];
     }
 }

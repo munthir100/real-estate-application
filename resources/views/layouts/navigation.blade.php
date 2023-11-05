@@ -26,12 +26,12 @@
                             Real Estate Applications
                         </a>
                     </li>
-                    <li class=" menu-item-has-children   ">
+                    <!-- <li class=" menu-item-has-children   ">
                         <a href="{{route('home')}}">
                             Featured Properties
                         </a>
 
-                    </li>
+                    </li> -->
 
                     @guest
                     <li class="  ">
@@ -41,9 +41,7 @@
                     </li>
 
                     <ul class="nav-menu nav-menu-social align-to-right">
-                        <li class="">
-                            <a href="#soon" class="text-success"><img src="themes/resido/img/submit.svg" width="20" alt="" class="mr-2"> Add Property</a>
-                        </li>
+                        
                         <li class="add-listing">
                             <a href="{{route('login')}}">
                                 <img src="themes/resido/img/user-light.svg" width="12" alt="" class="mr-2">Sign In</a>
@@ -54,11 +52,9 @@
 
 
                     <ul class="nav-menu nav-menu-social align-to-right">
-                        <li class="">
-                            <a href="#soon" class="text-success"><img src="themes/resido/img/submit.svg" width="20" alt="" class="mr-2"> Add Property</a>
-                        </li>
+                        
                         <li class="login-item">
-                            <a href="{{route('dashboard')}}" rel="nofollow"><i class="fas fa-user"></i> <span>
+                            <a href="{{route('dashboard.home')}}" rel="nofollow"><i class="fas fa-user"></i> <span>
                                     {{Auth::user()->first_name}} {{Auth::user()->last_name}}
                                 </span>
                             </a>
@@ -103,7 +99,7 @@
                     <div class="mobile-menu-item currency-wrapper">
                         <div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" type="button" aria-haspopup="true" aria-expanded="true">
-                                <img src="https://resido.thesky9.com/vendor/core/core/base/images/flags/us.svg" title="English" width="16" alt="English">
+                                <img src="vendor/core/core/base/images/flags/us.svg" title="English" width="16" alt="English">
                                 English
                             </button>
                             <ul class="dropdown-menu language_bar_chooser ">

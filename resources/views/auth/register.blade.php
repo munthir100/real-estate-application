@@ -11,7 +11,15 @@
                         <div class="modal-body">
                             <h2 class="text-center">Register</h2>
                             <br>
-
+                            @if($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                            @endif
                             <form method="POST" class="simple-form" action="{{route('register')}}">
                                 @csrf
                                 <div class="row">
@@ -186,6 +194,95 @@
                                         </div>
                                     </div>
 
+
+
+
+                                    <div class="col-lg-6 col-md-6" id="commercial-info" style="display: none;">
+                                        <div class="form-group">
+                                            <div class="input-with-icon">
+                                                <input id="commertial_number" type="text" class="form-control" name="commertial_number" placeholder="Commercial Registration Number">
+                                                <i class="ti-briefcase"></i>
+                                            </div>
+                                        </div>
+                                        @error('commercial_number')
+                                        <span class="d-block invalid-feedback">
+                                            <strong>
+                                                {{$message}}
+                                            </strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6" id="company-info" style="display: none;">
+                                        <div class="form-group">
+                                            <div class="input-with-icon">
+                                                <input id="company_name" type="text" class="form-control" name="company_name" placeholder="Name of Company">
+                                                <i class="ti-briefcase"></i>
+                                            </div>
+                                        </div>
+                                        @error('company_name')
+                                        <span class="d-block invalid-feedback">
+                                            <strong>
+                                                {{$message}}
+                                            </strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6" id="tax-number" style="display: none;">
+                                        <div class="form-group">
+                                            <div class="input-with-icon">
+                                                <input id="tax_number" type="text" class="form-control" name="tax_number" placeholder="Tax Number">
+                                                <i class="ti-briefcase"></i>
+                                            </div>
+                                        </div>
+                                        @error('password')
+                                        <span class="d-block invalid-feedback">
+                                            <strong>
+                                                {{$message}}
+                                            </strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+
+
+                                    <div class="col-lg-6 col-md-6" id="office-name" style="display: none;">
+                                        <div class="form-group">
+                                            <div class="input-with-icon">
+                                                <input id="office_name" type="text" class="form-control" name="office_name" placeholder="Name of Office">
+                                                <i class="ti-briefcase"></i>
+                                            </div>
+                                        </div>
+                                        @error('password')
+                                        <span class="d-block invalid-feedback">
+                                            <strong>
+                                                {{$message}}
+                                            </strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+
+                                    <div class="col-6">
+
+                                        <div class="form-group">
+                                            <div class="input-with-icon">
+                                                <select id="user_type" name="user_type" class="form-control">
+                                                    <option value="regular">Regular User</option>
+                                                    <option value="subscriber">Subscriber</option>
+                                                </select>
+                                                <i class="ti-user"></i>
+                                            </div>
+                                        </div>
+                                        @error('password')
+                                        <span class="d-block invalid-feedback">
+                                            <strong>
+                                                {{$message}}
+                                            </strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+
+
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-md full-width btn-theme-light-2 rounded">
@@ -211,4 +308,25 @@
     </section>
 
 </div>
+@endsection
+
+@section('scripts')
+<script>
+    $(document).ready(function() {
+        $('#user_type').on('change', function() {
+            if ($(this).val() === 'subscriber') {
+                $('#commercial-info').show();
+                $('#company-info').show();
+                $('#tax-number').show();
+                $('#office-name').show();
+            } else {
+                $('#commercial-info').hide();
+                $('#company-info').hide();
+                $('#tax-number').hide();
+                $('#office-name').hide();
+            }
+        });
+    });
+</script>
+
 @endsection

@@ -10,10 +10,16 @@ class CreateSubscribersTable extends Migration
     {
         Schema::create('subscribers', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
             $table->timestamps();
-
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->string('commertial_number');
+            $table->string('office_name');
+            $table->string('tax_number');
+            $table->string('company_name');
+            $table->foreignId('user_id')
+                ->references('id')
+                ->on('users')
+                ->cascadeOnDelete()
+                ->cascadeOnUpdate();
         });
     }
 

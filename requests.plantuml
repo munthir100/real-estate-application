@@ -1,0 +1,33 @@
+/*
+
+CreatePropertyRequest:
+        'user_id', : default: authentcated user
+        'property_type_id',
+        'status_id', : default: pending
+        'city_id',
+        'title',
+        'description',
+        'square',
+        'period',
+
+        'number_of_bedrooms',
+        'number_of_beds',
+        'number_of_Floors',
+        'currency_id',
+        'auto_renew',
+        'price',
+        'video_url',
+        'seo_title',
+        'seo_description',
+        'seo_link',
+
+        location model:
+                    'location_name',
+                    'location_longitude',
+                    'location_latitude',
+        PropertyFacility model:
+                    facilities[][id]
+                    facilities[][distance]
+    
+
+*/

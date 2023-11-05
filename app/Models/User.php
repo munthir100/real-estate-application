@@ -37,11 +37,6 @@ class User extends Authenticatable
         return $this->belongsTo(UserType::class, 'user_type_id');
     }
 
-    public function plan()
-    {
-        return $this->belongsTo(Plan::class, 'plan_id');
-    }
-
     public function subscriber()
     {
         return $this->hasOne(Subscriber::class, 'user_id');
@@ -57,9 +52,9 @@ class User extends Authenticatable
         return $this->hasOne(Admin::class, 'user_id');
     }
 
-    public function propertyAdvertisements()
+    public function properties()
     {
-        return $this->hasMany(PropertyAdvertisement::class, 'user_id');
+        return $this->hasMany(Property::class, 'user_id');
     }
 
     public function applications()
@@ -70,6 +65,28 @@ class User extends Authenticatable
     public function notifications()
     {
         return $this->hasMany(Notification::class, 'user_id');
+    }
+
+    public function plan()
+    {
+        return $this->hasOne(UserPlan::class);
+    }
+
+    // attributes
+
+    public function getIsSubscriberAttribute()
+    {
+        return $this->user_type_id == UserType::SUBSCRIBER;
+    }
+
+    // Accessor for "isBrowser"
+    public function getIsBrowserAttribute()
+    {
+        return $this->user_type_id == UserType::BROWSER;
+    }
+    public function getHasActivePlanAttribute()
+    {
+        
     }
     /**
      * The attributes that should be hidden for serialization.
