@@ -12,7 +12,11 @@ class CreateApplicationsTable extends Migration
             $table->id();
             $table->timestamps();
 
-            $table->foreignId('property_id')->references('id')->on('properties');
+            $table->foreignId('property_id')
+                ->references('id')
+                ->on('properties')
+                ->cascadeOnDelete()
+                ->cascadeOnUpdate();
         });
     }
 

@@ -23,8 +23,7 @@ class CreatePropertyRequest extends FormRequest
     {
         return [
             'title' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'content' => 'required|string',
+            'description' => 'required|string',
             'Images' => 'nullable|file|array',
             'city_id' => 'nullable|integer',
             'category_id' => 'nullable|int',

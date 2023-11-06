@@ -11,7 +11,10 @@ class HomeController extends Controller
 {
     function home()
     {
-        $properties = Property::where('status_id', Status::ACCEPTED)->useFilters()->dynamicPaginate();
+        $properties = Property::whereStatusId(Status::ACCEPTED)
+            ->where('is_ad', true)
+            ->useFilters()
+            ->dynamicPaginate();
 
         $plans = null;
         if (auth()->check()) {
@@ -25,13 +28,30 @@ class HomeController extends Controller
 
     function properties()
     {
-        $properties = Property::whereStatusId(Status::ACCEPTED)->useFilters()->dynamicPaginate();
+        $properties = Property::whereStatusId(Status::ACCEPTED)
+            ->whereDoesntHave('applications')
+            ->useFilters()
+            ->dynamicPaginate();
 
         return view('properties.index', compact('properties'));
     }
 
+    function applications()
+    {
+        $properties = Property::whereStatusId(Status::ACCEPTED)
+            ->whereHas('applications')
+            ->useFilters()
+            ->dynamicPaginate();
+
+        return view('properties.applications.index', compact('properties'));
+    }
+
     function propertyDetails(Property $property)
     {
+        if ($property->status_id != Status::ACCEPTED) {
+            abort(404);
+        }
+
         return view('properties.show', compact('property'));
     }
 }

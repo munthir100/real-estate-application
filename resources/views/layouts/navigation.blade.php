@@ -22,7 +22,7 @@
 
                     </li>
                     <li class="  ">
-                        <a href="https://resido.thesky9.com/en/projects">
+                        <a href="{{route('applications')}}">
                             Real Estate Applications
                         </a>
                     </li>

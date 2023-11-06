@@ -14,21 +14,19 @@ return new class extends Migration
         Schema::create('properties', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('content');
             $table->string('label')->nullable();
             $table->text('description')->nullable();
-            $table->integer('square')->nullable();
+            $table->integer('square')->default(0)->nullable();
             $table->enum('period', ['day','month', 'year']);
-            $table->integer('number_of_bedrooms')->nullable();
-            $table->integer('number_of_bathrooms')->nullable();
-            $table->integer('number_of_beds')->nullable();
-            $table->integer('number_of_floors')->nullable();
-            $table->integer('price')->nullable();
+            $table->integer('number_of_bedrooms')->default(0)->nullable();
+            $table->integer('number_of_bathrooms')->default(0)->nullable();
+            $table->integer('number_of_beds')->default(0)->nullable();
+            $table->integer('number_of_floors')->default(0)->nullable();
+            $table->integer('price')->default(0)->nullable();
             $table->string('video_url')->nullable();
             $table->string('seo_title')->nullable();
             $table->string('seo_description')->nullable();
             $table->string('seo_link')->nullable();
-            $table->boolean('in_home_page')->default(false);
             $table->boolean('is_ad')->default(false);
             $table->timestamps();
 

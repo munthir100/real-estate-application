@@ -2,14 +2,16 @@
 
 namespace App\Models;
 
+use Spatie\MediaLibrary\HasMedia;
 use Essa\APIToolKit\Filters\Filterable;
 use Illuminate\Database\Eloquent\Model;
 use App\Filters\Dashboard\PropertyFilters;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Property extends Model
+class Property extends Model implements HasMedia
 {
-    use Filterable;
-    
+    use Filterable, InteractsWithMedia;
+
     protected $fillable = [
         'user_id',
         'property_type_id',
@@ -17,7 +19,6 @@ class Property extends Model
         'city_id',
         'title',
         'description',
-        'content',
         'square',
         'period',
         'number_of_bedrooms',
@@ -85,6 +86,11 @@ class Property extends Model
     public function propertyFeatures()
     {
         return $this->belongsToMany(PropertyFeature::class);
+    }
+
+    public function propertyFacility()
+    {
+        return $this->belongsToMany(PropertyFacility::class);
     }
 
     public function applications()

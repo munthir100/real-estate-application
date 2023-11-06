@@ -18,7 +18,7 @@
     </div>
 </div>
 
-<form id="deleteForm-{{ $property->id }}" method="POST" action="{{ route('dashboard.properties.destroy', $property->id) }}">
+<form id="deleteForm-{{ $property->id }}" method="POST" action="{{ route('admin.properties.destroy', $property->id) }}">
     @method('DELETE')
     @csrf
 </form>

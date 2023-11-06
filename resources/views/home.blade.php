@@ -370,7 +370,7 @@
                                                 <span class="listing-location"><i class="ti-location-pin"></i>{{$property->location->name}}</span>
                                             </div>
                                             <div class="listing-detail-btn">
-                                                <a href="https://resido.thesky9.com/en/properties/2318-camryns-crossing" class="more-btn">View</a>
+                                                <a href="{{route('properties.details',$property->id)}}" class="more-btn">View</a>
                                             </div>
                                         </div>
                                     </div>
@@ -386,7 +386,7 @@
 
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12 text-center">
-                                <a href="https://resido.thesky9.com/en/properties" class="btn btn-theme-light-2 rounded">Browse More Properties</a>
+                                <a href="{{route('properties')}}" class="btn btn-theme-light-2 rounded">Browse More Properties</a>
                             </div>
                         </div>
                     </div>
@@ -394,7 +394,7 @@
             </div>
 
             <div>
-                <x-plans :plans="$plans"/>
+                <x-plans :plans="$plans" />
             </div>
             <div>
                 <div class="raw-html-embed">

@@ -40,7 +40,7 @@
                                                 <div class="form-group mb-3">
 
                                                     <label for="title" class="control-label required">Title</label>
-                                                    <input class="form-control" placeholder="Title" data-counter="120" v-pre name="title" type="text" id="title">
+                                                    <input required="required" class="form-control" placeholder="Title" data-counter="120" v-pre name="title" type="text" id="title">
 
 
 
@@ -72,32 +72,24 @@
 
                                                 <div class="form-group mb-3">
 
-                                                    <label for="description" class="control-label">Description</label>
-                                                    <textarea class="form-control" rows="4" placeholder="Short description" data-counter="350" v-pre name="description" cols="50" id="description"></textarea>
+                                                    <label for="description" class="control-label required">Description</label>
+                                                    <textarea required="required" class="form-control" rows="4" placeholder="Short description" data-counter="350" v-pre name="description" cols="50" id="description"></textarea>
 
 
 
                                                 </div>
 
-                                                <div class="form-group mb-3">
-
-                                                    <label for="content" class="control-label required">Content</label>
-
-                                                    <textarea class="form-control editor-ckeditor" rows="4" v-pre name="content" cols="50" id="content"></textarea>
-
-
-                                                </div>
 
                                                 <div class="form-group mb-3">
 
                                                     <label for="images" class="control-label">Images</label>
 
-                                                    <input class="form-control" v-pre name="images" type="hidden" id="images">
-                                                    <div id="multiple-upload" class="dropzone needsclick">
+                                                    <input class="form-control" v-pre name="images[]" type="file" id="images" multiple>
+                                                    <!-- <div id="multiple-upload" class="dropzone needsclick">
                                                         <div class="dz-message needsclick">
                                                             Drop files here or click to upload.<br>
                                                         </div>
-                                                    </div>
+                                                    </div> -->
 
 
                                                 </div>
@@ -160,7 +152,7 @@
                                                 <div class="form-group mb-3">
 
                                                     <label for="location" class="control-label required">Property location</label>
-                                                    <input class="form-control" placeholder="Property location" data-counter="300" v-pre name="location" type="text" id="location">
+                                                    <input required="required" class="form-control" placeholder="Property location" data-counter="300" v-pre name="location" type="text" id="location">
 
 
 
@@ -293,22 +285,7 @@
                                                 </div>
 
 
-                                                <div class="form-group mb-3">
 
-                                                    <label for="auto_renew" class="control-label">Renew automatically (you will be charged again in 45 days)?</label>
-
-                                                    <div class="onoffswitch">
-                                                        <input name="auto_renew" type="hidden" value="0">
-                                                        <input class="onoffswitch-checkbox" id="auto_renw" name="auto_renew" type="checkbox" value="1" class="form-control" v-pre>
-                                                        <label class="onoffswitch-label" for="auto_renw">
-                                                            <span class="onoffswitch-inner"></span>
-                                                            <span class="onoffswitch-switch"></span>
-                                                        </label>
-                                                    </div>
-
-
-
-                                                </div>
 
                                                 <div class="form-group mb-3">
 
@@ -353,7 +330,7 @@
                                                 <div class="form-group">
                                                     <label for="description" class="control-label required">Type</label>
                                                     <div class="ui-select-wrapper form-group">
-                                                        <select class="form-control ui-select is-valid" name="property_type_id" id="property_type_id">
+                                                        <select required class="form-control ui-select is-valid" name="property_type_id" id="property_type_id">
                                                             <option value="1" data-code="sale">For Sale</option>
                                                             <option value="2" data-code="rent">For Rent</option>
                                                         </select>

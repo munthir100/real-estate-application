@@ -40,6 +40,12 @@
                                 <i class="far fa-star mr1"></i>Ads
                             </a>
                         </li>
+
+                        <li class="{{ request()->routeIs('dashboard.applications*') ? 'active' : '' }}">
+                            <a href="{{route('dashboard.applications.index')}}" title="Applications">
+                                <i class="far fa-home mr1"></i>Applications
+                            </a>
+                        </li>
                         @endif
 
                         @if(request()->user()->user_type_id == App\Models\UserType::ADMIN)
@@ -48,15 +54,17 @@
                                 <i class="far fa-newspaper mr1"></i>Properties
                             </a>
                         </li>
-                        @endif
 
-                        <li class="{{ request()->routeIs('dashboard.applications*') ? 'active' : '' }}">
-                            <a href="{{route('dashboard.applications.index')}}" title="Applications">
-                                <i class="far fa-home mr1"></i>Real Estate Applications
+                        <li class="{{ request()->routeIs('admin.applications*') ? 'active' : '' }}">
+                            <a href="{{route('admin.applications.index')}}" title="Applications">
+                                <i class="far fa-home mr1"></i>Applications
                             </a>
                         </li>
+                        @endif
 
                         
+
+
                         <li class="{{ request()->routeIs('dashboard.account.settings.security') ? 'active' : '' }}">
                             <a href="{{ route('dashboard.account.settings.security') }}">
                                 <i class="ti-unlock"></i>

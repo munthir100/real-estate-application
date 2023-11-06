@@ -54,7 +54,7 @@
                                         <td>{{ $property->created_at->diffForHumans() }}</td>
 
                                         <td>
-                                            <x-dashboard.delete-property :property="$property" />
+                                            <x-status-class :statusId="$property->status_id" />
 
                                         </td>
 
@@ -62,14 +62,16 @@
                                             <div class="table-actions text-center">
                                                 <a href="{{route('dashboard.properties.edit',$property->id)}}" class="btn btn-icon btn-sm btn-primary" data-bs-toggle="tooltip" data-bs-original-title="Edit"><i class="fa fa-edit"></i></a>
 
-                                                <button class="btn btn-icon btn-sm btn-danger delete-crud-entry deleteDialog" role="button" data-property-id="{{$property->id}}" data-bs-original-title="Delete">
+
+                                                <button class="btn btn-icon btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#modal-confirm-delete-{{ $property->id }}" data-property-id="{{$property->id}}" data-bs-original-title="Delete">
                                                     <i class="fa fa-trash"></i>
                                                 </button>
-
                                             </div>
                                         </td>
                                     </tr>
                                     <x-dashboard.delete-property :property="$property" />
+
+
 
                                     @empty
                                     <tr class="odd">
@@ -87,4 +89,30 @@
         </div>
     </div>
 </section>
+
+
+<script>
+    $(document).ready(function() {
+        $('.delete-crud-entry').click(function(e) {
+            e.preventDefault();
+            var propertyId = $(this).data('property-id');
+
+            // Create a form element
+            var form = $('<form>', {
+                'method': 'POST',
+                'action': '/properties/' + propertyId, // Update with your route URL
+            });
+
+            // Append the CSRF token input field
+            form.append('{{ csrf_field() }}');
+
+            // Append the method override field for DELETE
+            form.append('<input type="hidden" name="_method" value="DELETE">');
+
+            // Append the form to the body and submit it
+            form.appendTo('body').submit();
+        });
+    });
+</script>
+
 @endsection

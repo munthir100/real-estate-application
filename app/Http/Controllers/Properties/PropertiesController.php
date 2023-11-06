@@ -52,8 +52,6 @@ class PropertiesController extends Controller
 
     public function store(CreatePropertyRequest $request)
     {
-
-
         $validatedData = $request->validated();
 
         $property = new Property();
@@ -76,7 +74,11 @@ class PropertiesController extends Controller
         if (isset($validatedData['features'])) {
             $this->propertyService->insertFeatures($property, $validatedData['features']);
         }
-
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $image) {
+                $property->addMedia($image)->toMediaCollection('images');
+            }
+        }
         event(new PropertyAdded($property));
 
         return redirect()->route('dashboard.properties.index')
@@ -106,7 +108,16 @@ class PropertiesController extends Controller
             $this->propertyService->deleteFeatures($property);
             $this->propertyService->insertFeatures($property, $validatedData['features']);
         }
-
+        if (isset($validatedData['facilities'])) {
+            $this->propertyService->deleteFacilities($property);
+            $this->propertyService->insertFacilities($property, $validatedData['facilities']);
+        }
+        if ($request->hasFile('images')) {
+            $property->clearMediaCollection();
+            foreach ($request->file('images') as $image) {
+                $property->addMedia($image)->toMediaCollection('images');
+            }
+        }
         return redirect()->back();
     }
 

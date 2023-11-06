@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdController;
+use App\Http\Controllers\admin\ApplicationController as AdminApplicationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PlanController;
 use App\Http\Controllers\Auth\LoginController;
@@ -14,6 +15,7 @@ use App\Http\Controllers\admin\PropertiesController as AdminPropertiesController
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('properties', [HomeController::class, 'properties'])->name('properties');
+Route::get('applications', [HomeController::class, 'applications'])->name('applications');
 Route::get('properties/{property}/details', [HomeController::class, 'propertyDetails'])->name('properties.details');
 
 Route::prefix('login')->group(function () {
@@ -50,8 +52,9 @@ Route::middleware('auth', 'is_subscriber')->group(function () {
 });
 
 Route::middleware('auth', 'is_admin')->prefix('admin')->name('admin.')->group(function () {
-    Route::resource('properties', AdminPropertiesController::class);
-    Route::post('properties/{property}/accept', [AdminPropertiesController::class,'accept'])->name('properties.accept');
-    Route::post('properties/{property}/reject', [AdminPropertiesController::class,'reject'])->name('properties.reject');
-    Route::post('properties/{property}/delete', [AdminPropertiesController::class,'delete'])->name('properties.delete');
+    Route::resource('properties', AdminPropertiesController::class)->only(['index', 'edit', 'destroy']);
+    Route::resource('applications', AdminApplicationController::class)->only(['index', 'edit', 'destroy']);
+    Route::post('properties/{property}/accept', [AdminPropertiesController::class, 'accept'])->name('properties.accept');
+    Route::post('properties/{property}/reject', [AdminPropertiesController::class, 'reject'])->name('properties.reject');
+    Route::post('properties/{property}/delete', [AdminPropertiesController::class, 'delete'])->name('properties.delete');
 });

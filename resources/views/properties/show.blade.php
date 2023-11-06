@@ -369,7 +369,7 @@
                             </div>
 
                             <div class="sides-widget-body simple-form">
-                                <form method="POST" action="https://resido.thesky9.com/en/send-consult" accept-charset="UTF-8" class="consult-form" id="consult-form"><input name="_token" type="hidden" value="BuZlJMjMYmaK2H1WkZyNltEtcGArXWRQV4BULLXx">
+                                <form method="POST" action="#" accept-charset="UTF-8" class="consult-form" id="consult-form"><input name="_token" type="hidden" value="BuZlJMjMYmaK2H1WkZyNltEtcGArXWRQV4BULLXx">
                                     <div class="row">
                                         <input type="hidden" name="data_id" value="3">
                                         <div class="form-group">

@@ -82,27 +82,17 @@
 
                                                 </div>
 
-                                                <div class="form-group mb-3">
-
-                                                    <label for="content" class="control-label required">Content</label>
-
-                                                    <textarea class="form-control editor-ckeditor" rows="4" v-pre name="content" cols="50" id="content">
-                                                    {{$property->content}}
-                                                    </textarea>
-
-
-                                                </div>
-
+                
                                                 <div class="form-group mb-3">
 
                                                     <label for="images" class="control-label">Images</label>
 
-                                                    <input class="form-control" v-pre name="images" type="hidden" id="images">
-                                                    <div id="multiple-upload" class="dropzone needsclick">
+                                                    <input class="form-control" v-pre name="images[]" type="file" id="images" multiple>
+                                                    <!-- <div id="multiple-upload" class="dropzone needsclick">
                                                         <div class="dz-message needsclick">
                                                             Drop files here or click to upload.<br>
                                                         </div>
-                                                    </div>
+                                                    </div> -->
 
 
                                                 </div>

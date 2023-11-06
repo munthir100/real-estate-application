@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Models\City;
+use App\Models\Status;
 use App\Models\Feature;
 use App\Models\Category;
 use App\Models\Currency;
@@ -10,17 +11,16 @@ use App\Models\Facility;
 use App\Models\Property;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Status;
 
-class PropertiesController extends Controller
+class ApplicationController extends Controller
 {
     function index()
     {
-        $properties = Property::whereDoesntHave('applications')
+        $properties = Property::whereHas('applications')
             ->useFilters()
             ->get();
 
-        return view('admin.properties.index', compact('properties'));
+        return view('admin.applications.index', compact('properties'));
     }
 
     function edit(Property $property)
