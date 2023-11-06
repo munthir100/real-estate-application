@@ -15,7 +15,7 @@
                                     <h2>Find Your Perfect Place.</h2>
                                 </div>
                                 <div class="full-search-2 eclip-search italian-search hero-search-radius shadow-hard mt-5">
-                                    <form action="https://resido.thesky9.com/en/properties" method="GET" id="frmhomesearch">
+                                    <form action="{{route('properties')}}" method="GET" id="frmhomesearch">
                                         <div class="hero-search-content">
                                             <div class="row">
 
@@ -51,7 +51,7 @@
 
                                                 <div class="col-lg-1 col-md-1 col-sm-2">
                                                     <div class="form-group">
-                                                        <a class="collapsed ad-search" data-bs-toggle="collapse" data-parent="#search" data-bs-target="#advance-search" href="javascript:void(0);" aria-expanded="false" aria-controls="advance-search"><i class="fa fa-sliders-h"></i></a>
+                                                        <a class="collapsed ad-search" data-bs-toggle="collapse" data-parent="#search" data-bs-target="#advance-search" href="javascript:void(0);" aria-expanded="false" aria-controls="advance-search"><i class="fa fa-ssdfliders-h"></i></a>
                                                     </div>
                                                 </div>
 
@@ -63,210 +63,7 @@
 
                                             </div>
                                             <!-- Collapse Advance Search Form -->
-                                            <div class="collapse" id="advance-search" aria-expanded="false" role="banner">
-
-                                                <!-- row -->
-                                                <div class="row">
-
-                                                    <div class="col-lg-4 col-md-4 col-sm-12">
-                                                        <div class="form-group mb-2">
-                                                            <div class="input-with-icon">
-                                                                <select data-placeholder="City" class="form-control city_id" data-url="https://resido.thesky9.com/en/ajax/cities" name="city_id" id="city_id">
-                                                                </select>
-
-                                                                <i class="ti-location-pin"></i>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-lg-4 col-md-4 col-sm-12">
-                                                        <div class="form-group mb-2">
-                                                            <div class="input-with-icon">
-                                                                <select id="select-bedroom" data-placeholder="Bedroom" name="bedroom" class="form-control">
-                                                                    <option value="">&nbsp;</option>
-                                                                    <option value="1">
-                                                                        1
-                                                                    </option>
-                                                                    <option value="2">
-                                                                        2
-                                                                    </option>
-                                                                    <option value="3">
-                                                                        3
-                                                                    </option>
-                                                                    <option value="4">
-                                                                        4
-                                                                    </option>
-                                                                    <option value="5">
-                                                                        5
-                                                                    </option>
-                                                                </select>
-
-                                                                <i class="fas fa-bed"></i>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-lg-4 col-md-4 col-sm-12">
-                                                        <div class="form-group mb-2">
-                                                            <div class="input-with-icon">
-                                                                <select id="select-bathroom" data-placeholder="Bathroom" name="bathroom" class="form-control">
-                                                                    <option value="">&nbsp;</option>
-                                                                    <option value="1">
-                                                                        1
-                                                                    </option>
-                                                                    <option value="2">
-                                                                        2
-                                                                    </option>
-                                                                    <option value="3">
-                                                                        3
-                                                                    </option>
-                                                                    <option value="4">
-                                                                        4
-                                                                    </option>
-                                                                    <option value="5">
-                                                                        5
-                                                                    </option>
-                                                                </select>
-
-                                                                <i class="fas fa-bath"></i>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                                <!-- /row -->
-
-                                                <!-- row -->
-                                                <div class="row">
-
-                                                    <div class="col-lg-3 col-md-6 col-sm-6">
-                                                        <div class="form-group simple mb-2">
-                                                            <select id="minprice" data-placeholder="No Min" name="min_price" class="form-control">
-                                                                <option value="">&nbsp;</option>
-                                                                <option value="500">
-                                                                    500
-                                                                </option>
-                                                                <option value="1000">
-                                                                    1000
-                                                                </option>
-                                                                <option value="2000">
-                                                                    2000
-                                                                </option>
-                                                                <option value="5000">
-                                                                    5000
-                                                                </option>
-                                                                <option value="10000">
-                                                                    10000
-                                                                </option>
-                                                            </select>
-
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-lg-3 col-md-6 col-sm-6">
-                                                        <div class="form-group simple mb-2">
-                                                            <select id="maxprice" data-placeholder="No Max" name="max_price" class="form-control">
-                                                                <option value="">&nbsp;</option>
-                                                                <option value="1000">
-                                                                    1000
-                                                                </option>
-                                                                <option value="2000">
-                                                                    2000
-                                                                </option>
-                                                                <option value="5000">
-                                                                    5000
-                                                                </option>
-                                                                <option value="10000">
-                                                                    10000
-                                                                </option>
-                                                                <option value="50000">
-                                                                    50000
-                                                                </option>
-                                                            </select>
-
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-lg-3 col-md-6 col-sm-6">
-                                                        <div class="form-group mb-2">
-                                                            <input type="text" class="form-control" name="min_square" value="" placeholder="Min Area">
-
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-lg-3 col-md-6 col-sm-6">
-                                                        <div class="form-group mb-2">
-                                                            <input type="text" class="form-control" name="max_square" value="" placeholder="Max Area">
-
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                                <!-- /row -->
-
-
-                                                <!-- row -->
-                                                <div class="row">
-
-                                                    <div class="col-lg-12 col-md-12 col-sm-12 mt-3">
-                                                        <h4 class="text-dark">Amenities &amp; Features</h4>
-                                                        <ul class="no-ul-list second-row">
-                                                            <li>
-                                                                <input id="features-0" class="input-filter checkbox-custom" name="features[]" type="checkbox" value="1">
-                                                                <label for="features-0" class="checkbox-custom-label">Wifi</label>
-                                                            </li>
-                                                            <li>
-                                                                <input id="features-1" class="input-filter checkbox-custom" name="features[]" type="checkbox" value="2">
-                                                                <label for="features-1" class="checkbox-custom-label">Parking</label>
-                                                            </li>
-                                                            <li>
-                                                                <input id="features-2" class="input-filter checkbox-custom" name="features[]" type="checkbox" value="3">
-                                                                <label for="features-2" class="checkbox-custom-label">Swimming pool</label>
-                                                            </li>
-                                                            <li>
-                                                                <input id="features-3" class="input-filter checkbox-custom" name="features[]" type="checkbox" value="4">
-                                                                <label for="features-3" class="checkbox-custom-label">Balcony</label>
-                                                            </li>
-                                                            <li>
-                                                                <input id="features-4" class="input-filter checkbox-custom" name="features[]" type="checkbox" value="5">
-                                                                <label for="features-4" class="checkbox-custom-label">Garden</label>
-                                                            </li>
-                                                            <li>
-                                                                <input id="features-5" class="input-filter checkbox-custom" name="features[]" type="checkbox" value="6">
-                                                                <label for="features-5" class="checkbox-custom-label">Security</label>
-                                                            </li>
-                                                            <li>
-                                                                <input id="features-6" class="input-filter checkbox-custom" name="features[]" type="checkbox" value="7">
-                                                                <label for="features-6" class="checkbox-custom-label">Fitness center</label>
-                                                            </li>
-                                                            <li>
-                                                                <input id="features-7" class="input-filter checkbox-custom" name="features[]" type="checkbox" value="8">
-                                                                <label for="features-7" class="checkbox-custom-label">Air Conditioning</label>
-                                                            </li>
-                                                            <li>
-                                                                <input id="features-8" class="input-filter checkbox-custom" name="features[]" type="checkbox" value="9">
-                                                                <label for="features-8" class="checkbox-custom-label">Central Heating </label>
-                                                            </li>
-                                                            <li>
-                                                                <input id="features-9" class="input-filter checkbox-custom" name="features[]" type="checkbox" value="10">
-                                                                <label for="features-9" class="checkbox-custom-label">Laundry Room</label>
-                                                            </li>
-                                                            <li>
-                                                                <input id="features-10" class="input-filter checkbox-custom" name="features[]" type="checkbox" value="11">
-                                                                <label for="features-10" class="checkbox-custom-label">Pets Allow</label>
-                                                            </li>
-                                                            <li>
-                                                                <input id="features-11" class="input-filter checkbox-custom" name="features[]" type="checkbox" value="12">
-                                                                <label for="features-11" class="checkbox-custom-label">Spa &amp; Massage</label>
-                                                            </li>
-                                                        </ul>
-
-                                                    </div>
-
-                                                </div>
-                                                <!-- /row -->
-
-                                            </div>
+                                            
                                         </div>
                                     </form>
                                 </div>
@@ -298,14 +95,9 @@
                             <div class="col-lg-6 col-sm-12">
                                 <div class="property-listing property-1" data-lat="30.221926" data-long="-85.6242">
                                     <div class="listing-img-wrapper">
-                                        <a href="https://resido.thesky9.com/en/properties/2318-camryns-crossing">
+                                        <a href="{{route('properties.details',$property->id)}}">
                                             <img src="https://resido.thesky9.com/storage/general/img-loading.jpg" data-src="https://resido.thesky9.com/storage/properties/p-3-400xauto.jpg" class="img-fluid mx-auto lazy" alt="{{$property->title}}" />
                                         </a>
-                                        <div class="icon-actions-wrapper">
-                                            <a href="JavaScript:Void(0);" data-id="16" class="add-to-wishlist">
-                                                <i class="far fa-heart"></i>
-                                            </a>
-                                        </div>
                                     </div>
 
                                     <div class="listing-content">
@@ -314,7 +106,7 @@
                                             <div class="listing-detail-wrapper">
                                                 <div class="listing-short-detail">
                                                     <h4 class="listing-name">
-                                                        <a href="https://resido.thesky9.com/en/properties/2318-camryns-crossing" title="{{$property->title}}">{{$property->title}}</a>
+                                                        <a href="{{route('properties.details',$property->id)}}" title="{{$property->title}}">{{$property->title}}</a>
                                                     </h4>
                                                 </div>
                                                 <div class="list-price">

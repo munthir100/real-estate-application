@@ -208,7 +208,7 @@
 
 
 @section('styles')
-<link media="all" type="text/css" rel="stylesheet" href="vendor/core/plugins/language/css/language-public.css?v=2.2.0">
+<link media="all" type="text/css" rel="stylesheet" href="{{asset('vendor/core/plugins/language/css/language-public.css?v=2.2.0">
 <link media="all" type="text/css" rel="stylesheet" href="themes/resido/plugins/animation.css">
 <link media="all" type="text/css" rel="stylesheet" href="themes/resido/plugins/bootstrap/bootstrap.min.css">
 <link media="all" type="text/css" rel="stylesheet" href="themes/resido/plugins/ion.rangeSlider.min.css">
@@ -222,12 +222,12 @@
 <link media="all" type="text/css" rel="stylesheet" href="themes/resido/plugins/line-icon.css">
 <link media="all" type="text/css" rel="stylesheet" href="themes/resido/plugins/themify.css">
 <link media="all" type="text/css" rel="stylesheet" href="themes/resido/css/style.css?v=2.22.0">
-<link media="all" type="text/css" rel="stylesheet" href="vendor/core/core/table/css/table.css">
-<link media="all" type="text/css" rel="stylesheet" href="vendor/core/core/base/libraries/datatables/media/css/dataTables.bootstrap.min.css">
-<link media="all" type="text/css" rel="stylesheet" href="vendor/core/core/base/libraries/datatables/extensions/Buttons/css/buttons.bootstrap.min.css">
-<link media="all" type="text/css" rel="stylesheet" href="vendor/core/core/base/libraries/datatables/extensions/Responsive/css/responsive.bootstrap.min.css">
+<link media="all" type="text/css" rel="stylesheet" href="{{asset('vendor/core/core/table/css/table.css">
+<link media="all" type="text/css" rel="stylesheet" href="{{asset('vendor/core/core/base/libraries/datatables/media/css/dataTables.bootstrap.min.css">
+<link media="all" type="text/css" rel="stylesheet" href="{{asset('vendor/core/core/base/libraries/datatables/extensions/Buttons/css/buttons.bootstrap.min.css">
+<link media="all" type="text/css" rel="stylesheet" href="{{asset('vendor/core/core/base/libraries/datatables/extensions/Responsive/css/responsive.bootstrap.min.css">
 <link media="all" type="text/css" rel="stylesheet" href="themes/resido/css/account.css">
-<link media="all" type="text/css" rel="stylesheet" href="vendor/core/plugins/real-estate/css/app_custom.css">
+<link media="all" type="text/css" rel="stylesheet" href="{{asset('vendor/core/plugins/real-estate/css/app_custom.css">
 <link media="all" type="text/css" rel="stylesheet" href="themes/resido/css/style.integration.css?v=1698022316">
 <link type="application/atom+xml" rel="alternate" title="Properties feed" href="https://resido.thesky9.com/en/feed/properties">
 <link type="application/atom+xml" rel="alternate" title="Properties feed" href="https://resido.thesky9.com/vi/feed/properties">
@@ -240,37 +240,37 @@
 
 @section('scripts')
 
-<script src="themes/resido/plugins/bootstrap/popper.min.js"></script>
-<script src="themes/resido/plugins/bootstrap/bootstrap.min.js"></script>
-<script src="themes/resido/plugins/rangeslider.js"></script>
-<script src="themes/resido/plugins/select2.min.js"></script>
-<script src="themes/resido/plugins/jquery.magnific-popup.min.js"></script>
-<script src="themes/resido/plugins/slick.js"></script>
-<script src="themes/resido/plugins/slider-bg.js"></script>
-<script src="themes/resido/plugins/lightbox.js"></script>
-<script src="themes/resido/plugins/imagesloaded.js"></script>
-<script src="themes/resido/plugins/lazyload.min.js"></script>
-<script src="themes/resido/js/wishlist.js?v=2.22.0"></script>
-<script src="themes/resido/js/app.js?v=2.22.0"></script>
-<script src="vendor/core/core/media/libraries/lodash/lodash.min.js"></script>
+<script src="{{asset('themes/resido/plugins/bootstrap/popper.min.js')}}"></script>
+<script src="{{asset('themes/resido/plugins/bootstrap/bootstrap.min.js')}}"></script>
+<script src="{{asset('themes/resido/plugins/rangeslider.js')}}"></script>
+<script src="{{asset('themes/resido/plugins/select2.min.js')}}"></script>
+<script src="{{asset('themes/resido/plugins/jquery.magnific-popup.min.js')}}"></script>
+<script src="{{asset('themes/resido/plugins/slick.js')}}"></script>
+<script src="{{asset('themes/resido/plugins/slider-bg.js')}}"></script>
+<script src="{{asset('themes/resido/plugins/lightbox.js')}}"></script>
+<script src="{{asset('themes/resido/plugins/imagesloaded.js')}}"></script>
+<script src="{{asset('themes/resido/plugins/lazyload.min.js')}}"></script>
+<script src="{{asset('themes/resido/js/wishlist.js?v=2.22.0')}}"></script>
+<script src="{{asset('themes/resido/js/app.js?v=2.22.0')}}"></script>
+<script src="{{asset('vendor/core/core/media/libraries/lodash/lodash.min.js')}}"></script>
 
-<script src="vendor/core/core/base/libraries/select2/js/select2.min.js?v=2.22.0"></script>
-<script src="vendor/core/core/base/libraries/bootstrap-datepicker/js/bootstrap-datepicker.min.js?v=2.22.0"></script>
-<script src="vendor/core/core/base/js/core.js?v=2.22.0"></script>
-<script src="vendor/core/core/base/libraries/toastr/toastr.min.js?v=2.22.0"></script>
-<script src="vendor/core/core/base/libraries/mcustom-scrollbar/jquery.mCustomScrollbar.js?v=2.22.0"></script>
-<script src="vendor/core/core/base/libraries/stickytableheaders/jquery.stickytableheaders.js?v=2.22.0"></script>
-<script src="vendor/core/core/base/libraries/fancybox/jquery.fancybox.min.js?v=2.22.0"></script>
-<script src="vendor/core/core/base/libraries/datatables/media/js/jquery.dataTables.min.js?v=2.22.0"></script>
-<script src="vendor/core/core/base/libraries/datatables/media/js/dataTables.bootstrap.min.js?v=2.22.0"></script>
-<script src="vendor/core/core/base/libraries/datatables/extensions/Buttons/js/dataTables.buttons.min.js?v=2.22.0"></script>
-<script src="vendor/core/core/base/libraries/datatables/extensions/Buttons/js/buttons.bootstrap.min.js?v=2.22.0"></script>
-<script src="vendor/core/core/base/libraries/datatables/extensions/Responsive/js/dataTables.responsive.min.js?v=2.22.0"></script>
-<script src="vendor/core/core/base/libraries/moment-with-locales.min.js?v=2.22.0"></script>
-<script src="vendor/core/plugins/language/js/language-global.js?v=2.22.0"></script>
-<script src="vendor/core/core/base/libraries/bootstrap3-typeahead.min.js?v=2.22.0"></script>
-<script src="vendor/core/core/table/js/table.js?v=2.22.0"></script>
-<script src="vendor/core/core/table/js/filter.js?v=2.22.0"></script>
-<script src="vendor/core/plugins/language/js/language-public.js?v=2.2.0"></script>
+<script src="{{asset('vendor/core/core/base/libraries/select2/js/select2.min.js?v=2.22.0')}}"></script>
+<script src="{{asset('vendor/core/core/base/libraries/bootstrap-datepicker/js/bootstrap-datepicker.min.js?v=2.22.0')}}"></script>
+<script src="{{asset('vendor/core/core/base/js/core.js?v=2.22.0')}}"></script>
+<script src="{{asset('vendor/core/core/base/libraries/toastr/toastr.min.js?v=2.22.0')}}"></script>
+<script src="{{asset('vendor/core/core/base/libraries/mcustom-scrollbar/jquery.mCustomScrollbar.js?v=2.22.0')}}"></script>
+<script src="{{asset('vendor/core/core/base/libraries/stickytableheaders/jquery.stickytableheaders.js?v=2.22.0')}}"></script>
+<script src="{{asset('vendor/core/core/base/libraries/fancybox/jquery.fancybox.min.js?v=2.22.0')}}"></script>
+<script src="{{asset('vendor/core/core/base/libraries/datatables/media/js/jquery.dataTables.min.js?v=2.22.0')}}"></script>
+<script src="{{asset('vendor/core/core/base/libraries/datatables/media/js/dataTables.bootstrap.min.js?v=2.22.0')}}"></script>
+<script src="{{asset('vendor/core/core/base/libraries/datatables/extensions/Buttons/js/dataTables.buttons.min.js?v=2.22.0')}}"></script>
+<script src="{{asset('vendor/core/core/base/libraries/datatables/extensions/Buttons/js/buttons.bootstrap.min.js?v=2.22.0')}}"></script>
+<script src="{{asset('vendor/core/core/base/libraries/datatables/extensions/Responsive/js/dataTables.responsive.min.js?v=2.22.0')}}"></script>
+<script src="{{asset('vendor/core/core/base/libraries/moment-with-locales.min.js?v=2.22.0')}}"></script>
+<script src="{{asset('vendor/core/plugins/language/js/language-global.js?v=2.22.0')}}"></script>
+<script src="{{asset('vendor/core/core/base/libraries/bootstrap3-typeahead.min.js?v=2.22.0')}}"></script>
+<script src="{{asset('vendor/core/core/table/js/table.js?v=2.22.0')}}"></script>
+<script src="{{asset('vendor/core/core/table/js/filter.js?v=2.22.0')}}"></script>
+<script src="{{asset('vendor/core/plugins/language/js/language-public.js?v=2.2.0')}}"></script>
 
 @endsection

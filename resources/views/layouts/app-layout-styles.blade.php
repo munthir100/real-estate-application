@@ -24,28 +24,22 @@
 <meta name="twitter:title" content="Home layout 5">
 <meta name="twitter:description" content="">
 <link href="/storage/general/favicon.png" rel="shortcut icon">
-<link media="all" type="text/css" rel="stylesheet" href="/vendor/core/plugins/language/css/language-public.css?v=2.2.0">
-<link media="all" type="text/css" rel="stylesheet" href="/vendor/core/core/base/libraries/ckeditor/content-styles.css">
-<link media="all" type="text/css" rel="stylesheet" href="/themes/resido/plugins/animation.css">
-<link media="all" type="text/css" rel="stylesheet" href="/themes/resido/plugins/bootstrap/bootstrap.min.css">
-<link media="all" type="text/css" rel="stylesheet" href="/themes/resido/plugins/ion.rangeSlider.min.css">
-<link media="all" type="text/css" rel="stylesheet" href="/themes/resido/plugins/dropzone.css">
-<link media="all" type="text/css" rel="stylesheet" href="/themes/resido/plugins/select2.css">
-<link media="all" type="text/css" rel="stylesheet" href="/themes/resido/plugins/slick.css">
-<link media="all" type="text/css" rel="stylesheet" href="/themes/resido/plugins/slick-theme.css">
-<link media="all" type="text/css" rel="stylesheet" href="/themes/resido/plugins/fontawesome/css/fontawesome.min.css">
-<link media="all" type="text/css" rel="stylesheet" href="/themes/resido/plugins/icofont.css">
-<link media="all" type="text/css" rel="stylesheet" href="/themes/resido/plugins/light-box.css">
-<link media="all" type="text/css" rel="stylesheet" href="/themes/resido/plugins/line-icon.css">
-<link media="all" type="text/css" rel="stylesheet" href="/themes/resido/plugins/themify.css">
-<link media="all" type="text/css" rel="stylesheet" href="/themes/resido/css/style.css?v=2.22.0">
-<link media="all" type="text/css" rel="stylesheet" href="/themes/resido/css/style.integration.css?v=1698022316">
-<link href="/en/home-layout-5" hreflang="x-default" rel="alternate" />
-<link href="/en/home-layout-5" hreflang="en" rel="alternate" />
-<link href="/vi/home-layout-5" hreflang="vi" rel="alternate" />
-<link type="application/atom+xml" rel="alternate" title="Properties feed" href="/en/feed/properties">
-<link type="application/atom+xml" rel="alternate" title="Properties feed" href="/vi/feed/properties">
-<link href="https://www.google.com" rel="preconnect">
-<link href="https://www.gstatic.com" rel="preconnect" crossorigin>
+<link media="all" type="text/css" rel="stylesheet" href="{{asset('vendor/core/plugins/language/css/language-public.css?v=2.2.0')}}">
+<link media="all" type="text/css" rel="stylesheet" href="{{asset('vendor/core/core/base/libraries/ckeditor/content-styles.css')}}">
+<link media="all" type="text/css" rel="stylesheet" href="{{asset('themes/resido/plugins/animation.css')}}">
+<link media="all" type="text/css" rel="stylesheet" href="{{asset('themes/resido/plugins/bootstrap/bootstrap.min.css')}}">
+<link media="all" type="text/css" rel="stylesheet" href="{{asset('themes/resido/plugins/ion.rangeSlider.min.css')}}">
+<link media="all" type="text/css" rel="stylesheet" href="{{asset('themes/resido/plugins/dropzone.css')}}">
+<link media="all" type="text/css" rel="stylesheet" href="{{asset('themes/resido/plugins/select2.css')}}">
+<link media="all" type="text/css" rel="stylesheet" href="{{asset('themes/resido/plugins/slick.css')}}">
+<link media="all" type="text/css" rel="stylesheet" href="{{asset('themes/resido/plugins/slick-theme.css')}}">
+<link media="all" type="text/css" rel="stylesheet" href="{{asset('themes/resido/plugins/fontawesome/css/fontawesome.min.css')}}">
+<link media="all" type="text/css" rel="stylesheet" href="{{asset('themes/resido/plugins/icofont.css')}}">
+<link media="all" type="text/css" rel="stylesheet" href="{{asset('themes/resido/plugins/light-box.css')}}">
+<link media="all" type="text/css" rel="stylesheet" href="{{asset('themes/resido/plugins/line-icon.css')}}">
+<link media="all" type="text/css" rel="stylesheet" href="{{asset('themes/resido/plugins/themify.css')}}">
+<link media="all" type="text/css" rel="stylesheet" href="{{asset('themes/resido/css/style.css?v=2.22.0')}}">
+<link media="all" type="text/css" rel="stylesheet" href="{{asset('themes/resido/css/style.integration.css?v=1698022316')}}">
+
 
 @yield('styles')
