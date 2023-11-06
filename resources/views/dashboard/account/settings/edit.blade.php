@@ -208,7 +208,7 @@
 
 
 @section('styles')
-<link media="all" type="text/css" rel="stylesheet" href="{{asset('vendor/core/plugins/language/css/language-public.css?v=2.2.0">
+<link media="all" type="text/css" rel="stylesheet" href="{{asset('vendor/core/plugins/language/css/language-public.css?v=2.2.0')}}">
 <link media="all" type="text/css" rel="stylesheet" href="themes/resido/plugins/animation.css">
 <link media="all" type="text/css" rel="stylesheet" href="themes/resido/plugins/bootstrap/bootstrap.min.css">
 <link media="all" type="text/css" rel="stylesheet" href="themes/resido/plugins/ion.rangeSlider.min.css">
@@ -222,17 +222,13 @@
 <link media="all" type="text/css" rel="stylesheet" href="themes/resido/plugins/line-icon.css">
 <link media="all" type="text/css" rel="stylesheet" href="themes/resido/plugins/themify.css">
 <link media="all" type="text/css" rel="stylesheet" href="themes/resido/css/style.css?v=2.22.0">
-<link media="all" type="text/css" rel="stylesheet" href="{{asset('vendor/core/core/table/css/table.css">
-<link media="all" type="text/css" rel="stylesheet" href="{{asset('vendor/core/core/base/libraries/datatables/media/css/dataTables.bootstrap.min.css">
-<link media="all" type="text/css" rel="stylesheet" href="{{asset('vendor/core/core/base/libraries/datatables/extensions/Buttons/css/buttons.bootstrap.min.css">
-<link media="all" type="text/css" rel="stylesheet" href="{{asset('vendor/core/core/base/libraries/datatables/extensions/Responsive/css/responsive.bootstrap.min.css">
-<link media="all" type="text/css" rel="stylesheet" href="themes/resido/css/account.css">
-<link media="all" type="text/css" rel="stylesheet" href="{{asset('vendor/core/plugins/real-estate/css/app_custom.css">
-<link media="all" type="text/css" rel="stylesheet" href="themes/resido/css/style.integration.css?v=1698022316">
-<link type="application/atom+xml" rel="alternate" title="Properties feed" href="https://resido.thesky9.com/en/feed/properties">
-<link type="application/atom+xml" rel="alternate" title="Properties feed" href="https://resido.thesky9.com/vi/feed/properties">
-<link href="https://www.google.com" rel="preconnect">
-<link href="https://www.gstatic.com" rel="preconnect" crossorigin>
+<link media="all" type="text/css" rel="stylesheet" href="{{asset('vendor/core/core/table/css/table.css')}}">
+<link media="all" type="text/css" rel="stylesheet" href="{{asset('vendor/core/core/base/libraries/datatables/media/css/dataTables.bootstrap.min.css')}}">
+<link media="all" type="text/css" rel="stylesheet" href="{{asset('vendor/core/core/base/libraries/datatables/extensions/Buttons/css/buttons.bootstrap.min.css')}}">
+<link media="all" type="text/css" rel="stylesheet" href="{{asset('vendor/core/core/base/libraries/datatables/extensions/Responsive/css/responsive.bootstrap.min.css')}}">
+<link media="all" type="text/css" rel="stylesheet" href="themes/resido/css/account.css')}}">
+<link media="all" type="text/css" rel="stylesheet" href="{{asset('vendor/core/plugins/real-estate/css/app_custom.css')}}">
+<link media="all" type="text/css" rel="stylesheet" href="{{asset('themes/resido/css/style.integration.css?v=1698022316')}}">
 
 @endsection
 

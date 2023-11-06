@@ -36,7 +36,7 @@
 
 
 
-    <link media="all" type="text/css" rel="stylesheet" href="{{asset('vendor/core/plugins/language/css/language-public.css?v=2.2.0">
+    <link media="all" type="text/css" rel="stylesheet" href="{{asset('vendor/core/plugins/language/css/language-public.css?v=2.2.0')}}">
     <link media="all" type="text/css" rel="stylesheet" href="{{asset('themes/resido/plugins/animation.css')}}">
     <link media="all" type="text/css" rel="stylesheet" href="{{asset('themes/resido/plugins/bootstrap/bootstrap.min.css')}}">
     <link media="all" type="text/css" rel="stylesheet" href="{{asset('themes/resido/plugins/ion.rangeSlider.min.css')}}">
@@ -164,9 +164,10 @@
 
     <script src="{{asset('vendor/core/core/base/libraries/bootstrap.bundle.min.js?v=2.22.0')}}"></script>
 
-    <link media="all" type="text/css" rel="stylesheet" href="{{asset('vendor/core/core/base/css/themes/default.css">
-    <script src="{{asset('vendor/core/plugins/real-estate/js/form.js')}}"></script>
-    <link href="{{asset('vendor/core/plugins/real-estate/css/app_custom.css" rel="stylesheet">
+    <link media="all" type="text/css" rel="stylesheet" href="{{asset('vendor/core/core/base/css/themes/default.css')}}">
+    <script src="{{asset('vendor/core/plugins/real-estate/js/form.js')}}">
+    </script>
+    <link href="{{asset('vendor/core/plugins/real-estate/css/app_custom.css')}}" rel="stylesheet">
     <script>
         jQuery(document).ready(function() {
             'use strict';
@@ -256,7 +257,8 @@
         });
     </script>
 
-    <script src="{{asset('vendor/core/plugins/language/js/language-public.js?v=2.2.0')}}"></script>
+    <script src="{{asset('vendor/core/plugins/language/js/language-public.js?v=2.2.0')}}">
+    </script>
 
 
 
