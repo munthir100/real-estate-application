@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Plan;
 use App\Models\Property;
+use App\Models\PropertyFeature;
 use App\Models\Status;
 use Illuminate\Http\Request;
 
@@ -51,6 +52,8 @@ class HomeController extends Controller
         if ($property->status_id != Status::ACCEPTED) {
             abort(404);
         }
+        $property->load('features','location','facilities');
+
 
         return view('properties.show', compact('property'));
     }

@@ -103,7 +103,7 @@
 
                     <!-- Single Block Wrap - Amenities -->
                     <!-- Single Block Wrap -->
-                    <!-- soon <div class="property_block_wrap style-2">
+                    <div class="property_block_wrap style-2">
 
                         <div class="property_block_wrap_header">
                             <a data-bs-toggle="collapse" data-parent="#amen" data-bs-target="#clThree" aria-controls="clThree" href="javascript:void(0);" aria-expanded="true">
@@ -113,25 +113,24 @@
                         <div id="clThree" class="panel-collapse collapse show">
                             <div class="block-body">
                                 <ul class="avl-features third color">
+                                    @foreach($property->features as $feature)
+
                                     <li>
                                         <i class="icon  fas fa-check "></i>
-                                        <span>Balcony</span>
+                                        <span>{{$feature->name}}</span>
                                     </li>
-                                    <li>
-                                        <i class="icon  fas fa-check "></i>
-                                        <span>Pets Allow</span>
-                                    </li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
 
 
                     <!-- Single Block Wrap - Video -->
 
 
                     <!-- Single Block Wrap -->
-                    <!-- soon <div class="property_block_wrap style-2">
+                    <div class="property_block_wrap style-2">
 
                         <div class="property_block_wrap_header">
                             <a data-bs-toggle="collapse" data-parent="#loca" data-bs-target="#clSix" aria-controls="clSix" href="javascript:void(0);" aria-expanded="true" class="collapsed">
@@ -142,21 +141,20 @@
                         <div id="clSix" class="panel-collapse collapse show">
                             <div class="block-body">
                                 <div id="zxcvbnm">
-                                    <p>36907 Strosin Mountain
-                                        Cronaville, MN 00489-6879, Mesa, Arizona</p>
+                                    <p>{{$property->location->name}}</p>
                                     <div class="traffic-map-container">
                                         <div class="row justify-content-center">
                                             <div class="col-12">
-                                                <div id="trafficMap" class="w-100 h-100"></div>
+                                                <div id="map" data-lang="{{$property->location->longitude}}" data-lat="{{$property->location->latitude}}" class="w-100 h-100"></div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
+                    </div>
 
-                    </div> -->
+
 
                     <!-- Single Block Wrap - Gallery -->
                     <!-- soon <div class="property_block_wrap style-2">
@@ -203,7 +201,7 @@
 
 
                     <!-- Single Block Wrap - Nearby -->
-                    <!-- soon <div class="property_block_wrap style-2">
+                    <div class="property_block_wrap style-2">
 
                         <div class="property_block_wrap_header">
                             <a data-bs-toggle="collapse" data-parent="#nearby" data-bs-target="#clNine" aria-controls="clNine" href="javascript:void(0);" aria-expanded="true">
@@ -214,29 +212,24 @@
                         <div id="clNine" class="panel-collapse collapse show">
                             <div class="block-body">
                                 <div class="nearby-wrap">
+                                    @foreach($property->facilities as $facility)
                                     <div class="neary_section_list">
                                         <div class="neary_section">
                                             <div class="neary_section_first">
-                                                <h4 class="nearby_place_title"><i class=" fas fa-prescription-bottle-alt "></i> Pharmacy</h4>
+                                                <h4 class="nearby_place_title"><i class=" fas fa-prescription-bottle-alt "></i> {{$facility->name}}</h4>
                                             </div>
                                             <div class="neary_section_last">
-                                                <small class="reviews-count">2km</small>
+                                                <small class="reviews-count">{{$facility->pivot->distance}}km</small>
                                             </div>
                                         </div>
-                                        <div class="neary_section">
-                                            <div class="neary_section_first">
-                                                <h4 class="nearby_place_title"><i class=" fas fa-cart-plus "></i> Mall</h4>
-                                            </div>
-                                            <div class="neary_section_last">
-                                                <small class="reviews-count">5km</small>
-                                            </div>
-                                        </div>
+                                        
                                     </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
 
-                    </div> -->
+                    </div>
 
 
                     <!-- Single Review -->
@@ -416,10 +409,33 @@
     <div data-magnific-popup="#trafficMap" data-map-id="trafficMap" data-popup-id="#traffic-popup-map-template" data-map-icon="For Rent: $218,103" data-center="[&quot;38.142768&quot;,&quot;-85.7717132&quot;]">
     </div>
 
-  
+
 
     </script>
     <!-- ============================ Property Detail End ================================== -->
 
 </div>
+@section('styles')
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+@endsection
+
+@section('scripts')
+
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<script>
+    // Get longitude and latitude from data attributes
+    var lang = document.getElementById('map').getAttribute('data-lang');
+    var lat = document.getElementById('map').getAttribute('data-lat');
+
+    // Initialize the map
+    var map = L.map('map').setView([lat, lang], 15);
+
+    // Add a base layer (e.g., OpenStreetMap)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+    }).addTo(map);
+
+    // Add a marker at the property's location
+    L.marker([lat, lang]).addTo(map);
+</script>
 @endsection

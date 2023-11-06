@@ -75,7 +75,8 @@ class Property extends Model implements HasMedia
 
     public function facilities()
     {
-        return $this->belongsToMany(Facility::class, 'property_facilities');
+        return $this->belongsToMany(Facility::class, 'property_facilities', 'property_id', 'facility_id')
+        ->withPivot('distance'); 
     }
 
     public function features()

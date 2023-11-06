@@ -29,8 +29,8 @@ class CreatePropertyRequest extends FormRequest
             'category_id' => 'nullable|int',
 
             'location' => 'required|string',
-            'longitude' => 'nullable|numeric',
-            'latitude' => 'nullable|numeric',
+            'longitude' => 'required|numeric',
+            'latitude' => 'required|numeric',
 
             'number_of_bedrooms' => 'nullable|integer',
             'number_of_bathrooms' => 'nullable|integer',

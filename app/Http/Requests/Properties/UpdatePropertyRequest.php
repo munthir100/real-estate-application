@@ -28,8 +28,8 @@ class UpdatePropertyRequest extends FormRequest
             'city_id' => 'nullable|integer',
 
             'location' => 'required|string',
-            'longitude' => 'nullable|numeric',
-            'latitude' => 'nullable|numeric',
+            'longitude' => 'required|numeric',
+            'latitude' => 'required|numeric',
 
             'number_of_bedrooms' => 'nullable|integer',
             'number_of_bathrooms' => 'nullable|integer',
@@ -41,8 +41,8 @@ class UpdatePropertyRequest extends FormRequest
 
             'period' => 'nullable|in:day,month,year',
             'label' => 'nullable|string',
-            'facilities.*.id' => 'nullable|integer',
-            'facilities.*.distance' => 'nullable|numeric',
+            'facilities.*.id' => 'required|integer',
+            'facilities.*.distance' => 'required|numeric',
 
             'property_type_id' => 'required|integer',
             'video_url' => 'nullable|string',

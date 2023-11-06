@@ -40,10 +40,10 @@ class PropertyService
 
     public function deleteFeatures(Property $property)
     {
-        $property->propertyFeatures()->detach();
+        $property->features()->detach();
     }
     public function deleteFacilities(Property $property)
     {
-        $property->propertyFacility()->detach();
+        $property->facilities()->detach();
     }
 }
