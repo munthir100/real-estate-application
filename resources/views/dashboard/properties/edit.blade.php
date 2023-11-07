@@ -1,5 +1,6 @@
 @extends('dashboard.layouts.dashboard-layout')
 @section('content')
+<x-shared.alerts />
 <section class="bg-light">
     <div class="container-fluid">
         <div class="row">
@@ -22,15 +23,6 @@
                         <form method="POST" action="{{route('dashboard.properties.update',$property->id)}}" accept-charset="UTF-8" id="botble-real-estate-forms-account-property-form" class="js-base-form dirty-check" enctype="multipart/form-data">
                             @method('put')
                             @csrf
-                            @if($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                            @endif
 
                             <div class="row">
 
@@ -82,7 +74,7 @@
 
                                                 </div>
 
-                
+
                                                 <div class="form-group mb-3">
 
                                                     <label for="images" class="control-label">Images</label>

@@ -14,6 +14,9 @@ class CitySeeder extends Seeder
             ['name' => 'City 1', 'town_id' => 1], // Associate with Town 1
             ['name' => 'City 2', 'town_id' => 2], // Associate with Town 2
             ['name' => 'City 3', 'town_id' => 1], // Associate with Town 1
+            ['name' => 'City 4', 'town_id' => 1], // Associate with Town 1
+            ['name' => 'City 5', 'town_id' => 1], // Associate with Town 1
+            ['name' => 'City 6', 'town_id' => 1], // Associate with Town 1
             // Add more cities as needed
         ];
 

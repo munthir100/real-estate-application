@@ -4,7 +4,7 @@
 @section('content')
 <div id="app">
     <div>
-        <x-plans :plans="$plans" />
+        <x-home.plans :plans="$plans" />
     </div>
 </div>
 @endsection

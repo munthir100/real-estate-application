@@ -11,6 +11,7 @@ class PropertyFilters extends QueryFilters
     protected array $columnSearch = ['title'];
     
     protected array $relationSearch = [
-        'type' => ['name']
+        'type' => ['name'],
+        'city' => ['name'],
     ];
 }

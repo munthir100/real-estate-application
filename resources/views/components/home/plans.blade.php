@@ -1,5 +1,3 @@
-@auth
-@if(request()->user()->isSubscriber)
 <section id="pricing-section">
     <div class="container">
         <div class="row justify-content-center">
@@ -43,5 +41,3 @@
             </div>
         </div>
 </section>
-@endif
-@endauth

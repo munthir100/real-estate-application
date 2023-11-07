@@ -1,5 +1,7 @@
 @extends('dashboard.layouts.dashboard-layout')
 @section('content')
+
+
 <section class="bg-light">
     <div class="container-fluid">
         <div class="row">
@@ -32,7 +34,7 @@
 
                                     </div>
                                 </div>
-                                <a href="{{route('dashboard.properties.create')}}" class="btn btn-outline-secondary"><i class="fas fa-plus"></i> Create</a>
+                                <a href="{{route('dashboard.properties.create')}}" class="btn btn-info"><i class="fas fa-plus"></i> Create</a>
                             </div>
 
                             <!-- Table -->
@@ -87,8 +89,8 @@
                                     <x-dashboard.delete-property :property="$property" />
 
                                     @empty
-                                    <tr class="odd">
-                                        <td valign="top" colspan="9" class="dataTables_empty">No data to display</td>
+                                    <tr role="row">
+                                        <td colspan="5" class="text-center" style="height: 100px;">No properties found.</td>
                                     </tr>
                                     @endforelse
                                 </tbody>
@@ -99,6 +101,7 @@
 
 
                             </table>
+                            
                         </div>
                     </div>
                 </div>

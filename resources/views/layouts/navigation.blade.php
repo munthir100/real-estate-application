@@ -23,16 +23,38 @@
                     </li>
                     <li class="  ">
                         <a href="{{route('applications')}}">
-                            Real Estate Applications
+                            Applications
                         </a>
                     </li>
-                    <!-- <li class=" menu-item-has-children   ">
-                        <a href="{{route('home')}}">
-                            Featured Properties
+                    @auth
+                    @if(request()->user()->isSubscriber)
+                    <li class="  ">
+                        <a href="{{route('agents.index')}}">
+                            Agents
                         </a>
+                    </li>
+                    @endif
+                    @endauth
+                    <li class=" menu-item-has-children    current-menu-item ">
+                        <a href="{{route('home')}}">
+                            Pages
+                        </a>
+                        <ul class="nav-dropdown nav-submenu">
 
-                    </li> -->
+                            <li class="  ">
+                                <a href="{{route('plans.index')}}">
+                                    Pricing
+                                </a>
+                            </li>
 
+                            <li class="  ">
+                                <a href="{{route('contact.index')}}">
+                                    Contact
+                                </a>
+                            </li>
+                        </ul>
+
+                    </li>
                     @guest
                     <li class="  ">
                         <a href="{{route('registerForm')}}">
@@ -41,18 +63,23 @@
                     </li>
 
                     <ul class="nav-menu nav-menu-social align-to-right">
-                        
+                        <li class="">
+                            <a href="{{route('dashboard.properties.create')}}" class="text-success"><img src="{{asset('themes/resido/img/submit.svg')}}" width="20" alt="" class="mr-2"> Add Property</a>
+                        </li>
                         <li class="add-listing">
                             <a href="{{route('login')}}">
                                 <img src="themes/resido/img/user-light.svg" width="12" alt="" class="mr-2">Sign In</a>
                         </li>
+
                     </ul>
                     @else
 
 
 
                     <ul class="nav-menu nav-menu-social align-to-right">
-                        
+                        <li class="login-item">
+                            <a href="{{route('dashboard.properties.create')}}" class="text-success"><img src="/themes/resido/img/submit.svg" width="20" alt="" class="mr-2"> Add Property</a>
+                        </li>
                         <li class="login-item">
                             <a href="{{route('dashboard.home')}}" rel="nofollow"><i class="fas fa-user"></i> <span>
                                     {{Auth::user()->first_name}} {{Auth::user()->last_name}}
@@ -104,8 +131,8 @@
                             </button>
                             <ul class="dropdown-menu language_bar_chooser ">
                                 <li>
-                                    <a href="https://resido.thesky9.com/vi/home-layout-5">
-                                        <img src="https://resido.thesky9.com/vendor/core/core/base/images/flags/vn.svg" title="Tiếng Việt" width="16" alt="Tiếng Việt">
+                                    <a href="{{route('home')}}">
+                                        <img src="{{asset('vendor/core/core/base/images/flags/vn.svg')}}" title="Tiếng Việt" width="16" alt="Tiếng Việt">
                                         <span>Tiếng Việt</span>
                                     </a>
                                 </li>

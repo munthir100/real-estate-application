@@ -12,6 +12,7 @@ class UserType extends Model
     const SUBSCRIBER = 1;
     const BROWSER = 2;
     const ADMIN = 3;
+    const Agent = 4;
     // Define the relationship with the User model
     public function users()
     {

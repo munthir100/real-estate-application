@@ -11,15 +11,7 @@
                         <div class="modal-body">
                             <h2 class="text-center">Register</h2>
                             <br>
-                            @if($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                            @endif
+
                             <form method="POST" class="simple-form" action="{{route('register')}}">
                                 @csrf
                                 <div class="row">
@@ -142,7 +134,7 @@
                                                     <option value="male">male</option>
                                                     <option value="female">female</option>
                                                 </select>
-                                                <i class="fas fa-birthday-cake"></i>
+                                                <i class="fas fa-male"></i>
 
 
                                                 @error('birth_date')
@@ -201,7 +193,7 @@
                                         <div class="form-group">
                                             <div class="input-with-icon">
                                                 <input id="commertial_number" type="text" class="form-control" name="commertial_number" placeholder="Commercial Registration Number">
-                                                <i class="ti-briefcase"></i>
+                                                <i class="ti-agenda"></i>
                                             </div>
                                         </div>
                                         @error('commercial_number')
@@ -217,7 +209,7 @@
                                         <div class="form-group">
                                             <div class="input-with-icon">
                                                 <input id="company_name" type="text" class="form-control" name="company_name" placeholder="Name of Company">
-                                                <i class="ti-briefcase"></i>
+                                                <i class="ti-home"></i>
                                             </div>
                                         </div>
                                         @error('company_name')
@@ -233,7 +225,7 @@
                                         <div class="form-group">
                                             <div class="input-with-icon">
                                                 <input id="tax_number" type="text" class="form-control" name="tax_number" placeholder="Tax Number">
-                                                <i class="ti-briefcase"></i>
+                                                <i class="ti-receipt"></i>
                                             </div>
                                         </div>
                                         @error('password')
@@ -250,7 +242,7 @@
                                         <div class="form-group">
                                             <div class="input-with-icon">
                                                 <input id="office_name" type="text" class="form-control" name="office_name" placeholder="Name of Office">
-                                                <i class="ti-briefcase"></i>
+                                                <i class="ti-home"></i>
                                             </div>
                                         </div>
                                         @error('password')
@@ -262,7 +254,7 @@
                                         @enderror
                                     </div>
 
-                                    <div class="col-6">
+                                    <div class="col-lg-6 col-md-6">
 
                                         <div class="form-group">
                                             <div class="input-with-icon">

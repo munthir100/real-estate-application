@@ -91,7 +91,7 @@
 
 
 
-
+        <x-shared.alerts />
         @yield('content')
 
 

@@ -2,6 +2,7 @@
 @section('title','Login')
 
 @section('content')
+
 <div id="app">
     <section>
         <div class="container">
@@ -25,7 +26,7 @@
 
                                         <span class="invalid-feedback d-block">
                                             <strong>
-                                            {{ $errors->first('email') }}
+                                                {{ $errors->first('email') }}
                                             </strong>
                                         </span>
                                         @endif

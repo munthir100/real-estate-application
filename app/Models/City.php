@@ -13,5 +13,10 @@ class City extends Model
         return $this->belongsTo(Town::class);
     }
 
+    function properties()
+    {
+        return $this->hasMany(Property::class);
+    }
+
     // Define any other relationships with other models here
 }

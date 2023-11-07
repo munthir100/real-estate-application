@@ -19,6 +19,7 @@ class UserTypeSeeder extends Seeder
             ['name' => 'Subscriber'],
             ['name' => 'Browser'],
             ['name' => 'Admin'],
+            ['name' => 'Agent'],
         ];
 
         // Insert seed data

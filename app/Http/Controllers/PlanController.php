@@ -15,14 +15,8 @@ class PlanController extends Controller
 
     function index()
     {
-        if (auth()->check()) {
-            if (request()->user()->isSubscriber) {
-                $plans = Plan::all();
-            } else {
-                abort(404);
-            }
-        }
-        
+        $plans = Plan::all();
+
         return view('plans.index', compact('plans'));
     }
     public function subscribe(Plan $plan)

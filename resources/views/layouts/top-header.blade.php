@@ -21,15 +21,10 @@
             </div>
 
             <div class="topbar-right d-flex align-items-center">
-                <div class="topbar-wishlist">
-                    <a class="text-white" href="https://resido.thesky9.com/en/wishlist"><i class="fas fa-heart"></i> Wishlist(<span class="wishlist-count">0</span>)</a>
-                </div>
+                
                 <div class="ms-3 text-white currency-wrapper">
                     <div class="dropdown">
-                        <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                            USD
-                            <span class="caret"></span>
-                        </a>
+                       
 
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <li>

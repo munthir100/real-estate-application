@@ -12,11 +12,22 @@ use App\Http\Controllers\Properties\PropertiesController;
 use App\Http\Controllers\Properties\ApplicationsController;
 use App\Http\Controllers\Dashboard\Account\SettingsController;
 use App\Http\Controllers\admin\PropertiesController as AdminPropertiesController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\dashboard\AgentController;
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('properties', [HomeController::class, 'properties'])->name('properties');
 Route::get('applications', [HomeController::class, 'applications'])->name('applications');
+Route::get('plans', [PlanController::class, 'index'])->name('plans.index');
+Route::get('contact', [ContactController::class, 'index'])->name('contact.index');
+Route::get('agents', [AgentController::class, 'index'])->name('agents.index');
+
+
+
+
+
 Route::get('properties/{property}/details', [HomeController::class, 'propertyDetails'])->name('properties.details');
+Route::get('city/{cityName}', [HomeController::class, 'cityProperties'])->name('cityProperties');
 
 Route::prefix('login')->group(function () {
     Route::get('/', [LoginController::class, 'loginForm'])->name('loginForm');
@@ -47,7 +58,6 @@ Route::middleware(['auth'])->prefix('/dashboard')->name('dashboard.')->group(fun
     Route::resource('applications', ApplicationsController::class);
 });
 Route::middleware('auth', 'is_subscriber')->group(function () {
-    Route::get('plans', [PlanController::class, 'index'])->name('plans');
     Route::get('plans/{plan}/subscribe', [PlanController::class, 'subscribe'])->name('plans.subscribe');
 });
 
@@ -58,3 +68,5 @@ Route::middleware('auth', 'is_admin')->prefix('admin')->name('admin.')->group(fu
     Route::post('properties/{property}/reject', [AdminPropertiesController::class, 'reject'])->name('properties.reject');
     Route::post('properties/{property}/delete', [AdminPropertiesController::class, 'delete'])->name('properties.delete');
 });
+
+Route::view('test','test');

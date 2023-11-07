@@ -21,15 +21,6 @@
                     <div class="dashboard-wraper1">
                         <form method="POST" action="{{route('dashboard.applications.store')}}" accept-charset="UTF-8" id="botble-real-estate-forms-account-property-form" class="js-base-form dirty-check" enctype="multipart/form-data">
                             @csrf
-                            @if($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                            @endif
 
                             <div class="row">
 

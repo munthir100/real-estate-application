@@ -26,6 +26,7 @@ digraph UML_Diagram {
     Subscriber [label = "{Subscriber | id: int | user_id (FK): int | commertial_number:int | office_name : string | tax_number : int|company_name:string }";];
     Browser [label = "{Browser | id: int | user_id (FK): int}";];
     Admin [label = "{Admin | id: int | user_type_id (FK): int}";];
+    Agent [label = "{Agent | id: int | user_type_id (FK): int | subscriber_id:int (FK)}";];
     
     // Property Advertisement
     PropertyType [label = "{PropertyType | id: int | name: string}";];

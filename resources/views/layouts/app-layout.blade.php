@@ -31,7 +31,7 @@
         @include('layouts.navigation')
         <!-- End Navigation -->
         <div class="clearfix"></div>
-
+        <x-shared.alerts />
         @yield('content')
 
 
