@@ -24,7 +24,7 @@
 
                         <li class="{{ request()->routeIs('dashboard.account.settings.edit') ? 'active' : '' }}">
                             <a href="{{ route('dashboard.account.settings.edit') }}" title="Settings">
-                                <i class="fas fa-cogs mr1"></i>Settings
+                                <i class="ti-settings mr1"></i>Settings
                             </a>
                         </li>
                         @if(request()->user()->user_type_id == App\Models\UserType::SUBSCRIBER)
@@ -43,7 +43,12 @@
 
                         <li class="{{ request()->routeIs('dashboard.applications*') ? 'active' : '' }}">
                             <a href="{{route('dashboard.applications.index')}}" title="Applications">
-                                <i class="far fa-home mr1"></i>Applications
+                                <i class="ti-home mr1"></i>Applications
+                            </a>
+                        </li>
+                        <li class="{{ request()->routeIs('dashboard.applications*') ? 'active' : '' }}">
+                            <a href="{{route('dashboard.applications.index')}}" title="Applications">
+                                <i class="ti-user mr1"></i>Agents
                             </a>
                         </li>
                         @endif
