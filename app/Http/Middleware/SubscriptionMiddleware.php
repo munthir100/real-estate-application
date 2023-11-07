@@ -20,7 +20,7 @@ class SubscriptionMiddleware
         $user = request()->user();
         $planExist = UserPlan::where('user_id', $user->id)->first();
         if (!$planExist) {
-            return redirect()->route('plans');
+            return redirect()->route('plans.index');
         }
         return $next($request);
     }

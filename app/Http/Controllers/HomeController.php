@@ -31,43 +31,44 @@ class HomeController extends Controller
 
     public function properties(Request $request)
     {
+        // Start with the base query
         $query = Property::whereStatusId(Status::ACCEPTED)
             ->whereDoesntHave('applications');
 
-        // Check the 'sort_by' query parameter and set the sorting criteria accordingly
-        if ($request->has('sort_by')) {
-            switch ($request->input('sort_by')) {
-                case 'date_asc':
-                    $query->orderBy('created_at', 'asc');
-                    break;
-                case 'date_desc':
-                    $query->orderBy('created_at', 'desc');
-                    break;
-                case 'price_asc':
-                    $query->orderBy('price', 'asc');
-                    break;
-                case 'price_desc':
-                    $query->orderBy('price', 'desc');
-                    break;
-                case 'name_asc':
-                    $query->orderBy('title', 'asc');
-                    break;
-                case 'name_desc':
-                    $query->orderBy('title', 'desc');
-                    break;
-                    // Add more sorting options as needed
-            }
-        } else {
-            // Default sorting (you can set a default sorting option here)
-            $query->orderBy('created_at', 'desc');
+        // Apply filters based on form inputs
+        if ($request->location) {
+            $query->join('locations', 'properties.location_id', '=', 'locations.id')
+                ->where('locations.name', 'like', '%' . $request->input('location') . '%');
         }
 
-        $properties = $query->useFilters()->dynamicPaginate();
+        if ($request->min_price) {
+            $query->where('price', '>=', (int) $request->input('min_price'));
+        }
+        if ($request->max_price) {
+            $query->where('price', '<=', (int) $request->input('max_price'));
+        }
 
+
+        if ($request->category_id) {
+            $query->where('property_type_id', $request->input('category_id'));
+        }
+
+        if ($request->bedroom) {
+            $query->where('number_of_bedrooms', $request->input('bedroom'));
+        }
+
+        if ($request->city_id) {
+            $query->where('city_id', $request->input('city_id'));
+        }
+
+        // Sorting logic (similar to your existing code)
+
+        $properties = $query->useFilters()->dynamicPaginate();
         $propertiesCount = $properties->total(); // Calculate the total count
 
         return view('properties.index', compact('properties'));
     }
+
 
 
 

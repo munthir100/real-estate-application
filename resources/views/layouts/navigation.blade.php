@@ -82,7 +82,8 @@
                         </li>
                         <li class="login-item">
                             <a href="{{route('dashboard.home')}}" rel="nofollow"><i class="fas fa-user"></i> <span>
-                                    {{Auth::user()->first_name}} {{Auth::user()->last_name}}
+                                    {{ substr(Auth::user()->first_name . ' ' . Auth::user()->last_name, 0, 21) }}
+
                                 </span>
                             </a>
                         </li>

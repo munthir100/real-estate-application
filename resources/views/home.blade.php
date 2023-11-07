@@ -7,20 +7,7 @@
         <div id="ismain-homes">
             <div class="ck-content">
                 <div>
-                    <div class="image-cover hero-banner" style="background:#eff6ff url(https://resido.thesky9.com/storage/banners/home-2.png) no-repeat;">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-9 col-md-11 col-sm-12">
-                                    <div class="inner-banner-text text-center">
-                                        <p class="lead-i">Amet consectetur adipisicing New</p>
-                                        <h2>Find Your Perfect Place.</h2>
-                                    </div>
-                                    <x-properties.search-bar />
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <x-home.hero :cities="$cities"/>
                     <!-- ============================ Hero Banner End ================================== -->
                 </div>
 
