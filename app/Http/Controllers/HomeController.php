@@ -22,12 +22,9 @@ class HomeController extends Controller
             ->withCount('properties')
             ->get();
 
-        $plans = null;
-        if (auth()->check()) {
-            if (request()->user()->isSubscriber) {
-                $plans = Plan::all();
-            }
-        }
+
+        $plans = Plan::all();
+
 
         return view('home', compact('properties', 'plans', 'cities'));
     }
