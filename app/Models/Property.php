@@ -147,6 +147,40 @@ class Property extends Model implements HasMedia
                 $subQuery->whereIn('feature_id', $filters['features']);
             });
         }
+
+        if ($filters['sort_by']) {
+            $sortField = 'created_at'; // Default sort field
+    
+            switch ($filters['sort_by']) {
+                case 'date_asc':
+                    $sortField = 'created_at';
+                    $sortOrder = 'asc';
+                    break;
+                case 'date_desc':
+                    $sortField = 'created_at';
+                    $sortOrder = 'desc';
+                    break;
+                case 'price_asc':
+                    $sortField = 'price';
+                    $sortOrder = 'asc';
+                    break;
+                case 'price_desc':
+                    $sortField = 'price';
+                    $sortOrder = 'desc';
+                    break;
+                case 'name_asc':
+                    $sortField = 'title';
+                    $sortOrder = 'asc';
+                    break;
+                case 'name_desc':
+                    $sortField = 'title';
+                    $sortOrder = 'desc';
+                    break;
+            }
+    
+            $query->orderBy($sortField, $sortOrder);
+        }
+
         
 
 

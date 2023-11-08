@@ -56,14 +56,15 @@ class HomeController extends Controller
         return view('properties.index', compact('properties'));
     }
 
-    function applications()
+    function applications(Request $request)
     {
+        $userSearchCriteria = $this->getRequestedFilters($request);
         $properties = Property::whereStatusId(Status::ACCEPTED)
             ->whereHas('applications')
-            ->useFilters()
+            ->usePropertyFilters($userSearchCriteria)
             ->dynamicPaginate();
 
-        return view('properties.applications.index', compact('properties'));
+        return view('properties.applications.index', compact('properties', 'userSearchCriteria'));
     }
 
     function propertyDetails(Property $property)
@@ -92,6 +93,13 @@ class HomeController extends Controller
             'bedroom' => $request->bedroom,
             'city_id' => $request->city_id,
             'features' => $request->features,
+            'date_asc' => $request->date_asc,
+            'date_desc' => $request->date_desc,
+            'price_asc' => $request->price_asc,
+            'price_desc' => $request->price_desc,
+            'name_asc' => $request->name_asc,
+            'name_desc' => $request->name_desc,
+            'sort_by' => $request->name_desc,
         ];
     }
 }
