@@ -79,7 +79,7 @@
                                             <div class="list-fx-features">
                                                 <div class="listing-card-info-icon">
                                                     <div class="inc-fleat-icon">
-                                                        <img src="https://resido.thesky9.com/themes/resido/img/bed.svg" width="13" alt="" />
+                                                        <img src="{{asset('themes/resido/img/bed.svg')}}" width="13" alt="" />
                                                     </div>
                                                     @if(!$property->number_of_beds)
                                                     0
@@ -90,7 +90,7 @@
 
                                                 <div class="listing-card-info-icon">
                                                     <div class="inc-fleat-icon">
-                                                        <img src="https://resido.thesky9.com/themes/resido/img/bathtub.svg" width="13" alt="" />
+                                                        <img src="{{asset('themes/resido/img/bathtub.svg')}}" width="13" alt="" />
                                                     </div>
                                                     @if(!$property->number_of_bathrooms)
                                                     0
@@ -101,7 +101,7 @@
 
                                                 <div class="listing-card-info-icon">
                                                     <div class="inc-fleat-icon">
-                                                        <img src="https://resido.thesky9.com/themes/resido/img/move.svg" width="13" alt="" />
+                                                        <img src="{{asset('themes/resido/img/move.svg')}}" width="13" alt="" />
                                                     </div>
                                                     @if(!$property->square)
                                                     0

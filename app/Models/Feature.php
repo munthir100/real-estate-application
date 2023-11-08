@@ -9,7 +9,7 @@ class Feature extends Model
 {
     use HasFactory;
 
-    public function propertyAdvertisementFeatures()
+    public function propertyFeatures()
     {
         return $this->hasMany(PropertyFeature::class);
     }

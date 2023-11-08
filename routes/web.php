@@ -14,6 +14,7 @@ use App\Http\Controllers\Dashboard\Account\SettingsController;
 use App\Http\Controllers\admin\PropertiesController as AdminPropertiesController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\dashboard\AgentController;
+use App\Models\City;
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('properties', [HomeController::class, 'properties'])->name('properties');
@@ -21,7 +22,6 @@ Route::get('applications', [HomeController::class, 'applications'])->name('appli
 Route::get('plans', [PlanController::class, 'index'])->name('plans.index');
 Route::get('contact', [ContactController::class, 'index'])->name('contact.index');
 Route::get('agents', [AgentController::class, 'index'])->name('agents.index');
-
 
 
 
@@ -69,4 +69,4 @@ Route::middleware('auth', 'is_admin')->prefix('admin')->name('admin.')->group(fu
     Route::post('properties/{property}/delete', [AdminPropertiesController::class, 'delete'])->name('properties.delete');
 });
 
-Route::view('test','test');
+Route::view('test', 'test');

@@ -2,17 +2,20 @@
 @section('title','Home')
 
 @section('content')
-<div id="app">
-    <div class="page-title">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-10 col-md-12">
-                    <x-properties.search-bar />
+<div class="page-title">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
 
-                </div>
+                <h1 class="ipt-title">Properties</h1>
+                <span class="ipn-subtitle"></span>
+
             </div>
         </div>
     </div>
+</div>
+<div id="app">
+
 
     <!-- ============================ All Property ================================== -->
     <section class="gray">
@@ -26,7 +29,7 @@
                 </div>
             </div>
 
-            <x-properties.list-pagination :properties="$properties" />
+            <x-properties.list-pagination :properties="$properties" :userSearchCriteria="$userSearchCriteria" />
         </div>
     </section>
 

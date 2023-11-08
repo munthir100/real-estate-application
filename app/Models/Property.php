@@ -76,7 +76,7 @@ class Property extends Model implements HasMedia
     public function facilities()
     {
         return $this->belongsToMany(Facility::class, 'property_facilities', 'property_id', 'facility_id')
-        ->withPivot('distance'); 
+            ->withPivot('distance');
     }
 
     public function features()
@@ -97,5 +97,59 @@ class Property extends Model implements HasMedia
     public function applications()
     {
         return $this->hasMany(Application::class);
+    }
+
+    //scopes
+    public function scopeUsePropertyFilters($query, $filters)
+    {
+        if ($filters['location']) {
+            $query->join('locations', 'properties.location_id', '=', 'locations.id')
+                ->where('locations.name', 'like', '%' . $filters['location'] . '%');
+        }
+
+        if ($filters['min_price']) {
+            $query->where('price', '>=', (int) $filters['min_price']);
+        }
+
+        if ($filters['max_price']) {
+            $query->where('price', '<=', (int) $filters['max_price']);
+        }
+
+        if ($filters['min_square']) {
+            $query->where('square', '>=', (int) $filters['min_square']);
+        }
+
+        if ($filters['max_square']) {
+            $query->where('square', '<=', (int) $filters['max_square']);
+        }
+
+        if ($filters['category_id']) {
+            $query->where('property_type_id', $filters['category_id']);
+        }
+
+        if ($filters['bedroom']) {
+            $query->where('number_of_bedrooms', $filters['bedroom']);
+        }
+        if ($filters['bathroom']) {
+            $query->where('number_of_bathrooms', $filters['bathroom']);
+        }
+
+        if ($filters['city_id']) {
+            $query->where('city_id', $filters['city_id']);
+        }
+        if ($filters['type']) {
+            $query->join('property_types', 'properties.property_type_id', '=', 'property_types.id')
+                ->where('property_types.name', 'like', '%' . $filters['type'] . '%');
+        }
+
+        if ($filters['features']) {
+            $query->whereHas('features', function ($subQuery) use ($filters) {
+                $subQuery->whereIn('feature_id', $filters['features']);
+            });
+        }
+        
+
+
+        return $query;
     }
 }

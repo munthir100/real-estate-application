@@ -32,41 +32,14 @@ class HomeController extends Controller
     public function properties(Request $request)
     {
         // Start with the base query
-        $query = Property::whereStatusId(Status::ACCEPTED)
-            ->whereDoesntHave('applications');
-
-        // Apply filters based on form inputs
-        if ($request->location) {
-            $query->join('locations', 'properties.location_id', '=', 'locations.id')
-                ->where('locations.name', 'like', '%' . $request->input('location') . '%');
-        }
-
-        if ($request->min_price) {
-            $query->where('price', '>=', (int) $request->input('min_price'));
-        }
-        if ($request->max_price) {
-            $query->where('price', '<=', (int) $request->input('max_price'));
-        }
+        $userSearchCriteria = $this->getRequestedFilters($request);
+        $properties = Property::whereStatusId(Status::ACCEPTED)
+            ->whereDoesntHave('applications')
+            ->usePropertyFilters($userSearchCriteria)
+            ->dynamicPaginate();
 
 
-        if ($request->category_id) {
-            $query->where('property_type_id', $request->input('category_id'));
-        }
-
-        if ($request->bedroom) {
-            $query->where('number_of_bedrooms', $request->input('bedroom'));
-        }
-
-        if ($request->city_id) {
-            $query->where('city_id', $request->input('city_id'));
-        }
-
-        // Sorting logic (similar to your existing code)
-
-        $properties = $query->useFilters()->dynamicPaginate();
-        $propertiesCount = $properties->total(); // Calculate the total count
-
-        return view('properties.index', compact('properties'));
+        return view('properties.index', compact('properties', 'userSearchCriteria'));
     }
 
 
@@ -102,5 +75,23 @@ class HomeController extends Controller
 
 
         return view('properties.show', compact('property'));
+    }
+
+
+    function getRequestedFilters($request)
+    {
+        return [
+            'location' => $request->location,
+            'min_price' => $request->min_price,
+            'max_price' => $request->max_price,
+            'min_square' => $request->min_square,
+            'max_square' => $request->max_square,
+            'bathroom' => $request->bathroom,
+            'type' => $request->type,
+            'category_id' => $request->category_id,
+            'bedroom' => $request->bedroom,
+            'city_id' => $request->city_id,
+            'features' => $request->features,
+        ];
     }
 }

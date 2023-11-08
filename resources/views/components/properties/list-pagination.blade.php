@@ -1,6 +1,12 @@
+@php
+$properties->load('location','currency')
+@endphp
 <div class="row">
+    <div class="col-lg-4 col-md-4 col-sm-12">
+        <x-properties.sidebar-search :userSearchCriteria="$userSearchCriteria" />
+    </div>
 
-    <div class="col-lg-12 col-md-12 list-layout">
+    <div class="col-lg-8 col-md-12 list-layout">
         <div class="row justify-content-center">
             <div class="col-lg-12 col-md-12">
                 <div class="item-sorting-box">
@@ -9,7 +15,6 @@
                             <h4 class="m-0">
                                 Found {{ $properties->count() > 0 ? ($properties->firstItem() . ' - ' . $properties->lastItem()) : '0' }} Of {{ $properties->total() }} Results
                             </h4>
-
                         </div>
                     </div>
                     <div class="item-sorting-box-right">
@@ -27,10 +32,10 @@
                         </div>
                         <ul class="shorting-list">
                             <li>
-                                <a href="#/city/newark?view=grid" class=""><i class="ti-layout-grid2"></i></a>
+                                <a href="/properties?layout=sidebar&amp;view=grid" class="active"><i class="ti-layout-grid2"></i></a>
                             </li>
                             <li>
-                                <a href="#/city/newark?view=list" class="active"><i class="ti-view-list"></i></a>
+                                <a href="/properties?layout=sidebar&amp;view=list" class=""><i class="ti-view-list"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -41,117 +46,146 @@
         <div class="row">
             @forelse($properties as $property)
             <div class="col-lg-6 col-md-12">
-                <div class="property-listing property-1" data-lat="30.221926" data-long="-85.6242">
+                <div class="property-listing property-2 " data-lat="30.1548681" data-long="-85.7709976">
                     <div class="listing-img-wrapper">
-                        <a href="{{route('properties.details',$property->id)}}">
-                            <img src="https://resido.thesky9.com/storage/general/img-loading.jpg" data-src="https://resido.thesky9.com/storage/properties/p-3-400xauto.jpg" class="img-fluid mx-auto lazy" alt="{{$property->title}}" />
-                        </a>
-                        <div class="icon-actions-wrapper">
-                            <a href="JavaScript:Void(0);" data-id="16" class="add-to-wishlist">
-                                <i class="far fa-heart"></i>
-                            </a>
+                        <div class="list-img-slide">
+                            <div class="click ">
+                                <div>
+                                    <a href="{{route('properties.details',$property->id)}}">
+                                        <img src="https://resido.thesky9.com/storage/general/img-loading.jpg" data-src="https://resido.thesky9.com/storage/properties/p-16-400xauto.jpg" class="img-fluid mx-auto lazy" alt="{{$property->title}}" />
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="{{route('properties.details',$property->id)}}">
+                                        <img src="https://resido.thesky9.com/storage/general/img-loading.jpg" data-src="https://resido.thesky9.com/storage/properties/p-3-400xauto.jpg" class="img-fluid mx-auto lazy" alt="{{$property->title}}" />
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="{{route('properties.details',$property->id)}}">
+                                        <img src="https://resido.thesky9.com/storage/general/img-loading.jpg" data-src="https://resido.thesky9.com/storage/properties/p-15-400xauto.jpg" class="img-fluid mx-auto lazy" alt="{{$property->title}}" />
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="{{route('properties.details',$property->id)}}">
+                                        <img src="https://resido.thesky9.com/storage/general/img-loading.jpg" data-src="https://resido.thesky9.com/storage/properties/p-2-400xauto.jpg" class="img-fluid mx-auto lazy" alt="{{$property->title}}" />
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="{{route('properties.details',$property->id)}}">
+                                        <img src="https://resido.thesky9.com/storage/general/img-loading.jpg" data-src="https://resido.thesky9.com/storage/properties/p-4-400xauto.jpg" class="img-fluid mx-auto lazy" alt="{{$property->title}}" />
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="listing-content">
-
-                        <div class="listing-detail-wrapper-box">
-                            <div class="listing-detail-wrapper">
-                                <div class="listing-short-detail">
-                                    <h4 class="listing-name">
-                                        <a href="{{route('properties.details',$property->id)}}" title="{{$property->title}}">{{$property->title}}</a>
-                                    </h4>
+                    <div class="listing-detail-wrapper">
+                        <div class="listing-short-detail-wrap">
+                            <div class="listing-short-detail">
+                                <div class="list-price d-flex justify-content-between">
+                                    @if($property->property_type_id == App\Models\PropertyType::SALE)
+                                    <span class="prt-types sale">For Sale</span>
+                                    @else
+                                    <span class="prt-types rent">For rent</span>
+                                    @endif
+                                    <h6 class="listing-card-info-price">
+                                        {{$property->currency->code}}{{$property->price}}
+                                    </h6>
                                 </div>
-                                <div class="list-price">
-                                    <div>
-                                        <div class="rating_wrap" data-star="3.15">
-                                            <div class="rating">
-                                                <div class="product_rate" style="width: 63%;"></div>
-                                            </div>
-                                            <span class="reviews_text">( 5 Reviews)</span>
-                                        </div>
-                                        @if($property->property_type_id == App\Models\PropertyType::SALE)
-                                        <<span class="prt-types sale">For Sale</span>
-                                            @else
-                                            <span class="prt-types rent">For rent</span>
-                                            @endif
-
+                                <h4 class="listing-name">
+                                    <a href="{{route('properties.details',$property->id)}}" class="prt-link-detail" title="{{$property->title}}">{{$property->title}}</a>
+                                </h4>
+                                <div class="rating_wrap" data-star="3.1666666666667">
+                                    <div class="rating">
+                                        <div class="product_rate" style="width: 63.333333333333%;"></div>
                                     </div>
-                                    <h6 class="listing-card-info-price"> {{$property->currency->code}}{{$property->price}} </h6>
+                                    <span class="reviews_text">( 3 Reviews)</span>
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="price-features-wrapper">
-                            <div class="list-fx-features">
-                                <div class="listing-card-info-icon">
-                                    <div class="inc-fleat-icon">
-                                        <img src="https://resido.thesky9.com/themes/resido/img/bed.svg" width="13" alt="" />
-                                    </div>
-                                    {{$property->number_of_beds}} Beds
+                    <div class="price-features-wrapper">
+                        <div class="list-fx-features">
+                            <div class="listing-card-info-icon">
+                                <div class="inc-fleat-icon">
+                                    <img src="{{asset('themes/resido/img/bed.svg')}}" width="13" alt="" />
                                 </div>
+                                {{$property->number_of_beds}} Beds
+                            </div>
 
-                                <div class="listing-card-info-icon">
-                                    <div class="inc-fleat-icon">
-                                        <img src="https://resido.thesky9.com/themes/resido/img/bathtub.svg" width="13" alt="" />
-                                    </div>
-                                    {{$property->number_of_bathrooms}} Bath
+                            <div class="listing-card-info-icon">
+                                <div class="inc-fleat-icon">
+                                    <img src="{{asset('themes/resido/img/bathtub.svg')}}" width="13" alt="" />
                                 </div>
-
-                                <div class="listing-card-info-icon">
-                                    <div class="inc-fleat-icon">
-                                        <img src="https://resido.thesky9.com/themes/resido/img/move.svg" width="13" alt="" />
-                                    </div>
-                                    {{$property->square}} m²
+                                {{$property->number_of_bathrooms}} Bath
+                            </div>
+                            <div class="listing-card-info-icon">
+                                <div class="inc-fleat-icon">
+                                    <img src="{{asset('themes/resido/img/move.svg')}}" width="13" alt="" />
                                 </div>
+                                {{$property->square}} m²
                             </div>
                         </div>
+                    </div>
 
-                        <div class="listing-footer-wrapper">
-                            <div class="listing-locate" title="{{$property->city->name}}">
-                                <span class="listing-location"><i class="ti-location-pin"></i>{{$property->city->name}}</span>
+                    <div class="listing-detail-footer">
+                        <div class="footer-first">
+                            <div class="foot-location d-flex">
+                                <img src="{{asset('themes/resido/img/pin.svg')}}" width="18" alt="{{$property->title}}" />
+                                {{$property->location->name}}
                             </div>
-                            <div class="listing-detail-btn">
-                                <a href="{{route('properties.details',$property->id)}}" class="more-btn">View</a>
-                            </div>
+                        </div>
+                        <div class="footer-flex">
+                            <a href="{{route('properties.details',$property->id)}}" class="prt-view">View</a>
                         </div>
                     </div>
                 </div>
 
             </div>
             @empty
-            <div class="alert alert-light text-center mb-2">
-                no properties found
+            <div class="col-lg-12 col-md-12">
+                <div class="alert alert-light">
+                    <span class="test-light">
+                        <p class="text-center">no result found</p>
+                    </span>
+                </div>
             </div>
             @endforelse
         </div>
 
         <!-- Pagination -->
-        <nav aria-label="Page navigation">
-            <ul class="pagination justify-content-center">
-                @if ($properties->currentPage() > 1)
-                <li class="page-item">
-                    <a class="page-link" href="{{ $properties->previousPageUrl() }}" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-                @endif
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <nav class="d-flex justify-content-center pt-3" aria-label="Page navigation">
+                    <nav>
+                        <ul class="pagination">
+                            @if ($properties->currentPage() > 1)
+                            <li class="page-item">
+                                <a class="page-link" href="{{ $properties->previousPageUrl() }}" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            @endif
 
-                @for ($i = 1; $i <= $properties->lastPage(); $i++)
-                    <li class="page-item{{ $i == $properties->currentPage() ? ' active' : '' }}">
-                        <a class="page-link" href="{{ $properties->url($i) }}">{{ $i }}</a>
-                    </li>
-                    @endfor
+                            @for ($i = 1; $i <= $properties->lastPage(); $i++)
+                                <li class="page-item{{ $i == $properties->currentPage() ? ' active' : '' }}">
+                                    <a class="page-link" href="{{ $properties->url($i) }}">{{ $i }}</a>
+                                </li>
+                                @endfor
 
-                    @if ($properties->currentPage() < $properties->lastPage())
-                        <li class="page-item">
-                            <a class="page-link" href="{{ $properties->nextPageUrl() }}" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
-                        @endif
-            </ul>
-        </nav>
+                                @if ($properties->currentPage() < $properties->lastPage())
+                                    <li class="page-item">
+                                        <a class="page-link" href="{{ $properties->nextPageUrl() }}" aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                        </a>
+                                    </li>
+                                    @endif
+                        </ul>
+                    </nav>
 
+                </nav>
+            </div>
+        </div>
     </div>
 </div>
