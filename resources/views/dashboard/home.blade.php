@@ -17,9 +17,9 @@
 
         <div class="row">
             @include('dashboard.layouts.dashboard-sidebar')
-
             <div class="col-lg-9 col-md-12">
                 <div id="app">
+                    <x-dashboard.properties-count :properties="$properties"/>
                     <div class="dashboard-wraper">
                         <div class="page-content">
                             <!-- Search Form and Create Button on the same line -->
@@ -101,7 +101,7 @@
 
 
                             </table>
-                            
+
                         </div>
                     </div>
                 </div>

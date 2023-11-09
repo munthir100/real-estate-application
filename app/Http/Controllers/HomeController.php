@@ -78,6 +78,22 @@ class HomeController extends Controller
         return view('properties.show', compact('property'));
     }
 
+    function agents()
+    {
+        $subscriber = request()->user()->subscriber()->first();
+        $agents = $subscriber->agents()->get();
+
+        return view('agents.index', compact('agents'));
+    }
+
+    function agentDetails($agentId)
+    {
+        $subscriber = request()->user()->subscriber()->first();
+        $agent = $subscriber->agents()->findOrFail($agentId)->with('user')->first();
+
+        return view('agents.show', compact('agent'));
+    }
+
 
     function getRequestedFilters($request)
     {

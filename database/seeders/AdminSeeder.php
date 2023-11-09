@@ -31,13 +31,3 @@ class AdminSeeder extends Seeder
         $user->admin()->create();
     }
 }
-
-
-
-
-
-
-
-
-
-

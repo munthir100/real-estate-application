@@ -2,64 +2,74 @@
 
 namespace App\Http\Controllers\dashboard;
 
-use App\Http\Controllers\Controller;
+use App\Models\User;
+use App\Models\Agent;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\CreateAgentRequest;
+use App\Http\Requests\UpdateAgentRequest;
 
 class AgentController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('agents.index');
+        $subscriber = request()->user()->subscriber()->first();
+        $agents = $subscriber->agents()->with('user')->get();
+
+
+        return view('dashboard.agents.index', compact('agents'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+
+    public function store(CreateAgentRequest $request)
     {
-        //
+        $data = $request->validated();
+
+        $user = User::create($data);
+
+        $user->agent()->create([
+            'subscriber_id' => request()->user()->subscriber->id,
+        ]);
+
+        return redirect()->route('agents.index')->with('success', 'Agent created successfully');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($agentId)
     {
-        //
+        $subscriber = request()->user()->subscriber()->first();
+        $agent = $subscriber->agents()->findOrFail($agentId);
+        $agent->load('user');
+
+        return view('dashboard.agents.edit', compact('agent'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+
+    public function update($agentId, UpdateAgentRequest $request)
     {
-        //
+        $subscriber = request()->user()->subscriber()->first();
+        $agent = $subscriber->agents()->findOrFail($agentId);
+        $user = $agent->user;
+        $request->validateUniqueValues($user);
+        $user->update($request->validated());
+
+        return back()->with('success', 'agent data updated successfully');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+
+    public function destroy($agentId)
     {
-        //
+        $subscriber = request()->user()->subscriber()->first();
+        $agent = $subscriber->agents()->findOrFail($agentId);
+        $agent->user->delete();
+
+        return back()->with('success', 'agent deleted successfully');
     }
 }

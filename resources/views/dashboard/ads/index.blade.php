@@ -30,7 +30,7 @@
                                         </form>
                                     </div>
                                 </div>
-                                <a href="{{route('dashboard.ads.create')}}" class="btn btn-outline-secondary"><i class="fas fa-plus"></i> Create</a>
+                                <a href="{{route('dashboard.ads.create')}}" class="btn btn-info"><i class="fas fa-plus"></i> Create</a>
                             </div>
 
                             <!-- Table -->

@@ -8,5 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Agent extends Model
 {
     use HasFactory;
-    protected $fillable = ['user_id','subscriber_id','ceo'];
+    protected $fillable = ['user_id', 'subscriber_id'];
+
+    function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    function subscriber()
+    {
+        return $this->belongsTo(Subscriber::class);
+    }
 }

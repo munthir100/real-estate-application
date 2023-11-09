@@ -29,7 +29,7 @@
                     @auth
                     @if(request()->user()->isSubscriber)
                     <li class="  ">
-                        <a href="{{route('agents.index')}}">
+                        <a href="{{route('agents')}}">
                             Agents
                         </a>
                     </li>

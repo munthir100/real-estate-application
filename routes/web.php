@@ -21,7 +21,8 @@ Route::get('properties', [HomeController::class, 'properties'])->name('propertie
 Route::get('applications', [HomeController::class, 'applications'])->name('applications');
 Route::get('plans', [PlanController::class, 'index'])->name('plans.index');
 Route::get('contact', [ContactController::class, 'index'])->name('contact.index');
-Route::get('agents', [AgentController::class, 'index'])->name('agents.index');
+Route::get('home/agents', [HomeController::class, 'agents'])->name('agents');
+Route::get('home/agents/{agent}', [HomeController::class, 'agentDetails'])->name('agents.details');
 
 
 
@@ -59,6 +60,7 @@ Route::middleware(['auth'])->prefix('/dashboard')->name('dashboard.')->group(fun
 });
 Route::middleware('auth', 'is_subscriber')->group(function () {
     Route::get('plans/{plan}/subscribe', [PlanController::class, 'subscribe'])->name('plans.subscribe');
+    Route::resource('dashboard/agents', AgentController::class);
 });
 
 Route::middleware('auth', 'is_admin')->prefix('admin')->name('admin.')->group(function () {

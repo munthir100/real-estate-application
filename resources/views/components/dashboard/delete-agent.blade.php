@@ -1,4 +1,4 @@
-<div class="modal fade" id="modal-confirm-delete-{{ $property->id }}" tabindex="-1" role="dialog" aria-labelledby="modalConfirmDelete" aria-hidden="true">
+<div class="modal fade" id="modal-confirm-delete-{{ $agent->id }}" tabindex="-1" role="dialog" aria-labelledby="modalConfirmDelete" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -8,17 +8,17 @@
                 </button>
             </div>
             <div class="modal-body">
-                <p>Are you sure you want to delete this property?</p>
+                <p>Are you sure you want to delete this agent?</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-danger confirm-delete" data-property-id="{{ $property->id }}" data-delete-route="{{ route('dashboard.properties.destroy', $property->id) }}">Delete</button>
+                <button type="button" class="btn btn-danger confirm-delete" data-agent-id="{{ $agent->id }}" data-delete-route="{{ route('agents.destroy', $agent->id) }}">Delete</button>
             </div>
         </div>
     </div>
 </div>
 
-<form id="deleteForm-{{ $property->id }}" method="POST" action="{{ route('dashboard.properties.destroy', $property->id) }}">
+<form id="deleteForm-{{ $agent->id }}" method="POST" action="{{ route('agents.destroy', $agent->id) }}">
     @method('DELETE')
     @csrf
 </form>
@@ -26,9 +26,9 @@
 <script>
     $(document).ready(function() {
         $('.confirm-delete').click(function() {
-            var propertyId = $(this).data('property-id');
+            var agentId = $(this).data('agent-id');
             var deleteRoute = $(this).data('delete-route');
-            var form = $('#deleteForm-' + propertyId);
+            var form = $('#deleteForm-' + agentId);
             
             // Set the action attribute of the form
             form.attr('action', deleteRoute);

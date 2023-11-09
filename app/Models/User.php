@@ -46,6 +46,11 @@ class User extends Authenticatable
         return $this->hasOne(Browser::class, 'user_id');
     }
 
+    public function agent()
+    {
+        return $this->hasOne(Agent::class, 'user_id');
+    }
+
     public function admin()
     {
         return $this->hasOne(Admin::class, 'user_id');
@@ -88,10 +93,11 @@ class User extends Authenticatable
     {
         return $this->user_type_id == UserType::BROWSER;
     }
-    public function getHasActivePlanAttribute()
+    public function getIsAgentAttribute()
     {
-        
+        return $this->user_type_id == UserType::AGENT;
     }
+
     /**
      * The attributes that should be hidden for serialization.
      *
