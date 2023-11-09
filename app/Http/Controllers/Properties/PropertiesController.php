@@ -56,7 +56,7 @@ class PropertiesController extends Controller
 
         $property = new Property();
         $property->fill($validatedData);
-        $property->user_id = auth()->user()->id; // Default to the authenticated user
+        $property->user_id = request()->subscriberUser->id; // Default to the authenticated user
         $property->status_id = Status::PENDING; // Default to 'pending' status
 
         $location = Location::create([

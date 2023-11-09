@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateAgentRequest;
 use App\Http\Requests\UpdateAgentRequest;
+use App\Models\UserType;
 
 class AgentController extends Controller
 {
@@ -28,7 +29,7 @@ class AgentController extends Controller
     public function store(CreateAgentRequest $request)
     {
         $data = $request->validated();
-
+        $data['user_type_id'] = UserType::AGENT;
         $user = User::create($data);
 
         $user->agent()->create([

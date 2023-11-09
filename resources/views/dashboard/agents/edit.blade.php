@@ -90,6 +90,17 @@
                                             </span>
                                             @endif
                                         </div>
+                                        <div class="form-group">
+                                            <label for="password">Password</label>
+                                            <input type="password" class="form-control" name="password" id="password"  placeholder="******" required>
+                                            @if($errors->has('password'))
+                                            <span class="invalid-feedback d-block">
+                                                <strong>
+                                                    {{ $errors->first('password') }}
+                                                </strong>
+                                            </span>
+                                            @endif
+                                        </div>
 
                                         <!-- Birthday -->
                                         <div class="form-group">

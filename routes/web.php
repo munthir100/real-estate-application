@@ -35,6 +35,7 @@ Route::prefix('login')->group(function () {
     Route::post('/', [LoginController::class, 'login'])->name('login');
 });
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('/verification-code', [LoginController::class, 'verification'])->name('auth.verification-code');
 
 Route::prefix('register')->group(function () {
     Route::get('/', [RegisterController::class, 'registerForm'])->name('registerForm');
@@ -54,14 +55,9 @@ Route::middleware(['auth'])->prefix('/dashboard')->name('dashboard.')->group(fun
     });
     Route::resource('properties', PropertiesController::class);
     Route::resource('ads', AdController::class);
-
-
     Route::resource('applications', ApplicationsController::class);
 });
-Route::middleware('auth', 'is_subscriber')->group(function () {
-    Route::get('plans/{plan}/subscribe', [PlanController::class, 'subscribe'])->name('plans.subscribe');
-    Route::resource('dashboard/agents', AgentController::class);
-});
+
 
 Route::middleware('auth', 'is_admin')->prefix('admin')->name('admin.')->group(function () {
     Route::resource('properties', AdminPropertiesController::class)->only(['index', 'edit', 'destroy']);

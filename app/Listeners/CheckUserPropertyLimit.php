@@ -3,6 +3,7 @@
 namespace App\Listeners;
 
 use App\Events\PropertyAdded;
+use App\Models\AgentProperty;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
@@ -26,13 +27,15 @@ class CheckUserPropertyLimit
         $subscribedPlan = $user->plan;
         $plan = $subscribedPlan->plan;
 
-        // Define your property limit logic here (e.g., maximum number of properties allowed)
         $propertyLimit = $plan->num_properties_allowed; // Set the maximum number of properties
-
-        // Check if the user has reached the maximum number of properties
         if ($user->properties->count() >= $propertyLimit) {
-            // User has reached the property limit, so delete the active plan
             $subscribedPlan->delete();
+        }
+        if (request()->has('agent')) {
+            AgentProperty::create([
+                'property_id' => $property->id,
+                'agent_id' => request()->agent->id,
+            ]);
         }
     }
 }

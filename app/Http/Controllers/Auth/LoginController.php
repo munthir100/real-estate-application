@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Mail\EmailVerificationCode;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\Auth\LoginRequest;
 
 class LoginController extends Controller
@@ -41,7 +43,14 @@ class LoginController extends Controller
         }
 
         Auth::login($user);
+        // // Generate and store a random verification code
+        // $verificationCode = mt_rand(100000, 999999);
+        // $user->update(['verification_code' => $verificationCode]);
 
+        // // Send email with verification code
+        // Mail::to($user->email)->send(new EmailVerificationCode($verificationCode));
+        // return redirect()->route('auth.verification-code', ['email' => $user->email]);
+        
         return to_route('home');
     }
 

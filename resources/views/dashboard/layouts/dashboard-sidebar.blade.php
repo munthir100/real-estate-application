@@ -46,7 +46,7 @@
                                 <i class="ti-home mr1"></i>Applications
                             </a>
                         </li>
-                        <li class="{{ request()->routeIs('dashboard.agents*') ? 'active' : '' }}">
+                        <li class="{{ request()->routeIs('agents*') ? 'active' : '' }}">
                             <a href="{{route('agents.index')}}" title="agents">
                                 <i class="ti-user mr1"></i>Agents
                             </a>

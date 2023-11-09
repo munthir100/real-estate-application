@@ -17,11 +17,22 @@ class SubscriptionMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $user = request()->user();
-        $planExist = UserPlan::where('user_id', $user->id)->first();
+        $user = $request->user();
+        if ($user->isAgent) {
+            $agent = $user->agent;
+            $subscriberUser = $agent->subscriber->user;
+            $request->merge(['agent' => $agent]);
+        } else {
+            $subscriberUser = $user;
+        }
+        $planExist = UserPlan::where('user_id', $subscriberUser->id)->first();
+
+        $request->merge(['subscriberUser' => $subscriberUser]);
+
         if (!$planExist) {
             return redirect()->route('plans.index');
         }
+
         return $next($request);
     }
 }

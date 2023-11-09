@@ -40,7 +40,11 @@
                             Pages
                         </a>
                         <ul class="nav-dropdown nav-submenu">
-
+                            <li class="  ">
+                                <a href="{{route('subscribers')}}">
+                                    Subscribers
+                                </a>
+                            </li>
                             <li class="  ">
                                 <a href="{{route('plans.index')}}">
                                     Pricing
@@ -68,7 +72,7 @@
                         </li>
                         <li class="add-listing">
                             <a href="{{route('login')}}">
-                                <img src="themes/resido/img/user-light.svg" width="12" alt="" class="mr-2">Sign In</a>
+                                <img src="{{asset('themes/resido/img/user-light.svg')}}" width="12" alt="" class="mr-2">Sign In</a>
                         </li>
 
                     </ul>
@@ -78,7 +82,7 @@
 
                     <ul class="nav-menu nav-menu-social align-to-right">
                         <li class="login-item">
-                            <a href="{{route('dashboard.properties.create')}}" class="text-success"><img src="/themes/resido/img/submit.svg" width="20" alt="" class="mr-2"> Add Property</a>
+                            <a href="{{route('dashboard.properties.create')}}" class="text-success"><img src="{{asset('themes/resido/img/submit.svg')}}" width="20" alt="" class="mr-2"> Add Property</a>
                         </li>
                         <li class="login-item">
                             <a href="{{route('dashboard.home')}}" rel="nofollow"><i class="fas fa-user"></i> <span>

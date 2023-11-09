@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\City;
 use App\Models\Plan;
-use App\Models\Property;
-use App\Models\PropertyFeature;
+use App\Models\User;
 use App\Models\Status;
+use App\Models\Property;
 use Illuminate\Http\Request;
+use App\Models\PropertyFeature;
+use App\Models\UserType;
 
 class HomeController extends Controller
 {
@@ -94,6 +96,16 @@ class HomeController extends Controller
         return view('agents.show', compact('agent'));
     }
 
+    function subscribers()
+    {
+        $users = User::where('user_type_id',UserType::SUBSCRIBER)->get();
+        
+        return view('subscribers.index',compact('users'));
+    }
+
+    function subscriberDetails(User $user){
+        return view('subscribers.show',compact('user'));
+    }
 
     function getRequestedFilters($request)
     {
