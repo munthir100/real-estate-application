@@ -5,7 +5,7 @@ namespace App\Models;
 use App\Models\Agent;
 use Illuminate\Database\Eloquent\Model;
 
-class Subscriber extends Model
+class Broker extends Model
 {
     protected $fillable = [
         'user_id',

@@ -51,7 +51,7 @@ CreateAgentRequest :
                         user_type_id default UserType::AGENT
             
             Agent model :
-                        subscriber_id // from current authentcated user 
+                        broker_id // from current authentcated user 
                         user_id : created user 
                         ceo
 

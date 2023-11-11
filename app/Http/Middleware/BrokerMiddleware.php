@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class SubscriberMiddleware
+class BrokerMiddleware
 {
     /**
      * Handle an incoming request.
@@ -15,7 +15,7 @@ class SubscriberMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!request()->user()->isSubscriber) {
+        if (!request()->user()->isBroker) {
             abort(403);
         }
         return $next($request);

@@ -9,7 +9,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12">
-                    <h1 class="ipt-title">Subscriber Detail</h1>
+                    <h1 class="ipt-title">Broker Detail</h1>
                     <span class="ipn-subtitle">{{$user->first_name}} {{$user->last_name}}</span>
                 </div>
             </div>

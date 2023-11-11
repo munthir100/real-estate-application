@@ -82,29 +82,29 @@ class HomeController extends Controller
 
     function agents()
     {
-        $subscriber = request()->user()->subscriber()->first();
-        $agents = $subscriber->agents()->get();
+        $broker = request()->user()->broker()->first();
+        $agents = $broker->agents()->get();
 
         return view('agents.index', compact('agents'));
     }
 
     function agentDetails($agentId)
     {
-        $subscriber = request()->user()->subscriber()->first();
-        $agent = $subscriber->agents()->findOrFail($agentId)->with('user')->first();
+        $broker = request()->user()->broker()->first();
+        $agent = $broker->agents()->findOrFail($agentId)->with('user')->first();
 
         return view('agents.show', compact('agent'));
     }
 
-    function subscribers()
+    function brokers()
     {
-        $users = User::where('user_type_id',UserType::SUBSCRIBER)->get();
+        $users = User::where('user_type_id',UserType::BROKER)->get();
         
-        return view('subscribers.index',compact('users'));
+        return view('brokers.index',compact('users'));
     }
 
-    function subscriberDetails(User $user){
-        return view('subscribers.show',compact('user'));
+    function brokerDetails(User $user){
+        return view('brokers.show',compact('user'));
     }
 
     function getRequestedFilters($request)

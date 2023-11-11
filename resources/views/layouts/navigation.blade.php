@@ -27,7 +27,7 @@
                         </a>
                     </li>
                     @auth
-                    @if(request()->user()->isSubscriber)
+                    @if(request()->user()->isBroker)
                     <li class="  ">
                         <a href="{{route('agents')}}">
                             Agents
@@ -41,8 +41,8 @@
                         </a>
                         <ul class="nav-dropdown nav-submenu">
                             <li class="  ">
-                                <a href="{{route('subscribers')}}">
-                                    Subscribers
+                                <a href="{{route('brokers')}}">
+                                    brokers
                                 </a>
                             </li>
                             <li class="  ">

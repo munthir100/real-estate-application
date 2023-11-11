@@ -36,9 +36,9 @@ class User extends Authenticatable
         return $this->belongsTo(UserType::class, 'user_type_id');
     }
 
-    public function subscriber()
+    public function broker()
     {
-        return $this->hasOne(Subscriber::class, 'user_id');
+        return $this->hasOne(Broker::class, 'user_id');
     }
 
     public function seeker()
@@ -83,9 +83,9 @@ class User extends Authenticatable
 
     // attributes
 
-    public function getIsSubscriberAttribute()
+    public function getIsBrokerAttribute()
     {
-        return $this->user_type_id == UserType::SUBSCRIBER;
+        return $this->user_type_id == UserType::BROKER;
     }
 
     public function getIsAdminAttribute()

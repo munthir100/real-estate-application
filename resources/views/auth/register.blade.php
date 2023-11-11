@@ -260,7 +260,7 @@
                                             <div class="input-with-icon">
                                                 <select id="user_type" name="user_type" class="form-control">
                                                     <option value="regular">Regular User</option>
-                                                    <option value="subscriber">Subscriber</option>
+                                                    <option value="broker">Broker</option>
                                                 </select>
                                                 <i class="ti-user"></i>
                                             </div>
@@ -306,7 +306,7 @@
 <script>
     $(document).ready(function() {
         $('#user_type').on('change', function() {
-            if ($(this).val() === 'subscriber') {
+            if ($(this).val() === 'broker') {
                 $('#commercial-info').show();
                 $('#company-info').show();
                 $('#tax-number').show();

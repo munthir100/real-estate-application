@@ -19,9 +19,9 @@ return new class extends Migration
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
                 
-            $table->foreignId('subscriber_id')
+            $table->foreignId('broker_id')
                 ->references('id')
-                ->on('subscribers')
+                ->on('brokers')
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
 

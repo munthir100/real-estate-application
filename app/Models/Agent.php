@@ -8,14 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Agent extends Model
 {
     use HasFactory;
-    protected $fillable = ['user_id', 'subscriber_id'];
+    protected $fillable = ['user_id', 'broker_id'];
 
     function user()
     {
         return $this->belongsTo(User::class);
     }
-    function subscriber()
+    function broker()
     {
-        return $this->belongsTo(Subscriber::class);
+        return $this->belongsTo(Broker::class);
     }
 }

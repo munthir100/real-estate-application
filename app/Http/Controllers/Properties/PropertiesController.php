@@ -26,11 +26,11 @@ class PropertiesController extends Controller
         $this->propertyService = $propertyService;
         $this->planService = $planService;
         $this->middleware('active_plan')->only('index', 'store', 'edit', 'update', 'destroy');
-        $this->middleware('is_subscriber')->only('destroy');
+        $this->middleware('is_broker')->only('destroy');
     }
     function index()
     {
-        $user = request()->subscriberUser;
+        $user = request()->brokerUser;
         $properties = $user->properties()
             ->whereDoesntHave('applications')
             ->where('is_ad', false)
@@ -57,7 +57,7 @@ class PropertiesController extends Controller
 
         $property = new Property();
         $property->fill($validatedData);
-        $property->user_id = request()->subscriberUser->id; // Default to the authenticated user
+        $property->user_id = request()->brokerUser->id; // Default to the authenticated user
         $property->status_id = Status::PENDING; // Default to 'pending' status
 
         $location = Location::create([
@@ -88,7 +88,7 @@ class PropertiesController extends Controller
 
     function edit($propertyId)
     {
-        $property = request()->subscriberUser->properties()->findOrFail($propertyId);
+        $property = request()->brokerUser->properties()->findOrFail($propertyId);
         $cities = City::all();
         $currencies = Currency::all();
         $categories = Category::all();
@@ -102,7 +102,7 @@ class PropertiesController extends Controller
     function update(UpdatePropertyRequest $request, $propertyId)
     {
         $validatedData = $request->validated();
-        $property = request()->subscriberUser->properties()->findOrFail($propertyId);
+        $property = request()->brokerUser->properties()->findOrFail($propertyId);
         $property->update($validatedData);
 
         if (isset($validatedData['features'])) {

@@ -30,11 +30,11 @@ class RegisterRequest extends FormRequest
             'password' => 'required|string|min:6|confirmed',
             'birth_date' => 'required|date', 
             'gender' => 'required|in:male,female',
-            'user_type' => 'required|in:regular,subscriber',
-            'commertial_number' => 'required_if:user_type,subscriber|nullable|integer',
-            'company_name' => 'required_if:user_type,subscriber|nullable|string|max:255',
-            'tax_number' => 'required_if:user_type,subscriber|nullable|integer',
-            'office_name' => 'required_if:user_type,subscriber|nullable|string|max:255',
+            'user_type' => 'required|in:regular,broker',
+            'commertial_number' => 'required_if:user_type,broker|nullable|integer',
+            'company_name' => 'required_if:user_type,broker|nullable|string|max:255',
+            'tax_number' => 'required_if:user_type,broker|nullable|integer',
+            'office_name' => 'required_if:user_type,broker|nullable|string|max:255',
         ];
         
     }
@@ -51,9 +51,9 @@ phone
 password
 birth_date
 gender
-user_type (regular ,subscriber)
+user_type (regular ,broker)
 
-Subscriber model (required if user_type = subscriber):
+broker model (required if user_type = broker):
             commercial_number
             company_name
             tax_number

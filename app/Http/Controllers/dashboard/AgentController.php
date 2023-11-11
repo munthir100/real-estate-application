@@ -18,8 +18,8 @@ class AgentController extends Controller
      */
     public function index()
     {
-        $subscriber = request()->user()->subscriber()->first();
-        $agents = $subscriber->agents()->with('user')->get();
+        $broker = request()->user()->broker()->first();
+        $agents = $broker->agents()->with('user')->get();
 
 
         return view('dashboard.agents.index', compact('agents'));
@@ -33,7 +33,7 @@ class AgentController extends Controller
         $user = User::create($data);
 
         $user->agent()->create([
-            'subscriber_id' => request()->user()->subscriber->id,
+            'broker_id' => request()->user()->broker->id,
         ]);
 
         return redirect()->route('agents.index')->with('success', 'Agent created successfully');
@@ -45,8 +45,8 @@ class AgentController extends Controller
      */
     public function edit($agentId)
     {
-        $subscriber = request()->user()->subscriber()->first();
-        $agent = $subscriber->agents()->findOrFail($agentId);
+        $broker = request()->user()->broker()->first();
+        $agent = $broker->agents()->findOrFail($agentId);
         $agent->load('user');
 
         return view('dashboard.agents.edit', compact('agent'));
@@ -55,8 +55,8 @@ class AgentController extends Controller
 
     public function update($agentId, UpdateAgentRequest $request)
     {
-        $subscriber = request()->user()->subscriber()->first();
-        $agent = $subscriber->agents()->findOrFail($agentId);
+        $broker = request()->user()->broker()->first();
+        $agent = $broker->agents()->findOrFail($agentId);
         $user = $agent->user;
         $request->validateUniqueValues($user);
         $user->update($request->validated());
@@ -67,8 +67,8 @@ class AgentController extends Controller
 
     public function destroy($agentId)
     {
-        $subscriber = request()->user()->subscriber()->first();
-        $agent = $subscriber->agents()->findOrFail($agentId);
+        $broker = request()->user()->broker()->first();
+        $agent = $broker->agents()->findOrFail($agentId);
         $agent->user->delete();
 
         return back()->with('success', 'agent deleted successfully');

@@ -5,7 +5,7 @@ namespace App\Http;
 use App\Http\Middleware\CustomVerified;
 use App\Http\Middleware\IsAdminMiddleware;
 use App\Http\Middleware\NotVerified;
-use App\Http\Middleware\SubscriberMiddleware;
+use App\Http\Middleware\BrokerMiddleware;
 use App\Http\Middleware\SubscriptionMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -69,7 +69,7 @@ class Kernel extends HttpKernel
         'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        'is_subscriber' => SubscriberMiddleware::class,
+        'is_broker' => BrokerMiddleware::class,
         'is_admin' => IsAdminMiddleware::class,
         'active_plan' => SubscriptionMiddleware::class,
         'custom_verified' => CustomVerified::class,

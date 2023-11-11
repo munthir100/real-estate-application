@@ -20,14 +20,14 @@ class SubscriptionMiddleware
         $user = $request->user();
         if ($user->isAgent) {
             $agent = $user->agent;
-            $subscriberUser = $agent->subscriber->user;
+            $brokerUser = $agent->broker->user;
             $request->merge(['agent' => $agent]);
         } else {
-            $subscriberUser = $user;
+            $brokerUser = $user;
         }
-        $planExist = UserPlan::where('user_id', $subscriberUser->id)->first();
+        $planExist = UserPlan::where('user_id', $brokerUser->id)->first();
 
-        $request->merge(['subscriberUser' => $subscriberUser]);
+        $request->merge(['brokerUser' => $brokerUser]);
 
         if (!$planExist) {
             return redirect()->route('plans.index');

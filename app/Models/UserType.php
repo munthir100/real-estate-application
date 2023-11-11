@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class UserType extends Model
 {
     protected $fillable = ['name'];
-    const SUBSCRIBER = 1;
+    const BROKER = 1;
     const SEEKER = 2;
     const ADMIN = 3;
     const AGENT = 4;

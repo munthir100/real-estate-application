@@ -6,8 +6,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12">
-                    <h1 class="ipt-title">All Subscribers</h1>
-                    <span class="ipn-subtitle">Lists of our all expert subscribers</span>
+                    <h1 class="ipt-title">All brokers</h1>
+                    <span class="ipn-subtitle">Lists of our all expert brokers</span>
 
                 </div>
             </div>
@@ -24,7 +24,7 @@
                     <div class="agents-grid">
                         <div class="agents-grid-wrap">
                             <div class="fr-grid-thumb">
-                                <a href="{{route('subscribers.details',$user->id)}}">
+                                <a href="{{route('brokers.details',$user->id)}}">
                                     <img src="https://resido.thesky9.com/storage/accounts/1.jpg" class="img-fluid mx-auto" alt="{{$user->name}}">
                                 </a>
                             </div>
@@ -32,7 +32,7 @@
                             <div class="fr-grid-deatil">
                                 <div class="fr-grid-deatil-flex">
                                     <h5 class="fr-can-name">
-                                        <a href="{{route('subscribers.details',$user->id)}}">{{$user->name}}</a>
+                                        <a href="{{route('brokers.details',$user->id)}}">{{$user->name}}</a>
                                     </h5>
                                 </div>
                                 <div class="fr-grid-deatil-flex-right">
@@ -54,7 +54,7 @@
                                 <span class="fr-position"><i class="fa fa-home"></i>0 properties</span>
                             </div>
                             <div class="fr-grid-footer-flex-right">
-                                <a href="{{route('subscribers.details',$user->id)}}" class="prt-view" tabindex="0">View</a>
+                                <a href="{{route('brokers.details',$user->id)}}" class="prt-view" tabindex="0">View</a>
                             </div>
                         </div>
 
