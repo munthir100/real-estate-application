@@ -21,7 +21,7 @@ digraph UML_Diagram {
     UserType [label = "{UserType | id: int | name: string}";];
     
     // Broker - Seeker
-    User [label = "{User | id: int | first_name: string |last_name: string |username: string|phone:int|description:string|birth_date:date| email: string| gender: string | password: string | user_type_id (FK): int | plan_id (FK): int}";];
+    User [label = "{User | id: int | username: string |first_name: string |middle_name: string|last_name:string|description:string| gender: string | birth_date:date | email: string | password: string |user_verified_at:date| user_type_id (FK): int}";];
     // gender is enum male or female
     Broker [label = "{Broker | id: int | user_id (FK): int | commertial_number:int | office_name : string | tax_number : int|company_name:string }";];
     Seeker [label = "{Seeker | id: int | user_id (FK): int}";];

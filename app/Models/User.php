@@ -105,7 +105,7 @@ class User extends Authenticatable
 
     public function getRecentlyVerifiedAttribute()
     {
-        return $this->hasVerifiedEmail() && $this->email_verified_at->addMinutes(30)->isFuture();
+        return $this->hasVerified() && $this->user_verified_at->addMinutes(30)->isFuture();
     }
 
     /**
@@ -124,7 +124,19 @@ class User extends Authenticatable
      * @var array<string, string>
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
+        'user_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    // custom methods 
+    public function markUserAsVerified()
+    {
+        $this->update([
+            'user_verified_at' => now(),
+        ]);
+    }
+    public function hasVerified()
+    {
+        return ! is_null($this->user_verified_at);
+    }
 }

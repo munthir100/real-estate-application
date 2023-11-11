@@ -32,11 +32,11 @@ class VerificationController extends Controller
         if ($verificationCode && $verificationCode->code === $request->code) {
             $now = Carbon::now();
             $expiresAt = Carbon::parse($verificationCode->updated_at)->addMinutes(30);
-            
-            if ($now <= $expiresAt) {
-                $user->markEmailAsVerified();
 
-                return redirect()->route('home')->with('success', 'Email verified successfully');
+            if ($now <= $expiresAt) {
+                $user->markUserAsVerified();
+
+                return redirect()->route('home')->with('success', 'verification successfull');
             }
 
             return redirect()->back()->withErrors(['code' => 'Verification code has expired']);
@@ -49,6 +49,6 @@ class VerificationController extends Controller
     {
         $this->verificationService->sendCodeForUser(request()->user());
 
-        return back()->with('success', 'the code send , check your email');
+        return back()->with('success', 'the code send , check your messages');
     }
 }

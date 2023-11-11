@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Auth;
 
+use App\Rules\UsernameValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class RegisterRequest extends FormRequest
@@ -22,41 +23,10 @@ class RegisterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'first_name' => 'required|string|max:255',
-            'last_name' => 'required|string|max:255',
-            'username' => 'required|string|max:255|unique:users',
-            'email' => 'required|string|email|max:255|unique:users',
-            'phone' => 'required|string|max:15|unique:users',
-            'password' => 'required|string|min:6|confirmed',
-            'birth_date' => 'required|date', 
-            'gender' => 'required|in:male,female',
-            'user_type' => 'required|in:regular,broker',
-            'commertial_number' => 'required_if:user_type,broker|nullable|integer',
-            'company_name' => 'required_if:user_type,broker|nullable|string|max:255',
-            'tax_number' => 'required_if:user_type,broker|nullable|integer',
-            'office_name' => 'required_if:user_type,broker|nullable|string|max:255',
+            'username' => ['required', new UsernameValidationRule],
+            'password' => 'required|string|min:6',
+            'user_type' => 'required|in:seeker,broker,developer',
         ];
         
     }
 }
-
-/*
-RegisterRequest:
-
-first_name
-last_name
-username
-email
-phone
-password
-birth_date
-gender
-user_type (regular ,broker)
-
-broker model (required if user_type = broker):
-            commercial_number
-            company_name
-            tax_number
-            office_name
-
-*/

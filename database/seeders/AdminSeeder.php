@@ -17,10 +17,10 @@ class AdminSeeder extends Seeder
     {
         $user = [
             'first_name' => 'admin',
-            'last_name' => 'user',
+            'middle_name' => 'user',
+            'last_name' => 'test',
             'email' => 'admin@test.com',
             'username' => 'admin test',
-            'phone' => '0123456789',
             'gender' => 'male',
             'birth_date' => now(),
             'password' => '0123456789',

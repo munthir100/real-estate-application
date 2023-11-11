@@ -15,65 +15,12 @@
                             <form method="POST" class="simple-form" action="{{route('register')}}">
                                 @csrf
                                 <div class="row">
-                                    <div class="col-lg-6 col-md-6">
-                                        <div class="form-group">
-                                            <div class="input-with-icon">
-                                                <input id="first_name" type="text" class="form-control" name="first_name" value="" required autofocus placeholder="First name">
-                                                <i class="ti-user"></i>
-
-                                                @error('first_name')
-                                                <span class="d-block invalid-feedback">
-                                                    <strong>
-                                                        {{$message}}
-                                                    </strong>
-                                                </span>
-                                                @enderror
-
-                                            </div>
-                                        </div>
-                                    </div>
 
                                     <div class="col-lg-6 col-md-6">
                                         <div class="form-group">
                                             <div class="input-with-icon">
-                                                <input id="last_name" type="text" class="form-control" name="last_name" value="" required placeholder="Last name">
-                                                <i class="ti-user"></i>
-
-                                                @error('last_name')
-                                                <span class="d-block invalid-feedback">
-                                                    <strong>
-                                                        {{$message}}
-                                                    </strong>
-                                                </span>
-                                                @enderror
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-6 col-md-6">
-                                        <div class="form-group">
-                                            <div class="input-with-icon">
-                                                <input id="email" type="email" class="form-control" name="email" value="" required placeholder="Email">
+                                                <input id="username" type="text" class="form-control" name="username" required placeholder="Email / Phone">
                                                 <i class="ti-email"></i>
-
-                                                @error('email')
-                                                <span class="d-block invalid-feedback">
-                                                    <strong>
-                                                        {{$message}}
-                                                    </strong>
-                                                </span>
-                                                @enderror
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-6 col-md-6">
-                                        <div class="form-group">
-                                            <div class="input-with-icon">
-                                                <input id="username" type="text" class="form-control" name="username" value="" required placeholder="Username">
-                                                <i class="ti-user"></i>
 
                                                 @error('username')
                                                 <span class="d-block invalid-feedback">
@@ -86,70 +33,6 @@
                                             </div>
                                         </div>
                                     </div>
-
-                                    <div class="col-lg-6 col-md-6">
-                                        <div class="form-group">
-                                            <div class="input-with-icon">
-                                                <input id="phone" type="number" class="form-control" name="phone" value="" required placeholder="phone">
-                                                <i class="ti-mobile"></i>
-
-                                                @error('phone')
-                                                <span class="d-block invalid-feedback">
-                                                    <strong>
-                                                        {{$message}}
-                                                    </strong>
-                                                </span>
-                                                @enderror
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-
-                                    <div class="col-lg-6 col-md-6">
-                                        <div class="form-group">
-                                            <div class="input-with-icon">
-                                                <input id="birth_date" type="date" class="form-control" name="birth_date" value="" required placeholder="birth_date">
-                                                <i class="fas fa-birthday-cake"></i>
-
-
-                                                @error('birth_date')
-                                                <span class="d-block invalid-feedback">
-                                                    <strong>
-                                                        {{$message}}
-                                                    </strong>
-                                                </span>
-                                                @enderror
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="col-lg-6 col-md-6">
-                                        <div class="form-group">
-                                            <div class="input-with-icon">
-                                                <select id="maxprice" data-placeholder="Gender" name="gender" class="form-control">
-                                                    <option value="male">male</option>
-                                                    <option value="female">female</option>
-                                                </select>
-                                                <i class="fas fa-male"></i>
-
-
-                                                @error('birth_date')
-                                                <span class="d-block invalid-feedback">
-                                                    <strong>
-                                                        {{$message}}
-                                                    </strong>
-                                                </span>
-                                                @enderror
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-
                                     <div class="col-lg-6 col-md-6">
                                         <div class="form-group">
                                             <div class="input-with-icon">
@@ -168,99 +51,14 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-6 col-md-6">
-                                        <div class="form-group">
-                                            <div class="input-with-icon">
-                                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required placeholder="Confirm Password">
-                                                <i class="ti-unlock"></i>
-
-                                                @error('password')
-                                                <span class="d-block invalid-feedback">
-                                                    <strong>
-                                                        {{$message}}
-                                                    </strong>
-                                                </span>
-                                                @enderror
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-
-
-                                    <div class="col-lg-6 col-md-6" id="commercial-info" style="display: none;">
-                                        <div class="form-group">
-                                            <div class="input-with-icon">
-                                                <input id="commertial_number" type="text" class="form-control" name="commertial_number" placeholder="Commercial Registration Number">
-                                                <i class="ti-agenda"></i>
-                                            </div>
-                                        </div>
-                                        @error('commercial_number')
-                                        <span class="d-block invalid-feedback">
-                                            <strong>
-                                                {{$message}}
-                                            </strong>
-                                        </span>
-                                        @enderror
-                                    </div>
-
-                                    <div class="col-lg-6 col-md-6" id="company-info" style="display: none;">
-                                        <div class="form-group">
-                                            <div class="input-with-icon">
-                                                <input id="company_name" type="text" class="form-control" name="company_name" placeholder="Name of Company">
-                                                <i class="ti-home"></i>
-                                            </div>
-                                        </div>
-                                        @error('company_name')
-                                        <span class="d-block invalid-feedback">
-                                            <strong>
-                                                {{$message}}
-                                            </strong>
-                                        </span>
-                                        @enderror
-                                    </div>
-
-                                    <div class="col-lg-6 col-md-6" id="tax-number" style="display: none;">
-                                        <div class="form-group">
-                                            <div class="input-with-icon">
-                                                <input id="tax_number" type="text" class="form-control" name="tax_number" placeholder="Tax Number">
-                                                <i class="ti-receipt"></i>
-                                            </div>
-                                        </div>
-                                        @error('password')
-                                        <span class="d-block invalid-feedback">
-                                            <strong>
-                                                {{$message}}
-                                            </strong>
-                                        </span>
-                                        @enderror
-                                    </div>
-
-
-                                    <div class="col-lg-6 col-md-6" id="office-name" style="display: none;">
-                                        <div class="form-group">
-                                            <div class="input-with-icon">
-                                                <input id="office_name" type="text" class="form-control" name="office_name" placeholder="Name of Office">
-                                                <i class="ti-home"></i>
-                                            </div>
-                                        </div>
-                                        @error('password')
-                                        <span class="d-block invalid-feedback">
-                                            <strong>
-                                                {{$message}}
-                                            </strong>
-                                        </span>
-                                        @enderror
-                                    </div>
-
-                                    <div class="col-lg-6 col-md-6">
+                                    <div class="col-lg-12">
 
                                         <div class="form-group">
                                             <div class="input-with-icon">
                                                 <select id="user_type" name="user_type" class="form-control">
-                                                    <option value="regular">Regular User</option>
-                                                    <option value="broker">Broker</option>
+                                                    <option value="seeker">Real Estate Seeker</option>
+                                                    <option value="broker">Real Estate Broker</option>
+                                                    <option value="developer">Real Estate Developer</option>
                                                 </select>
                                                 <i class="ti-user"></i>
                                             </div>
@@ -273,6 +71,7 @@
                                         </span>
                                         @enderror
                                     </div>
+
 
 
                                 </div>

@@ -11,10 +11,7 @@ class CreateBrokersTable extends Migration
         Schema::create('brokers', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('commertial_number');
-            $table->string('office_name');
-            $table->string('tax_number');
-            $table->string('company_name');
+            $table->boolean('is_developer')->default(false);
             $table->foreignId('user_id')
                 ->references('id')
                 ->on('users')

@@ -11,23 +11,24 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('first_name');
-            $table->string('last_name');
             $table->string('username')->unique();
-            $table->string('phone');
+            $table->string('first_name')->nullable();
+            $table->string('middle_name')->nullable();
+            $table->string('last_name')->nullable();
             $table->text('description')->nullable();
-            $table->date('birth_date');
-            $table->string('email')->unique();
-            $table->enum('gender', ['male', 'female']);
+            $table->enum('gender', ['male', 'female'])->nullable();
+            $table->date('birth_date')->nullable();
+            $table->string('email')->nullable()->unique();
+            $table->string('phone')->nullable()->unique();
             $table->string('password');
             $table->timestamps();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->timestamp('user_verified_at')->nullable();
             $table->foreignId('user_type_id')
                 ->default(UserType::SEEKER)
                 ->references('id')
-                ->on('user_types');
-
-            $table->foreignId('plan_id')->nullable()->references('id')->on('plans');
+                ->on('user_types')
+                ->cascadeOnDelete()
+                ->cascadeOnUpdate();
         });
     }
 
