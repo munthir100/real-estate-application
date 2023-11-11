@@ -12,9 +12,8 @@ use App\Http\Controllers\Properties\PropertiesController;
 use App\Http\Controllers\Properties\ApplicationsController;
 use App\Http\Controllers\Dashboard\Account\SettingsController;
 use App\Http\Controllers\admin\PropertiesController as AdminPropertiesController;
+use App\Http\Controllers\auth\VerificationController;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\dashboard\AgentController;
-use App\Models\City;
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('properties', [HomeController::class, 'properties'])->name('properties');
@@ -23,30 +22,49 @@ Route::get('plans', [PlanController::class, 'index'])->name('plans.index');
 Route::get('contact', [ContactController::class, 'index'])->name('contact.index');
 Route::get('home/agents', [HomeController::class, 'agents'])->name('agents');
 Route::get('home/agents/{agent}', [HomeController::class, 'agentDetails'])->name('agents.details');
-
-
-
-
 Route::get('properties/{property}/details', [HomeController::class, 'propertyDetails'])->name('properties.details');
 Route::get('city/{cityName}', [HomeController::class, 'cityProperties'])->name('cityProperties');
 
-Route::prefix('login')->group(function () {
-    Route::get('/', [LoginController::class, 'loginForm'])->name('loginForm');
-    Route::post('/', [LoginController::class, 'login'])->name('login');
-});
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-Route::get('/verification-code', [LoginController::class, 'verification'])->name('auth.verification-code');
 
-Route::prefix('register')->group(function () {
-    Route::get('/', [RegisterController::class, 'registerForm'])->name('registerForm');
-    Route::post('/', [RegisterController::class, 'register'])->name('register');
+
+
+
+Route::middleware('guest')->group(function () {
+    Route::prefix('login')->group(function () {
+        Route::get('/', [LoginController::class, 'loginForm'])->name('loginForm');
+        Route::post('/', [LoginController::class, 'login'])->name('login');
+    });
+
+
+    Route::prefix('register')->group(function () {
+        Route::get('/', [RegisterController::class, 'registerForm'])->name('registerForm');
+        Route::post('/', [RegisterController::class, 'register'])->name('register');
+    });
 });
+
+Route::middleware('auth')->group(function () {
+    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+    Route::middleware('not_verified')->group(function(){
+        Route::get('/verification-code', [VerificationController::class, 'showVerificationForm'])->name('auth.verification-form');
+        Route::get('/resend-code', [VerificationController::class, 'resendCode'])->name('auth.code.resend');
+        Route::post('/verify-code', [VerificationController::class, 'verifyCode'])->name('auth.verifyCode');
+    });
+});
+
+
+
+
+
+
+
+
+
 
 
 // Dashboard routes
-Route::middleware(['auth'])->prefix('/dashboard')->name('dashboard.')->group(function () {
+Route::middleware(['auth', 'custom_verified'])->prefix('/dashboard')->name('dashboard.')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('home');
-    //     // Account settings routes
+
     Route::prefix('account/settings')->name('account.settings.')->group(function () {
         Route::get('edit', [SettingsController::class, 'edit'])->name('edit');
         Route::put('update-profile', [SettingsController::class, 'updateProfile'])->name('update-profile');
@@ -58,8 +76,8 @@ Route::middleware(['auth'])->prefix('/dashboard')->name('dashboard.')->group(fun
     Route::resource('applications', ApplicationsController::class);
 });
 
-
-Route::middleware('auth', 'is_admin')->prefix('admin')->name('admin.')->group(function () {
+// 2023-11-10 04:56:46
+Route::middleware('auth', 'custom_verified', 'is_admin')->prefix('admin')->name('admin.')->group(function () {
     Route::resource('properties', AdminPropertiesController::class)->only(['index', 'edit', 'destroy']);
     Route::resource('applications', AdminApplicationController::class)->only(['index', 'edit', 'destroy']);
     Route::post('properties/{property}/accept', [AdminPropertiesController::class, 'accept'])->name('properties.accept');

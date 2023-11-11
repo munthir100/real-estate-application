@@ -21,9 +21,9 @@ class CreateUsersTable extends Migration
             $table->enum('gender', ['male', 'female']);
             $table->string('password');
             $table->timestamps();
-
+            $table->timestamp('email_verified_at')->nullable();
             $table->foreignId('user_type_id')
-                ->default(UserType::BROWSER)
+                ->default(UserType::SEEKER)
                 ->references('id')
                 ->on('user_types');
 

@@ -30,14 +30,14 @@ class RegisterController extends Controller
     public function register(RegisterRequest $request)
     {
         $validatedData = $request->validated();
-        $userType = $validatedData['user_type'] === 'subscriber' ? UserType::SUBSCRIBER : UserType::BROWSER;
+        $userType = $validatedData['user_type'] === 'subscriber' ? UserType::SUBSCRIBER : UserType::SEEKER;
 
         $user = User::create(array_merge($validatedData, ['user_type_id' => $userType]));
 
         if ($validatedData['user_type'] === 'subscriber') {
             $user->subscriber()->create($validatedData);
         } else {
-            $user->browser()->create($validatedData);
+            $user->seeker()->create($validatedData);
         }
 
 

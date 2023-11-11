@@ -27,7 +27,7 @@
                                 <i class="ti-settings mr1"></i>Settings
                             </a>
                         </li>
-                        @if(request()->user()->user_type_id == App\Models\UserType::SUBSCRIBER)
+                        @if(request()->user()->user_type_id == App\Models\UserType::SUBSCRIBER || request()->user()->user_type_id == App\Models\UserType::AGENT)
 
                         <li class="{{ request()->routeIs('dashboard.properties*') ? 'active' : '' }}">
                             <a href="{{route('dashboard.properties.index')}}" title="Properties">

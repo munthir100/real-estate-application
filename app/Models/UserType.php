@@ -10,7 +10,7 @@ class UserType extends Model
 {
     protected $fillable = ['name'];
     const SUBSCRIBER = 1;
-    const BROWSER = 2;
+    const SEEKER = 2;
     const ADMIN = 3;
     const AGENT = 4;
     // Define the relationship with the User model

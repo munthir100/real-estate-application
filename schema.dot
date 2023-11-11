@@ -20,14 +20,15 @@ digraph UML_Diagram {
     // User Types
     UserType [label = "{UserType | id: int | name: string}";];
     
-    // subscriber - browser
+    // subscriber - Seeker
     User [label = "{User | id: int | first_name: string |last_name: string |username: string|phone:int|description:string|birth_date:date| email: string| gender: string | password: string | user_type_id (FK): int | plan_id (FK): int}";];
     // gender is enum male or female
     Subscriber [label = "{Subscriber | id: int | user_id (FK): int | commertial_number:int | office_name : string | tax_number : int|company_name:string }";];
-    Browser [label = "{Browser | id: int | user_id (FK): int}";];
+    Seeker [label = "{Seeker | id: int | user_id (FK): int}";];
     Agent [label = "{Agent | id: int | user_id (FK): int | subscriber_id (FK) : int | ceo:string}";];
     Admin [label = "{Admin | id: int | user_type_id (FK): int}";];
     Agent [label = "{Agent | id: int | user_type_id (FK): int | subscriber_id:int (FK)}";];
+    UserVerificationCode [label = "{UserVerificationCode | id: int | user_id (FK): int | code:string}";];
     
     // Property Advertisement
     PropertyType [label = "{PropertyType | id: int | name: string}";];
@@ -67,7 +68,7 @@ digraph UML_Diagram {
     User -> UserType [label = "has a";];
     User -> Plan [label = "subscribes to";];
     Subscriber -> User [label = "user_id";];
-    Browser -> User [label = "user_id";];
+    Seeker -> User [label = "user_id";];
     Admin -> User [label = "user_type_id";];
     
     // Property Relationships

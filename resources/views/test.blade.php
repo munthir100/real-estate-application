@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5, user-scalable=1" name="viewport" />
 
-    <meta name="csrf-token" content="PTPgI6EOk7Y34fRJZOOHw7mJUpWiBhGi6xZoHcxJ">
+    <meta name="csrf-token" content="1IS4ji1SEihu64bpBz6VovxJ3kbDUeggVBaRk0b1">
 
     <!-- Fonts-->
     <link href="https://fonts.googleapis.com/css2?family=Play:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" type="text/css">
@@ -50,13 +50,13 @@
         window.currentLanguage = 'en';
     </script>
 
-    <title>Lonny Swift</title>
+    <title>Forgot password</title>
     <meta name="description" content="Resido is a premium real estate related websites build on Laravel. With an advanced admin dashboard that will help you create a local or global real-estate directory site.">
     <meta property="og:site_name" content="Cicica Nekretnine">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Lonny Swift">
+    <meta property="og:title" content="Forgot password">
     <meta property="og:image" content="https://resido.thesky9.com/storage/general/screenshot.png">
-    <meta name="twitter:title" content="Lonny Swift">
+    <meta name="twitter:title" content="Forgot password">
 
     <link href="https://resido.thesky9.com/storage/general/favicon.png" rel="shortcut icon">
 
@@ -135,7 +135,7 @@
                             </button>
                             <ul class="dropdown-menu language_bar_chooser ">
                                 <li>
-                                    <a href="https://resido.thesky9.com/vi/agents/thesky9">
+                                    <a href="https://resido.thesky9.com/vi/password/request">
                                         <img src="https://resido.thesky9.com/vendor/core/core/base/images/flags/vn.svg" title="Tiếng Việt" width="16" alt="Tiếng Việt">
                                         <span>Tiếng Việt</span>
                                     </a>
@@ -342,7 +342,7 @@
                                                     Agents List
                                                 </a>
                                             </li>
-                                            <li class="   current-menu-item ">
+                                            <li class="  ">
                                                 <a href="https://resido.thesky9.com/en/agents/thesky9">
                                                     Agents Detail Page
                                                 </a>
@@ -472,7 +472,7 @@
                                     </button>
                                     <ul class="dropdown-menu language_bar_chooser ">
                                         <li>
-                                            <a href="https://resido.thesky9.com/vi/agents/thesky9">
+                                            <a href="https://resido.thesky9.com/vi/password/request">
                                                 <img src="https://resido.thesky9.com/vendor/core/core/base/images/flags/vn.svg" title="Tiếng Việt" width="16" alt="Tiếng Việt">
                                                 <span>Tiếng Việt</span>
                                             </a>
@@ -491,7 +491,42 @@
         <div class="clearfix"></div>
 
 
-  
+        <div id="app">
+            <section>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-md-6">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <h2 class="text-center">Forgot password</h2>
+                                    <br>
+
+                                    <form method="POST" class="simple-form" action="https://resido.thesky9.com/en/password/email">
+                                        <input type="hidden" name="_token" value="1IS4ji1SEihu64bpBz6VovxJ3kbDUeggVBaRk0b1">
+                                        <div class="form-group">
+                                            <div class="input-with-icon">
+                                                <input id="email" type="email" class="form-control" name="email" value="" required placeholder="Email">
+                                                <i class="ti-email"></i>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group mb-0">
+                                            <button type="submit" class="btn btn-md full-width btn-theme-light-2 rounded">
+                                                Reset Password
+                                            </button>
+                                            <div class="text-center">
+                                                <a href="https://resido.thesky9.com/en/login" class="btn btn-link">Back to login page</a>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
 
         <div class="widget_shortcode">
 
@@ -661,7 +696,7 @@
                                     </h4>
                                 </div>
                                 <form class="form-subcriber newsletter-form mt-30" action="https://resido.thesky9.com/en/newsletter/subscribe" method="post">
-                                    <input type="hidden" name="_token" value="PTPgI6EOk7Y34fRJZOOHw7mJUpWiBhGi6xZoHcxJ">
+                                    <input type="hidden" name="_token" value="1IS4ji1SEihu64bpBz6VovxJ3kbDUeggVBaRk0b1">
                                     <div class="form-group d-flex">
                                         <input type="email" name="email" class="form-control bg-white font-small" placeholder="Enter your email">
                                         <button class="btn bg-dark text-white" type="submit">Subscribe</button>

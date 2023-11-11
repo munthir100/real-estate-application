@@ -2,7 +2,9 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\CustomVerified;
 use App\Http\Middleware\IsAdminMiddleware;
+use App\Http\Middleware\NotVerified;
 use App\Http\Middleware\SubscriberMiddleware;
 use App\Http\Middleware\SubscriptionMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
@@ -69,6 +71,9 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'is_subscriber' => SubscriberMiddleware::class,
         'is_admin' => IsAdminMiddleware::class,
-        'active_plan' => SubscriptionMiddleware::class
+        'active_plan' => SubscriptionMiddleware::class,
+        'custom_verified' => CustomVerified::class,
+        'not_verified' => NotVerified::class,
     ];
 }
+// 2023-11-10 05:17:29

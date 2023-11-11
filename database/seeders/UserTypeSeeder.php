@@ -17,7 +17,7 @@ class UserTypeSeeder extends Seeder
         // User Types
         $userTypes = [
             ['name' => 'Subscriber'],
-            ['name' => 'Browser'],
+            ['name' => 'Seeker'],
             ['name' => 'Admin'],
             ['name' => 'Agent'],
         ];

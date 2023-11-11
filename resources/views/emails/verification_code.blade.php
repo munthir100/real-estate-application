@@ -49,7 +49,7 @@
         <p>Thank you for signing up! Please use the following verification code to verify your email:</p>
         <div class="verification-code">{{ $verificationCode }}</div>
         <p>If you didn't sign up, please ignore this email.</p>
-        <p class="footer">&copy; {{ date('Y') }} Your Company Name</p>
+        <p class="footer">&copy; {{ date('Y') }} Aqaraaat</p>
     </div>
 </body>
 </html>

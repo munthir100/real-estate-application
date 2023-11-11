@@ -25,11 +25,12 @@ class PropertiesController extends Controller
     {
         $this->propertyService = $propertyService;
         $this->planService = $planService;
-        $this->middleware('active_plan')->only('store', 'update', 'destroy');
+        $this->middleware('active_plan')->only('index', 'store', 'edit', 'update', 'destroy');
+        $this->middleware('is_subscriber')->only('destroy');
     }
     function index()
     {
-        $user = request()->user();
+        $user = request()->subscriberUser;
         $properties = $user->properties()
             ->whereDoesntHave('applications')
             ->where('is_ad', false)
@@ -87,7 +88,7 @@ class PropertiesController extends Controller
 
     function edit($propertyId)
     {
-        $property = request()->user()->properties()->findOrFail($propertyId);
+        $property = request()->subscriberUser->properties()->findOrFail($propertyId);
         $cities = City::all();
         $currencies = Currency::all();
         $categories = Category::all();
@@ -101,7 +102,7 @@ class PropertiesController extends Controller
     function update(UpdatePropertyRequest $request, $propertyId)
     {
         $validatedData = $request->validated();
-        $property = request()->user()->properties()->findOrFail($propertyId);
+        $property = request()->subscriberUser->properties()->findOrFail($propertyId);
         $property->update($validatedData);
 
         if (isset($validatedData['features'])) {
@@ -129,3 +130,4 @@ class PropertiesController extends Controller
         return back()->with('success', 'property deleted');
     }
 }
+// vdlt hxwj aeqs bfuk 

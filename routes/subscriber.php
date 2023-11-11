@@ -15,9 +15,3 @@ Route::middleware('auth', 'is_subscriber')->group(function () {
     Route::resource('dashboard/agents', AgentController::class);
 });
 
-
-
-
-Route::middleware(['auth'])->prefix('/dashboard')->name('dashboard.')->group(function () {
-    Route::resource('properties', PropertiesController::class);
-});

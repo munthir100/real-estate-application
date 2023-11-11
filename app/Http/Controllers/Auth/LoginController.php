@@ -4,14 +4,18 @@ namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use App\Mail\EmailVerificationCode;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Services\auth\verificationService;
 
 class LoginController extends Controller
 {
+    public $verificationService;
+    function __construct(verificationService $verificationService)
+    {
+        $this->verificationService = $verificationService;
+    }
 
     function loginForm()
     {
@@ -25,7 +29,7 @@ class LoginController extends Controller
         $data = $request->validated();
 
         $user = User::where('email', $data['email'])
-            ->orWhere('email', $data['email'])
+            ->orWhere('phone', $data['email'])
             ->first();
 
         if (!$user) {
@@ -43,15 +47,10 @@ class LoginController extends Controller
         }
 
         Auth::login($user);
-        // // Generate and store a random verification code
-        // $verificationCode = mt_rand(100000, 999999);
-        // $user->update(['verification_code' => $verificationCode]);
 
-        // // Send email with verification code
-        // Mail::to($user->email)->send(new EmailVerificationCode($verificationCode));
-        // return redirect()->route('auth.verification-code', ['email' => $user->email]);
-        
-        return to_route('home');
+        $this->verificationService->sendCodeForUser($user);
+
+        return redirect()->route('auth.verification-form');
     }
 
     public function logout(Request $request)

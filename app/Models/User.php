@@ -41,9 +41,9 @@ class User extends Authenticatable
         return $this->hasOne(Subscriber::class, 'user_id');
     }
 
-    public function browser()
+    public function seeker()
     {
-        return $this->hasOne(Browser::class, 'user_id');
+        return $this->hasOne(Seeker::class, 'user_id');
     }
 
     public function agent()
@@ -76,6 +76,11 @@ class User extends Authenticatable
         return $this->hasOne(UserPlan::class);
     }
 
+    function verificationCode()
+    {
+        return $this->hasOne(UserVerificationCode::class);
+    }
+
     // attributes
 
     public function getIsSubscriberAttribute()
@@ -88,14 +93,19 @@ class User extends Authenticatable
         return $this->user_type_id == UserType::ADMIN;
     }
 
-    // Accessor for "isBrowser"
-    public function getIsBrowserAttribute()
+    // Accessor for "isSeeker"
+    public function getIsSeekerAttribute()
     {
-        return $this->user_type_id == UserType::BROWSER;
+        return $this->user_type_id == UserType::SEEKER;
     }
     public function getIsAgentAttribute()
     {
         return $this->user_type_id == UserType::AGENT;
+    }
+
+    public function getRecentlyVerifiedAttribute()
+    {
+        return $this->hasVerifiedEmail() && $this->email_verified_at->addMinutes(30)->isFuture();
     }
 
     /**
