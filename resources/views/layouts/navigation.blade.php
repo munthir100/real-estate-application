@@ -9,51 +9,51 @@
                 <ul class="nav-menu">
                     <li class=" menu-item-has-children   ">
                         <a href="{{route('home')}}">
-                            Home
+                            {{__('Home')}}
                         </a>
 
 
                     </li>
                     <li class=" menu-item-has-children   ">
                         <a href="{{route('properties')}}">
-                            Properties
+                            {{__('Properties')}}
                         </a>
 
 
                     </li>
                     <li class="  ">
                         <a href="{{route('applications')}}">
-                            Applications
+                            {{__('Applications')}}
                         </a>
                     </li>
                     @auth
                     @if(request()->user()->isBroker)
                     <li class="  ">
                         <a href="{{route('agents')}}">
-                            Agents
+                            {{__('Agents')}}
                         </a>
                     </li>
                     @endif
                     @endauth
                     <li class=" menu-item-has-children    current-menu-item ">
                         <a href="{{route('home')}}">
-                            Pages
+                            {{__('Pages')}}
                         </a>
                         <ul class="nav-dropdown nav-submenu">
                             <li class="  ">
                                 <a href="{{route('brokers')}}">
-                                    Brokers
+                                    {{__('Brokers')}}
                                 </a>
                             </li>
                             <li class="  ">
                                 <a href="{{route('plans.index')}}">
-                                    Pricing
+                                    {{__('Pricing')}}
                                 </a>
                             </li>
 
                             <li class="  ">
                                 <a href="{{route('contact.index')}}">
-                                    Contact
+                                    {{__('Contact')}}
                                 </a>
                             </li>
                         </ul>
@@ -62,17 +62,17 @@
                     @guest
                     <li class="  ">
                         <a href="{{route('registerForm')}}">
-                            Sign Up
+                            {{__('Sign Up')}}
                         </a>
                     </li>
 
                     <ul class="nav-menu nav-menu-social align-to-right">
                         <li class="">
-                            <a href="{{route('dashboard.properties.create')}}" class="text-success"><img src="{{asset('themes/resido/img/submit.svg')}}" width="20" alt="" class="mr-2"> Add Property</a>
+                            <a href="{{route('dashboard.properties.create')}}" class="text-success"><img src="{{asset('themes/resido/img/submit.svg')}}" width="20" alt="" class="mr-2"> {{__('Add Property')}}</a>
                         </li>
                         <li class="add-listing">
                             <a href="{{route('login')}}">
-                                <img src="{{asset('themes/resido/img/user-light.svg')}}" width="12" alt="" class="mr-2">Sign In</a>
+                                <img src="{{asset('themes/resido/img/user-light.svg')}}" width="12" alt="" class="mr-2">{{__('Sign In')}}</a>
                         </li>
 
                     </ul>
@@ -82,7 +82,7 @@
 
                     <ul class="nav-menu nav-menu-social align-to-right">
                         <li class="login-item">
-                            <a href="{{route('dashboard.properties.create')}}" class="text-success"><img src="{{asset('themes/resido/img/submit.svg')}}" width="20" alt="" class="mr-2"> Add Property</a>
+                            <a href="{{route('dashboard.properties.create')}}" class="text-success"><img src="{{asset('themes/resido/img/submit.svg')}}" width="20" alt="" class="mr-2"> {{__('Add Property')}}</a>
                         </li>
                         <li class="login-item">
                             <a href="{{route('dashboard.home')}}" rel="nofollow"><i class="fas fa-user"></i> <span>
@@ -91,7 +91,7 @@
                                 </span>
                             </a>
                         </li>
-                        <li class="login-item"><a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" rel="nofollow"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                        <li class="login-item"><a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" rel="nofollow"><i class="fas fa-sign-out-alt"></i> {{__('Logout')}}</a></li>
                     </ul>
                     <form action="{{route('logout')}}" method="post" type="hidden" id="logout-form">
                         @csrf

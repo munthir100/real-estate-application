@@ -20,7 +20,7 @@
                                 <div class="col-lg-12 text-center">
                                     <div class="sec-heading center">
                                         <h2>{{__('Explore Good Places')}}</h2>
-                                        <p>explore latest real estate properties in our platform</p>
+                                        <p>{{__('explore latest real estate properties in our platform')}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -114,7 +114,7 @@
 
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 col-sm-12 text-center">
-                                    <a href="{{route('properties')}}" class="btn btn-theme-light-2 rounded">Browse More Properties</a>
+                                    <a href="{{route('properties')}}" class="btn btn-theme-light-2 rounded">{{__('Browse More Properties')}}</a>
                                 </div>
                             </div>
                         </div>
@@ -131,7 +131,7 @@
                 <div>
                     <x-home.site-works />
                 </div>
-                <div>
+                <!-- <div>
                     <div class="raw-html-embed">
                         <section class="bg-light">
                             <div class="container">
@@ -168,7 +168,7 @@
                             </div>
                         </section>
                     </div>
-                </div>
+                </div> -->
             </div>
 
         </div>

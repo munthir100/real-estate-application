@@ -6,7 +6,7 @@
             <div class="col-lg-12 col-md-12">
                 <div class="filter_search_opt">
                     <a href="javascript:void(0);" class="open_search_menu">
-                        Dashboard Navigation
+                        {{__('Dashboard Navigation')}}
                         <i class="ml-2 ti-menu"></i>
                     </a>
                 </div>
@@ -26,11 +26,11 @@
 
                                     <div class="input-group">
                                         <form method="get">
-                                            <input type="text" name="title" class="form-control" id="searchInput" placeholder="Search">
+                                            <input type="text" name="title" class="form-control" id="searchInput" placeholder="{{__('Search')}}">
                                         </form>
                                     </div>
                                 </div>
-                                <a href="{{route('dashboard.applications.create')}}" class="btn btn-info"><i class="fas fa-plus"></i> Create</a>
+                                <a href="{{route('dashboard.applications.create')}}" class="btn btn-info"><i class="fas fa-plus"></i> {{__('Create')}}</a>
                             </div>
 
                             <!-- Table -->
@@ -38,10 +38,10 @@
                                 <thead>
                                     <tr role="row">
 
-                                        <th class="text-center">Name</th>
-                                        <th class="text-center">Created at</th>
-                                        <th class="text-center">Status</th>
-                                        <th class="text-center">Operations</th>
+                                        <th class="text-center">{{__('Name')}}</th>
+                                        <th class="text-center">{{__('Created at')}}</th>
+                                        <th class="text-center">{{__('Status')}}</th>
+                                        <th class="text-center">{{__('Operations')}}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -71,7 +71,7 @@
                                     </tr>
                                     @empty
                                     <tr class="odd">
-                                        <td valign="top" colspan="9" class="dataTables_empty">No data to display</td>
+                                        <td valign="top" colspan="9" class="dataTables_empty">{{__('No data to display')}}</td>
                                     </tr>
                                     @endforelse
                                 </tbody>

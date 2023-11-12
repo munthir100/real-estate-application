@@ -13,21 +13,21 @@ $properties->load('location','currency')
                     <div class="item-sorting clearfix">
                         <div class="left-column pull-left">
                             <h4 class="m-0">
-                                Found {{ $properties->count() > 0 ? ($properties->firstItem() . ' - ' . $properties->lastItem()) : '0' }} Of {{ $properties->total() }} Results
+                                {{__('Found')}} {{ $properties->count() > 0 ? ($properties->firstItem() . ' - ' . $properties->lastItem()) : '0' }} {{__('Of')}} {{ $properties->total() }} {{__('Results')}}
                             </h4>
                         </div>
                     </div>
                     <div class="item-sorting-box-right">
                         <div class="sorting-by">
                             <select id="sort_by" name="sort_by" class="form-control" data-placeholder="Sort by">
-                                <option value="">Sort by</option>
-                                <option value="">Default</option>
-                                <option value="date_asc">Oldest</option>
-                                <option value="date_desc">Newest</option>
-                                <option value="price_asc">Price: Low to high</option>
-                                <option value="price_desc">Price: High to low</option>
-                                <option value="name_asc">Name: A-Z</option>
-                                <option value="name_desc">Name: Z-A</option>
+                                <option value="">{{__('Sort by')}}</option>
+                                <option value="">{{__('Default')}}</option>
+                                <option value="date_asc">{{__('Oldest')}}</option>
+                                <option value="date_desc">{{__('Newest')}}</option>
+                                <option value="price_asc">{{__('Price: Low to high')}}</option>
+                                <option value="price_desc">{{__('Price: High to low')}}</option>
+                                <option value="name_asc">{{__('Name: A-Z')}}</option>
+                                <option value="name_desc">{{__('Name: Z-A')}}</option>
                             </select>
                         </div>
                         <ul class="shorting-list">
@@ -64,7 +64,7 @@ $properties->load('location','currency')
             <div class="col-lg-12 col-md-12">
                 <div class="alert alert-light">
                     <span class="test-light">
-                        <p class="text-center">no result found</p>
+                        <p class="text-center">{{__('no result found')}}</p>
                     </span>
                 </div>
             </div>

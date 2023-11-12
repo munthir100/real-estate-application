@@ -8,7 +8,7 @@ $rejectedgProperties = $properties->where('status_id',\App\Models\Status::REJECT
         <div class="dashboard-stat widget-1">
             <div class="dashboard-stat-content">
                 <h4>{{$approvedProperties}}</h4>
-                <span>Approved properties</span>
+                <span>{{__('Approved properties')}}</span>
             </div>
             <div class="dashboard-stat-icon"><i class="ti-location-pin"></i></div>
         </div>
@@ -18,7 +18,7 @@ $rejectedgProperties = $properties->where('status_id',\App\Models\Status::REJECT
         <div class="dashboard-stat widget-2">
             <div class="dashboard-stat-content">
                 <h4>{{$pendingProperties}}</h4>
-                <span>Pending approve properties</span>
+                <span>{{__('Pending approve properties')}}</span>
             </div>
             <div class="dashboard-stat-icon"><i class="ti-pie-chart"></i></div>
         </div>
@@ -28,7 +28,7 @@ $rejectedgProperties = $properties->where('status_id',\App\Models\Status::REJECT
         <div class="dashboard-stat widget-3">
             <div class="dashboard-stat-content">
                 <h4>{{$rejectedgProperties}}</h4>
-                <span>Rejected properties</span>
+                <span>{{__('Rejected properties')}}</span>
             </div>
             <div class="dashboard-stat-icon"><i class="ti-user"></i></div>
         </div>

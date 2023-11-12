@@ -37,9 +37,9 @@
                             <div class="listing-short-detail">
                                 <div class="list-price d-flex justify-content-between">
                                     @if($property->property_type_id == App\Models\PropertyType::SALE)
-                                    <span class="prt-types sale">For Sale</span>
+                                    <span class="prt-types sale">{{__('For Sale')}}</span>
                                     @else
-                                    <span class="prt-types rent">For rent</span>
+                                    <span class="prt-types rent">{{__('For rent')}}</span>
                                     @endif
                                     <h6 class="listing-card-info-price">
                                         {{$property->currency->code}}{{$property->price}}
@@ -64,20 +64,20 @@
                                 <div class="inc-fleat-icon">
                                     <img src="{{asset('themes/resido/img/bed.svg')}}" width="13" alt="" />
                                 </div>
-                                {{$property->number_of_beds}} Beds
+                                {{$property->number_of_beds}} {{__('Beds')}}
                             </div>
 
                             <div class="listing-card-info-icon">
                                 <div class="inc-fleat-icon">
                                     <img src="{{asset('themes/resido/img/bathtub.svg')}}" width="13" alt="" />
                                 </div>
-                                {{$property->number_of_bathrooms}} Bath
+                                {{$property->number_of_bathrooms}} {{__('Bath')}}
                             </div>
                             <div class="listing-card-info-icon">
                                 <div class="inc-fleat-icon">
                                     <img src="{{asset('themes/resido/img/move.svg')}}" width="13" alt="" />
                                 </div>
-                                {{$property->square}} m²
+                                {{$property->square}} {{__('m²')}}
                             </div>
                         </div>
                     </div>
@@ -90,7 +90,7 @@
                             </div>
                         </div>
                         <div class="footer-flex">
-                            <a href="{{route('properties.details',$property->id)}}" class="prt-view">View</a>
+                            <a href="{{route('properties.details',$property->id)}}" class="prt-view">{{__('View')}}</a>
                         </div>
                     </div>
                 </div>

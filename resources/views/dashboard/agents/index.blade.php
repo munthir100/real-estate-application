@@ -6,7 +6,7 @@
             <div class="col-lg-12 col-md-12">
                 <div class="filter_search_opt">
                     <a href="javascript:void(0);" class="open_search_menu">
-                        Dashboard Navigation
+                        {{__('Dashboard Navigation')}}
                         <i class="ml-2 ti-menu"></i>
                     </a>
                 </div>
@@ -30,7 +30,7 @@
                                         </form>
                                     </div>
                                 </div>
-                                <a href="#" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#createAgentModal"><i class="fas fa-plus"></i> Create Agent</a>
+                                <a href="#" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#createAgentModal"><i class="fas fa-plus"></i> {{__('Create Agent')}}</a>
 
                             </div>
 
@@ -39,11 +39,11 @@
                                 <thead>
                                     <tr role="row">
 
-                                        <th class="text-center">Full Name</th>
-                                        <th class="text-center">Username</th>
-                                        <th class="text-center">Email</th>
-                                        <th class="text-center">Phone</th>
-                                        <th class="text-center">Operations</th>
+                                        <th class="text-center">{{__('Full Name')}}</th>
+                                        <th class="text-center">{{__('Username')}}</th>
+                                        <th class="text-center">{{__('Email')}}</th>
+                                        <th class="text-center">{{__('Phone')}}</th>
+                                        <th class="text-center">{{__('Operations')}}</th>
                                     </tr>
                                 </thead>
 
@@ -76,7 +76,7 @@
 
                                     @empty
                                     <tr class="odd">
-                                        <td valign="top" colspan="9" class="dataTables_empty">No data to display</td>
+                                        <td valign="top" colspan="9" class="dataTables_empty">{{__('No data to display')}}</td>
                                     </tr>
                                     @endforelse
                                 </tbody>
@@ -130,83 +130,83 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group mb-3">
-                                <label for="first_name" class="control-label required">First Name</label>
-                                <input required class="form-control" placeholder="First Name" data-counter="255" v-pre name="first_name" type="text" id="first_name">
+                                <label for="first_name" class="control-label required">{{__('First Name')}}</label>
+                                <input required class="form-control" placeholder="{{__('First Name')}}" data-counter="255" v-pre name="first_name" type="text" id="first_name">
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group mb-3">
-                                <label for="middle_name" class="control-label required">Last Name</label>
-                                <input required class="form-control" placeholder="Last Name" data-counter="255" v-pre name="middle_name" type="text" id="middle_name">
+                                <label for="middle_name" class="control-label required">{{__('Middle Name')}}</label>
+                                <input required class="form-control" placeholder="{{__('Middle Name')}}" data-counter="255" v-pre name="middle_name" type="text" id="middle_name">
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group mb-3">
-                                <label for="last_name" class="control-label required">Last Name</label>
-                                <input required class="form-control" placeholder="Last Name" data-counter="255" v-pre name="last_name" type="text" id="last_name">
+                                <label for="last_name" class="control-label required">{{__('Last Name')}}</label>
+                                <input required class="form-control" placeholder="{{__('Last Name')}}" data-counter="255" v-pre name="last_name" type="text" id="last_name">
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group mb-3">
-                                <label for="username" class="control-label required">Username</label>
-                                <input required class="form-control" placeholder="Username" data-counter="255" v-pre name="username" type="text" id="username">
+                                <label for="username" class="control-label required">{{__('Username')}}</label>
+                                <input required class="form-control" placeholder="{{__('Username')}}" data-counter="255" v-pre name="username" type="text" id="username">
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group mb-3">
-                                <label for="phone" class="control-label required">Phone</label>
-                                <input required class="form-control" placeholder="Phone" data-counter="15" v-pre name="phone" type="text" id="phone">
+                                <label for="phone" class="control-label required">{{__('Phone')}}</label>
+                                <input required class="form-control" placeholder="{{__('Phone')}}" data-counter="15" v-pre name="phone" type="text" id="phone">
                             </div>
                         </div>
 
                         <div class="col-md-12">
                             <div class="form-group mb-3">
-                                <label for="description" class="control-label required">Description</label>
-                                <textarea required class="form-control" rows="4" placeholder="Short description" data-counter="350" v-pre name="description" cols="50" id="description"></textarea>
+                                <label for="description" class="control-label required">{{__('Description')}}</label>
+                                <textarea required class="form-control" rows="4" placeholder="{{__('Short description')}}" data-counter="350" v-pre name="description" cols="50" id="description"></textarea>
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group mb-3">
-                                <label for="birth_date" class="control-label required">Birth Date</label>
-                                <input required class="form-control" placeholder="Birth Date" v-pre name="birth_date" type="date" id="birth_date">
+                                <label for="birth_date" class="control-label required">{{__('Birth Date')}}</label>
+                                <input required class="form-control" placeholder="{{__('Birth Date')}}" v-pre name="birth_date" type="date" id="birth_date">
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group mb-3">
-                                <label for="email" class="control-label required">Email</label>
-                                <input required class="form-control" placeholder="Email" data-counter="255" v-pre name="email" type="email" id="email">
+                                <label for="email" class="control-label required">{{__('Email')}}</label>
+                                <input required class="form-control" placeholder="{{__('Email')}}" data-counter="255" v-pre name="email" type="email" id="email">
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group mb-3">
-                                <label for="gender" class="control-label required">Gender</label>
-                                <select required class="form-control" v-pre name="gender" id="gender">
-                                    <option value="male">Male</option>
-                                    <option value="female">Female</option>
+                                <label for="gender" class="control-label required">{{__('Gender')}}</label>
+                                <select required class="form-control" v-pre name="{{__('gender')}}" id="gender">
+                                    <option value="male">{{__('Male')}}</option>
+                                    <option value="female">{{__('Female')}}</option>
                                 </select>
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group mb-3">
-                                <label for="password" class="control-label required">Password</label>
-                                <input required class="form-control" placeholder="Password" v-pre name="password" type="password" id="password">
+                                <label for="password" class="control-label required">{{__('Password')}}</label>
+                                <input required class="form-control" placeholder="{{__('Password')}}" v-pre name="password" type="password" id="password">
                             </div>
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Create Agent</button>
+                    <button type="submit" class="btn btn-primary">{{__('Create Agent')}}</button>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{__('Close')}}</button>
             </div>
         </div>
     </div>

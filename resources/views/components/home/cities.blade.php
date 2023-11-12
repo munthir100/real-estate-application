@@ -4,8 +4,8 @@
         <div class="row justify-content-center">
             <div class="col-lg-7 col-md-10 text-center">
                 <div class="sec-heading center">
-                    <h2>Find By Locations</h2>
-                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores</p>
+                    <h2>{{__('Find By Locations')}}</h2>
+                    <p>{{__('select your fevorite city and choese your real estate property')}}</p>
                 </div>
             </div>
         </div>
@@ -30,7 +30,7 @@
                                 {{$city->properties_count}}
 
                                 @endif
-                                Properties</span>
+                                {{__('Properties')}}</span>
                         </div>
                         <div class="lp-content-right">
                             <a href="{{route('cityProperties',$city->name)}}" class="lp-property-view">
@@ -45,7 +45,7 @@
 
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 text-center">
-                <a href="{{route('properties')}}" class="btn btn-theme-light-2 rounded">Browse More Locations</a>
+                <a href="{{route('properties')}}" class="btn btn-theme-light-2 rounded">{{__('Browse More Locations')}}</a>
             </div>
         </div>
     </div>

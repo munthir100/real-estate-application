@@ -8,7 +8,7 @@
             <div class="col-lg-12 col-md-12">
                 <div class="filter_search_opt">
                     <a href="javascript:void(0);" class="open_search_menu">
-                        Dashboard Navigation
+                        {{__('Dashboard Navigation')}}
                         <i class="ml-2 ti-menu"></i>
                     </a>
                 </div>
@@ -29,12 +29,12 @@
                                     <div class="input-group">
                                         <form action="search" method="get">
                                             @csrf
-                                            <input type="text" class="form-control" id="searchInput" placeholder="Search">
+                                            <input type="text" class="form-control" id="searchInput" placeholder="{{__('Search')}}">
                                         </form>
 
                                     </div>
                                 </div>
-                                <a href="{{route('dashboard.properties.create')}}" class="btn btn-info"><i class="fas fa-plus"></i> Create</a>
+                                <a href="{{route('dashboard.properties.create')}}" class="btn btn-info"><i class="fas fa-plus"></i> {{__('Create')}}</a>
                             </div>
 
                             <!-- Table -->
@@ -42,10 +42,10 @@
                                 <thead>
                                     <tr role="row">
 
-                                        <th class="text-center">Name</th>
-                                        <th class="text-center">Created at</th>
-                                        <th class="text-center">Status</th>
-                                        <th class="text-center">Operations</th>
+                                        <th class="text-center">{{__('Name')}}</th>
+                                        <th class="text-center">{{__('Created at')}}</th>
+                                        <th class="text-center">{{__('Status')}}</th>
+                                        <th class="text-center">{{__('Operations')}}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -58,7 +58,7 @@
                                         </td>
                                         <td>
                                             <div class="table-actions text-center">
-                                                <a href="{{ route('dashboard.properties.edit', $property->id) }}" class="btn btn-icon btn-sm btn-primary" data-bs-toggle="tooltip" data-bs-original-title="Edit"><i class="fa fa-edit"></i></a>
+                                                <a href="{{ route('dashboard.properties.edit', $property->id) }}" class="btn btn-icon btn-sm btn-primary" data-bs-toggle="tooltip" data-bs-original-title="{{__('Edit')}}"><i class="fa fa-edit"></i></a>
                                                 <button href="#" class="btn btn-icon btn-sm btn-danger delete-button" data-bs-toggle="modal" data-bs-target="#modal-confirm-delete-{{ $property->id }}">
                                                     <i class="fa fa-trash"></i>
                                                 </button>
@@ -71,14 +71,14 @@
                                         <div class="modal-dialog modal-sm">
                                             <div class="modal-content">
                                                 <div class="modal-header bg-danger">
-                                                    <h4 class="modal-title"><i class="til_img"></i><strong>Confirm delete</strong></h4>
+                                                    <h4 class="modal-title"><i class="til_img"></i><strong>{{__('Confirm delete')}}</strong></h4>
                                                     <button class="btn-close" data-bs-dismiss="modal" type="button" aria-hidden="true"></button>
                                                 </div>
                                                 <div class="modal-body with-padding" data-select2-dropdown-parent>
-                                                    <div>Do you really want to delete this record?</div>
+                                                    <div>{{__('Do you really want to delete this record?')}}</div>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button class="btn btn-warning" data-bs-dismiss="modal" type="button">Cancel</button>
+                                                    <button class="btn btn-warning" data-bs-dismiss="modal" type="button">{{__('Cancel')}}</button>
 
                                                     <button type="button" class="btn btn-danger delete-crud-entry" id="delete-button{{ $property->id }}" data-property-id="{{ $property->id }}">Delete</button>
 
@@ -90,7 +90,7 @@
 
                                     @empty
                                     <tr role="row">
-                                        <td colspan="5" class="text-center" style="height: 100px;">No properties found.</td>
+                                        <td colspan="5" class="text-center" style="height: 100px;">{{__('No properties found')}}.</td>
                                     </tr>
                                     @endforelse
                                 </tbody>

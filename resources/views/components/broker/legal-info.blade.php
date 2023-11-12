@@ -1,5 +1,5 @@
 <div class="form-group">
-    <label for="val_license_number">Val license number</label>
+    <label for="val_license_number">{{__('Val license number')}}</label>
     <input type="text" class="form-control" name="val_license_number" id="val_license_number" required value="{{Auth::user()->broker->val_license_number}}">
     @if($errors->has('val_license_number'))
     <span class="invalid-feedback d-block">
@@ -11,7 +11,7 @@
 </div>
 
 <div class="form-group">
-    <label for="commercial_registration">Commertial registration</label>
+    <label for="commercial_registration">{{__('Commertial registration')}}</label>
     <input type="text" class="form-control" name="commercial_registration" id="commercial_registration" required value="{{Auth::user()->broker->commercial_registration}}">
     @if($errors->has('commercial_registration'))
     <span class="invalid-feedback d-block">
@@ -25,7 +25,7 @@
 
 
 <div class="form-group">
-    <label for="license_number">license number</label>
+    <label for="license_number">{{__('license number')}}</label>
     <input type="text" class="form-control" name="license_number" id="license_number" required value="{{Auth::user()->broker->license_number}}">
     @if($errors->has('license_number'))
     <span class="invalid-feedback d-block">

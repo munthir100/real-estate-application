@@ -9,7 +9,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12">
-                    <h1 class="ipt-title">Broker Detail</h1>
+                    <h1 class="ipt-title">{{__('Broker Detail')}}</h1>
                     <span class="ipn-subtitle">{{$user->first_name}} {{$user->last_name}}</span>
                 </div>
             </div>
@@ -39,7 +39,7 @@
                             </div>
 
                             <div class="prt-detio">
-                                <span>0 Property</span>
+                                <span>0 {{__('Property')}}</span>
                             </div>
 
                             <div class="clearfix"></div>
@@ -61,14 +61,14 @@
                     <div class="block-wrap">
 
                         <div class="block-header">
-                            <h4 class="block-title">Agent info</h4>
+                            <h4 class="block-title">{{__('Broker info')}}</h4>
                         </div>
 
                         <div class="block-body">
                             <ul class="dw-proprty-info">
-                                <li><strong>Email</strong>{{$user->email}}</li>
-                                <li><strong>Phone</strong>{{$user->phone}}</li>
-                                <li><strong>Joined on</strong> {{$user->created_at->diffForHumans()}}
+                                <li><strong>{{__('Email')}}</strong>{{$user->email}}</li>
+                                <li><strong>{{__('Phone')}}</strong>{{$user->phone}}</li>
+                                <li><strong>{{__('Joined on')}}</strong> {{$user->created_at->diffForHumans()}}
                                 </li>
                             </ul>
                         </div>
@@ -94,7 +94,7 @@
                                         <!-- row -->
                                         <div class="row">
                                             <div class="col-lg-12 col-md-12 col-sm-12 text-center">
-                                                <p class="item">0 results</p>
+                                                <p class="item">0 {{__('results')}}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -102,7 +102,7 @@
                                         <!-- row -->
                                         <div class="row">
                                             <div class="col-lg-12 col-md-12 col-sm-12 text-center">
-                                                <p class="item">0 results</p>
+                                                <p class="item">0 {{__('results')}}</p>
                                             </div>
                                         </div>
                                     </div>

@@ -6,8 +6,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12">
-                    <h1 class="ipt-title">All brokers</h1>
-                    <span class="ipn-subtitle">Lists of our all expert brokers</span>
+                    <h1 class="ipt-title">{{__('All brokers')}}</h1>
+                    <span class="ipn-subtitle">{{__('Lists of our all expert brokers')}}</span>
 
                 </div>
             </div>
@@ -43,18 +43,18 @@
 
                         <div class="fr-grid-info">
                             <ul>
-                                <li><strong>Phone:</strong> {{$user->phone}}</li>
+                                <li><strong>{{__('Phone:')}}</strong> {{$user->phone}}</li>
 
-                                <li><strong>Email:</strong> {{$user->email}}</li>
+                                <li><strong>{{__('Email:')}}</strong> {{$user->email}}</li>
                             </ul>
                         </div>
 
                         <div class="fr-grid-footer">
                             <div class="fr-grid-footer-flex">
-                                <span class="fr-position"><i class="fa fa-home"></i>0 properties</span>
+                                <span class="fr-position"><i class="fa fa-home"></i>0 {{__('properties')}}</span>
                             </div>
                             <div class="fr-grid-footer-flex-right">
-                                <a href="{{route('brokers.details',$user->id)}}" class="prt-view" tabindex="0">View</a>
+                                <a href="{{route('brokers.details',$user->id)}}" class="prt-view" tabindex="0">{{__('View')}}</a>
                             </div>
                         </div>
 

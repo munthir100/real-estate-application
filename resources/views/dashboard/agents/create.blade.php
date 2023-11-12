@@ -6,7 +6,7 @@
             <div class="col-lg-12 col-md-12">
                 <div class="filter_search_opt">
                     <a href="javascript:void(0);" class="open_search_menu">
-                        Dashboard Navigation
+                        {{__('Dashboard Navigation')}}
                         <i class="ml-2 ti-menu"></i>
                     </a>
                 </div>
