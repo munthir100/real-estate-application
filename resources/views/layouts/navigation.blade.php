@@ -137,8 +137,8 @@
                             <ul class="dropdown-menu language_bar_chooser ">
                                 <li>
                                     <a href="{{route('home')}}">
-                                        <img src="{{asset('vendor/core/core/base/images/flags/vn.svg')}}" title="Tiếng Việt" width="16" alt="Tiếng Việt">
-                                        <span>Tiếng Việt</span>
+                                        <img src="{{asset('vendor/core/core/base/images/flags/vn.svg')}}" title="العربية" width="16" alt="العربية">
+                                        <span>العربية</span>
                                     </a>
                                 </li>
                             </ul>

@@ -98,13 +98,15 @@ class HomeController extends Controller
 
     function brokers()
     {
-        $users = User::where('user_type_id',UserType::BROKER)->get();
-        
-        return view('brokers.index',compact('users'));
+        $users = User::where('user_type_id', UserType::BROKER)->get();
+
+        return view('brokers.index', compact('users'));
     }
 
-    function brokerDetails(User $user){
-        return view('brokers.show',compact('user'));
+    function brokerDetails($userId)
+    {
+        $user = User::where('user_type_id', UserType::BROKER)->with('properties','broker')->findOrFail($userId);
+        return view('brokers.show', compact('user'));
     }
 
     function getRequestedFilters($request)

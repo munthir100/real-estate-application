@@ -10,16 +10,16 @@
                 <div class="col-md-6">
                     <div class="modal-content" id="registermodal">
                         <div class="modal-body">
-                            <h2 class="text-center">Login</h2>
+                            <h2 class="text-center">{{__('Login')}}</h2>
                             <br>
 
                             <div class="login-form">
                                 <form method="POST" class="simple-form" action="{{route('login')}}">
                                     @csrf
                                     <div class="form-group">
-                                        <label>Email/Username</label>
+                                        <label>{{__('Email/Username')}}</label>
                                         <div class="input-with-icon">
-                                            <input id="email" type="text" class="form-control" placeholder="Email/Username" name="email" value="" autofocus>
+                                            <input id="email" type="text" class="form-control" placeholder="{{__('Email/Username')}}" name="email" value="" autofocus>
                                             <i class="ti-user"></i>
                                         </div>
                                         @if($errors->has('email'))
@@ -35,7 +35,7 @@
                                     <div class="form-group ">
                                         <label>Password</label>
                                         <div class="input-with-icon">
-                                            <input id="password" type="password" class="form-control" placeholder="Password" name="password">
+                                            <input id="password" type="password" class="form-control" placeholder="{{__('Password')}}" name="password">
                                             <i class="ti-unlock"></i>
                                         </div>
                                         @error('password')
@@ -54,14 +54,14 @@
                                                 <div class="checkbox">
                                                     <label>
                                                         <input type="checkbox" name="remember">
-                                                        Remember Me
+                                                        {{__('Remember Me')}}
                                                     </label>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6 text-md-center">
                                                 <a href="#soon" class="link">
-                                                    Forgot Your Password?
+                                                    {{__('Forgot Your Password?')}}
                                                 </a>
                                             </div>
                                         </div>
@@ -70,12 +70,12 @@
 
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-md full-width btn-theme-light-2 rounded">
-                                            Login
+                                            {{__('Login')}}
                                         </button>
                                     </div>
 
                                     <div class="form-group text-center">
-                                        <p>Don&#039;t have an account? <a href="{{route('registerForm')}}" class="link d-block d-sm-inline-block text-sm-left text-center">Register a new account</a>
+                                        <p>Do not have an account? <a href="{{route('registerForm')}}" class="link d-block d-sm-inline-block text-sm-left text-center">{{__('Register a new account')}}</a>
                                         </p>
                                     </div>
 

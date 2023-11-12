@@ -7,7 +7,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12">
-                    <h1 class="ipt-title">Contact</h1>
+                    <h1 class="ipt-title">{{__('Contact')}}</h1>
                     <span class="ipn-subtitle"></span>
                 </div>
             </div>
@@ -19,7 +19,7 @@
             <div class="row">
                 <div class="col text-center">
                     <div class="sec-heading center">
-                        <h2>Contact</h2>
+                        <h2>{{__('Contact')}}</h2>
                     </div>
                 </div>
             </div>
@@ -36,13 +36,13 @@
                                         <div class="row">
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="form-group">
-                                                    <label>Name</label>
+                                                    <label>{{__('Name')}}</label>
                                                     <input type="text" name="name" class="form-control simple">
                                                 </div>
                                             </div>
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="form-group">
-                                                    <label>Email</label>
+                                                    <label>{{__('Email')}}</label>
                                                     <input type="email" name="email" class="form-control simple">
                                                 </div>
                                             </div>
@@ -51,21 +51,21 @@
                                         <div class="row">
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="form-group">
-                                                    <label>Subject</label>
+                                                    <label>{{__('Subject')}}</label>
                                                     <input type="text" name="subject" class="form-control simple">
                                                 </div>
                                             </div>
 
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="form-group">
-                                                    <label>Phone</label>
+                                                    <label>{{__('Phone')}}</label>
                                                     <input type="text" name="phone" class="form-control simple">
                                                 </div>
                                             </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label>Message</label>
+                                            <label>{{__('Message')}}</label>
                                             <textarea class="form-control simple" name="content" rows="6" minlength="10"></textarea>
                                         </div>
 
@@ -76,15 +76,15 @@
                                         </div>
 
                                         <div class="form-actions form-group">
-                                            <button class="btn btn-theme-light-2 rounded" type="submit">Send message</button>
+                                            <button class="btn btn-theme-light-2 rounded" type="submit">{{__('Send message')}}</button>
                                         </div>
                                     </form>
                                 </div>
 
                                 <div class="col-lg-5 col-md-5">
                                     <div class="contact-info">
-                                        <h2>Get In Touch</h2>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                        <h2>{{__('Get In Touch')}}</h2>
+
 
                                         <br>
                                         <div class="cn-info-detail">
@@ -93,7 +93,7 @@
                                             </div>
                                             <div class="cn-info-content">
                                                 <h4 class="cn-info-title">Reach Us</h4>
-                                                Collins Street West, Victoria 8007, Australia.
+                                                {{__('Collins Street West, Victoria 8007, Australia')}}.
                                             </div>
                                         </div>
 
@@ -102,7 +102,7 @@
                                                 <i class="ti-email"></i>
                                             </div>
                                             <div class="cn-info-content">
-                                                <h4 class="cn-info-title">Email</h4>
+                                                <h4 class="cn-info-title">{{__('Email')}}</h4>
                                                 info@example.com
                                             </div>
                                         </div>
@@ -112,7 +112,7 @@
                                                 <i class="ti-mobile"></i>
                                             </div>
                                             <div class="cn-info-content">
-                                                <h4 class="cn-info-title">Call Us</h4>
+                                                <h4 class="cn-info-title">{{__('Call Us')}}</h4>
                                                 +1 246-345-0695
                                             </div>
                                         </div>
@@ -122,7 +122,7 @@
                             <br>
                             </p>
 
-                            <h3>Directions</h3>
+                            <h3>{{__('Directions')}}</h3>
 
                             <p>
                             <div style="height: 400px; width: 100%; position: relative; text-align: right;">

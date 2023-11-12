@@ -4,14 +4,14 @@
             <div class="currency-wrapper">
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" type="button" aria-haspopup="true" aria-expanded="true">
-                        <img src="https://resido.thesky9.com/vendor/core/core/base/images/flags/us.svg" title="English" width="16" alt="English">
-                        English
+                        <img src="/vendor/core/core/base/images/flags/sa.svg" title="arabic" width="16" alt="arabic">
+                        العربية
                     </button>
                     <ul class="dropdown-menu language_bar_chooser ">
                         <li>
-                            <a href="https://resido.thesky9.com/vi/home-layout-5">
-                                <img src="https://resido.thesky9.com/vendor/core/core/base/images/flags/vn.svg" title="Tiếng Việt" width="16" alt="Tiếng Việt">
-                                <span>Tiếng Việt</span>
+                            <a>
+                                <img src="/vendor/core/core/base/images/flags/us.svg" title="english" width="16" alt="english">
+                                <span>English</span>
                             </a>
                         </li>
                     </ul>
@@ -28,10 +28,10 @@
 
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <li>
-                                <a class="dropdown-item" href="https://resido.thesky9.com/en/currency/switch/USD" class="active"><span>USD</span></a>
+                                <a class="dropdown-item" href="/en/currency/switch/USD" class="active"><span>USD</span></a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="https://resido.thesky9.com/en/currency/switch/VND"><span>VND</span></a>
+                                <a class="dropdown-item" href="/en/currency/switch/VND"><span>VND</span></a>
                             </li>
                         </ul>
                     </div>

@@ -9,7 +9,7 @@
                 <div class="col-md-9">
                     <div class="modal-content" id="sign-up">
                         <div class="modal-body">
-                            <h2 class="text-center">Register</h2>
+                            <h2 class="text-center">{{__('Register')}}</h2>
                             <br>
 
                             <form method="POST" class="simple-form" action="{{route('register')}}">
@@ -19,7 +19,7 @@
                                     <div class="col-lg-6 col-md-6">
                                         <div class="form-group">
                                             <div class="input-with-icon">
-                                                <input id="username" type="text" class="form-control" name="username" required placeholder="Email / Phone">
+                                                <input id="username" type="text" class="form-control" name="username" required placeholder="{{__('Email / Phone')}}">
                                                 <i class="ti-email"></i>
                                             </div>
                                             @error('username')
@@ -34,7 +34,7 @@
                                     <div class="col-lg-6 col-md-6">
                                         <div class="form-group">
                                             <div class="input-with-icon">
-                                                <input id="password" type="password" class="form-control" name="password" required placeholder="Password">
+                                                <input id="password" type="password" class="form-control" name="password" required placeholder="{{__('Password')}}">
                                                 <i class="ti-unlock"></i>
                                             </div>
                                             @error('password')
@@ -52,10 +52,10 @@
                                         <div class="form-group">
                                             <div class="input-with-icon">
                                                 <select id="user_type" name="user_type" class="form-control">
-                                                    <option value="">Select Account Type</option>
-                                                    <option value="seeker">Real Estate Seeker</option>
-                                                    <option value="broker">Real Estate Broker</option>
-                                                    <option value="developer">Real Estate Developer</option>
+                                                    <option value="">{{__('Select Account Type')}}</option>
+                                                    <option value="seeker">{{__('Real Estate Seeker')}}</option>
+                                                    <option value="broker">{{__('Real Estate Broker')}}</option>
+                                                    <option value="developer">{{__('Real Estate Developer')}}</option>
                                                 </select>
                                                 <i class="ti-user"></i>
                                             </div>
@@ -74,13 +74,13 @@
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-md full-width btn-theme-light-2 rounded">
-                                        Register
+                                        {{__('Register')}}
                                     </button>
                                 </div>
 
                                 <div class="form-group text-center">
-                                    <p>Have an account already?
-                                        <a href="{{route('loginForm')}}" class="link d-block d-sm-inline-block text-sm-left text-center">Login</a>
+                                    <p>{{__('Have an account already?')}}
+                                        <a href="{{route('loginForm')}}" class="link d-block d-sm-inline-block text-sm-left text-center">{{__('Login')}}</a>
                                     </p>
                                 </div>
 

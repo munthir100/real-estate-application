@@ -26,9 +26,9 @@
                         </div>
                         <div class="pricing-body">
                             <ul>
-                                <li class="available">{{$plan->num_properties_allowed}} {{__('Property Advertisement Allowed')}}.</li>
-                                <li class="available">{{$plan->priority_support}} {{__('Priority Of Support')}}.</li>
-                                <li class="available">{{$plan->num_affiliate_users}} Allowed Users For Affiliate.</li>
+                                <li class="available">{{$plan->num_properties_allowed}} {{__('Property Advertisement Allowed')}}</li>
+                                <li class="available">{{$plan->priority_support}} {{__('Priority Of Support')}}</li>
+                                <li class="available">{{$plan->num_affiliate_users}} {{__('Allowed Users For Affiliate')}}</li>
                                 <li class="available">{{__('Add Your Logo')}}</li>
                             </ul>
                         </div>

@@ -18,51 +18,51 @@
                     <ul>
                         <li class="{{ request()->routeIs('dashboard.home') ? 'active' : '' }}">
                             <a href="{{ route('dashboard.home') }}" title="Profile">
-                                <i class="ti-dashboard"></i>{{__('Dashboard')}}
+                                <i class="ti-dashboard"></i> {{__('Dashboard')}}
                             </a>
                         </li>
 
                         <li class="{{ request()->routeIs('dashboard.account.settings.edit') ? 'active' : '' }}">
                             <a href="{{ route('dashboard.account.settings.edit') }}" title="Settings">
-                                <i class="ti-settings mr1"></i>{{__('Settings')}}
+                                <i class="ti-settings mr1"></i> {{__('Settings')}}
                             </a>
                         </li>
                         @if(request()->user()->user_type_id == App\Models\UserType::BROKER || request()->user()->user_type_id == App\Models\UserType::AGENT)
 
                         <li class="{{ request()->routeIs('dashboard.properties*') ? 'active' : '' }}">
                             <a href="{{route('dashboard.properties.index')}}" title="Properties">
-                                <i class="far fa-newspaper mr1"></i>{{__('Properties')}}
+                                <i class="far fa-newspaper mr1"></i> {{__('Properties')}}
                             </a>
                         </li>
 
                         <li class="{{ request()->routeIs('dashboard.ads*') ? 'active' : '' }}">
                             <a href="{{route('dashboard.ads.index')}}" title="ads">
-                                <i class="far fa-star mr1"></i>{{__('Ads')}}
+                                <i class="far fa-star mr1"></i> {{__('Ads')}}
                             </a>
                         </li>
 
                         
                         <li class="{{ request()->routeIs('agents*') ? 'active' : '' }}">
                             <a href="{{route('agents.index')}}" title="agents">
-                                <i class="ti-user mr1"></i>{{__('Agents')}}
+                                <i class="ti-user mr1"></i> {{__('Agents')}}
                             </a>
                         </li>
                         @endif
                         <li class="{{ request()->routeIs('dashboard.applications*') ? 'active' : '' }}">
                             <a href="{{route('dashboard.applications.index')}}" title="Applications">
-                                <i class="ti-home mr1"></i>{{__('Applications')}}
+                                <i class="ti-home mr1"></i> {{__('Applications')}}
                             </a>
                         </li>
                         @if(request()->user()->user_type_id == App\Models\UserType::ADMIN)
                         <li class="{{ request()->routeIs('admin.properties*') ? 'active' : '' }}">
                             <a href="{{route('admin.properties.index')}}" title="Properties">
-                                <i class="far fa-newspaper mr1"></i>{{__('Properties')}}
+                                <i class="far fa-newspaper mr1"></i> {{__('Properties')}}
                             </a>
                         </li>
 
                         <li class="{{ request()->routeIs('admin.applications*') ? 'active' : '' }}">
                             <a href="{{route('admin.applications.index')}}" title="Applications">
-                                <i class="far fa-home mr1"></i>{{__('Applications')}}
+                                <i class="far fa-home mr1"></i> {{__('Applications')}}
                             </a>
                         </li>
                         @endif

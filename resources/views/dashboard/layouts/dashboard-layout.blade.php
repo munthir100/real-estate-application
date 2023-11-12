@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ app()->getLocale() }}" @if(app()->isLocale('ar')) dir="rtl" @endif>
 
 <head>
     <meta charset="utf-8">
@@ -8,16 +8,21 @@
 
     <meta name="csrf-token" content="InV2ZDupHLTSQJ9Uf1yLl0zehFDUvw2Rkq9Dpax2">
 
-    <!-- Fonts-->
-    <link href="https://fonts.googleapis.com/css2?family=Play:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,600,700" rel="stylesheet" type="text/css">
-    <!-- CSS Library-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;900&family=Noto+Sans+Arabic:wght@100;900&display=swap" rel="stylesheet">
+
 
     <style>
         :root {
             --primary-color: #2B4DB9;
-            --font-body: Muli, sans-serif;
-            --font-heading: Play, sans-serif;
+
+        }
+
+        body {
+            font-family: 'Noto Kufi Arabic', sans-serif !important;
+            font-weight: 700;
+            /* You can adjust the weight (e.g., 700 for bold) as needed */
         }
     </style>
 

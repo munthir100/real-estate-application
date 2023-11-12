@@ -25,8 +25,8 @@
                             {{__('All brokers')}}</h1>
                     <span class="ipn-
 {{__('Lists of our all expert brokers')}}</
-{{__('Phone:')}}</strong> {{$user->phone}}</
-{{__('Email:')}}</strong> {{$user->email}}</li>
+{{__('Phone:')}}</
+{{__('Email:')}}</li>
                             </
 {{__('properties')}}</span>
                             </
@@ -39,22 +39,22 @@
                             </
 {{__('Broker info')}}</h4>
                         </
-{{__('Email')}}</strong>{{$user->email}}</li>
+{{__('Email')}}</strong></li>
                                 <li><strong
-{{__('Phone')}}</strong>{{$user->phone}}</li>
-                                <li><strong
-{{__('Joined on')}}</strong> {{$user->created_at->diffForHumans()}}
+{{__('Phone')}}</strong></li>
+                                
+{{__('Joined on')}}
                                 </
 {{__('results')}}</p>
                                             </
 {{__('results')}}</p>
                                             </
                                             {{__('Val license number')}}</label>
-    <input type="text" class="form-
+      class="form-
 {{__('Commertial registration')}}</label>
-    <input type="text" class="form-
+      class="form-
 {{__('license number')}}</label>
-    <input type="text" class="
+      class="
     {{__('Approved properties')}}</span>
             </
 {{__('Pending approve properties')}}</span>
@@ -71,19 +71,18 @@
             {{__('Find accessible homes to rent')}}</h1>
             </
 {{__('Search for a location')}}">
-                                    <img src="{{asset('themes/resido/img/pin.svg')}}" width="18" alt="" 
+                                    <img src="{{asset('themes/resido/img/pin.svg
 {{__('Min Price')}}</label>
                                 <
 {{__('No Min')}}" name="min_price" class="form-control">
-                                    <option value="">&nbsp;</
+                                    <option value="">&
 {{__('Max Price')}}</label>
                                 <
 {{__('No Max')}}" name="max_price" class="form-control">
-                                    <option value="">&nbsp;</
+                                    <option value="">&
 {{__('Property Type')}}</label>
                                 <
-{{__('Category')}}" name="category_id" data-url="https://resido.thesky9.com/en/ajax/sub-categories" class="form-control has-sub-category">
-                                    <option value="">&nbsp;</
+{{__('Category')}}" name="category_id" data-url="https://resido.thesky9.com/en
 {{__('Apartment')}}
                                     </
 {{__('Villa')}}
@@ -99,7 +98,7 @@
 {{__('Bed Rooms')}}</label>
                                 <
 {{__('Bedroom')}}" name="bedroom" class="form-control">
-                                    <option value="">&nbsp;</
+                                    <option value="">&nbsp
 {{__('Property Location')}}</label>
                                 <
 {{__('Search Result')}}</button>
@@ -108,9 +107,9 @@
                     <p>{{__('see our latest pricing and select your subscription package')}}</p>
                 </
 {{__('Property Advertisement Allowed')}}.</li>
-                                <li class="available">{{$plan->priority_support}} {{__('Priority Of Support')}}.</li>
-                                <li class="available">{{$plan->
-{{__('Add Your Logo')}}</li>
+                                <li class="available">
+{{__('Priority Of Support')}}.</li>
+                                <li class="available">('Add Your Logo')}}</li>
                             </
 {{__('Choose Plan')}}</a>
                         </
@@ -134,7 +133,8 @@
                             </
 {{__('View')}}</a>
                         </
-                        {{__('Found')}} {{ $properties->count() > 0 ? ($properties->firstItem() . ' - ' . $properties->lastItem()) : '0' }} {{__('Of')}} {{ $properties->total() }} {{__('Results')}}
+                        {{__('Found')}} {{ $properties->count() > 0 ? ($properties->firstItem()
+{{__('Of')}} {{ $properties->total() }} {{__('Results')}}
                             </
 {{__('Sort by')}}</option>
                                 <option value
@@ -153,14 +153,12 @@
                             </
 {{__('no result found')}}</p>
                     </
-                    {{__('Search for a location')}}"> <img src="{{asset('themes/resido/img/pin.svg')}}" width="20">
-                        </div
+                    {{__('Search for a location')}}"> <img src="{{asset('themes/resido/img/pin.svg
 {{__('City')}}" name="city_id" class="form-control">
-                        <option value="">&nbsp;</option
-{{__('Category')}}" name="category_id" data-url="https://resido.thesky9.com/en/ajax/sub-categories" class="form-control has-sub-category">
-                            <option value="">&nbsp;</option
+                        <option value="">&nbsp
+{{__('Category')}}" name="category_id" data-url="https://resido.thesky9.com/en
 {{__('Type')}}" class="form-control" name="type">
-                            <option value="">-- Select --</option
+                            <option value="">-- Select
 {{__('Min Price')}}">
                             </div
 {{__('Max Price')}}">
@@ -188,9 +186,9 @@
 {{__('Operations')}}</th>
                                     </
 {{__('Edit')}}"><i class="fa fa-edit"></i></a>
-                                                <button href="#" class="btn btn-icon btn-sm btn-danger delete-button" data-bs-toggle="modal" data-bs-target="#modal-confirm-delete-{{ $property->id 
+                                                <button href
 {{__('Confirm delete')}}</strong></h4>
-                                                    <button class="btn-close" data-bs-dismiss="modal" type
+                                                    <button class="btn-close" data-bs
 {{__('Do you really want to delete this record?')}}</div>
                                                 </
 {{__('Cancel')}}</
@@ -199,25 +197,24 @@
                                     {{__('Account Information')}}</h4>
                                 </div>
 {{__('First name')}}</label>
-                                            <input type="text" class
+                                              class
 {{__('Middle name')}}</label>
-                                            <input type="text" class=
+                                              class=
 {{__('Last name')}}</label>
-                                            <input type="text" clas
+                                              clas
 {{__('Username')}}</label>
-                                            <input type="text" cla
+                                              cla
 {{__('Phone')}}</label>
-                                            <input type="text" 
+                                              
 {{__('Short description')}}</label>
                                             <textarea class="form-con
 {{__('Tell something about yourself...')}}">{{Auth::user()->description}}</textarea>
-                                            @if($errors->has('description'))
+                                            @if($
 {{__('Email')}}</label>
-                                            <input type="email"
+                                             type="email"
 {{__('Verified')}}<i class="ml1 far fa-check-circle"></i></small>
-                                            @if($errors->has('email'
 {{__('Birth Date')}}</label>
-                                            <input type="date" class
+                                             type="date" class
 {{__('Gender')}}</label>
                                             <select class="form-
 {{__('Male')}}</option>
@@ -231,11 +228,12 @@
 {{__('Profile picture')}}</label>
                                                 <div id="account-avatar">
 {{__('Change avatar')}}</strong></h4>
-                                            <span class="mod-close" data-bs-dismiss="modal" aria-hidden="true"><i class="ti
+                                            <span class="mod-close" data-bs
 {{__('New image')}}</label>
-                                                    <input class="avatar-inpu
+                                                     class="avatar-inpu
 {{__('Close')}}</button>
-                                            <button class="btn btn-primary avatar-save" type="submit">{{__('Save')}}</button>
+                                            <button class="btn btn-primary avatar-save" type="
+{{__('Save')}}</button>
                                         </div>
                                         {{__('Dashboard Navigation')}}
 
@@ -253,32 +251,24 @@
 {{__('No data to display')}}</td>
                                     </
 {{__('First Name')}}</label>
-                                <input required class="form-control" placeholder="{{__('First Name')}}" data-counter="255" v-pre name="first_name" type="text" id="first_name">
-                            </
+                                 required class="form-control" placeholder="{{__('First Name')}}" data-counter="255" v-pre name="first_name"  id
 {{__('Middle Name')}}</label>
-                                <input required class="form-control" placeholder="{{__('Middle Name')}}" data-counter="255" v-pre name="middle_name" type="text" id="middle_name">
-                            </
+                                 required class="form-control" placeholder="{{__('Middle Name')}}" data-counter="255" v-pre name="middle_name"  id
 {{__('Last Name')}}</label>
-                                <input required class="form-control" placeholder="{{__('Last Name')}}" data-counter="255" v-pre name="last_name" type="text" id="last_name">
-                            </
+                                 required class="form-control" placeholder="{{__('Last Name')}}" data-counter="255" v-pre name="last_name"  id
 {{__('Username')}}</label>
-                                <input required class="form-control" placeholder="{{__('Username')}}" data-counter="255" v-pre name="username" type="text" id="username">
-                            </
+                                 required class="form-control" placeholder="{{__('Username')}}" data-counter="255" v-pre name="username"  id="
 {{__('Phone')}}</label>
-                                <input required class="form-control" placeholder
-{{__('Phone')}}" data-counter="15" v-pre name="phone" type="text" id="phone">
-                            </
+                                 required class="form-control" placeholder
+{{__('Phone')}}" data-counter="15" v-pre name="phone"  id="
 {{__('Description')}}</label>
-                                <textarea required class="form-control" rows="4" 
-{{__('Short description')}}" data-counter="350" v-pre name="description" cols="50" id="description"></textarea>
-                            </
+                                <textarea required class="form-control" rows="4"
+{{__('Short description')}}" data-counter="350" v-pre name="description" cols
 {{__('Birth Date')}}</label>
-                                <input required class="form-control" placeholder="{{__('Birth Date')}}" v-pre name="birth_date" type="date" id="birth_date">
-                            </
+                                 required class="form-control" placeholder="{{__('Birth Date')}}" v-pre name="birth_date" type="date" id="
 {{__('Email')}}</label>
-                                <input required class="form-control" placeholder
-{{__('Email')}}" data-counter="255" v-pre name="email" type="email" id="email">
-                            </
+                                 required class="form-control" placeholder
+{{__('Email')}}" data-counter="255" v-pre name="email" type="
 {{__('Gender')}}</label>
                                 <select required class="form-control" v-pre name="{{__('gender')}}" id="gender">
                                     <option value="male">{{__('Male')}}</option>
@@ -286,8 +276,7 @@
 {{__('Female')}}</option>
                                 </
 {{__('Password')}}</label>
-                                <input required class="form-control" placeholder="{{__('Password')}}" v-pre name="password" type="password" id="password">
-                            </
+                                 required class="form-control" placeholder="{{__('Password')}}" v-pre name="password" type="password" id="password
 {{__('Create Agent')}}</button>
                 </
 {{__('Close')}}</button>
@@ -315,12 +304,11 @@
                             {{__('Dashboard Navigation')}}
 
 {{__('Title')}}</label>
-                                                    <input value="{{$property->title}}" class="form-
-{{__('Title')}}" data-counter="120" v-pre name="title" type="text" id="title
+                                                     value="" class="form-
+{{__('Title')}}" data-counter="120" v-pre name="title"  id="
 {{__('Description')}}</label>
                                                     <textarea class="form-control" rows="4" 
-{{__('Short description')}}" data-counter="350" v-pre name="description" cols="50" id="description">
-                                                    {{$property->description
+{{__('Short description')}}" data-counter="350" v-pre name="description" cols
 {{__('Images')}}</
 {{__('Check')}}</title>
                                                                 <defs
@@ -328,23 +316,23 @@
                                                                 <defs
 {{__('City')}}</
 {{__('Property location')}}</label>
-                                                    <input value="{{$property->location->name}}" class="
+                                                     value="name}}" class="
 {{__('Latitude')}}</label>
-                                                        <input value="{{$property->location->
+                                                         value="
 {{__('Go here to get Latitude from address')}}. </
 {{__('Longitude')}}</label>
-                                                        <input value="{{$property->location->
+                                                         value="
 {{__('Go here to get Longitude from address')}}. </
 {{__('Number bedrooms')}}</label>
-                                                        <input value="{{$property->number_of_bedrooms}}" 
+                                                         value="" 
 {{__('Number bathrooms')}}</label>
-                                                        <input value="{{$property->number_of_bathrooms}}" 
+                                                         value="" 
 {{__('Number floors')}}</label>
-                                                        <input value="{{$property->number_of_floors}}" 
+                                                         value="" 
 {{__('Square')}} (m&sup2;)</label>
-                                                        <input value="{{$property->square}}" 
+                                                         value="" 
 {{__('Price')}}</label>
-                                                        <input value="{{$property->price}}" 
+                                                         value="" 
 {{__('Currency')}}</
 {{__('USD')}}</option>
                                                                 <option value="{{App\Models\Currency::SAR}}">SAR</
@@ -357,7 +345,7 @@
                                                                 <option value="year">{{__('Year')}}</option>
                                                             </
 {{__('Property label')}}</label>
-                                                    <input value="{{$property->label}}" 
+                                                     value="" 
 {{__('Distance key between facilities')}}</span>
                                                 </
 {{__('No facilities available')}}.</p>
@@ -376,17 +364,17 @@
 {{__('Addition Information')}}</span></h4>
                                                 </
 {{__('Youtube Video URL')}}</label>
-                                                        <input value="{{$property->video_url}}" id="
+                                                         value="" id="
 {{__('Search Engine Optimize')}}</span></h4>
                                                 </
 {{__('Edit SEO meta')}}</a>
                                                     <div class="seo-preview" v-
 {{__('SEO Title')}}</label>
-                                                            <input value="{{$property->seo_title}}" 
-{{__('SEO Title')}}" data-counter="120" name="seo_meta[seo_title]" type="text">
+                                                             value="" 
+{{__('SEO Title')}}" data-counter="120" name="seo_meta[seo_title]" >
                                                         </
 {{__('SEO description')}}</label>
-                                                            <textarea class="form-control" rows="3" id="
+                                                            <textarea class="form-control" rows="3"
 {{__('Publish')}}</span>
                                                 </
 {{__('Save')}} &amp; {{__('Exit')}}
@@ -429,8 +417,130 @@
                     {{__('Properties')}}</h1>
                 <span class="ipn-
 {{__('Search Property')}}<i class="ml-2 ti-menu"></i></a>
-                    </
-                    {{__('Real Estate Applications')}}</h1>
+{{__('Real Estate Applications')}}</h1>
                 <span class="ipn-
 {{__('Search Property')}}<i class="ml-2 ti-menu"></i></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{__('Contact')}}</h1>
+                    <span class="ipn-
+{{__('Contact')}}</h2>
                     </
+{{__('Name')}}</label>
+                                                    <
+{{__('Email')}}</label>
+                                                    <
+{{__('Subject')}}</label>
+                                                    <
+{{__('Phone')}}</label>
+                                                    <
+{{__('Message')}}</label>
+                                            <
+{{__('Send message')}}</button>
+                                        </
+{{__('Get In Touch')}}</h2>
+                                        <p>
+{{__('Collins Street West, Victoria 8007, Australia')}}.
+                                            </
+{{__('Email')}}</h4>
+                                                info@example.
+{{__('Call Us')}}</h4>
+                                                +1 246-345-
+{{__('Directions')}}</

@@ -6,7 +6,7 @@
                 $firstImage = $property->getFirstMedia('images');
 
                 @endphp
-                
+
                 <img src="{{storage_path($property->getFirstMediaUrl('images'))}}" data-src="{{$property->getFirstMediaUrl('images')}}" class="img-fluid mx-auto lazy" alt="{{$property->title}}" />
             </a>
 
