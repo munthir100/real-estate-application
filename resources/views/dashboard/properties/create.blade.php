@@ -71,7 +71,7 @@
 
                                                 </div>
 
-                  
+
                                                 <div class="form-group mb-3">
 
                                                     <label for="images" class="control-label">Images</label>
@@ -280,12 +280,8 @@
 
 
                                                 <div class="form-group mb-3">
-
                                                     <label for="label" class="control-label">Property label</label>
                                                     <input class="form-control" v-pre name="label" type="text" id="label">
-
-
-
                                                 </div>
 
                                                 <div class="clearfix"></div>
@@ -365,6 +361,7 @@
 
                                                 </div>
                                             </div>
+                                            <x-dashboard.properties.legal-information-fields />
                                             <div class="widget meta-boxes" id="seo_wrap">
                                                 <div class="widget-title">
                                                     <h4><span>Search Engine Optimize</span></h4>
@@ -425,10 +422,7 @@
                                                     <button type="submit" name="submit" value="save" class="btn btn-sm btn-info">
                                                         <i class="fa fa-save"></i> Save &amp; Exit
                                                     </button>
-                                                    &nbsp;
-                                                    <button type="submit" name="submit" value="apply" class="btn btn-sm btn-success">
-                                                        <i class="fa fa-check-circle"></i> Save
-                                                    </button>
+                                                    
                                                 </div>
                                             </div>
                                         </div>

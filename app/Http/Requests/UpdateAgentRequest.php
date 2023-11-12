@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Models\User;
+use App\Rules\SaudiArabianPhoneNumber;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\ValidationException;
 
@@ -25,9 +26,13 @@ class UpdateAgentRequest extends FormRequest
     {
         return [
             'first_name' => 'required|string|max:255',
+            'middle_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
             'username' => 'required|string|max:255',
-            'phone' => 'required|string|max:15',
+            'phone' => [
+                'required|string|max:15',
+                new SaudiArabianPhoneNumber
+            ],
             'description' => 'nullable|string',
             'birth_date' => 'required|date',
             'email' => 'required|email',

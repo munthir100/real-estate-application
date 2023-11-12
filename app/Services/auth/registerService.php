@@ -5,7 +5,7 @@ namespace App\Services\auth;
 use App\Mail\EmailVerificationCode;
 use Illuminate\Support\Facades\Mail;
 
-class verificationService
+class registerService
 {
     function sendCodeForUser($user, $username)
     {
@@ -15,10 +15,14 @@ class verificationService
     private function sendCodeForUsername($user, $username)
     {
         if (filter_var($username, FILTER_VALIDATE_EMAIL)) {
+            $user->email = $username;
+            $user->save();
             $verificationCode = $this->createVerificationCode();
             Mail::to($username)->send(new EmailVerificationCode($verificationCode));
             $this->saveCode($user, $verificationCode);
         } else {
+            $user->phone = $username;
+            $user->save();
             $verificationCode = '1234';
             $this->saveCode($user, $verificationCode);
         }

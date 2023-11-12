@@ -12,13 +12,13 @@ class Broker extends Model implements HasMedia // commertial number , commercial
     use InteractsWithMedia;
 
     protected $fillable = [
-        'user_id',
         'is_developer',
-        'commertial_number',
-        'office_name',
-        'tax_number',
-        'company_name',
+        'val_license_number', // for broker
+        'commercial_registration',
+        'license_number',
+        'user_id',
     ];
+
 
     public function user()
     {

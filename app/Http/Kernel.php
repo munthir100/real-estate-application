@@ -6,6 +6,7 @@ use App\Http\Middleware\CustomVerified;
 use App\Http\Middleware\IsAdminMiddleware;
 use App\Http\Middleware\NotVerified;
 use App\Http\Middleware\BrokerMiddleware;
+use App\Http\Middleware\CompletedProfileMiddleware;
 use App\Http\Middleware\SubscriptionMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -45,7 +46,7 @@ class Kernel extends HttpKernel
 
         'api' => [
             // \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
-            \Illuminate\Routing\Middleware\ThrottleRequests::class.':api',
+            \Illuminate\Routing\Middleware\ThrottleRequests::class . ':api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
     ];
@@ -74,6 +75,7 @@ class Kernel extends HttpKernel
         'active_plan' => SubscriptionMiddleware::class,
         'custom_verified' => CustomVerified::class,
         'not_verified' => NotVerified::class,
+        'is_completed_account' => CompletedProfileMiddleware::class,
     ];
 }
 // 2023-11-10 05:17:29

@@ -354,7 +354,7 @@
                                 </div>
                                 <div class="sides-widget-details">
                                     <h4>
-                                        <a href="https://resido.thesky9.com/en/agents/kesslersandra"> {{$property->user->first_name}} {{$property->user->last_name}}</a>
+                                        <a href="https://resido.thesky9.com/en/agents/kesslersandra"> {{$property->user->first_name}} {{$property->user->middle_name}}</a>
                                     </h4>
                                     <a href="tel:{{$property->user->phone}} "> <span><i class="lni-phone-handset"></i>{{$property->user->phone}} </span></a>
                                 </div>

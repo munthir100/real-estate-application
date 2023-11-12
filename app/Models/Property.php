@@ -31,6 +31,7 @@ class Property extends Model implements HasMedia
         'price',
         'label',
         'video_url',
+        'category_id',
         'seo_title',
         'seo_description',
         'seo_link',
@@ -99,6 +100,11 @@ class Property extends Model implements HasMedia
         return $this->hasMany(Application::class);
     }
 
+    public function legalData()
+    {
+        return $this->hasOne(PropertyLegalData::class);
+    }
+
     //scopes
     public function scopeUsePropertyFilters($query, $filters)
     {
@@ -150,7 +156,7 @@ class Property extends Model implements HasMedia
 
         if ($filters['sort_by']) {
             $sortField = 'created_at'; // Default sort field
-    
+
             switch ($filters['sort_by']) {
                 case 'date_asc':
                     $sortField = 'created_at';
@@ -177,11 +183,11 @@ class Property extends Model implements HasMedia
                     $sortOrder = 'desc';
                     break;
             }
-    
+
             $query->orderBy($sortField, $sortOrder);
         }
 
-        
+
 
 
         return $query;

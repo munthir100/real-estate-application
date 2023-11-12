@@ -32,6 +32,7 @@ digraph UML_Diagram {
     
     // Property Advertisement
     PropertyType [label = "{PropertyType | id: int | name: string}";];
+    PropertyLegalData [label = "{PropertyLegalData | id: int |property_id (FK)| license_number: string|date_of_license:date|license_expiration_date:date|postal_code:string|building_number:string|additional_number:string|has_restriction:string|has_mortgage:string|obligations_on_property:string}";];
     
     // User Plan
     UserPlan [label = "{UserPlan | id: int | user_id (FK): int | plan_id (FK): int}";];
@@ -77,8 +78,9 @@ digraph UML_Diagram {
     Property -> TemporaryAd [label = "temp_advertises";];
     Property -> FeaturedAd [label = "featured_advertises";];
     Property -> PropertyFacility [label = "has facilities";];
+    Property -> PropertyLegalData [label = "has a";];
     
-    // Real Estate Applications Relationships
+    // Real Estate Applications Relationships 
     Application -> Property [label = "applies to";];
     Property -> Location [label = "is located at";];
     Property -> Currency [label = "uses currency";];

@@ -48,7 +48,7 @@ class LoginController extends Controller
 
         Auth::login($user);
 
-        $this->verificationService->sendCodeForUser($user);
+        $this->verificationService->sendCodeForUser($user,$data['email']);
 
         return redirect()->route('auth.verification-form');
     }

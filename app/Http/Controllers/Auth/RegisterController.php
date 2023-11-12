@@ -6,16 +6,17 @@ use App\Models\User;
 use App\Models\UserType;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use App\Services\auth\registerService;
 use App\Providers\RouteServiceProvider;
 use App\Services\auth\verificationService;
 use App\Http\Requests\Auth\RegisterRequest;
 
 class RegisterController extends Controller
 {
-    public $verificationService;
-    function __construct(verificationService $verificationService)
+    public $registerService;
+    function __construct(registerService $registerService)
     {
-        $this->verificationService = $verificationService;
+        $this->registerService = $registerService;
     }
 
     public function registerForm()
@@ -56,8 +57,10 @@ class RegisterController extends Controller
 
         $userType = in_array($validatedData['user_type'], ['broker', 'developer']) ? UserType::BROKER : UserType::SEEKER;
 
-        $user = User::create(array_merge($validatedData, ['user_type_id' => $userType]));
-
+        $user = new User();
+        $user->password = $validatedData['password'];
+        $user->user_type_id = $userType;
+        $this->registerService->sendCodeForUser($user, $validatedData['username']);
         if ($userType === UserType::BROKER) {
             $dataToCreate = ['is_developer' => $validatedData['user_type'] === 'developer'];
             $user->broker()->create(array_merge($validatedData, $dataToCreate));
@@ -65,7 +68,6 @@ class RegisterController extends Controller
             $user->seeker()->create($validatedData);
         }
         Auth::login($user);
-        $this->verificationService->sendCodeForUser($user);
 
         return redirect()->route('auth.verification-form');
     }

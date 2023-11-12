@@ -9,8 +9,8 @@
         <div class="sidebar-widgets">
             <div class="dashboard-navbar">
                 <div class="d-user-avater">
-                    <img src="/storage/accounts/1-150x150.jpg" alt="{{Auth::user()->first_name}} {{Auth::user()->last_name}}" class="img-fluid avater" style="width: 150px;">
-                    <h4>{{Auth::user()->first_name}} {{Auth::user()->last_name}}</h4>
+                    <img src="/storage/accounts/1-150x150.jpg" alt="{{Auth::user()->first_name}} {{Auth::user()->middle_name}}" class="img-fluid avater" style="width: 150px;">
+                    <h4>{{Auth::user()->first_name}} {{Auth::user()->middle_name}}</h4>
                     <span>{{Auth::user()->phone}}</span>
                 </div>
 
@@ -41,18 +41,18 @@
                             </a>
                         </li>
 
-                        <li class="{{ request()->routeIs('dashboard.applications*') ? 'active' : '' }}">
-                            <a href="{{route('dashboard.applications.index')}}" title="Applications">
-                                <i class="ti-home mr1"></i>Applications
-                            </a>
-                        </li>
+                        
                         <li class="{{ request()->routeIs('agents*') ? 'active' : '' }}">
                             <a href="{{route('agents.index')}}" title="agents">
                                 <i class="ti-user mr1"></i>Agents
                             </a>
                         </li>
                         @endif
-
+                        <li class="{{ request()->routeIs('dashboard.applications*') ? 'active' : '' }}">
+                            <a href="{{route('dashboard.applications.index')}}" title="Applications">
+                                <i class="ti-home mr1"></i>Applications
+                            </a>
+                        </li>
                         @if(request()->user()->user_type_id == App\Models\UserType::ADMIN)
                         <li class="{{ request()->routeIs('admin.properties*') ? 'active' : '' }}">
                             <a href="{{route('admin.properties.index')}}" title="Properties">

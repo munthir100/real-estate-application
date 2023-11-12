@@ -1,5 +1,5 @@
 @extends('layouts.app-layout')
-@section('title', Auth::user()->first_name . ' ' . Auth::user()->last_name)
+@section('title', Auth::user()->first_name . ' ' . Auth::user()->middle_name)
 
 @section('content')
 <section class="bg-light">

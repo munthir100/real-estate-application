@@ -15,7 +15,7 @@ class NotVerified
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!request()->user()->recently_verified) {
+        if (!request()->user()->verified) {
             return $next($request);
         }
         return redirect()->route('home');

@@ -52,6 +52,25 @@ class CreatePropertyRequest extends FormRequest
             'seo_link' => 'nullable|string',
             'features' => 'nullable|array', // Add this line for features
             'features.*' => 'integer', // Add this line for each feature value
+
+            'license_number' => 'required|string',
+            'date_of_license' => 'required|date',
+            'license_expiration_date' => 'required|date',
+            'postal_code' => 'required|string',
+            'building_number' => 'required|string',
+            'additional_number' => 'nullable|string',
+            'has_restriction' => 'nullable|boolean',
+            'has_mortgage' => 'nullable|boolean',
+            'obligations_on_property' => 'nullable|string',
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'facilities.*.id.required' => 'Enter at least one facility.',
+            'facilities.*.id.integer' => 'invaild facility.',
+            'facilities.*.distance.required' => 'The facility distance is required.',
+            'facilities.*.distance.numeric' => 'Invaild facility distance.',
         ];
     }
 }

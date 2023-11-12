@@ -20,8 +20,6 @@ Route::get('properties', [HomeController::class, 'properties'])->name('propertie
 Route::get('applications', [HomeController::class, 'applications'])->name('applications');
 Route::get('plans', [PlanController::class, 'index'])->name('plans.index');
 Route::get('contact', [ContactController::class, 'index'])->name('contact.index');
-Route::get('home/agents', [HomeController::class, 'agents'])->name('agents');
-Route::get('home/agents/{agent}', [HomeController::class, 'agentDetails'])->name('agents.details');
 Route::get('properties/{property}/details', [HomeController::class, 'propertyDetails'])->name('properties.details');
 Route::get('city/{cityName}', [HomeController::class, 'cityProperties'])->name('cityProperties');
 
@@ -44,9 +42,8 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-    Route::middleware('not_verified')->group(function(){
+    Route::middleware('not_verified')->group(function () {
         Route::get('/verification-code', [VerificationController::class, 'showVerificationForm'])->name('auth.verification-form');
-        Route::get('/resend-code', [VerificationController::class, 'resendCode'])->name('auth.code.resend');
         Route::post('/verify-code', [VerificationController::class, 'verifyCode'])->name('auth.verifyCode');
     });
 });
@@ -71,12 +68,14 @@ Route::middleware(['auth', 'custom_verified'])->prefix('/dashboard')->name('dash
         Route::get('security', [SettingsController::class, 'security'])->name('security');
         Route::put('change-password', [SettingsController::class, 'changePassword'])->name('change-password');
     });
-    Route::resource('properties', PropertiesController::class);
-    Route::resource('ads', AdController::class);
-    Route::resource('applications', ApplicationsController::class);
+
+    Route::middleware('is_completed_account')->group(function () {
+        Route::resource('properties', PropertiesController::class);
+        Route::resource('ads', AdController::class);
+        Route::resource('applications', ApplicationsController::class);
+    });
 });
 
-// 2023-11-10 04:56:46
 Route::middleware('auth', 'custom_verified', 'is_admin')->prefix('admin')->name('admin.')->group(function () {
     Route::resource('properties', AdminPropertiesController::class)->only(['index', 'edit', 'destroy']);
     Route::resource('applications', AdminApplicationController::class)->only(['index', 'edit', 'destroy']);

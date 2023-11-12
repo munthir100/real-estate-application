@@ -19,8 +19,8 @@
                             <div class="row justify-content-center">
                                 <div class="col-lg-12 text-center">
                                     <div class="sec-heading center">
-                                        <h2>Explore Good Places</h2>
-                                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores</p>
+                                        <h2>{{__('Explore Good Places')}}</h2>
+                                        <p>explore latest real estate properties in our platform</p>
                                     </div>
                                 </div>
                             </div>
@@ -32,7 +32,7 @@
                                     <div class="property-listing property-1" data-lat="30.221926" data-long="-85.6242">
                                         <div class="listing-img-wrapper">
                                             <a href="{{route('properties.details',$property->id)}}">
-                                                <img src="https://resido.thesky9.com/storage/general/img-loading.jpg" data-src="https://resido.thesky9.com/storage/properties/p-3-400xauto.jpg" class="img-fluid mx-auto lazy" alt="{{$property->title}}" />
+                                                <img src="/storage/general/img-loading.jpg" data-src="/storage/properties/p-3-400xauto.jpg" class="img-fluid mx-auto lazy" alt="{{$property->title}}" />
                                             </a>
                                         </div>
 

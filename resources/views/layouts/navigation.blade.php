@@ -42,7 +42,7 @@
                         <ul class="nav-dropdown nav-submenu">
                             <li class="  ">
                                 <a href="{{route('brokers')}}">
-                                    brokers
+                                    Brokers
                                 </a>
                             </li>
                             <li class="  ">
@@ -86,7 +86,7 @@
                         </li>
                         <li class="login-item">
                             <a href="{{route('dashboard.home')}}" rel="nofollow"><i class="fas fa-user"></i> <span>
-                                    {{ substr(Auth::user()->first_name . ' ' . Auth::user()->last_name, 0, 21) }}
+                                    {{ substr(Auth::user()->first_name . ' ' . Auth::user()->middle_name, 0, 21) }}
 
                                 </span>
                             </a>

@@ -14,19 +14,30 @@ class SettingsController extends Controller
     {
         return view('dashboard.account.settings.edit');
     }
-    function updateProfile(UpdateProfileRequest $request)
+    public function updateProfile(UpdateProfileRequest $request)
     {
-        request()->user()->update($request->validated());
+        $user = $request->user();
+        $data = $request->validated();
 
-        return back()->with('success', 'profile data updated');
+        $user->update($data);
+
+        if ($user->isBroker) {
+            $user->broker()->update([
+                'val_license_number' => $data['val_license_number'],
+                'commercial_registration' => $data['commercial_registration'],
+                'license_number' => $data['license_number'],
+            ]);
+        }
+
+        return back()->with('success', 'Profile data updated');
     }
+
     function security()
     {
         return view('dashboard.account.security.change-password');
     }
     public function changePassword(ChangePasswordRequest $request)
     {
-        dd('dd');
         $user = request()->user();
 
         if (!Hash::check($request->old_password, $user->password)) {

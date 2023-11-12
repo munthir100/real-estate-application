@@ -19,10 +19,10 @@ class UsernameValidationRule implements ValidationRule
     {
         if (filter_var($value, FILTER_VALIDATE_EMAIL)) {
             $validator = Validator::make([$attribute => $value], [
-                $attribute => 'email|email:rfc,dns',
+                $attribute => 'email|email:rfc,dns|unique:users,email',
             ]);
             if (!$validator->passes()) {
-                $fail("The $attribute is not a valid email.");
+                $fail("Ensure the email is valid or not used.");
             }
         } else {
             $validator = Validator::make([$attribute => $value], [

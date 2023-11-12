@@ -33,6 +33,13 @@
 
                                 <div class="col-md-6">
                                     <div class="form-group mb-3">
+                                        <label for="middle_name" class="control-label required">Last Name</label>
+                                        <input required class="form-control" placeholder="Last Name" data-counter="255" v-pre name="middle_name" type="text" id="middle_name">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group mb-3">
                                         <label for="last_name" class="control-label required">Last Name</label>
                                         <input required class="form-control" placeholder="Last Name" data-counter="255" v-pre name="last_name" type="text" id="last_name">
                                     </div>

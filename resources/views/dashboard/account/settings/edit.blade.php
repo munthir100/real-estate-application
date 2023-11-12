@@ -1,5 +1,5 @@
 @extends('layouts.app-layout')
-@section('title', Auth::user()->first_name . ' ' . Auth::user()->last_name)
+@section('title', Auth::user()->first_name . ' ' . Auth::user()->middle_name)
 
 @section('content')
 <section class="bg-light">
@@ -38,6 +38,17 @@
                                             @endif
                                         </div>
                                         <!-- Name -->
+                                        <div class="form-group">
+                                            <label for="middle_name">Middle name</label>
+                                            <input type="text" class="form-control" name="middle_name" id="middle_name" required value="{{Auth::user()->middle_name}}">
+                                            @if($errors->has('middle_name'))
+                                            <span class="invalid-feedback d-block">
+                                                <strong>
+                                                    {{ $errors->first('middle_name') }}
+                                                </strong>
+                                            </span>
+                                            @endif
+                                        </div>
                                         <div class="form-group">
                                             <label for="last_name">Last name</label>
                                             <input type="text" class="form-control" name="last_name" id="last_name" required value="{{Auth::user()->last_name}}">
@@ -126,6 +137,10 @@
                                             @endif
                                         </div>
 
+                                        @if(request()->user()->isBroker)
+
+                                        <x-broker.legal-info />
+                                        @endif
                                         <button type="submit" class="btn btn-primary fw6">Save</button>
                                     </form>
                                 </div>

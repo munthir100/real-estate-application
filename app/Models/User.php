@@ -19,6 +19,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'first_name',
+        'middle_name',
         'last_name',
         'username',
         'phone',
@@ -28,6 +29,7 @@ class User extends Authenticatable
         'gender',
         'password',
         'user_type_id',
+        'user_verified_at',
     ];
 
 
@@ -88,6 +90,11 @@ class User extends Authenticatable
         return $this->user_type_id == UserType::BROKER;
     }
 
+    public function getIsDeveloperBrokerAttribute()
+    {
+        return $this->user_type_id == UserType::BROKER && $this->broker->is_developer;
+    }
+
     public function getIsAdminAttribute()
     {
         return $this->user_type_id == UserType::ADMIN;
@@ -106,6 +113,11 @@ class User extends Authenticatable
     public function getRecentlyVerifiedAttribute()
     {
         return $this->hasVerified() && $this->user_verified_at->addMinutes(30)->isFuture();
+    }
+
+    public function getVerifiedAttribute()
+    {
+        return $this->hasVerified();
     }
 
     /**
@@ -137,6 +149,6 @@ class User extends Authenticatable
     }
     public function hasVerified()
     {
-        return ! is_null($this->user_verified_at);
+        return !is_null($this->user_verified_at);
     }
 }

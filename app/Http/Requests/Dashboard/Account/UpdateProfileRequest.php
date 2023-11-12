@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Dashboard\Account;
 
+use App\Rules\SaudiArabianPhoneNumber;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -26,6 +27,7 @@ class UpdateProfileRequest extends FormRequest
     {
         return [
             'first_name' => 'required|string|max:255',
+            'middle_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
             'username' => [
                 'required',
@@ -36,11 +38,15 @@ class UpdateProfileRequest extends FormRequest
             'phone' => [
                 'required',
                 'string', 'max:15',
+                new SaudiArabianPhoneNumber,
                 Rule::unique('users')->ignore(auth()->user()->id),
             ],
             'birth_date' => 'required|date',
             'gender' => 'required|in:male,female',
             'description' => 'nullable|string|max:255',
+            'val_license_number' => 'required',
+            'commercial_registration' => 'required',
+            'license_number' => 'required',
         ];
     }
 }

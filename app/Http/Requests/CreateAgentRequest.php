@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\SaudiArabianPhoneNumber;
 use Illuminate\Foundation\Http\FormRequest;
 
 class CreateAgentRequest extends FormRequest
@@ -24,9 +25,13 @@ class CreateAgentRequest extends FormRequest
         return [
             // Validation rules for the User model
             'first_name' => 'required|string|max:255',
+            'middle_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
             'username' => 'required|string|max:255|unique:users',
-            'phone' => 'required|string|max:15|unique:users',
+            'phone' => [
+                'required|string|unique:users',
+                new SaudiArabianPhoneNumber
+            ],
             'description' => 'nullable|string',
             'birth_date' => 'required|date',
             'email' => 'required|email|unique:users',

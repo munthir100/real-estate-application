@@ -15,7 +15,7 @@ class CustomVerified
      */
     public function handle($request, Closure $next)
     {
-        if (!$request->user()->recently_verified) {
+        if (!$request->user()->verified) {
             return redirect()->route('auth.verification-form');
         }
         return $next($request);

@@ -45,10 +45,4 @@ class VerificationController extends Controller
         return redirect()->back()->withErrors(['code' => 'Invalid verification code']);
     }
 
-    function resendCode()
-    {
-        $this->verificationService->sendCodeForUser(request()->user());
-
-        return back()->with('success', 'the code send , check your messages');
-    }
 }

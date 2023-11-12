@@ -39,6 +39,17 @@
                                         </div>
                                         <!-- Name -->
                                         <div class="form-group">
+                                            <label for="middle_name">Last name</label>
+                                            <input type="text" class="form-control" name="middle_name" id="middle_name" required value="{{$agent->user->middle_name}}">
+                                            @if($errors->has('middle_name'))
+                                            <span class="invalid-feedback d-block">
+                                                <strong>
+                                                    {{ $errors->first('middle_name') }}
+                                                </strong>
+                                            </span>
+                                            @endif
+                                        </div>
+                                        <div class="form-group">
                                             <label for="last_name">Last name</label>
                                             <input type="text" class="form-control" name="last_name" id="last_name" required value="{{$agent->user->last_name}}">
                                             @if($errors->has('last_name'))

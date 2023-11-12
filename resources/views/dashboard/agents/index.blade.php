@@ -52,7 +52,7 @@
                                     @forelse($agents as $agent)
 
                                     <tr role="row">
-                                        <td>{{$agent->user->first_name}} {{$agent->user->last_name}}</td>
+                                        <td>{{$agent->user->first_name}} {{$agent->user->middle_name}}</td>
                                         <td>{{$agent->user->username}}</td>
                                         <td>{{$agent->user->email}}</td>
                                         <td>{{$agent->user->phone}}</td>
@@ -132,6 +132,13 @@
                             <div class="form-group mb-3">
                                 <label for="first_name" class="control-label required">First Name</label>
                                 <input required class="form-control" placeholder="First Name" data-counter="255" v-pre name="first_name" type="text" id="first_name">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group mb-3">
+                                <label for="middle_name" class="control-label required">Last Name</label>
+                                <input required class="form-control" placeholder="Last Name" data-counter="255" v-pre name="middle_name" type="text" id="middle_name">
                             </div>
                         </div>
 

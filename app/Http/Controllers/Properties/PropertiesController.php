@@ -57,29 +57,17 @@ class PropertiesController extends Controller
 
         $property = new Property();
         $property->fill($validatedData);
-        $property->user_id = request()->brokerUser->id; // Default to the authenticated user
-        $property->status_id = Status::PENDING; // Default to 'pending' status
-
-        $location = Location::create([
-            'name' => $validatedData['location'],
-            'longitude' => $validatedData['longitude'],
-            'latitude' => $validatedData['latitude'],
-        ]);
-
-        $property->location()->associate($location);
+        $property->user_id = request()->brokerUser->id;
+        $this->propertyService->saveLocation($property, $validatedData);
         $property->save();
-
-        if (isset($validatedData['facilities'])) {
-            $this->propertyService->insertFacilities($property, $validatedData['facilities']);
-        }
-        if (isset($validatedData['features'])) {
-            $this->propertyService->insertFeatures($property, $validatedData['features']);
-        }
+        $this->propertyService->insertFacilities($property, $validatedData['facilities']);
+        $this->propertyService->insertFeatures($property, $validatedData['features']);
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $image) {
                 $property->addMedia($image)->toMediaCollection('images');
             }
         }
+        $this->propertyService->saveLegalData($property, $validatedData);
         event(new PropertyAdded($property));
 
         return redirect()->route('dashboard.properties.index')

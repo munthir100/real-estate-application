@@ -30,7 +30,7 @@
 
                         <div class="agency-content">
                             <div class="agency-name">
-                                <h4><a href="#">{{$user->first_name}} {{$user->last_name}}</a></h4>
+                                <h4><a href="#">{{$user->first_name}} {{$user->middle_name}}</a></h4>
                                 <span><i class="lni-phone-handset"></i>{{$user->phone}}</span>
                             </div>
 

@@ -21,16 +21,14 @@
                                             <div class="input-with-icon">
                                                 <input id="username" type="text" class="form-control" name="username" required placeholder="Email / Phone">
                                                 <i class="ti-email"></i>
-
-                                                @error('username')
-                                                <span class="d-block invalid-feedback">
-                                                    <strong>
-                                                        {{$message}}
-                                                    </strong>
-                                                </span>
-                                                @enderror
-
                                             </div>
+                                            @error('username')
+                                            <span class="d-block invalid-feedback">
+                                                <strong>
+                                                    {{$message}}
+                                                </strong>
+                                            </span>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6">
@@ -38,16 +36,14 @@
                                             <div class="input-with-icon">
                                                 <input id="password" type="password" class="form-control" name="password" required placeholder="Password">
                                                 <i class="ti-unlock"></i>
-
-                                                @error('password')
-                                                <span class="d-block invalid-feedback">
-                                                    <strong>
-                                                        {{$message}}
-                                                    </strong>
-                                                </span>
-                                                @enderror
-
                                             </div>
+                                            @error('password')
+                                            <span class="d-block invalid-feedback">
+                                                <strong>
+                                                    {{$message}}
+                                                </strong>
+                                            </span>
+                                            @enderror
                                         </div>
                                     </div>
 
@@ -56,6 +52,7 @@
                                         <div class="form-group">
                                             <div class="input-with-icon">
                                                 <select id="user_type" name="user_type" class="form-control">
+                                                    <option value="">Select Account Type</option>
                                                     <option value="seeker">Real Estate Seeker</option>
                                                     <option value="broker">Real Estate Broker</option>
                                                     <option value="developer">Real Estate Developer</option>
@@ -64,7 +61,7 @@
                                             </div>
                                         </div>
                                         @error('password')
-                                        <span class="d-block invalid-feedback">
+                                        <span class="d-block invalid-feedback mb-2">
                                             <strong>
                                                 {{$message}}
                                             </strong>

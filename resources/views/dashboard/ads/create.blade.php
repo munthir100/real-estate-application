@@ -425,10 +425,7 @@
                                                     <button type="submit" name="submit" value="save" class="btn btn-sm btn-info">
                                                         <i class="fa fa-save"></i> Save &amp; Exit
                                                     </button>
-                                                    &nbsp;
-                                                    <button type="submit" name="submit" value="apply" class="btn btn-sm btn-success">
-                                                        <i class="fa fa-check-circle"></i> Save
-                                                    </button>
+                                                    
                                                 </div>
                                             </div>
                                         </div>

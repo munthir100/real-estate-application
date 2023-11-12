@@ -26,9 +26,6 @@
                                     <button type="submit" class="btn btn-md full-width btn-theme-light-2 rounded">
                                         Verify
                                     </button>
-                                    <div class="text-center">
-                                        <a href="{{route('auth.code.resend')}}" class="btn btn-link">Resend code</a>
-                                    </div>
                                 </div>
                             </form>
                         </div>

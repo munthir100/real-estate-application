@@ -10,7 +10,7 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12">
                     <h1 class="ipt-title">Agent Detail</h1>
-                    <span class="ipn-subtitle">{{$agent->user->first_name}} {{$agent->user->last_name}}</span>
+                    <span class="ipn-subtitle">{{$agent->user->first_name}} {{$agent->user->middle_name}}</span>
                 </div>
             </div>
         </div>
@@ -25,12 +25,12 @@
                     <div class="agency agency-list overlio-40">
 
                         <div class="agency-avatar">
-                            <img src="https://resido.thesky9.com/storage/accounts/1-150x150.jpg" alt="{{$agent->user->first_name}} {{$agent->user->last_name}}" class="img-thumbnail">
+                            <img src="https://resido.thesky9.com/storage/accounts/1-150x150.jpg" alt="{{$agent->user->first_name}} {{$agent->user->middle_name}}" class="img-thumbnail">
                         </div>
 
                         <div class="agency-content">
                             <div class="agency-name">
-                                <h4><a href="#">{{$agent->user->first_name}} {{$agent->user->last_name}}</a></h4>
+                                <h4><a href="#">{{$agent->user->first_name}} {{$agent->user->middle_name}}</a></h4>
                                 <span><i class="lni-phone-handset"></i>{{$agent->user->phone}}</span>
                             </div>
 
