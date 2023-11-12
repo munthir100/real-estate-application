@@ -10,21 +10,21 @@
                 <div class="col-md-6">
                     <div class="modal-content">
                         <div class="modal-body">
-                            <h2 class="text-center">Email Verification Code</h2>
+                            <h2 class="text-center">{{__('Email Verification Code')}}</h2>
                             <br>
 
                             <form method="POST" class="simple-form" action="{{route('auth.verifyCode')}}">
                                 @csrf
                                 <div class="form-group">
                                     <div class="input-with-icon">
-                                        <input id="text" type="text" class="form-control" name="code" value="" required placeholder="Verification Code">
+                                        <input id="text" type="text" class="form-control" name="code" value="" required placeholder="{{__('Verification Code')}}">
                                         <i class="ti-email"></i>
                                     </div>
                                 </div>
 
                                 <div class="form-group mb-0">
                                     <button type="submit" class="btn btn-md full-width btn-theme-light-2 rounded">
-                                        Verify
+                                        {{__('Verify')}}
                                     </button>
                                 </div>
                             </form>
