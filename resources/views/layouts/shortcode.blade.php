@@ -10,7 +10,7 @@
                         <div class="call-to-act">
                             <div class="call-to-act-head">
                                 <h3>{{__('Want to Become a Real Estate Broker?')}}</h3>
-                                <span>{{__('We'll help you to grow your career and growth')}}.</span>
+                                <span>{{__('We will help you to grow your career and growth')}}.</span>
                             </div>
                             <a href="/register" class="btn btn-call-to-act">{{__('Sign Up Today')}}</a>
                         </div>
