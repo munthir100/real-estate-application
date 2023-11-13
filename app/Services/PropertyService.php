@@ -6,6 +6,7 @@ use App\Models\Location;
 use App\Models\Property;
 use App\Models\PropertyFeature;
 use App\Models\PropertyFacility;
+use App\Models\PropertyLegalData;
 
 class PropertyService
 {
@@ -58,17 +59,10 @@ class PropertyService
 
     function saveLegalData($property, $validatedData)
     {
-        $legalData = $property->legalData()->create([
-            'license_number' => $validatedData['license_number'],
-            'date_of_license' => $validatedData['date_of_license'],
-            'license_expiration_date' => $validatedData['license_expiration_date'],
-            'postal_code' => $validatedData['postal_code'],
-            'building_number' => $validatedData['building_number'],
-            'additional_number' => $validatedData['additional_number'],
-            'has_restriction' => $validatedData['has_restriction'],
-            'has_mortgage' => $validatedData['has_mortgage'],
-            'obligations_on_property' => $validatedData['obligations_on_property'],
-        ]);
+        $legalData = PropertyLegalData::updateOrCreate(
+            ['property_id' => $property->id],
+            $validatedData
+        );
 
         return $legalData;
     }

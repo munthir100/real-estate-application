@@ -8,7 +8,7 @@ use App\Http\Controllers\PlanController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Dashboard\DashboardController;
-use App\Http\Controllers\Properties\PropertiesController;
+use App\Http\Controllers\Dashboard\PropertiesController;
 use App\Http\Controllers\Properties\ApplicationsController;
 use App\Http\Controllers\Dashboard\Account\SettingsController;
 use App\Http\Controllers\admin\PropertiesController as AdminPropertiesController;
@@ -85,3 +85,6 @@ Route::middleware('auth', 'custom_verified', 'is_admin')->prefix('admin')->name(
 });
 
 Route::view('test', 'test');
+
+Route::view('terms', 'terms')->name('terms');
+Route::view('about-us', 'about-us')->name('about-us');

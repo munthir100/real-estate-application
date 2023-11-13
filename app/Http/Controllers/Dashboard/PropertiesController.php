@@ -1,14 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Properties;
+namespace App\Http\Controllers\Dashboard;
 
-use App\Models\City;
-use App\Models\Status;
-use App\Models\Feature;
-use App\Models\Category;
-use App\Models\Currency;
-use App\Models\Facility;
-use App\Models\Location;
+
 use App\Models\Property;
 use App\Events\PropertyAdded;
 use App\Services\PlanService;
@@ -43,12 +37,7 @@ class PropertiesController extends Controller
 
     function create()
     {
-        $cities = City::all();
-        $currencies = Currency::all();
-        $categories = Category::all();
-        $features = Feature::all();
-        $facilities = Facility::all();
-        return view('dashboard.properties.create', compact('cities', 'currencies', 'categories', 'features', 'facilities'));
+        return view('dashboard.properties.create');
     }
 
     public function store(CreatePropertyRequest $request)
@@ -77,14 +66,10 @@ class PropertiesController extends Controller
     function edit($propertyId)
     {
         $property = request()->brokerUser->properties()->findOrFail($propertyId);
-        $cities = City::all();
-        $currencies = Currency::all();
-        $categories = Category::all();
-        $features = Feature::all();
-        $facilities = Facility::all();
+        $property->load('legalData');
         $selectedFeatures = $property->features();
 
-        return view('dashboard.properties.edit', compact('property', 'cities', 'currencies', 'categories', 'features', 'facilities', 'selectedFeatures'));
+        return view('dashboard.properties.edit', compact('property', 'selectedFeatures'));
     }
 
     function update(UpdatePropertyRequest $request, $propertyId)
@@ -107,6 +92,8 @@ class PropertiesController extends Controller
                 $property->addMedia($image)->toMediaCollection('images');
             }
         }
+        $this->propertyService->saveLegalData($property, $validatedData);
+
         return redirect()->back();
     }
 

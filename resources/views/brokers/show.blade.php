@@ -39,7 +39,7 @@
                             </div>
 
                             <div class="prt-detio">
-                                <span>0 {{__('Property')}}</span>
+                                <span>{{$user->accepted_properties_count}} {{__('Property')}}</span>
                             </div>
 
                             <div class="clearfix"></div>
@@ -78,43 +78,135 @@
                     </div>
 
                     <!-- Single Block Wrap -->
-                    <!-- soon <div class="block-wraps">
+                    <div class="block-wraps">
                         <div class="block-wraps-header">
                             <div class="block-header">
                                 <ul class="nav nav-tabs customize-tab" id="myTab" role="tablist">
-                                    <li class="nav-item" role="presentation">
-                                        <a class="nav-link  active " id="tab-type-1" data-bs-toggle="tab" href="#tab-content-type-1" role="tab" aria-selected="true">{{__('For Sale')}}</a>
-                                    </li>
-                                    <li class="nav-item" role="presentation">
-                                        <a class="nav-link " id="tab-type-2" data-bs-toggle="tab" href="#tab-content-type-2" role="tab" aria-selected="true">{{__('For Rent')}}</a>
-                                    </li>
+                                    <li class="nav-item" role="presentation"><a class="nav-link" id="tab-type-1" data-bs-toggle="tab" href="#tab-content-type-1" role="tab" aria-selected="false">For Sale</a></li>
+                                    <li class="nav-item" role="presentation"><a class="nav-link active" id="tab-type-2" data-bs-toggle="tab" href="#tab-content-type-2" role="tab" aria-selected="true">For Rent</a></li>
                                 </ul>
                             </div>
-
                             <div class="block-body">
                                 <div class="tab-content" id="myTabContent">
-                                    <div class="tab-pane fade show  active " role="tabpanel" id="tab-content-type-1" aria-labelledby="tab-type-1">
+                                    <div class="tab-pane fade" role="tabpanel" id="tab-content-type-1" aria-labelledby="tab-type-1">
                                         <div class="row">
-                                            <div class="col-lg-12 col-md-12 col-sm-12 text-center">
-                                                @forelse($user->properties as $property)
-
-                                                @empty
-                                                <p class="item">0 {{__('results')}}</p>
-                                                @endforelse
+                                            @foreach($user->acceptedProperties->where('property_type_id',App\Models\PropertyType::SALE) as $property)
+                                            <div class="col-lg-4 col-md-6 col-sm-12">
+                                                <div class="property-listing property-2" data-lat="{{$property->location->latitude}}" data-long="{{$property->location->longitude}}">
+                                                    <div class="listing-img-wrapper">
+                                                        <div class="list-img-slide">
+                                                            <div class="click not-slider">
+                                                                <div><a href="{{route('properties.details',$property->id)}}"><img src="{{$property->getFirstMediaUrl('images')}}" data-src="https://resido.thesky9.com/storage/properties/p-5-400xauto.jpg" class="img-fluid mx-auto lazy entered loaded" alt="{{$property->title}}" data-ll-status="loaded"></a></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="listing-detail-wrapper">
+                                                        <div class="listing-short-detail-wrap">
+                                                            <div class="listing-short-detail">
+                                                                <div class="list-price d-flex justify-content-between">
+                                                                    <span>
+                                                                        <x-properties.property-type-span :property="$property" />
+                                                                    </span>
+                                                                    <h6 class="listing-card-info-price"> {{__($property->currency->code)}} {{$property->price}} </h6>
+                                                                </div>
+                                                                <h4 class="listing-name"><a href="{{route('properties.details',$property->id)}}" class="prt-link-detail" title="{{$property->title}}">{{$property->title}}</a></h4>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="price-features-wrapper">
+                                                        <div class="list-fx-features">
+                                                            <div class="listing-card-info-icon">
+                                                                <div class="inc-fleat-icon">
+                                                                    <img src="{{asset('themes/resido/img/bed.svg')}}" width="13" alt="">
+                                                                </div> {{$property->number_of_bedrooms}} {{__('Beds')}}
+                                                            </div>
+                                                            <div class="listing-card-info-icon">
+                                                                <div class="inc-fleat-icon">
+                                                                    <img src="{{asset('themes/resido/img/bathtub.svg')}}" width="13" alt="">
+                                                                </div> {{$property->number_of_bathrooms}} {{__('Bath')}}
+                                                            </div>
+                                                            <div class="listing-card-info-icon">
+                                                                <div class="inc-fleat-icon">
+                                                                    <img src="{{asset('themes/resido/img/move.svg')}}" width="13" alt="">
+                                                                </div> {{$property->square}} m²
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="listing-detail-footer">
+                                                        <div class="footer-first">
+                                                            <div class="foot-location d-flex">
+                                                                <img src="{{asset('themes/resido/img/pin.svg')}}" width="18" alt="{{$property->location->name}}"> {{$property->location->name}}
+                                                            </div>
+                                                        </div>
+                                                        <div class="footer-flex"><a href="{{route('properties.details',$property->id)}}" class="prt-view">{{__('View')}}</a></div>
+                                                    </div>
+                                                </div>
                                             </div>
+                                            @endforeach
                                         </div>
                                     </div>
-                                    <div class="tab-pane fade show " role="tabpanel" id="tab-content-type-2" aria-labelledby="tab-type-2">
+                                    <div class="tab-pane fade show active" role="tabpanel" id="tab-content-type-2" aria-labelledby="tab-type-2">
                                         <div class="row">
-                                            <div class="col-lg-12 col-md-12 col-sm-12 text-center">
-                                                <p class="item">0 {{__('results')}}</p>
+                                            @foreach($user->acceptedProperties->where('property_type_id',App\Models\PropertyType::RENT) as $property)
+                                            <div class="col-lg-4 col-md-6 col-sm-12">
+                                                <div class="property-listing property-2" data-lat="{{$property->location->latitude}}" data-long="{{$property->location->longitude}}">
+                                                    <div class="listing-img-wrapper">
+                                                        <div class="list-img-slide">
+                                                            <div class="click not-slider">
+                                                                <div><a href="{{route('properties.details',$property->id)}}"><img src="{{$property->getFirstMediaUrl('images')}}" data-src="https://resido.thesky9.com/storage/properties/p-5-400xauto.jpg" class="img-fluid mx-auto lazy entered loaded" alt="{{$property->title}}" data-ll-status="loaded"></a></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="listing-detail-wrapper">
+                                                        <div class="listing-short-detail-wrap">
+                                                            <div class="listing-short-detail">
+                                                                <div class="list-price d-flex justify-content-between">
+                                                                    <span>
+                                                                        <x-properties.property-type-span :property="$property" />
+                                                                    </span>
+                                                                    <h6 class="listing-card-info-price"> {{__($property->currency->code)}} {{$property->price}} </h6>
+                                                                </div>
+                                                                <h4 class="listing-name"><a href="{{route('properties.details',$property->id)}}" class="prt-link-detail" title="{{$property->title}}">{{$property->title}}</a></h4>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="price-features-wrapper">
+                                                        <div class="list-fx-features">
+                                                            <div class="listing-card-info-icon">
+                                                                <div class="inc-fleat-icon">
+                                                                    <img src="{{asset('themes/resido/img/bed.svg')}}" width="13" alt="">
+                                                                </div> {{$property->number_of_bedrooms}} {{__('Beds')}}
+                                                            </div>
+                                                            <div class="listing-card-info-icon">
+                                                                <div class="inc-fleat-icon">
+                                                                    <img src="{{asset('themes/resido/img/bathtub.svg')}}" width="13" alt="">
+                                                                </div> {{$property->number_of_bathrooms}} {{__('Bath')}}
+                                                            </div>
+                                                            <div class="listing-card-info-icon">
+                                                                <div class="inc-fleat-icon">
+                                                                    <img src="{{asset('themes/resido/img/move.svg')}}" width="13" alt="">
+                                                                </div> {{$property->square}} m²
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="listing-detail-footer">
+                                                        <div class="footer-first">
+                                                            <div class="foot-location d-flex">
+                                                                <img src="{{asset('themes/resido/img/pin.svg')}}" width="18" alt="{{$property->location->name}}"> {{$property->location->name}}
+                                                            </div>
+                                                        </div>
+                                                        <div class="footer-flex"><a href="{{route('properties.details',$property->id)}}" class="prt-view">{{__('View')}}</a></div>
+                                                    </div>
+                                                </div>
                                             </div>
+                                            @endforeach
                                         </div>
+
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
                 </div>
             </div>
         </div>

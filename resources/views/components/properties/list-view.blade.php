@@ -2,7 +2,7 @@
     <div class="property-listing property-1" data-lat="{{ $property->location->longitude }}" data-long="{{ $property->location->latitude }}">
         <div class="listing-img-wrapper">
             <a href="{{ route('properties.details', $property->id) }}">
-                <img src="{{ asset('themes/resido/img/img-loading.jpg') }}" data-src="{{asset($property->getFirstMedia('images')->getUrl())}}" class="img-fluid mx-auto lazy" alt="{{ $property->title }}" />
+                <img src="{{$property->getFirstMediaUrl('images')}}" data-src="{{$property->getFirstMediaUrl('images')}}" class="img-fluid mx-auto lazy" alt="{{ $property->title }}" />
             </a>
         </div>
 

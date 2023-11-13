@@ -16,80 +16,53 @@
 
                 <div class="col-sm-6">
                     <div class="row">
-                        <div class="col-sm-4">
+                        <div class="col-sm-6">
                             <div class="footer-widget">
-                                <h4 class="widget-title">About</h4>
+                                <h4 class="widget-title">{{__('About')}}</h4>
                                 <ul>
                                     <li>
-                                        <a href="https://resido.thesky9.com/en/about-us" title="About us">
-                                            <span>About us</span>
+                                        <a href="{{route('about-us')}}" title="{{__('About us')}}">
+                                            <span>{{__('About us')}}</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="https://resido.thesky9.com/en/contact" title="Contact us">
-                                            <span>Contact us</span>
+                                        <a href="{{route('contact.index')}}" title="{{__('Contact us')}}">
+                                            <span>{{__('Contact us')}}</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="https://resido.thesky9.com/en/terms-conditions" title="Terms &amp; Conditions">
-                                            <span>Terms &amp; Conditions</span>
+                                        <a href="{{route('terms')}}" title="{{__('Terms & Conditions')}}">
+                                            <span>{{__('Terms & Conditions')}}</span>
                                         </a>
                                     </li>
                                 </ul>
 
                             </div>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-6">
                             <div class="footer-widget">
-                                <h4 class="widget-title">MORE INFORMATION</h4>
+                                <h4 class="widget-title">{{__('MORE INFORMATION')}}</h4>
                                 <ul>
                                     <li>
-                                        <a href="https://resido.thesky9.com/en/properties" title="All properties">
-                                            <span>All properties</span>
+                                        <a href="{{route('properties')}}" title="{{__('All properties')}}">
+                                            <span>{{__('All properties')}}</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="https://resido.thesky9.com/en/properties?type=sale" title="Houses for sale">
-                                            <span>Houses for sale</span>
+                                        <a href="{{ route('properties', ['type' => 'sale']) }}" title="Houses for sale">
+                                            <span>{{__('Houses for sale')}}</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="https://resido.thesky9.com/en/properties?type=rent" title="Houses for rent">
-                                            <span>Houses for rent</span>
+                                        <a href="{{ route('properties', ['type' => 'rent']) }}" title="Houses for rent">
+                                            <span>{{__('Houses for rent')}}</span>
                                         </a>
                                     </li>
                                 </ul>
 
                             </div>
                         </div>
-                        <div class="col-sm-4">
-                            <div class="footer-widget">
-                                <h4 class="widget-title">NEWS</h4>
-                                <ul>
-                                    <li>
-                                        <a href="https://resido.thesky9.com/en/news" title="Latest news">
-                                            <span>Latest news</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://resido.thesky9.com/en/house-architecture" title="House architecture">
-                                            <span>House architecture</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://resido.thesky9.com/en/house-design" title="House design">
-                                            <span>House design</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://resido.thesky9.com/en/building-materials" title="Building materials">
-                                            <span>Building materials</span>
-                                        </a>
-                                    </li>
-                                </ul>
 
-                            </div>
-                        </div>
 
                     </div>
                 </div>
@@ -137,14 +110,14 @@
                     <div class="footer-widget newsletter widget_newsletter">
                         <div class="header-title-2">
                             <h4 class="widget-title">
-                                <span>Subscribe</span>
+                                <span>{{__('Subscribe')}}</span>
                             </h4>
                         </div>
                         <form class="form-subcriber newsletter-form mt-30" action="https://resido.thesky9.com/en/newsletter/subscribe" method="post">
                             <input type="hidden" name="_token" value="Dc8tNNQwUggMZBvEw4Xmmv1IrIiXUL6kSgOrywh9">
                             <div class="form-group d-flex">
-                                <input type="email" name="email" class="form-control bg-white font-small" placeholder="Enter your email">
-                                <button class="btn bg-dark text-white" type="submit">Subscribe</button>
+                                <input type="email" name="email" class="form-control bg-white font-small" placeholder="{{__('Enter your email')}}">
+                                <button class="btn bg-dark text-white" type="submit">{{__('Subscribe')}}</button>
                             </div>
                         </form>
                     </div>

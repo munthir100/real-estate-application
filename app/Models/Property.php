@@ -37,6 +37,7 @@ class Property extends Model implements HasMedia
         'seo_link',
         'is_ad',
         'in_home_page',
+        'property_type_id'
     ];
     protected string $default_filters = PropertyFilters::class;
     public function user()

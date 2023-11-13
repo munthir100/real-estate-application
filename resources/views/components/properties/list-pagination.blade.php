@@ -19,7 +19,7 @@ $properties->load('location','currency')
                     </div>
                     <div class="item-sorting-box-right">
                         <div class="sorting-by">
-                            <select id="sort_by" name="sort_by" class="form-control" data-placeholder="Sort by">
+                            <select id="sort_by" name="sort_by" class="form-control" data-placeholder="{{__('Sort by')}}">
                                 <option value="">{{__('Sort by')}}</option>
                                 <option value="">{{__('Default')}}</option>
                                 <option value="date_asc">{{__('Oldest')}}</option>

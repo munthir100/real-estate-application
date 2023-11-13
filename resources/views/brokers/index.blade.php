@@ -51,7 +51,10 @@
 
                         <div class="fr-grid-footer">
                             <div class="fr-grid-footer-flex">
-                                <span class="fr-position"><i class="fa fa-home"></i>0 {{__('properties')}}</span>
+                                <span class="fr-position">
+                                    <i class="fa fa-home"></i>
+                                    {{$user->accepted_properties_count}} {{__('properties')}}
+                                </span>
                             </div>
                             <div class="fr-grid-footer-flex-right">
                                 <a href="{{route('brokers.details',$user->id)}}" class="prt-view" tabindex="0">{{__('View')}}</a>

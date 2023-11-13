@@ -13,23 +13,23 @@
                         <div class="prt-detail-title-desc">
                             @if($property->property_type_id == App\Models\PropertyType::SALE)
                             <span class="prt-types sale">
-                                For Sale
+                                {{__('For Sale')}}
                             </span>
                             @else
                             <span class="prt-types rent">
-                                For rent
+                                {{__('For rent')}}
                             </span>
                             @endif
                             <h3 class="text-light">{{$property->location->name}}</h3>
-                            <span><i class="lni-map-marker"></i> 36907 Strosin Mountain
-                                Cronaville, MN 00489-6879</span>
+                            <!-- <span><i class="lni-map-marker"></i> 36907 Strosin Mountain
+                                Cronaville, MN 00489-6879</span> -->
                             <h3 class="prt-price-fix">{{$property->currency->code}} {{$property->price}}</h3>
                             <div class="pbwts-social">
                                 <ul>
-                                    <li>Share:</li>
-                                    <li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fresido.thesky9.com%2Fen%2Fproperties%2F2203-7th-street-road&title=Et deserunt pariatur laboriosam tempore provident sunt et libero. Error libero assumenda ut aut natus asperiores cumque qui. Qui id consequuntur porro harum. Amet magni vel molestiae sit iusto." title="Share on Facebook" target="_blank"><i class="ti-facebook"></i></a></li>
-                                    <li><a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fresido.thesky9.com%2Fen%2Fproperties%2F2203-7th-street-road&text=Et deserunt pariatur laboriosam tempore provident sunt et libero. Error libero assumenda ut aut natus asperiores cumque qui. Qui id consequuntur porro harum. Amet magni vel molestiae sit iusto." target="_blank" title="Tweet now"><i class="ti-twitter"></i></a></li>
-                                    <li><a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fresido.thesky9.com%2Fen%2Fproperties%2F2203-7th-street-road&summary=Et deserunt pariatur laboriosam tempore provident sunt et libero. Error libero assumenda ut aut natus asperiores cumque qui. Qui id consequuntur porro harum. Amet magni vel molestiae sit iusto." target="_blank" title="Share on Linkedin"><i class="ti-linkedin"></i></a></li>
+                                    <li>{{__('Share')}}:</li>
+                                    <li><a href="https://www.facebook.com/sharer/sharer.php?u={{route('properties.details',$property->id)}}&title={{$property->description}}." title="{{__('Share on Facebook')}}" target="_blank"><i class="ti-facebook"></i></a></li>
+                                    <li><a href="https://twitter.com/intent/tweet?url={{route('properties.details',$property->id)}}&text={{$property->description}}." target="_blank" title="Tweet now"><i class="ti-twitter"></i></a></li>
+                                    <li><a href="https://www.linkedin.com/shareArticle?mini=true&url={{route('properties.details',$property->id)}}&summary={{$property->description}}." target="_blank" title="Share on Linkedin"><i class="ti-linkedin"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -54,25 +54,25 @@
                     <div class="property_block_wrap style-2">
                         <div class="property_block_wrap_header">
                             <a data-bs-toggle="collapse" data-parent="#features" data-bs-target="#clOne" aria-controls="clOne" href="javascript:void(0);" aria-expanded="false">
-                                <h4 class="property_block_title">Detail &amp; Features</h4>
+                                <h4 class="property_block_title">{{__('Detail & Features')}}</h4>
                             </a>
                         </div>
                         <div id="clOne" class="panel-collapse collapse show" aria-labelledby="clOne">
                             <div class="block-body">
                                 <ul class="detail_features">
                                     <li>
-                                        <strong>Bedrooms:</strong>
-                                        {{$property->number_of_beds}} Beds
+                                        <strong>{{__('Bedrooms')}}:</strong>
+                                        {{$property->number_of_beds}} {{__('Beds')}}
                                     </li>
                                     <li>
-                                        <strong>Bathrooms:</strong>
-                                        {{$property->number_of_bathrooms}} Bath
+                                        <strong>{{__('Bathrooms')}}:</strong>
+                                        {{$property->number_of_bathrooms}} {{__('Bath')}}
                                     </li>
                                     <li>
-                                        <strong>Square:</strong>{{$property->square}} m²
+                                        <strong>{{__('Square')}}:</strong>{{$property->square}} m²
                                     </li>
                                     <li>
-                                        <strong>Floors:</strong>{{$property->number_of_floors}}
+                                        <strong>{{__('Floors')}}:</strong>{{$property->number_of_floors}}
                                     </li>
                                     <!-- <li> soon
                                         <strong>Property Type:</strong>Apartment
@@ -89,7 +89,7 @@
 
                         <div class="property_block_wrap_header">
                             <a data-bs-toggle="collapse" data-parent="#dsrp" data-bs-target="#clTwo" aria-controls="clTwo" href="javascript:void(0);" aria-expanded="true">
-                                <h4 class="property_block_title">Description</h4>
+                                <h4 class="property_block_title">{{__('Description')}}</h4>
                             </a>
                         </div>
                         <div id="clTwo" class="panel-collapse collapse show">
@@ -102,12 +102,11 @@
                     </div>
 
                     <!-- Single Block Wrap - Amenities -->
-                    <!-- Single Block Wrap -->
                     <div class="property_block_wrap style-2">
 
                         <div class="property_block_wrap_header">
                             <a data-bs-toggle="collapse" data-parent="#amen" data-bs-target="#clThree" aria-controls="clThree" href="javascript:void(0);" aria-expanded="true">
-                                <h4 class="property_block_title">Amenities</h4>
+                                <h4 class="property_block_title">{{__('Amenities')}}</h4>
                             </a>
                         </div>
                         <div id="clThree" class="panel-collapse collapse show">
@@ -134,7 +133,7 @@
 
                         <div class="property_block_wrap_header">
                             <a data-bs-toggle="collapse" data-parent="#loca" data-bs-target="#clSix" aria-controls="clSix" href="javascript:void(0);" aria-expanded="true" class="collapsed">
-                                <h4 class="property_block_title">Location</h4>
+                                <h4 class="property_block_title">{{__('Location')}}</h4>
                             </a>
                         </div>
 
@@ -153,6 +152,115 @@
                             </div>
                         </div>
                     </div>
+                    <div class="property_block_wrap style-2">
+
+                        <div class="property_block_wrap_header">
+                            <a data-bs-toggle="collapse" data-parent="#nearby" data-bs-target="#clNine" aria-controls="clNine" href="javascript:void(0);" aria-expanded="true">
+                                <h4 class="property_block_title">{{__('Nearby')}}</h4>
+                            </a>
+                        </div>
+
+                        <div id="clNine" class="panel-collapse collapse show">
+                            <div class="block-body">
+                                <div class="nearby-wrap">
+                                    @foreach($property->facilities as $facility)
+                                    <div class="neary_section_list">
+                                        <div class="neary_section">
+                                            <div class="neary_section_first">
+                                                <h4 class="nearby_place_title"><i class=" fas fa-prescription-bottle-alt "></i> {{$facility->name}}</h4>
+                                            </div>
+                                            <div class="neary_section_last">
+                                                <small class="reviews-count">{{$facility->pivot->distance}}km</small>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="property_block_wrap style-2">
+                        <div class="property_block_wrap_header">
+                            <a data-bs-toggle="collapse" data-parent="#features" data-bs-target="#clOne" aria-controls="clOne" href="javascript:void(0);" aria-expanded="false">
+                                <h4 class="property_block_title">{{__('Legal Information')}}</h4>
+                            </a>
+                        </div>
+                        <div id="clOne" class="panel-collapse collapse show" aria-labelledby="clOne">
+                            <div class="block-body">
+                                <ul class="detail_features">
+                                    <li>
+                                        <strong>{{__('license number')}}:</strong>
+                                        {{$property->legalData->license_number}}
+                                    </li>
+
+                                    <li>
+                                        <strong>{{__('Property date of license')}}:</strong>
+                                        {{$property->legalData->date_of_license}}
+                                    </li>
+
+                                    <li>
+                                        <strong>{{__('license expiration date')}}:</strong>
+                                        {{$property->legalData->license_expiration_date}}
+                                    </li>
+
+                                    <li>
+                                        <strong>{{__('postal code')}}:</strong>
+                                        {{$property->legalData->postal_code}}
+                                    </li>
+
+                                    <li>
+                                        <strong>{{__('building number')}}:</strong>
+                                        {{$property->legalData->building_number}}
+                                    </li>
+
+                                    <li>
+                                        <strong>{{__('additional number')}}:</strong>
+                                        {{$property->legalData->additional_number}}
+                                    </li>
+
+                                    <li>
+                                        <strong>{{__('property has restriction')}}:</strong>
+                                        @if($property->legalData->has_restriction)
+                                        {{('yes')}}
+                                        @else
+                                        {{('no')}}
+                                        @endif
+                                    </li>
+
+                                    <li>
+                                        <strong>{{__('Property has mortgage')}}:</strong>
+                                        @if($property->legalData->has_mortgage)
+                                        {{('yes')}}
+                                        @else
+                                        {{('no')}}
+                                        @endif
+                                    </li>
+
+                                    <li>
+                                        <strong>{{__('obligations on property')}}:</strong>
+                                        {{$property->legalData->obligations_on_property}}
+                                    </li>
+
+                                    <!-- <li> soon
+                                        <strong>Property Type:</strong>Apartment
+                                    </li> -->
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -200,36 +308,10 @@
                     </div> -->
 
 
-                    <!-- Single Block Wrap - Nearby -->
-                    <div class="property_block_wrap style-2">
 
-                        <div class="property_block_wrap_header">
-                            <a data-bs-toggle="collapse" data-parent="#nearby" data-bs-target="#clNine" aria-controls="clNine" href="javascript:void(0);" aria-expanded="true">
-                                <h4 class="property_block_title">Nearby</h4>
-                            </a>
-                        </div>
 
-                        <div id="clNine" class="panel-collapse collapse show">
-                            <div class="block-body">
-                                <div class="nearby-wrap">
-                                    @foreach($property->facilities as $facility)
-                                    <div class="neary_section_list">
-                                        <div class="neary_section">
-                                            <div class="neary_section_first">
-                                                <h4 class="nearby_place_title"><i class=" fas fa-prescription-bottle-alt "></i> {{$facility->name}}</h4>
-                                            </div>
-                                            <div class="neary_section_last">
-                                                <small class="reviews-count">{{$facility->pivot->distance}}km</small>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                    @endforeach
-                                </div>
-                            </div>
-                        </div>
 
-                    </div>
+
 
 
                     <!-- Single Review -->
@@ -334,12 +416,12 @@
                     <div class="like_share_wrap b-0">
                         <ul class="like_share_list justify-content-center">
                             <li class="social_share_list">
-                                <a href="JavaScript:void(0);" class="btn btn-likes" data-bs-toggle="tooltip" data-original-title="Share"><i class="fas fa-share"></i>Share</a>
+                                <a href="JavaScript:void(0);" class="btn btn-likes" data-bs-toggle="tooltip" data-original-title="{{__('Share')}}"><i class="fas fa-share"></i> {{__('Share')}}</a>
                                 <div class="social_share_panel">
-                                    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fresido.thesky9.com%2Fen%2Fproperties%2F2203-7th-street-road&title=Et deserunt pariatur laboriosam tempore provident sunt et libero. Error libero assumenda ut aut natus asperiores cumque qui. Qui id consequuntur porro harum. Amet magni vel molestiae sit iusto." target="_blank" class="cl-facebook"><i class="lni-facebook"></i></a>
-                                    <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fresido.thesky9.com%2Fen%2Fproperties%2F2203-7th-street-road&text=Et deserunt pariatur laboriosam tempore provident sunt et libero. Error libero assumenda ut aut natus asperiores cumque qui. Qui id consequuntur porro harum. Amet magni vel molestiae sit iusto." target="_blank" class="cl-twitter"><i class="lni-twitter"></i></a>
-                                    <a href="https://linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fresido.thesky9.com%2Fen%2Fproperties%2F2203-7th-street-road&summary=Et deserunt pariatur laboriosam tempore provident sunt et libero. Error libero assumenda ut aut natus asperiores cumque qui. Qui id consequuntur porro harum. Amet magni vel molestiae sit iusto.&source=Linkedin" target="_blank" class="cl-linkedin"><i class="lni-linkedin"></i></a>
-                                    <a href="https://api.whatsapp.com/send?text=Et deserunt pariatur laboriosam tempore provident sunt et libero. Error libero assumenda ut aut natus asperiores cumque qui. Qui id consequuntur porro harum. Amet magni vel molestiae sit iusto. https%3A%2F%2Fresido.thesky9.com%2Fen%2Fproperties%2F2203-7th-street-road" data-action="share/whatsapp/share" target="_blank" class="cl-linkedin"><i class="lni-whatsapp"></i></a>
+                                    <a href="https://www.facebook.com/sharer/sharer.php?u={{route('properties.details',$property->id)}}title={{$property->description}}." target="_blank" class="cl-facebook"><i class="lni-facebook"></i></a>
+                                    <a href="https://twitter.com/intent/tweet?url={{route('properties.details',$property->id)}}text={{$property->description}}." target="_blank" class="cl-twitter"><i class="lni-twitter"></i></a>
+                                    <a href="https://linkedin.com/shareArticle?mini=true&url={{route('properties.details',$property->id)}}summary={{$property->description}}.&source=Linkedin" target="_blank" class="cl-linkedin"><i class="lni-linkedin"></i></a>
+                                    <a href="https://api.whatsapp.com/send?text={{$property->description}}. {{route('properties.details',$property->id)}}" data-action="share/whatsapp/share" target="_blank" class="cl-linkedin"><i class="lni-whatsapp"></i></a>
                                 </div>
                             </li>
                         </ul>
@@ -366,22 +448,22 @@
                                     <div class="row">
                                         <input type="hidden" name="data_id" value="3">
                                         <div class="form-group">
-                                            <input class="form-control" name="name" id="name" type="text" placeholder="Name *" required>
+                                            <input class="form-control" name="name" id="name" type="text" placeholder="{{__('Name')}} *" required>
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" name="phone" class="form-control" placeholder="Phone *" data-validation-engine="validate[required]" data-errormessage-value-missing="Please enter phone number!">
+                                            <input type="text" name="phone" class="form-control" placeholder="{{__('Phone')}} *" data-validation-engine="validate[required]" data-errormessage-value-missing="Please enter phone number!">
                                         </div>
                                         <div class="form-group">
-                                            <input class="form-control" name="email" id="email" type="email" placeholder="Email">
+                                            <input class="form-control" name="email" id="email" type="email" placeholder="{{__('Email')}}">
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Subject *" value="{{$property->location->name}} " readonly>
+                                            <input type="text" class="form-control" placeholder="{{__('Subject')}} *" value="{{$property->location->name}} " readonly>
                                         </div>
                                         <div class="form-group">
-                                            <textarea name="content" class="form-control" rows="5" placeholder="Message"></textarea>
+                                            <textarea name="content" class="form-control" rows="5" placeholder="{{__('Message')}}"></textarea>
                                         </div>
                                         <div class="form-group">
-                                            <button class="btn btn-black btn-md rounded full-width" type="submit">Send Message</button>
+                                            <button class="btn btn-black btn-md rounded full-width" type="submit">{{__('Send Message')}}</button>
                                         </div>
                                         <div class="clearfix"></div>
                                         <br>

@@ -5,29 +5,10 @@
                             <div class="click ">
                                 <div>
                                     <a href="{{route('properties.details',$property->id)}}">
-                                        <img src="https://resido.thesky9.com/storage/general/img-loading.jpg" data-src="https://resido.thesky9.com/storage/properties/p-16-400xauto.jpg" class="img-fluid mx-auto lazy" alt="{{$property->title}}" />
+                                        <img src="{{$property->getFirstMediaUrl('images')}}" data-src="{{$property->getFirstMediaUrl('images')}}" class="img-fluid mx-auto lazy" alt="{{$property->title}}" />
                                     </a>
                                 </div>
-                                <div>
-                                    <a href="{{route('properties.details',$property->id)}}">
-                                        <img src="https://resido.thesky9.com/storage/general/img-loading.jpg" data-src="https://resido.thesky9.com/storage/properties/p-3-400xauto.jpg" class="img-fluid mx-auto lazy" alt="{{$property->title}}" />
-                                    </a>
-                                </div>
-                                <div>
-                                    <a href="{{route('properties.details',$property->id)}}">
-                                        <img src="https://resido.thesky9.com/storage/general/img-loading.jpg" data-src="https://resido.thesky9.com/storage/properties/p-15-400xauto.jpg" class="img-fluid mx-auto lazy" alt="{{$property->title}}" />
-                                    </a>
-                                </div>
-                                <div>
-                                    <a href="{{route('properties.details',$property->id)}}">
-                                        <img src="https://resido.thesky9.com/storage/general/img-loading.jpg" data-src="https://resido.thesky9.com/storage/properties/p-2-400xauto.jpg" class="img-fluid mx-auto lazy" alt="{{$property->title}}" />
-                                    </a>
-                                </div>
-                                <div>
-                                    <a href="{{route('properties.details',$property->id)}}">
-                                        <img src="https://resido.thesky9.com/storage/general/img-loading.jpg" data-src="https://resido.thesky9.com/storage/properties/p-4-400xauto.jpg" class="img-fluid mx-auto lazy" alt="{{$property->title}}" />
-                                    </a>
-                                </div>
+                               <!-- multiple -->
                             </div>
                         </div>
                     </div>

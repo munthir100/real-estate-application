@@ -98,14 +98,23 @@ class HomeController extends Controller
 
     function brokers()
     {
-        $users = User::where('user_type_id', UserType::BROKER)->get();
+        $users = User::where('user_type_id', UserType::BROKER)
+            ->whereHas('properties', function ($query) {
+                $query->where('status_id', Status::ACCEPTED);
+            })
+            ->withCount('acceptedProperties')
+            ->get();
+
 
         return view('brokers.index', compact('users'));
     }
 
     function brokerDetails($userId)
     {
-        $user = User::where('user_type_id', UserType::BROKER)->with('properties','broker')->findOrFail($userId);
+        $user = User::where('user_type_id', UserType::BROKER)
+            ->with('acceptedProperties', 'broker')
+            ->withCount('acceptedProperties')
+            ->findOrFail($userId);
         return view('brokers.show', compact('user'));
     }
 

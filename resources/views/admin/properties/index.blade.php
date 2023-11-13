@@ -26,7 +26,7 @@
 
                                     <div class="input-group">
                                         <form method="get">
-                                            <input type="text" name="title" class="form-control" id="searchInput" placeholder="Search">
+                                            <input type="text" name="title" class="form-control" id="searchInput" placeholder="{{__('Search')}}">
                                         </form>
                                     </div>
                                 </div>
