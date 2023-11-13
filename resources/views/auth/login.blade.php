@@ -17,9 +17,9 @@
                                 <form method="POST" class="simple-form" action="{{route('login')}}">
                                     @csrf
                                     <div class="form-group">
-                                        <label>{{__('Email/Username')}}</label>
+                                        <label>{{__('Email / Phone')}}</label>
                                         <div class="input-with-icon">
-                                            <input id="email" type="text" class="form-control" placeholder="{{__('Email/Username')}}" name="email" value="" autofocus>
+                                            <input id="email" type="text" class="form-control" placeholder="{{__('Email / Phone')}}" name="email" value="" autofocus>
                                             <i class="ti-user"></i>
                                         </div>
                                         @if($errors->has('email'))
@@ -33,7 +33,7 @@
                                     </div>
 
                                     <div class="form-group ">
-                                        <label>Password</label>
+                                        <label>{{__('Password')}}</label>
                                         <div class="input-with-icon">
                                             <input id="password" type="password" class="form-control" placeholder="{{__('Password')}}" name="password">
                                             <i class="ti-unlock"></i>
@@ -60,7 +60,7 @@
                                             </div>
 
                                             <div class="col-md-6 text-md-center">
-                                                <a href="#soon" class="link">
+                                                <a class="link">
                                                     {{__('Forgot Your Password?')}}
                                                 </a>
                                             </div>
@@ -75,7 +75,7 @@
                                     </div>
 
                                     <div class="form-group text-center">
-                                        <p>Do not have an account? <a href="{{route('registerForm')}}" class="link d-block d-sm-inline-block text-sm-left text-center">{{__('Register a new account')}}</a>
+                                        <p>{{__('Do not have an account?')}} <a href="{{route('registerForm')}}" class="link d-block d-sm-inline-block text-sm-left text-center">{{__('Register a new account')}}</a>
                                         </p>
                                     </div>
 

@@ -72,7 +72,8 @@
                         </li>
                         <li class="add-listing">
                             <a href="{{route('login')}}">
-                                <img src="{{asset('themes/resido/img/user-light.svg')}}" width="12" alt="" class="mr-2">{{__('Sign In')}}</a>
+                                <img src="{{asset('themes/resido/img/user-light.svg')}}" width="12" alt="" class="mr-2"> {{__('Sign In')}}
+                            </a>
                         </li>
 
                     </ul>
