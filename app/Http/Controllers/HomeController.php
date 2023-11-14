@@ -84,16 +84,21 @@ class HomeController extends Controller
     {
         $broker = request()->user()->broker()->first();
         $agents = $broker->agents()->get();
+        $users = User::where('user_type_id', UserType::AGENT)
+            ->whereRelation('agent', 'broker_id', $broker->id)
+            ->with('agent')
+            ->get();
 
-        return view('agents.index', compact('agents'));
+        return view('agents.index', compact('users'));
     }
 
     function agentDetails($agentId)
     {
         $broker = request()->user()->broker()->first();
-        $agent = $broker->agents()->findOrFail($agentId)->with('user')->first();
+        $agent = $broker->agents()->findOrFail($agentId)->first();
+        $user = $agent->user;
 
-        return view('agents.show', compact('agent'));
+        return view('agents.show', compact('agent', 'user'));
     }
 
     function brokers()

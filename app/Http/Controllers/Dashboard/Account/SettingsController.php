@@ -45,7 +45,7 @@ class SettingsController extends Controller
                 'password' => Hash::make($request->new_password),
             ]);
 
-            return redirect()->route('account.settings.change-password')->with('error', 'The provided password does not match your current password.');
+            return redirect()->route('dashboard.account.settings.change-password')->with('error', 'The provided password does not match your current password.');
         } else {
             return redirect()->route('dashboard')->with('success', 'Password changed successfully.');
         }

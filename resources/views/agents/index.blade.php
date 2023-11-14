@@ -6,7 +6,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12">
-                    <h1 class="ipt-title">{{__('All Agents')}}</h1>
+                    <h1 class="ipt-title">{{__('All agents')}}</h1>
                     <span class="ipn-subtitle">{{__('Lists of our all expert agents')}}</span>
 
                 </div>
@@ -19,42 +19,39 @@
     <section class="gray-simple">
         <div class="container">
             <div class="row">
-                @foreach($agents as $agent)
+                @foreach($users as $user)
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="agents-grid">
                         <div class="agents-grid-wrap">
                             <div class="fr-grid-thumb">
-                                <a href="{{route('agents.details',$agent->id)}}">
-                                    <img src="https://resido.thesky9.com/storage/accounts/1.jpg" class="img-fluid mx-auto" alt="{{$agent->user->name}}">
+                                <a href="{{route('agents.details',$user->id)}}">
+                                    <img src="https://resido.thesky9.com/storage/accounts/1.jpg" class="img-fluid mx-auto" alt="{{$user->name}}">
                                 </a>
                             </div>
 
                             <div class="fr-grid-deatil">
                                 <div class="fr-grid-deatil-flex">
                                     <h5 class="fr-can-name">
-                                        <a href="{{route('agents.details',$agent->id)}}">{{$agent->user->name}}</a>
+                                        <a href="{{route('agents.details',$user->id)}}">{{$user->name}}</a>
                                     </h5>
                                 </div>
                                 <div class="fr-grid-deatil-flex-right">
-                                    <div class="agent-email"><a href="mailto:{{$agent->user->email}}"><i class="ti-email"></i></a></div>
+                                    <div class="agent-email"><a href="mailto:{{$user->email}}"><i class="ti-email"></i></a></div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="fr-grid-info">
                             <ul>
-                                <li><strong>{{__('Phone:')}}</strong> {{$agent->user->phone}}</li>
+                                <li><strong>{{__('Phone:')}}</strong> {{$user->phone}}</li>
 
-                                <li><strong>{{__('Email:')}}</strong> {{$agent->user->email}}</li>
+                                <li><strong>{{__('Email:')}}</strong> {{$user->email}}</li>
                             </ul>
                         </div>
 
                         <div class="fr-grid-footer">
-                            <div class="fr-grid-footer-flex">
-                                <span class="fr-position"><i class="fa fa-home"></i>0 {{__('properties')}}</span>
-                            </div>
                             <div class="fr-grid-footer-flex-right">
-                                <a href="{{route('agents.details',$agent->id)}}" class="prt-view" tabindex="0">{{__('View')}}</a>
+                                <a href="{{route('agents.details',$user->agent->id)}}" class="prt-view" tabindex="0">{{__('View')}}</a>
                             </div>
                         </div>
 

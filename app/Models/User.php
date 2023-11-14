@@ -69,9 +69,17 @@ class User extends Authenticatable
         return $this->hasMany(Property::class, 'user_id')->where('status_id', Status::ACCEPTED);
     }
 
+    
     public function applications()
     {
         return $this->hasMany(Application::class, 'user_id');
+    }
+
+    public function acceptedApplications()
+    {
+        return $this->hasMany(Property::class, 'user_id')
+        ->where('status_id', Status::ACCEPTED)
+        ->whereHas('applications');
     }
 
     public function notifications()

@@ -48,6 +48,9 @@
 <link media="all" type="text/css" rel="stylesheet" href="{{asset('themes/resido/plugins/line-icon.css')}}">
 <link media="all" type="text/css" rel="stylesheet" href="{{asset('themes/resido/plugins/themify.css')}}">
 <link media="all" type="text/css" rel="stylesheet" href="{{asset('themes/resido/css/style.css?v=2.22.0')}}">
+<link media="all" type="text/css" rel="stylesheet" href="{{asset('themes/resido/css/rtl-style.css?v=2.22.0')}}">
+<link media="all" type="text/css" rel="stylesheet" href="{{asset('vendor/core/core/base/rtl.css?v=2.22.0')}}">
+
 <link media="all" type="text/css" rel="stylesheet" href="{{asset('themes/resido/css/style.integration.css?v=1698022316')}}">
 
 

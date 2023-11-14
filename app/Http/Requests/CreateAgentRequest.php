@@ -29,7 +29,9 @@ class CreateAgentRequest extends FormRequest
             'last_name' => 'required|string|max:255',
             'username' => 'required|string|max:255|unique:users',
             'phone' => [
-                'required|string|unique:users',
+                'required',
+                'string',
+                'unique:users',
                 new SaudiArabianPhoneNumber
             ],
             'description' => 'nullable|string',
