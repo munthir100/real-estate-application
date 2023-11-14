@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}" @if(app()->isLocale('ar')) dir="rtl" @endif>
+<html lang="{{ app()->getLocale() }}">
 
 
 <head>
@@ -14,7 +14,7 @@
 
 </head>
 
-<body class="yellow-skin">
+<body class="yellow-skin" @if(app()->isLocale('ar')) dir="rtl" @endif>
     <div id="alert-container"></div>
 
 

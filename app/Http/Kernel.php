@@ -7,6 +7,7 @@ use App\Http\Middleware\IsAdminMiddleware;
 use App\Http\Middleware\NotVerified;
 use App\Http\Middleware\BrokerMiddleware;
 use App\Http\Middleware\CompletedProfileMiddleware;
+use App\Http\Middleware\SetLocale;
 use App\Http\Middleware\SubscriptionMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -76,6 +77,7 @@ class Kernel extends HttpKernel
         'custom_verified' => CustomVerified::class,
         'not_verified' => NotVerified::class,
         'is_completed_account' => CompletedProfileMiddleware::class,
+        'set_local' => SetLocale::class,
     ];
 }
 // 2023-11-10 05:17:29
