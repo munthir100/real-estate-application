@@ -15,6 +15,9 @@ class NotVerified
      */
     public function handle(Request $request, Closure $next): Response
     {
+        if ($request->user()->is_admin) {
+            return to_route('admin.properties.index');
+        }
         if (!request()->user()->verified) {
             return $next($request);
         }

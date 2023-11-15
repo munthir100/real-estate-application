@@ -15,6 +15,10 @@ class CustomVerified
      */
     public function handle($request, Closure $next)
     {
+        if ($request->user()->is_admin) {
+            return $next($request);
+        }
+
         if (!$request->user()->verified) {
             return redirect()->route('auth.verification-form');
         }

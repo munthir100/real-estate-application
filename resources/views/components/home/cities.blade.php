@@ -16,7 +16,7 @@
             <div class="col-lg-4 col-md-4">
                 <div class="location-property-wrap">
                     <div class="location-property-thumb">
-                        <a href="{{route('cityProperties',$city->name)}}">
+                        <a href="{{route('properties',['city_id'=>$city->id])}}">
                             <img src="https://resido.thesky9.com/storage/general/img-loading.jpg" data-src="https://resido.thesky9.com/storage/cities/c-1-400xauto.png" class="w-100 lazy" alt="Newark" />
                         </a>
                     </div>
@@ -33,7 +33,7 @@
                                 {{__('Properties')}}</span>
                         </div>
                         <div class="lp-content-right">
-                            <a href="{{route('cityProperties',$city->name)}}" class="lp-property-view">
+                            <a href="{{route('properties',['city_id'=>$city->id])}}" class="lp-property-view">
                                 <i class="ti-angle-right"></i>
                             </a>
                         </div>

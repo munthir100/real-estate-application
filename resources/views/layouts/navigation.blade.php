@@ -8,68 +8,33 @@
             <div class="nav-menus-wrapper" style="transition-property: none;">
                 <ul class="nav-menu">
                     <li class=" menu-item-has-children   ">
-                        <a href="{{route('home')}}">
-                            {{__('Home')}}
-                        </a>
-
-
-                    </li>
-                    <li class=" menu-item-has-children   ">
                         <a href="{{route('properties')}}">
                             {{__('Properties')}}
                         </a>
+                    </li>
 
-
+                    <li class="  ">
+                        <a href="{{route('brokers')}}">
+                            {{__('Brokers')}}
+                        </a>
                     </li>
                     <li class="  ">
-                        <a href="{{route('applications')}}">
-                            {{__('Applications')}}
+                        <a href="{{route('plans.index')}}">
+                            {{__('Pricing')}}
                         </a>
                     </li>
-                    @auth
-                    @if(request()->user()->isBroker)
-                    <li class="  ">
-                        <a href="{{route('agents')}}">
-                            {{__('Agents')}}
-                        </a>
-                    </li>
-                    @endif
-                    @endauth
-                    <li class=" menu-item-has-children    current-menu-item ">
-                        <a href="{{route('home')}}">
-                            {{__('Pages')}}
-                        </a>
-                        <ul class="nav-dropdown nav-submenu">
-                            <li class="  ">
-                                <a href="{{route('brokers')}}">
-                                    {{__('Brokers')}}
-                                </a>
-                            </li>
-                            <li class="  ">
-                                <a href="{{route('plans.index')}}">
-                                    {{__('Pricing')}}
-                                </a>
-                            </li>
 
-                            <li class="  ">
-                                <a href="{{route('contact.index')}}">
-                                    {{__('Contact')}}
-                                </a>
-                            </li>
-                        </ul>
 
-                    </li>
                     @guest
-                    <li class="  ">
-                        <a href="{{route('registerForm')}}">
-                            {{__('Sign Up')}}
-                        </a>
-                    </li>
-
                     <ul class="nav-menu nav-menu-social align-to-right">
                         <li class="">
                             <a href="{{route('dashboard.properties.create')}}" class="text-success"><img src="{{asset('themes/resido/img/submit.svg')}}" width="20" alt="" class="mr-2"> {{__('Add Property')}}</a>
                         </li>
+
+                        <li class="">
+                            <a href="{{route('dashboard.applications.create')}}" class="text-secondary"><img src="{{asset('themes/resido/img/type.svg')}}" width="20" alt="" class="mr-2"> {{__('Request Property')}}</a>
+                        </li>
+
                         <li class="add-listing">
                             <a href="{{route('login')}}">
                                 <img src="{{asset('themes/resido/img/user-light.svg')}}" width="12" alt="" class="mr-2"> {{__('Sign In')}}
@@ -85,6 +50,10 @@
                         <li class="login-item">
                             <a href="{{route('dashboard.properties.create')}}" class="text-success"><img src="{{asset('themes/resido/img/submit.svg')}}" width="20" alt="" class="mr-2"> {{__('Add Property')}}</a>
                         </li>
+                        <li class="">
+                            <a href="{{route('dashboard.properties.create')}}" class="text-success"><img src="{{asset('themes/resido/img/submit.svg')}}" width="20" alt="" class="mr-2"> {{__('Request Property')}}</a>
+                        </li>
+                        @if(request()->user()->recently_verified)
                         <li class="login-item">
                             <a href="{{route('dashboard.home')}}" rel="nofollow"><i class="fas fa-user"></i> <span>
                                     {{ substr(Auth::user()->first_name . ' ' . Auth::user()->middle_name, 0, 21) }}
@@ -92,6 +61,7 @@
                                 </span>
                             </a>
                         </li>
+                        @endif
                         <li class="login-item"><a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" rel="nofollow"><i class="fas fa-sign-out-alt"></i> {{__('Logout')}}</a></li>
                     </ul>
                     <form action="{{route('logout')}}" method="post" type="hidden" id="logout-form">
@@ -131,18 +101,7 @@
                     </div>
                     <div class="mobile-menu-item currency-wrapper">
                         <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" type="button" aria-haspopup="true" aria-expanded="true">
-                                <img src="vendor/core/core/base/images/flags/us.svg" title="English" width="16" alt="English">
-                                English
-                            </button>
-                            <ul class="dropdown-menu language_bar_chooser ">
-                                <li>
-                                    <a href="{{route('home')}}">
-                                        <img src="{{asset('vendor/core/core/base/images/flags/vn.svg')}}" title="العربية" width="16" alt="العربية">
-                                        <span>العربية</span>
-                                    </a>
-                                </li>
-                            </ul>
+                            <x-shared.language-select />
                         </div>
 
 

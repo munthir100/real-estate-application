@@ -45,19 +45,6 @@ class HomeController extends Controller
     }
 
 
-
-
-
-    function cityProperties($cityName)
-    {
-        $city = City::where('name', $cityName)->withCount('properties')->firstOrFail();
-        $properties = $city->properties()
-            ->useFilters()
-            ->dynamicPaginate();
-
-        return view('properties.index', compact('properties'));
-    }
-
     function applications(Request $request)
     {
         $userSearchCriteria = $this->getRequestedFilters($request);

@@ -28,7 +28,6 @@ Route::middleware('set_local')->group(function () {
     Route::get('plans', [PlanController::class, 'index'])->name('plans.index');
     Route::get('contact', [ContactController::class, 'index'])->name('contact.index');
     Route::get('properties/{property}/details', [HomeController::class, 'propertyDetails'])->name('properties.details');
-    Route::get('city/{cityName}', [HomeController::class, 'cityProperties'])->name('cityProperties');
 
 
 
@@ -83,7 +82,7 @@ Route::middleware('set_local')->group(function () {
         });
     });
 
-    Route::middleware('auth', 'custom_verified', 'is_admin')->prefix('admin')->name('admin.')->group(function () {
+    Route::middleware('auth', 'is_admin')->prefix('admin')->name('admin.')->group(function () {
         Route::resource('properties', AdminPropertiesController::class)->only(['index', 'edit', 'destroy']);
         Route::resource('applications', AdminApplicationController::class)->only(['index', 'edit', 'destroy']);
         Route::post('properties/{property}/accept', [AdminPropertiesController::class, 'accept'])->name('properties.accept');
