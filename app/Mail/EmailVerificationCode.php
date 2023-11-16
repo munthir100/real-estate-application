@@ -28,8 +28,8 @@ class EmailVerificationCode extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            from: 'aqaraatsa@gmail.com',
-            subject: 'Happy Birth Day',
+            from: 'Aqaarat platform',
+            subject: 'Your Email Verification Code',
         );
     }
 

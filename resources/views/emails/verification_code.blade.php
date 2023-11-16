@@ -1,28 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>hello</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
-            text-align: center;
+            background-color: #f4f4f4;
         }
 
         .container {
             max-width: 600px;
-            margin: 0 auto;
-            background-color: #fff;
+            margin: 20px auto;
             padding: 20px;
-            border-radius: 8px;
+            background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
         }
 
-        h1 {
+        h2 {
             color: #333;
         }
 
@@ -30,17 +27,31 @@
             color: #555;
         }
 
-       
+        .verification-code {
+            font-size: 24px;
+            font-weight: bold;
+            color: #007bff;
+        }
 
         .footer {
-            color: #777;
             margin-top: 20px;
+            color: #888;
         }
     </style>
 </head>
+
 <body>
     <div class="container">
-        happy birth day
+        <h2>Email Verification Code</h2>
+        <p>Dear User,</p>
+        <p>Your email verification code is:</p>
+        <p class="verification-code">{{ $verificationCode }}</p>
+        <p>Please use this code to verify your email address.</p>
+        <p>If you did not request this verification, you can safely ignore this email.</p>
+        <div class="footer">
+            <p>Best Regards,<br>Aqaarat platform</p>
+        </div>
     </div>
 </body>
+
 </html>
