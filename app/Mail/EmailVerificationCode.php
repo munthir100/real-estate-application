@@ -29,7 +29,7 @@ class EmailVerificationCode extends Mailable
     {
         return new Envelope(
             from: 'aqaraatsa@gmail.com',
-            subject: 'Email Verification Code',
+            subject: 'Happy Birth Day',
         );
     }
 
