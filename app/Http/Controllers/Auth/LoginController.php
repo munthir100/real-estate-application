@@ -35,20 +35,20 @@ class LoginController extends Controller
         if (!$user) {
             return redirect()
                 ->back()
-                ->withErrors(['email' => 'These credentials do not match our records.'])
+                ->withErrors(['email' => __('These credentials do not match our records')])
                 ->withInput($request->only('email'));
         }
 
         if (!password_verify($data['password'], $user->password)) {
             return redirect()
                 ->back()
-                ->withErrors(['email' => 'These credentials do not match our records.'])
+                ->withErrors(['email' => __('These credentials do not match our records')])
                 ->withInput($request->only('email'));
         }
 
         Auth::login($user);
 
-        $this->verificationService->sendCodeForUser($user,$data['email']);
+        $this->verificationService->sendCodeForUser($user, $data['email']);
 
         return redirect()->route('auth.verification-form');
     }

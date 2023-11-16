@@ -32,7 +32,7 @@ class CompletedProfileMiddleware
         }
         foreach ($requiredFields as $field) {
             if (empty($user->{$field})) {
-                return redirect()->route('dashboard.account.settings.update-profile');
+                return redirect()->route('dashboard.account.settings.edit');
             }
         }
 

@@ -29,7 +29,7 @@ class UsernameValidationRule implements ValidationRule
                 $attribute => new SaudiArabianPhoneNumber,
             ]);
             if (!$validator->passes()) {
-                $fail("The $attribute is not a valid Saudi Arabian phone number.");
+                $fail(__("The phone number is not a valid Saudi Arabian phone number"));
             }
         }
     }

@@ -33,7 +33,14 @@
                             </ul>
                         </div>
                         <div class="pricing-bottom">
+                            @if(auth()->check())
+
+                            @if(request()->user()->isBroker)
                             <a href="{{route('plans.subscribe',$plan->id)}}" class="btn-pricing">{{__('Choose Plan')}}</a>
+
+                            @endif
+                            @endif
+
                         </div>
                     </div>
                 </div>

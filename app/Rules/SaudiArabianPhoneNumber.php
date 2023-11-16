@@ -15,7 +15,7 @@ class SaudiArabianPhoneNumber implements ValidationRule
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
         if (!preg_match('/^(?:\+9665\d{8}|05\d{8}|009665\d{8})$/', $value)) {
-            $fail("The phone number is not a valid Saudi Arabian phone number.");
+            $fail(__("The phone number is not a valid Saudi Arabian phone number"));
         }
     }
 }
