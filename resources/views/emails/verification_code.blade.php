@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Email Verification Code</title>
+    <title>hello </title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -30,12 +30,7 @@
             color: #555;
         }
 
-        .verification-code {
-            font-size: 24px;
-            font-weight: bold;
-            color: #4285f4;
-            margin: 20px 0;
-        }
+       
 
         .footer {
             color: #777;
@@ -45,11 +40,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Email Verification Code</h1>
-        <p>Thank you for signing up! Please use the following verification code to verify your email:</p>
-        <div class="verification-code">{{ $verificationCode }}</div>
-        <p>If you didn't sign up, please ignore this email.</p>
-        <p class="footer">&copy; {{ date('Y') }} Aqaraaat</p>
+        happy birth day
     </div>
 </body>
 </html>
