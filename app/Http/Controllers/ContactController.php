@@ -23,7 +23,6 @@ class ContactController extends Controller
         $fromEmail = $data['email'];
 
         $headers = [
-            'MIME-Version: 1.0',
             'Content-type: text/html; charset=UTF-8',
             'From: ' . $fromEmail,
         ];
