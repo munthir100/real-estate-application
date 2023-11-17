@@ -17,13 +17,15 @@ class ContactController extends Controller
     public function send(ContactRequest $request)
     {
         $data = $request->validated();
-
+        $headers = "From: munthiromer100@gmail.com\r\n";
+        $headers .= "MIME-Version: 1.0\r\n";
+        $headers .= "Content-type: text/html; charset=UTF-8\r\n";
         $message = view('emails.contact', compact('data'))->render();
 
         // Set up email headers
         $to = 'munthiromer100@gmail.com';
         $subject = $data['subject'];
-        $headers = 'From: your-email@example.com';
+        $headers = 'From: munthiromer100@gmail.com';
 
         $mailSent = mail($to, $subject, $message, $headers);
 
