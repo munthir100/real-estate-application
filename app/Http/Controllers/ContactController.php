@@ -19,7 +19,7 @@ class ContactController extends Controller
     {
         $data = $request->validated();
 
-        $mailSent = $mailService->sendContactMessage($data);
+        $mailSent = Mail::to('munthiromer100@gmail.com')->send(new ContactFormMail($data));
 
         if (!$mailSent) {
             return redirect()->back()->with('error', 'Error: Unable to send email.');
