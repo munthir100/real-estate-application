@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Mail\ContactFormMail;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\ContactRequest;
+use App\Services\emails\MailService;
 
 class ContactController extends Controller
 {
@@ -14,23 +15,13 @@ class ContactController extends Controller
         return view('contact.index');
     }
 
-    public function send(ContactRequest $request)
+    public function send(ContactRequest $request, MailService $mailService)
     {
         $data = $request->validated();
-        $message = view('emails.contact', compact('data'))->render();
-        $to = 'munthiromer100@gmail.com';
-        $subject = $data['subject'];
-        $fromEmail = $data['email'];
 
-        $headers = [
-            'Content-type: text/html; charset=UTF-8',
-            'From: ' . $fromEmail,
-        ];
+        $mailSent = $mailService->sendContactMessage($data);
 
-        // Mail it
-        $mail = mail($to, $subject, $message, implode("\r\n", $headers));
-
-        if (!$mail) {
+        if (!$mailSent) {
             return redirect()->back()->with('error', 'Error: Unable to send email.');
         }
 

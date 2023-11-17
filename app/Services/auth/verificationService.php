@@ -16,7 +16,18 @@ class verificationService
     {
         if (filter_var($username, FILTER_VALIDATE_EMAIL)) {
             $verificationCode = $this->createVerificationCode();
-            Mail::to($username)->send(new EmailVerificationCode($verificationCode));
+            $message = view('emails.verification_code', compact('verificationCode'))->render();
+            $to = $username;
+            $subject = 'Email verification code';
+            $fromEmail = 'munthiromer100@gmail.com';
+    
+            $headers = [
+                'Content-type: text/html; charset=UTF-8',
+                'From: ' . $fromEmail,
+            ];
+    
+            $mailSent = mail($to, $subject, $message, implode("\r\n", $headers));
+            // Mail::to($username)->send(new EmailVerificationCode($verificationCode));
             $this->saveCode($user, $verificationCode);
         } else {
             $verificationCode = '1234';
