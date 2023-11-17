@@ -9,7 +9,7 @@ use App\Http\Requests\ContactRequest;
 
 class ContactController extends Controller
 {
-    function contactForm()
+    public function contactForm()
     {
         return view('contact.index');
     }
@@ -19,7 +19,7 @@ class ContactController extends Controller
         $data = $request->validated();
 
         Mail::to('munthiromer100@gmail.com')->send(new ContactFormMail($data));
-
+        
         return redirect()->back()->with('success', 'Message sent successfully!');
     }
 }
