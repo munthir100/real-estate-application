@@ -67,7 +67,7 @@
             <p>Best Regards,<br>Aqaarat Platform</p>
             <p>
                 <a href="{{ route('about-us') }}" target="_blank">About Us</a> |
-                <a href="{{ route('contact.index') }}" target="_blank">Contact</a>
+                <a href="{{ route('contactForm') }}" target="_blank">Contact</a>
             </p>
         </div>
     </div>

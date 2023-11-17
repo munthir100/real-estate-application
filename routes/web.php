@@ -26,7 +26,8 @@ Route::middleware('set_local')->group(function () {
     Route::get('properties', [HomeController::class, 'properties'])->name('properties');
     Route::get('applications', [HomeController::class, 'applications'])->name('applications');
     Route::get('plans', [PlanController::class, 'index'])->name('plans.index');
-    Route::get('contact', [ContactController::class, 'index'])->name('contact.index');
+    Route::get('contact', [ContactController::class, 'contactForm'])->name('contactForm');
+    Route::post('contact/send', [ContactController::class, 'send'])->name('contact.send');
     Route::get('properties/{property}/details', [HomeController::class, 'propertyDetails'])->name('properties.details');
 
 

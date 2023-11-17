@@ -26,7 +26,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{{route('contact.index')}}" title="{{__('Contact us')}}">
+                                        <a href="{{route('contactForm')}}" title="{{__('Contact us')}}">
                                             <span>{{__('Contact us')}}</span>
                                         </a>
                                     </li>

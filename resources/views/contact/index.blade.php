@@ -31,8 +31,8 @@
                             <p>
                             <div id="contact" class="row">
                                 <div class="col-lg-7 col-md-7">
-                                    <form action="https://resido.thesky9.com/en/contact/send" method="post" class="contact-form generic-form">
-                                        <input type="hidden" name="_token" value="JO9KJweSXYDVjZ8t1mxXOWNKKWGdvmcDayNIZJtX">
+                                    <form action="{{route('contact.send')}}" method="post" class="contact-form generic-form">
+                                        @csrf
                                         <div class="row">
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="form-group">
@@ -67,12 +67,6 @@
                                         <div class="form-group">
                                             <label>{{__('Message')}}</label>
                                             <textarea class="form-control simple" name="content" rows="6" minlength="10"></textarea>
-                                        </div>
-
-
-                                        <div class="contact-form-group">
-                                            <div class="contact-message contact-success-message" style="display: none"></div>
-                                            <div class="contact-message contact-error-message" style="display: none"></div>
                                         </div>
 
                                         <div class="form-actions form-group">
