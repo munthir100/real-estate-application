@@ -23,7 +23,7 @@
 
                             <div class="row">
                                 <div class="col-lg-8 order-lg-0">
-                                    <form action="{{route('dashboard.account.settings.update-profile')}}" id="setting-form" method="POST">
+                                    <form action="{{route('dashboard.account.settings.update-profile')}}" id="setting-form" method="POST" enctype="multipart/form-data">
                                         @method('put')
                                         @csrf
                                         <div class="form-group">
@@ -136,7 +136,7 @@
                                             </span>
                                             @endif
                                         </div>
-
+                                        <input type="file" name="profile_image" id="profileImage" hidden>
                                         @if(request()->user()->isBroker)
 
                                         <x-broker.legal-info />
@@ -144,6 +144,7 @@
                                         <button type="submit" class="btn btn-primary fw6">{{__('Save')}}</button>
                                     </form>
                                 </div>
+
                                 <div class="col-lg-4 order-lg-12">
                                     <form id="avatar-upload-form" enctype="multipart/form-data" action="javascript:void(0)" onsubmit="return false">
                                         <div class="avatar-upload-container">
@@ -151,12 +152,21 @@
                                                 <label for="account-avatar">{{__('Profile picture')}}</label>
                                                 <div id="account-avatar">
                                                     <div class="profile-image">
-                                                        <div class="avatar-view mt-card-avatar">
-                                                            <img class="br2" src="https://resido.thesky9.com/storage/accounts/1.jpg" style="width: 200px;">
-                                                            <div class="mt-overlay br2">
-                                                                <span><i class="fa fa-edit"></i></span>
+                                                        <label for="profileImage">
+                                                            <div class="avatar-view mt-card-avatar">
+                                                                @php
+                                                                $user = Auth::user();
+                                                                $profileImage = optional($user)->getFirstMediaUrl('profile_images');
+                                                                @endphp
+
+                                                                <img class="br2" src="{{ $profileImage ?: asset('custom/profile.jpeg') }}" style="width: 200px;">
+
+                                                                <div class="mt-overlay br2">
+                                                                    <span><i class="fa fa-edit"></i></span>
+                                                                </div>
                                                             </div>
-                                                        </div>
+                                                        </label>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -168,50 +178,7 @@
                             </div>
                         </div>
 
-                        <div class="modal fade" id="avatar-modal" tabindex="-1" role="dialog" aria-labelledby="avatar-modal-label" aria-hidden="true">
-                            <div class="modal-dialog modal-lg" style="max-width: 880px;">
-                                <div class="modal-content">
-                                    <form class="avatar-form" method="post" action="https://resido.thesky9.com/en/account/avatar" enctype="multipart/form-data">
-                                        <div class="modal-header">
-                                            <h4 class="modal-title" id="avatar-modal-label"><i class="til_img"></i><strong>{{__('Change avatar')}}</strong></h4>
-                                            <span class="mod-close" data-bs-dismiss="modal" aria-hidden="true"><i class="ti-close"></i></span>
-                                        </div>
-                                        <div class="modal-body">
 
-                                            <div class="avatar-body">
-
-                                                <!-- Upload image and data -->
-                                                <div class="avatar-upload">
-                                                    <input class="avatar-src" name="avatar_src" type="hidden">
-                                                    <input class="avatar-data" name="avatar_data" type="hidden">
-                                                    <input type="hidden" name="_token" value="HfkjecWRMMVMvO2fcBQX0c321x1nNzsh94opqjWW">
-                                                    <label for="avatarInput">{{__('New image')}}</label>
-                                                    <input class="avatar-input" id="avatarInput" name="avatar_file" type="file">
-                                                </div>
-
-                                                <div class="loading" tabindex="-1" role="img" aria-label="Loading..."></div>
-
-                                                <!-- Crop and preview -->
-                                                <div class="row">
-                                                    <div class="col-md-9">
-                                                        <div class="avatar-wrapper"></div>
-                                                    </div>
-                                                    <div class="col-md-3 avatar-preview-wrapper">
-                                                        <div class="avatar-preview preview-lg"></div>
-                                                        <div class="avatar-preview preview-md"></div>
-                                                        <div class="avatar-preview preview-sm"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button class="btn btn-warning" type="button" data-bs-dismiss="modal" data-dismiss="modal">{{__('Close')}}</button>
-                                            <button class="btn btn-primary avatar-save" type="submit">{{__('Save')}}</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div><!-- /.modal -->
                     </div>
                 </div>
             </div>

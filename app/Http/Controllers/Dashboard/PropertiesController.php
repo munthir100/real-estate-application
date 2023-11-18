@@ -19,13 +19,13 @@ class PropertiesController extends Controller
     {
         $this->propertyService = $propertyService;
         $this->planService = $planService;
-        $this->middleware('active_plan')->only('index', 'store', 'edit', 'update', 'destroy');
+        $this->middleware('active_plan')->only('store', 'edit', 'update', 'destroy');
         $this->middleware('is_broker')->only('destroy');
     }
     function index()
     {
         $user = request()->brokerUser;
-        $properties = $user->properties()
+        $properties = request()->user()->properties()
             ->whereDoesntHave('applications')
             ->where('is_ad', false)
             ->useFilters()

@@ -21,6 +21,14 @@ class SettingsController extends Controller
 
         $user->update($data);
 
+        if ($request->profile_image) {
+            $user->clearMediaCollection('profile_images');
+
+            // Handle profile image update logic here
+            $media = $user->addMedia($request->file('profile_image'))->toMediaCollection('profile_images');
+            $data['profile_image'] = $media->getUrl();
+        }
+
         if ($user->isBroker) {
             $user->broker()->update([
                 'val_license_number' => $data['val_license_number'],

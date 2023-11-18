@@ -29,6 +29,7 @@ class UpdateProfileRequest extends FormRequest
             'first_name' => 'required|string|max:255',
             'middle_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
+            'profile_image' => 'nullable|mimes:jpeg,png,jpg,gif|max:2048',
             'username' => [
                 'required',
                 'string',
