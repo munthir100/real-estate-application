@@ -2,7 +2,7 @@
     <div class="container">
         <nav id="navigation" class="navigation navigation-landscape">
             <div class="nav-header">
-                <a class="nav-brand" href="{{route('home')}}"><img class="logo" src="https://resido.thesky9.com/storage/general/logo.png" alt=""></a>
+                <a class="nav-brand" href="{{route('home')}}"><img class="logo" src="{{asset('themes/resido/img/logo_navigation.png')}}" alt=""></a>
                 <div class="nav-toggle"></div>
             </div>
             <div class="nav-menus-wrapper" style="transition-property: none;">

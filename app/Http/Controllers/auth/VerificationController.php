@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\auth;
 
-use Carbon\Carbon;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+
+use App\Models\User;
 use App\Services\auth\otpService;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\auth\VerifyOtpRequest;
 
 class VerificationController extends Controller
 {
@@ -20,29 +22,20 @@ class VerificationController extends Controller
         return view('auth.verification-form');
     }
 
-    public function verifyCode(Request $request)
+    public function verifyCode(VerifyOtpRequest $request)
     {
-        $request->validate([
-            'otp' => 'required',
-        ]);
+        $data = $request->validated();
 
-        $user = $request->user();
-        $otp = $user->otp()->first();
-
-        if ($otp && $otp->code === $request->code) {
-            $now = Carbon::now();
-            $expiresAt = Carbon::parse($otp->updated_at)->addMinutes(30);
-
-            if ($now <= $expiresAt) {
-                $user->markUserAsVerified();
-
-                return redirect()->route('home')->with('success', 'verification successfull');
-            }
-
-            return redirect()->back()->withErrors(['otp' => 'Verification code has expired']);
+        $user = User::findOrFail(session()->get('user_id'));
+        $otp = session()->get('otp');
+        $verifiedOtp = $this->otpService->verifyOtp($data['otp'], $otp);
+        if (!$verifiedOtp) {
+            return back()->withErrors(['otp' => 'Invalid verification code']);
         }
+        $user->markUserAsVerified();
+        session()->forget(['otp', 'user']);
+        Auth::login($user);
 
-        return redirect()->back()->withErrors(['otp' => 'Invalid verification code']);
+        return to_route('dashboard.account.settings.edit')->with('success', 'verification successfull');
     }
-
 }

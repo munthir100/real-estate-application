@@ -4,18 +4,14 @@ namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
 use App\Models\UserType;
+use App\Services\UserService;
+use App\Services\auth\otpService;
+use App\Services\RegisterService;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
-use App\Services\auth\registerService;
 use App\Http\Requests\Auth\RegisterRequest;
 
 class RegisterController extends Controller
 {
-    public $registerService;
-    function __construct(registerService $registerService)
-    {
-        $this->registerService = $registerService;
-    }
 
     public function registerForm()
     {
@@ -24,24 +20,38 @@ class RegisterController extends Controller
 
 
 
-    public function register(RegisterRequest $request)
-    {
+    public function register(
+        RegisterRequest $request,
+        otpService $otpService,
+        UserService $userService,
+        RegisterService $registerService
+    ) {
         $validatedData = $request->validated();
 
         $userType = in_array($validatedData['user_type'], ['broker', 'developer']) ? UserType::BROKER : UserType::SEEKER;
+        $validatedData['user_type_id'] = $userType;
+        $user = $registerService->createUserWithUserName($validatedData);
+        $this->createUserType($userType, $user, $validatedData);
+        $otpService->sendOtpForUser($user, $validatedData['username']);
 
-        $user = new User();
-        $user->password = $validatedData['password'];
-        $user->user_type_id = $userType;
-        $this->registerService->sendOtpForUser($user, $validatedData['username']);
+        return redirect()->route('auth.verification-form');
+    }
+
+
+
+
+
+
+
+
+
+    function createUserType($userType, $user, $validatedData)
+    {
         if ($userType === UserType::BROKER) {
             $dataToCreate = ['is_developer' => $validatedData['user_type'] === 'developer'];
             $user->broker()->create(array_merge($validatedData, $dataToCreate));
         } else {
             $user->seeker()->create($validatedData);
         }
-        Auth::login($user);
-
-        return redirect()->route('dashboard.account.settings.edit');
     }
 }

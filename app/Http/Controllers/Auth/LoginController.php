@@ -3,11 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
-use App\Http\Requests\Auth\LoginRequest;
 use App\Services\auth\otpService;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Auth\LoginRequest;
 
 class LoginController extends Controller
 {
@@ -33,32 +31,25 @@ class LoginController extends Controller
             ->first();
 
         if (!$user) {
-            return redirect()
-                ->back()
+            return back()
                 ->withErrors(['email' => __('These credentials do not match our records')])
                 ->withInput($request->only('email'));
         }
 
         if (!password_verify($data['password'], $user->password)) {
-            return redirect()
-                ->back()
+            return back()
                 ->withErrors(['email' => __('These credentials do not match our records')])
                 ->withInput($request->only('email'));
         }
-
-        Auth::login($user);
-
         $this->otpService->sendOtpForUser($user, $data['email']);
 
         return redirect()->route('auth.verification-form');
     }
 
-    public function logout(Request $request)
+    public function logout()
     {
         auth()->logout();
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
 
-        return redirect(route('login'))->with('success', 'You have been logged out.');
+        return redirect(route('login'));
     }
 }

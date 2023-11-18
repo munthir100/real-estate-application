@@ -49,10 +49,10 @@ Route::middleware('set_local')->group(function () {
 
     Route::middleware('auth')->group(function () {
         Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-        Route::middleware('not_verified')->group(function () {
-            Route::get('/verification-code', [VerificationController::class, 'showVerificationForm'])->name('auth.verification-form');
-            Route::post('/verify-code', [VerificationController::class, 'verifyCode'])->name('auth.verifyCode');
-        });
+    });
+    Route::middleware('has_otp')->group(function () {
+        Route::get('/verification-code', [VerificationController::class, 'showVerificationForm'])->name('auth.verification-form');
+        Route::post('/verify-code', [VerificationController::class, 'verifyCode'])->name('auth.verifyCode');
     });
 
 
@@ -97,6 +97,12 @@ Route::middleware('set_local')->group(function () {
     Route::view('about-us', 'about-us')->name('about-us');
 
 
+    Route::get('forgetSessions',function(){
+        request()->session()->invalidate();
+        request()->session()->regenerateToken();
+    })->name('forgetSessions');
+
+    
 
     Route::post('/change-locale', [LocaleController::class, 'changeLocale'])->name('changeLocale');
 });
