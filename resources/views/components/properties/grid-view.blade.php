@@ -17,11 +17,7 @@
                         <div class="listing-short-detail-wrap">
                             <div class="listing-short-detail">
                                 <div class="list-price d-flex justify-content-between">
-                                    @if($property->property_type_id == App\Models\PropertyType::SALE)
-                                    <span class="prt-types sale">{{__('For Sale')}}</span>
-                                    @else
-                                    <span class="prt-types rent">{{__('For rent')}}</span>
-                                    @endif
+                                <x-properties.property-type-span :property="$property" />
                                     <h6 class="listing-card-info-price">
                                         {{$property->currency->code}}{{$property->price}}
                                     </h6>

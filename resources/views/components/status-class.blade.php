@@ -21,4 +21,4 @@ break;
 @endphp
 
 
-<span class="label-{{$statusClass}} status-label">{{$status}}</span>
+<span class="label-{{$statusClass}} status-label">{{__($status)}}</span>

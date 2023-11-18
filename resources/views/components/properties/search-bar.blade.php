@@ -8,11 +8,11 @@
                             <ul>
                                 <li>
                                     <input id="cp-sale" value="sale" class="checkbox-custom" name="type" type="radio" checked>
-                                    <label for="cp-sale" class="checkbox-custom-label">For Sale</label>
+                                    <label for="cp-sale" class="checkbox-custom-label">{{__('For Sale')}}</label>
                                 </li>
                                 <li>
                                     <input id="cp-rent" value="rent" class="checkbox-custom" name="type" type="radio">
-                                    <label for="cp-rent" class="checkbox-custom-label">For Rent</label>
+                                    <label for="cp-rent" class="checkbox-custom-label">{{__('For Rent')}}</label>
                                 </li>
                             </ul>
 

@@ -80,7 +80,7 @@
                                                 <div class="modal-footer">
                                                     <button class="btn btn-warning" data-bs-dismiss="modal" type="button">{{__('Cancel')}}</button>
 
-                                                    <button type="button" class="btn btn-danger delete-crud-entry" id="delete-button{{ $property->id }}" data-property-id="{{ $property->id }}">Delete</button>
+                                                    <button type="button" class="btn btn-danger delete-crud-entry" id="delete-button{{ $property->id }}" data-property-id="{{ $property->id }}">{{__('Delete')}}<button>
 
                                                 </div>
                                             </div>

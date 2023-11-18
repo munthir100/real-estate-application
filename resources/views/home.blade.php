@@ -53,15 +53,7 @@
                                                                 </div>
                                                                 <span class="reviews_text">( 5 Reviews)</span>
                                                             </div>
-                                                            @if($property->property_type_id == App\Models\PropertyType::SALE)
-                                                            <span class="prt-types sale">
-                                                                For Sale
-                                                            </span>
-                                                            @else
-                                                            <span class="prt-types rent">
-                                                                For rent
-                                                            </span>
-                                                            @endif
+                                                            <x-properties.property-type-span :property="$property" />
                                                         </div>
                                                         <h6 class="listing-card-info-price"> {{$property->currency->code}} {{$property->price}} </h6>
                                                     </div>
@@ -98,7 +90,7 @@
                                                     <span class="listing-location"><i class="ti-location-pin"></i>{{$property->location->name}}</span>
                                                 </div>
                                                 <div class="listing-detail-btn">
-                                                    <a href="{{route('properties.details',$property->id)}}" class="more-btn">View</a>
+                                                    <a href="{{route('properties.details',$property->id)}}" class="more-btn">{{__('View')}}</a>
                                                 </div>
                                             </div>
                                         </div>

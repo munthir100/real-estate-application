@@ -17,10 +17,8 @@
                     </div>
                     <div class="list-price">
                         <div>
-                            <span class="prt-types {{ $property->property_type_id == App\Models\PropertyType::SALE ? 'sale' : 'rent' }}">
-                                {{ $property->property_type_id == App\Models\PropertyType::SALE ? 'For Sale' : 'For Rent' }}
-                            </span>
-                            <h6 class="listing-card-info-price"> {{ $property->currency->code }}{{ $property->price }} / {{ $property->price_unit }}</h6>
+                            <x-properties.property-type-span :property="$property" />
+                            <h6 class="listing-card-info-price"> {{ $property->currency->code }} {{ $property->price }}</h6>
                         </div>
                     </div>
                 </div>
@@ -32,21 +30,21 @@
                         <div class="inc-fleat-icon">
                             <img src="{{ asset('themes/resido/img/bed.svg') }}" width="13" alt="Beds" />
                         </div>
-                        {{ $property->number_of_beds }} Beds
+                        {{ $property->number_of_beds }} {{__('Beds')}}
                     </div>
 
                     <div class="listing-card-info-icon">
                         <div class="inc-fleat-icon">
                             <img src="{{ asset('themes/resido/img/bathtub.svg') }}" width="13" alt="Bathrooms" />
                         </div>
-                        {{ $property->number_of_bathrooms }} Bath
+                        {{ $property->number_of_bathrooms }} {{__('Bath')}}
                     </div>
 
                     <div class="listing-card-info-icon">
                         <div class="inc-fleat-icon">
                             <img src="{{ asset('themes/resido/img/move.svg') }}" width="13" alt="Square Meters" />
                         </div>
-                        {{ $property->square }} m²
+                        {{ $property->square }} {{__('m²')}}
                     </div>
                 </div>
             </div>
@@ -56,7 +54,7 @@
                     <span class="listing-location"><i class="ti-location-pin"></i>{{ $property->location->name }}</span>
                 </div>
                 <div class="listing-detail-btn">
-                    <a href="{{ route('properties.details', $property->id) }}" class="more-btn">View</a>
+                    <a href="{{ route('properties.details', $property->id) }}" class="more-btn">{{__('View')}}</a>
                 </div>
             </div>
         </div>

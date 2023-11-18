@@ -82,8 +82,8 @@
                         <div class="block-wraps-header">
                             <div class="block-header">
                                 <ul class="nav nav-tabs customize-tab" id="myTab" role="tablist">
-                                    <li class="nav-item" role="presentation"><a class="nav-link" id="tab-type-1" data-bs-toggle="tab" href="#tab-content-type-1" role="tab" aria-selected="false">For Sale</a></li>
-                                    <li class="nav-item" role="presentation"><a class="nav-link active" id="tab-type-2" data-bs-toggle="tab" href="#tab-content-type-2" role="tab" aria-selected="true">For Rent</a></li>
+                                    <li class="nav-item" role="presentation"><a class="nav-link" id="tab-type-1" data-bs-toggle="tab" href="#tab-content-type-1" role="tab" aria-selected="false">{{__('For Sale')}}</a></li>
+                                    <li class="nav-item" role="presentation"><a class="nav-link active" id="tab-type-2" data-bs-toggle="tab" href="#tab-content-type-2" role="tab" aria-selected="true">{{__('For Rent')}}</a></li>
                                 </ul>
                             </div>
                             <div class="block-body">

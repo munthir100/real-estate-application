@@ -32,7 +32,7 @@ $facilities = App\Models\Facility::all();
                             <span id="edit-slug-buttons">
                                 <button class="btn btn-secondary ms-1" id="change_slug" type="button">Edit</button>
                                 <button class="save btn btn-secondary ms-1" id="btn-ok" type="button">OK</button>
-                                <button class="cancel button-link ms-1" type="button">Cancel</button>
+                                <button class="cancel button-link ms-1" type="button">{{__('Cancel')}}</button>
                             </span>
 
                             <input id="current-slug" name="slug" type="hidden" value="">

@@ -49,7 +49,7 @@
                                                         <span id="edit-slug-buttons">
                                                             <button class="btn btn-secondary ms-1" id="change_slug" type="button">Edit</button>
                                                             <button class="save btn btn-secondary ms-1" id="btn-ok" type="button">OK</button>
-                                                            <button class="cancel button-link ms-1" type="button">Cancel</button>
+                                                            <button class="cancel button-link ms-1" type="button">{{__('Cancel')}}</button>
                                                         </span>
 
                                                         <input readonly id="current-slug" name="slug" type="hidden" value="">
@@ -350,11 +350,11 @@
                                                     <div class="ui-select-wrapper form-group">
                                                         <select disabled class="form-control ui-select is-valid" name="property_type_id" id="property_type_id">
                                                             @if($property->property_type_id == App\Models\PropertyType::SALE)
-                                                            <option value="1" selected data-code="sale">For Sale</option>
-                                                            <option value="2" data-code="rent">For Rent</option>
+                                                            <option value="1" selected data-code="sale">{{__('For Sale')}}</option>
+                                                            <option value="2" data-code="rent">{{__('For Rent')}}</option>
                                                             @else
-                                                            <option value="1" data-code="sale">For Sale</option>
-                                                            <option value="2" selected data-code="rent">For Rent</option>
+                                                            <option value="1" data-code="sale">{{__('For Sale')}}</option>
+                                                            <option value="2" selected data-code="rent">{{__('For Rent')}}</option>
                                                             @endif
                                                         </select>
                                                     </div>

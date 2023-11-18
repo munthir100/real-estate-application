@@ -11,15 +11,7 @@
 
                     <div class="property_block_wrap style-4">
                         <div class="prt-detail-title-desc">
-                            @if($property->property_type_id == App\Models\PropertyType::SALE)
-                            <span class="prt-types sale">
-                                {{__('For Sale')}}
-                            </span>
-                            @else
-                            <span class="prt-types rent">
-                                {{__('For rent')}}
-                            </span>
-                            @endif
+                            <x-properties.property-type-span :property="$property" />
                             <h3 class="text-light">{{$property->location->name}}</h3>
                             <!-- <span><i class="lni-map-marker"></i> 36907 Strosin Mountain
                                 Cronaville, MN 00489-6879</span> -->
@@ -184,69 +176,26 @@
                     <div class="property_block_wrap style-2">
                         <div class="property_block_wrap_header">
                             <a data-bs-toggle="collapse" data-parent="#features" data-bs-target="#clOne" aria-controls="clOne" href="javascript:void(0);" aria-expanded="false">
+                                <h4 class="property_block_title">{{__('Youtube Video URL')}}</h4>
+                            </a>
+                        </div>
+                        <div id="clOne" class="panel-collapse collapse show" aria-labelledby="clOne">
+                            <div class="block-body">
+
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                    <div class="property_block_wrap style-2">
+                        <div class="property_block_wrap_header">
+                            <a data-bs-toggle="collapse" data-parent="#features" data-bs-target="#clOne" aria-controls="clOne" href="javascript:void(0);" aria-expanded="false">
                                 <h4 class="property_block_title">{{__('Legal Information')}}</h4>
                             </a>
                         </div>
                         <div id="clOne" class="panel-collapse collapse show" aria-labelledby="clOne">
                             <div class="block-body">
-                                <ul class="detail_features">
-                                    <li>
-                                        <strong>{{__('license number')}}:</strong>
-                                        {{$property->legalData->license_number}}
-                                    </li>
-
-                                    <li>
-                                        <strong>{{__('Property date of license')}}:</strong>
-                                        {{$property->legalData->date_of_license}}
-                                    </li>
-
-                                    <li>
-                                        <strong>{{__('license expiration date')}}:</strong>
-                                        {{$property->legalData->license_expiration_date}}
-                                    </li>
-
-                                    <li>
-                                        <strong>{{__('postal code')}}:</strong>
-                                        {{$property->legalData->postal_code}}
-                                    </li>
-
-                                    <li>
-                                        <strong>{{__('building number')}}:</strong>
-                                        {{$property->legalData->building_number}}
-                                    </li>
-
-                                    <li>
-                                        <strong>{{__('additional number')}}:</strong>
-                                        {{$property->legalData->additional_number}}
-                                    </li>
-
-                                    <li>
-                                        <strong>{{__('property has restriction')}}:</strong>
-                                        @if($property->legalData->has_restriction)
-                                        {{('yes')}}
-                                        @else
-                                        {{('no')}}
-                                        @endif
-                                    </li>
-
-                                    <li>
-                                        <strong>{{__('Property has mortgage')}}:</strong>
-                                        @if($property->legalData->has_mortgage)
-                                        {{('yes')}}
-                                        @else
-                                        {{('no')}}
-                                        @endif
-                                    </li>
-
-                                    <li>
-                                        <strong>{{__('obligations on property')}}:</strong>
-                                        {{$property->legalData->obligations_on_property}}
-                                    </li>
-
-                                    <!-- <li> soon
-                                        <strong>Property Type:</strong>Apartment
-                                    </li> -->
-                                </ul>
+                                <iframe width="560" height="315" src="{{ $property->video_url }}" frameborder="0" allowfullscreen></iframe>
                             </div>
                         </div>
 
@@ -432,11 +381,15 @@
                         <div class="sides-widget">
                             <div class="sides-widget-header">
                                 <div class="agent-photo">
-                                    <img src="https://resido.thesky9.com/storage/accounts/7-150x150.jpg" alt="Alysha Kohler">
+                                    @php
+                                    $user = Auth::user();
+                                    $profileImage = optional($user)->getFirstMediaUrl('profile_images');
+                                    @endphp
+                                    <img src="{{ $profileImage ?: asset('custom/profile.jpeg') }}" alt="{{$property->user->first_name}} {{$property->user->middle_name}}" width="50" height="50">
                                 </div>
                                 <div class="sides-widget-details">
                                     <h4>
-                                        <a href="https://resido.thesky9.com/en/agents/kesslersandra"> {{$property->user->first_name}} {{$property->user->middle_name}}</a>
+                                        <a href="{{route('brokers.details',$property->user->id)}}"> {{$property->user->first_name}} {{$property->user->middle_name}}</a>
                                     </h4>
                                     <a href="tel:{{$property->user->phone}} "> <span><i class="lni-phone-handset"></i>{{$property->user->phone}} </span></a>
                                 </div>

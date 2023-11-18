@@ -24,7 +24,7 @@ class CreatePropertyRequest extends FormRequest
         return [
             'title' => 'required|string|max:255',
             'description' => 'required|string',
-            'Images' => ['required', 'array', 'min:1'],
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'city_id' => 'nullable|integer',
             'category_id' => 'nullable|int',
 
@@ -67,10 +67,10 @@ class CreatePropertyRequest extends FormRequest
     public function messages()
     {
         return [
-            'facilities.*.id.required' => 'Enter at least one facility.',
-            'facilities.*.id.integer' => 'invaild facility.',
-            'facilities.*.distance.required' => 'The facility distance is required.',
-            'facilities.*.distance.numeric' => 'Invaild facility distance.',
+            'facilities.*.id.required' => __('Enter at least one facility'),
+            'facilities.*.id.integer' => __('invaild facility'),
+            'facilities.*.distance.required' => __('The facility distance is required'),
+            'facilities.*.distance.numeric' => __('Invaild facility distance'),
         ];
     }
 }

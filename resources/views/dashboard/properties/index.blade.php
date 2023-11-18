@@ -38,11 +38,11 @@
                                 <thead>
                                     <tr role="row">
 
-                                        <th class="text-center">Id</th>
-                                        <th class="text-center">Name</th>
-                                        <th class="text-center">Created at</th>
-                                        <th class="text-center">Status</th>
-                                        <th class="text-center">Operations</th>
+                                        <th class="text-center">{{__('Id')}}</th>
+                                        <th class="text-center">{{__('Name')}}</th>
+                                        <th class="text-center">{{__('Created at')}}</th>
+                                        <th class="text-center">{{__('Status')}}</th>
+                                        <th class="text-center">{{__('Operations')}}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -75,7 +75,7 @@
 
                                     @empty
                                     <tr class="odd">
-                                        <td valign="top" colspan="9" class="dataTables_empty">No data to display</td>
+                                        <td valign="top" colspan="9" class="dataTables_empty">{{__('No data to display')}}</td>
                                     </tr>
                                     @endforelse
                                 </tbody>

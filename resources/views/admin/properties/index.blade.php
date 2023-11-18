@@ -70,7 +70,7 @@
 
                                     @empty
                                     <tr class="odd">
-                                        <td valign="top" colspan="9" class="dataTables_empty">No data to display</td>
+                                        <td valign="top" colspan="9" class="dataTables_empty">{{__('No data to display')}}</td>
                                     </tr>
                                     @endforelse
                                 </tbody>

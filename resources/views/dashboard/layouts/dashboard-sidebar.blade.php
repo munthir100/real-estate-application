@@ -9,7 +9,12 @@
         <div class="sidebar-widgets">
             <div class="dashboard-navbar">
                 <div class="d-user-avater">
-                    <img src="/storage/accounts/1-150x150.jpg" alt="{{Auth::user()->first_name}} {{Auth::user()->middle_name}}" class="img-fluid avater" style="width: 150px;">
+                    @php
+                    $user = Auth::user();
+                    $profileImage = optional($user)->getFirstMediaUrl('profile_images');
+                    @endphp
+
+                    <img src="{{ $profileImage ?: asset('custom/profile.jpeg') }}" alt="{{Auth::user()->first_name}} {{Auth::user()->middle_name}}" class="img-fluid avater" style="width: 150px;">
                     <h4>{{Auth::user()->first_name}} {{Auth::user()->middle_name}}</h4>
                     <span>{{Auth::user()->phone}}</span>
                 </div>
@@ -41,7 +46,7 @@
                             </a>
                         </li>
 
-                        
+
                         <li class="{{ request()->routeIs('agents*') ? 'active' : '' }}">
                             <a href="{{route('agents.index')}}" title="agents">
                                 <i class="ti-user mr1"></i> {{__('Agents')}}
@@ -67,7 +72,7 @@
                         </li>
                         @endif
 
-                        
+
 
 
                         <li class="{{ request()->routeIs('dashboard.account.settings.security') ? 'active' : '' }}">

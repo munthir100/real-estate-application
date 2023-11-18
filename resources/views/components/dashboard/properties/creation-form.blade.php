@@ -32,7 +32,7 @@ $facilities = App\Models\Facility::all();
                             <span id="edit-slug-buttons">
                                 <button class="btn btn-secondary ms-1" id="change_slug" type="button">Edit</button>
                                 <button class="save btn btn-secondary ms-1" id="btn-ok" type="button">OK</button>
-                                <button class="cancel button-link ms-1" type="button">Cancel</button>
+                                <button class="cancel button-link ms-1" type="button">{{__('Cancel')}}</button>
                             </span>
 
                             <input id="current-slug" name="slug" type="hidden" value="">
@@ -58,7 +58,7 @@ $facilities = App\Models\Facility::all();
 
                         <label for="images" class="control-label">{{__('Images')}}</label>
 
-                        <input class="form-control" v-pre name="images[]" type="file" id="images" multiple>
+                        <input class="form-control" name="images[]" type="file" multiple accept="image/*" id="images" multiple>
                         <!-- <div id="multiple-upload" class="dropzone needsclick">
                                                         <div class="dz-message needsclick">
                                                             Drop files here or click to upload.<br>
