@@ -92,9 +92,9 @@ class User extends Authenticatable
         return $this->hasOne(UserPlan::class);
     }
 
-    function verificationCode()
+    function otp()
     {
-        return $this->hasOne(UserVerificationCode::class);
+        return $this->hasOne(UserOtp::class);
     }
 
     // attributes

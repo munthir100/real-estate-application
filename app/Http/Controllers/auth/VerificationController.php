@@ -5,14 +5,14 @@ namespace App\Http\Controllers\auth;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Services\auth\verificationService;
+use App\Services\auth\otpService;
 
 class VerificationController extends Controller
 {
-    public $verificationService;
-    function __construct(verificationService $verificationService)
+    public $otpService;
+    function __construct(otpService $otpService)
     {
-        $this->verificationService = $verificationService;
+        $this->otpService = $otpService;
     }
 
     public function showVerificationForm()
@@ -23,15 +23,15 @@ class VerificationController extends Controller
     public function verifyCode(Request $request)
     {
         $request->validate([
-            'code' => 'required',
+            'otp' => 'required',
         ]);
 
         $user = $request->user();
-        $verificationCode = $user->verificationCode()->first();
+        $otp = $user->otp()->first();
 
-        if ($verificationCode && $verificationCode->code === $request->code) {
+        if ($otp && $otp->code === $request->code) {
             $now = Carbon::now();
-            $expiresAt = Carbon::parse($verificationCode->updated_at)->addMinutes(30);
+            $expiresAt = Carbon::parse($otp->updated_at)->addMinutes(30);
 
             if ($now <= $expiresAt) {
                 $user->markUserAsVerified();
@@ -39,10 +39,10 @@ class VerificationController extends Controller
                 return redirect()->route('home')->with('success', 'verification successfull');
             }
 
-            return redirect()->back()->withErrors(['code' => 'Verification code has expired']);
+            return redirect()->back()->withErrors(['otp' => 'Verification code has expired']);
         }
 
-        return redirect()->back()->withErrors(['code' => 'Invalid verification code']);
+        return redirect()->back()->withErrors(['otp' => 'Invalid verification code']);
     }
 
 }

@@ -5,7 +5,7 @@ namespace App\Services\auth;
 use App\Mail\EmailOtp;
 use Illuminate\Support\Facades\Mail;
 
-class registerService
+class otpService
 {
     function sendOtpForUser($user, $username)
     {
@@ -23,7 +23,7 @@ class registerService
         }
     }
 
-    public function sendOtpForUsernameType($user, $username, $usernameType)
+    private function sendOTPForUsernameType($user, $username, $usernameType)
     {
         $otp = $this->generateOtp();
         if ($usernameType === 'email') {
@@ -32,32 +32,18 @@ class registerService
             $this->sendOtpForPhoneNumber($user, $username, $otp);
         }
     }
-
     public function sendOtpForEmail($user, $username, $otp)
     {
         Mail::to($username)->send(new EmailOtp($otp));
-        $this->updateUserEmail($user, $username);
         $this->saveUserOtp($user, $otp);
     }
 
+
     public function sendOtpForPhoneNumber($user, $username, $otp)
     {
-        $this->saveUserPhone($user, $username);
         $this->saveUserOtp($user, '1234');
     }
 
-    public function updateUserEmail($user, $username)
-    {
-        $user->email = $username;
-        $user->save();
-    }
-
-    public function saveUserPhone($user, $username)
-    {
-        $user->phone = $username;
-        $user->save();
-    }
-   
 
     private function generateOtp()
     {

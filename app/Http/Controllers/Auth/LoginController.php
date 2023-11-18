@@ -7,14 +7,14 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\Auth\LoginRequest;
-use App\Services\auth\verificationService;
+use App\Services\auth\otpService;
 
 class LoginController extends Controller
 {
-    public $verificationService;
-    function __construct(verificationService $verificationService)
+    public $otpService;
+    function __construct(otpService $otpService)
     {
-        $this->verificationService = $verificationService;
+        $this->otpService = $otpService;
     }
 
     function loginForm()
@@ -48,7 +48,7 @@ class LoginController extends Controller
 
         Auth::login($user);
 
-        $this->verificationService->sendCodeForUser($user, $data['email']);
+        $this->otpService->sendOtpForUser($user, $data['email']);
 
         return redirect()->route('auth.verification-form');
     }

@@ -28,7 +28,7 @@ digraph UML_Diagram {
     Agent [label = "{Agent | id: int | user_id (FK): int | broker_id (FK) : int | ceo:string}";];
     Admin [label = "{Admin | id: int | user_type_id (FK): int}";];
     Agent [label = "{Agent | id: int | user_type_id (FK): int | broker_id:int (FK)}";];
-    UserVerificationCode [label = "{UserVerificationCode | id: int | user_id (FK): int | code:string}";];
+    UserOtp [label = "{UserOtp | id: int | user_id (FK): int | code:string}";];
     
     // Property Advertisement
     PropertyType [label = "{PropertyType | id: int | name: string}";];

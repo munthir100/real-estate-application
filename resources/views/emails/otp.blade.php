@@ -4,17 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        /* Your styles here */
-    </style>
 </head>
 
 <body>
     <div class="container">
-        <h2>Email Verification Code</h2>
+        <h2>Email OTP</h2>
         <p>Dear User,</p>
-        <p>Thank you for choosing Aqaarat Platform. You recently requested an email verification code. Your unique verification code is:</p>
-        <p class="verification-code" style="font-size: 24px; font-weight: bold; color: #28a745;">{{ $verificationCode }}</p>
+        <p>Thank you for choosing Aqaarat Platform. You recently requested an Email OTP. Your unique verification code is:</p>
+        <p class="verification-code" style="font-size: 24px; font-weight: bold; color: #28a745;">{{ $otp }}</p>
         <p>Please use this code to complete the email verification process and secure your account.</p>
         <p>If you did not initiate this verification, please ignore this email or contact our support team.</p>
         <div class="footer">

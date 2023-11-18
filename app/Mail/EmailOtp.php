@@ -8,18 +8,18 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class EmailVerificationCode extends Mailable
+class EmailOtp extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $verificationCode;
+    public $otp;
 
     /**
      * Create a new message instance.
      */
-    public function __construct($verificationCode)
+    public function __construct($otp)
     {
-        $this->verificationCode = $verificationCode;
+        $this->otp = $otp;
     }
 
     /**
@@ -29,7 +29,7 @@ class EmailVerificationCode extends Mailable
     {
         return new Envelope(
             from: 'aqaraatsa@gmail.com',
-            subject: 'Your Email Verification Code',
+            subject: 'Your Email OTP',
         );
     }
 
@@ -39,7 +39,7 @@ class EmailVerificationCode extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.verification_code',
+            view: 'emails.otp',
         );
     }
 
