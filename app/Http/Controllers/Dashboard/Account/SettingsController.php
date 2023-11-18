@@ -37,7 +37,7 @@ class SettingsController extends Controller
             ]);
         }
 
-        return back()->with('success', 'Profile data updated');
+        return back()->with('success', __('Profile data updated'));
     }
 
     function security()
@@ -53,9 +53,9 @@ class SettingsController extends Controller
                 'password' => Hash::make($request->new_password),
             ]);
 
-            return redirect()->route('dashboard.account.settings.change-password')->with('error', 'The provided password does not match your current password.');
+            return redirect()->route('dashboard.account.settings.change-password')->with('error', __('The provided password does not match your current password'));
         } else {
-            return redirect()->route('dashboard')->with('success', 'Password changed successfully.');
+            return redirect()->route('dashboard')->with('success', __('Password changed successfully'));
         }
     }
 }

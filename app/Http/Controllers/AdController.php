@@ -75,7 +75,7 @@ class AdController extends Controller
         }
 
         return redirect()->route('dashboard.ads.index')
-            ->with('success', 'Property created successfully.');
+            ->with('success', __('Property created successfully'));
     }
 
     function edit(Property $property)
@@ -108,6 +108,6 @@ class AdController extends Controller
         $property = request()->user()->properties()->findOrFail($propertyId);
         $property->delete();
 
-        return back()->with('success', 'property deleted');
+        return back()->with('success', __('property deleted'));
     }
 }

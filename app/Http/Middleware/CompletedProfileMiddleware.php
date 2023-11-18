@@ -27,7 +27,7 @@ class CompletedProfileMiddleware
             $broker = Broker::where('user_id', $user->id)->first();
 
             if (empty($broker->val_license_number) || empty($broker->commercial_registration) || empty($broker->license_number)) {
-                return redirect()->route('dashboard.account.settings.edit')->with('error', 'Please complete your profile first.');
+                return redirect()->route('dashboard.account.settings.edit')->with('error', __('Please complete your profile first'));
             }
         }
         foreach ($requiredFields as $field) {

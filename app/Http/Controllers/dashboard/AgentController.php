@@ -36,7 +36,7 @@ class AgentController extends Controller
             'broker_id' => request()->user()->broker->id,
         ]);
 
-        return redirect()->route('agents.index')->with('success', 'Agent created successfully');
+        return redirect()->route('agents.index')->with('success', __('Agent created successfully'));
     }
 
 
@@ -61,7 +61,7 @@ class AgentController extends Controller
         $request->validateUniqueValues($user);
         $user->update($request->validated());
 
-        return back()->with('success', 'agent data updated successfully');
+        return back()->with('success', __('agent data updated successfully'));
     }
 
 
@@ -71,6 +71,6 @@ class AgentController extends Controller
         $agent = $broker->agents()->findOrFail($agentId);
         $agent->user->delete();
 
-        return back()->with('success', 'agent deleted successfully');
+        return back()->with('success', __('agent deleted successfully'));
     }
 }

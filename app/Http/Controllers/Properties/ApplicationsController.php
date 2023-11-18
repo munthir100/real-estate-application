@@ -74,6 +74,6 @@ class ApplicationsController extends Controller
         }
 
         return redirect()->route('dashboard.applications.index')
-            ->with('success', 'Property created successfully.');
+            ->with('success', __('Property created successfully'));
     }
 }

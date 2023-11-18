@@ -36,6 +36,6 @@ class VerificationController extends Controller
         session()->forget(['otp', 'user']);
         Auth::login($user);
 
-        return to_route('dashboard.account.settings.edit')->with('success', 'verification successfull');
+        return to_route('dashboard.account.settings.edit')->with('success', __('verification successfull'));
     }
 }

@@ -22,9 +22,9 @@ class ContactController extends Controller
         $mailSent = Mail::to('munthiromer100@gmail.com')->send(new ContactFormMail($data));
 
         if (!$mailSent) {
-            return redirect()->back()->with('error', 'Error: Unable to send email.');
+            return redirect()->back()->with('error', __('Error: Unable to send email'));
         }
 
-        return redirect()->back()->with('success', 'Message sent successfully!');
+        return redirect()->back()->with('success', __('Message sent successfully'));
     }
 }

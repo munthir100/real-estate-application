@@ -51,7 +51,7 @@
                             <a href="{{route('dashboard.properties.create')}}" class="text-success"><img src="{{asset('themes/resido/img/submit.svg')}}" width="20" alt="" class="mr-2"> {{__('Add Property')}}</a>
                         </li>
                         <li class="">
-                            <a href="{{route('dashboard.properties.create')}}" class="text-success"><img src="{{asset('themes/resido/img/submit.svg')}}" width="20" alt="" class="mr-2"> {{__('Request Property')}}</a>
+                            <a href="{{route('dashboard.applications.create')}}" class="text-success"><img src="{{asset('themes/resido/img/submit.svg')}}" width="20" alt="" class="mr-2"> {{__('Request Property')}}</a>
                         </li>
                         @if(request()->user()->recently_verified)
                         <li class="login-item">

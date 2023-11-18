@@ -60,7 +60,7 @@ class PropertiesController extends Controller
         event(new PropertyAdded($property));
 
         return redirect()->route('dashboard.properties.index')
-            ->with('success', 'Property created successfully.');
+            ->with('success', __('Property created successfully'));
     }
 
     function edit($propertyId)
@@ -102,7 +102,7 @@ class PropertiesController extends Controller
         $property = request()->user()->properties()->findOrFail($propertyId);
         $property->delete();
 
-        return back()->with('success', 'property deleted');
+        return back()->with('success', __('property deleted'));
     }
 }
 // vdlt hxwj aeqs bfuk 

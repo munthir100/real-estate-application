@@ -24,6 +24,6 @@ class PlanController extends Controller
         $user = request()->user();
         $this->planService->subscribeUserToPlan($plan, $user, 30);
 
-        return back()->with('success', 'User subscribed to the plan successfully');
+        return back()->with('success', __('User subscribed to the plan successfully'));
     }
 }
