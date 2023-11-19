@@ -53,11 +53,7 @@
                             </a>
                         </li>
                         @endif
-                        <li class="{{ request()->routeIs('dashboard.applications*') ? 'active' : '' }}">
-                            <a href="{{route('dashboard.applications.index')}}" title="Applications">
-                                <i class="ti-home mr1"></i> {{__('Applications')}}
-                            </a>
-                        </li>
+                        
                         @if(request()->user()->user_type_id == App\Models\UserType::ADMIN)
                         <li class="{{ request()->routeIs('admin.properties*') ? 'active' : '' }}">
                             <a href="{{route('admin.properties.index')}}" title="Properties">
