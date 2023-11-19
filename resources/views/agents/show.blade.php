@@ -25,7 +25,11 @@
                     <div class="agency agency-list overlio-40">
 
                         <div class="agency-avatar">
-                            <img src="https://resido.thesky9.com/storage/accounts/1-150x150.jpg" alt="{{$user->first_name}} {{$user->last_name}}" class="img-thumbnail">
+                            @php
+                            $user = Auth::user();
+                            $profileImage = optional($user)->getFirstMediaUrl('profile_images');
+                            @endphp
+                            <img src="{{ $profileImage ?: asset('custom/profile.jpeg') }}" alt="{{$user->first_name}} {{$user->last_name}}" class="img-thumbnail">
                         </div>
 
                         <div class="agency-content">
@@ -38,7 +42,7 @@
                                 <p>{{$user->description}}</p>
                             </div>
 
-                  
+
                             <div class="clearfix"></div>
                         </div>
 
@@ -49,7 +53,7 @@
     </section>
 
     <!-- ============================ About Agency ================================== -->
-   
+
 
 </div>
 @endsection

@@ -230,6 +230,7 @@
     "Edit": "تعديل",
     "Delete": "حذف",
     "Register": "انشاء حساب",
+    "registration successfull":"تم التسجيل بنجاح",
     "The phone number is not a valid Saudi Arabian phone number": "رقم الهاتف غير صحيح، يرجى إدخال رقم هاتف سعودي صحيح",
     "Email / Phone": "البريد الالكتروني أو رقم الجوال",
     "Confirm delete": "تأكيد الحذف",

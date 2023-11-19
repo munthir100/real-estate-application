@@ -47,12 +47,18 @@
 
 
                     <ul class="nav-menu nav-menu-social align-to-right">
+                        @if(auth()->user()->is_admin)
+                        <li class="login-item">
+                            <a href="{{route('admin.properties.index')}}" class="text-success"> {{__('Dashboard')}}</a>
+                        </li>
+                        @else
                         <li class="login-item">
                             <a href="{{route('dashboard.properties.create')}}" class="text-success"><img src="{{asset('themes/resido/img/submit.svg')}}" width="20" alt="" class="mr-2"> {{__('Add Property')}}</a>
                         </li>
                         <li class="">
                             <a href="{{route('dashboard.applications.create')}}" class="text-success"><img src="{{asset('themes/resido/img/submit.svg')}}" width="20" alt="" class="mr-2"> {{__('Request Property')}}</a>
                         </li>
+                        @endif
                         @if(request()->user()->recently_verified)
                         <li class="login-item">
                             <a href="{{route('dashboard.home')}}" rel="nofollow"><i class="fas fa-user"></i> <span>

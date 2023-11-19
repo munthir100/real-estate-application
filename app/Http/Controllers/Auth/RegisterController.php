@@ -8,6 +8,7 @@ use App\Services\UserService;
 use App\Services\auth\otpService;
 use App\Services\RegisterService;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\Auth\RegisterRequest;
 
 class RegisterController extends Controller
@@ -32,9 +33,10 @@ class RegisterController extends Controller
         $validatedData['user_type_id'] = $userType;
         $user = $registerService->createUserWithUserName($validatedData);
         $this->createUserType($userType, $user, $validatedData);
-        $otpService->sendOtpForUser($user, $validatedData['username']);
+        // $otpService->sendOtpForUser($user, $validatedData['username']);
+        Auth::login($user);
 
-        return redirect()->route('auth.verification-form');
+        return to_route('home')->with('success', __('registration successfull'));
     }
 
 
