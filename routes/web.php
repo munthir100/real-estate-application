@@ -66,7 +66,7 @@ Route::middleware('set_local')->group(function () {
 
 
     // Dashboard routes
-    Route::middleware(['auth', 'custom_verified'])->prefix('/dashboard')->name('dashboard.')->group(function () {
+    Route::middleware(['auth'])->prefix('/dashboard')->name('dashboard.')->group(function () {
         Route::get('/', [DashboardController::class, 'index'])->name('home');
 
         Route::prefix('account/settings')->name('account.settings.')->group(function () {

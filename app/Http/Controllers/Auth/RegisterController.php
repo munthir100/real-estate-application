@@ -36,7 +36,7 @@ class RegisterController extends Controller
         // $otpService->sendOtpForUser($user, $validatedData['username']);
         Auth::login($user);
 
-        return to_route('home')->with('success', __('registration successfull'));
+        return to_route('dashboard.account.settings.edit')->with('success', __('registration successfull'));
     }
 
 
